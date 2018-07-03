@@ -1,0 +1,8 @@
+platform :ios, '8.1'
+target "Swipe Rewards" do
+
+use_frameworks!
+  pod 'Fontello-Swift'
+  pod 'GoogleSignIn'
+  
+end 

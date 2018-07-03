@@ -1,0 +1,89 @@
+PODS:
+  - Fontello-Swift (1.2):
+    - Fontello-Swift/Brandico (= 1.2)
+    - Fontello-Swift/Elusive (= 1.2)
+    - Fontello-Swift/Entypo (= 1.2)
+    - Fontello-Swift/FontAwesome (= 1.2)
+    - Fontello-Swift/Fontelico (= 1.2)
+    - Fontello-Swift/Fontello (= 1.2)
+    - Fontello-Swift/Iconic (= 1.2)
+    - Fontello-Swift/Linecons (= 1.2)
+    - Fontello-Swift/Maki (= 1.2)
+    - Fontello-Swift/Meteocons (= 1.2)
+    - Fontello-Swift/MFGLabs (= 1.2)
+    - Fontello-Swift/ModernPictograms (= 1.2)
+    - Fontello-Swift/Typicons (= 1.2)
+    - Fontello-Swift/Websymbols (= 1.2)
+    - Fontello-Swift/Zocial (= 1.2)
+  - Fontello-Swift/Brandico (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Elusive (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Entypo (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/FontAwesome (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Fontelico (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Fontello (1.2)
+  - Fontello-Swift/Iconic (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Linecons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Maki (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Meteocons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/MFGLabs (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/ModernPictograms (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Typicons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Websymbols (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Zocial (1.2):
+    - Fontello-Swift/Fontello
+  - GoogleSignIn (4.1.2):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
+  - GTMOAuth2 (1.1.6):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.15):
+    - GTMSessionFetcher/Full (= 1.1.15)
+  - GTMSessionFetcher/Core (1.1.15)
+  - GTMSessionFetcher/Full (1.1.15):
+    - GTMSessionFetcher/Core (= 1.1.15)
+
+DEPENDENCIES:
+  - Fontello-Swift
+  - GoogleSignIn
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Fontello-Swift
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMOAuth2
+    - GTMSessionFetcher
+
+SPEC CHECKSUMS:
+  Fontello-Swift: e36df108f387b8cea11ee833c4485363332119a0
+  GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+
+PODFILE CHECKSUM: 4add465c3c53d65e15c52d0bc7f6e27c6a35c2e7
+
+COCOAPODS: 1.5.3

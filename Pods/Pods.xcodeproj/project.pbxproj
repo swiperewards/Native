@@ -1,0 +1,3095 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		087246BEDC5E162D8D33B2DCE4471AD0 /* fontello_typicons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */; };
+		0909B362E9AA974A1DC5E74C1BA4F4F4 /* fontello_typicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D26E339303FCE5CB5E7584043F7924 /* fontello_typicons.ttf */; };
+		0ACF64866CFDF5C9B1416D16A5389F3F /* Brandico.swift in Sources */ = {isa = PBXBuildFile; fileRef = F877773E5EAA9FF7FC5EE0C8EEC6BA2F /* Brandico.swift */; };
+		0D7C63C47B5504AC01F82DCEC92ECDC2 /* GTMMethodCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = DED4318AF707ECFF8D0DF51D8EEC65CC /* GTMMethodCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FFD86729464519E93A1F632B45A4AF2 /* Zocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75214BC0EF1147BE099764FE08281466 /* Zocial.swift */; };
+		1351C79BE5DA3A3D43D42036A647C262 /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = A11062F66F386B179DBA4E92BBBF8AD1 /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1A08E2FC5FD901C187EA0F1BE84CB97A /* Pods-Swipe Rewards-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EC0F69FDD89ED674C43D544D7F3091 /* Pods-Swipe Rewards-dummy.m */; };
+		1CAD2D19B6043B494770E9DC585D276D /* GTMMIMEDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D4783A9DBFF6C477F0FBB37F05AB534A /* GTMMIMEDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EB87C78D1C1320E3D9F6B983F06B966 /* fontello_fontelico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FF2937E1AB0E56A76924FB382E9DFDD /* fontello_fontelico.ttf */; };
+		1FC0636631161F17CC5913D5D0389FD6 /* GTMDebugThreadValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A6B18E8551B3EF985166172DBD6A9E /* GTMDebugThreadValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CBC031F8E2F49761E69E829A9EE568 /* fontello_brandico.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */; };
+		268626874E52F374467D6C2B30AEE380 /* fontello_iconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162FECDA26F7F8D1B0758E6A6F65E024 /* fontello_iconic.ttf */; };
+		27A42BEFCFFB2D770FBE774A02556F69 /* fontello_modernpictograms.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90723279D59A513FF092F27F9F21F043 /* fontello_modernpictograms.ttf */; };
+		27BD00C727F5CD5BC3AC1BD24D44C2EC /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D563C4925F7128E118B62CC5072076 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297EDA214D19FD9E36F2DDD4EC7821E5 /* fontello_maki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F521816C25E701D9C086C95EBA48FBE /* fontello_maki.ttf */; };
+		2DEA98AA54F4D62EEB952189658BD89C /* GTMSessionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EF93387F248A47CF4CEA1952CFE34325 /* GTMSessionFetcher.m */; };
+		30078B7A2D80D3F9B6E77DBEBCEBCF4E /* fontello_maki.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */; };
+		31A17D8E7663090166267CB950E5DB45 /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C86F3BEC563F9F58C3946375A94A3F8 /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3220540E61A2B13171EDBDAD2721E140 /* Typicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16862276526FE817D35D6C7D4F80B449 /* Typicons.swift */; };
+		324AB1AD812DDFD3D9664C5DEE481E6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E165480A2A4B66B5525A542D24FEC2 /* UIKit.framework */; };
+		333726D18E7D4FC18D95792999A41B80 /* GTMOAuth2SignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A991B0746DB35DC55362826AF863C11 /* GTMOAuth2SignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		360F3EFFFCCF95B8D073D7C72067AD1C /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 24356405FC7B53C1F5EC1EC7E59B9F6C /* GTMSessionFetcherService.m */; };
+		3EA5EB74DECDECA27E6505BD395A6BB9 /* GTMOAuth2ViewControllerTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 7280E01CD3CAC0086A03F5CDC598F16B /* GTMOAuth2ViewControllerTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40486D64EFBA73D2A44063CEABBE6AC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */; };
+		416967184A09738672D04F2B1BE4274F /* fontello_fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8663C767C0DFA7C8398B34091351D996 /* fontello_fontawesome.ttf */; };
+		437AA21C3A4AB90265CE9B0F754FA4C5 /* GTMReadMonitorInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 06ED4B70A5E71BCCCEE0A61EACA536A8 /* GTMReadMonitorInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		439BB83B2BC604C337954E90BF8F4DFB /* fontello_fontelico.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */; };
+		443AAC121B4EA78974391CF73EDF8A22 /* fontello_websymbols.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */; };
+		4905FAB08AE41BB9C94F10772472AB1F /* GTMSessionFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A4AA71FF967B12DB352A079E522B1 /* GTMSessionFetcherLogging.m */; };
+		492A919310DB7508BA9AF91AD9727AB6 /* fontello_fontawesome.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */; };
+		49B1311B0476D392CD9318D4BB940783 /* MFGLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C03B745323D96870F704E170B3C5AE /* MFGLabs.swift */; };
+		4A73D19D52B84ECE29578B2F51CCFF54 /* fontello_linecons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFA17DF49CB0605206DD0DAE6CCD8F /* fontello_linecons.ttf */; };
+		4B1E96A8E3D342CABEF2397796855A27 /* GTMNSDictionary+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F91CB841B117D7E0C8B8954D3516148 /* GTMNSDictionary+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BA262A5B0E51523B71A926AB5B2333F /* GTMOAuth2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EBB5BCC45F40476B989A3D599AC104F /* GTMOAuth2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51DEAD82067F890FE06451BFA3945CEC /* Fontello-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C64408AD9D9CBFAE6A7F39119ACD9B0A /* Fontello-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54D80A9355CBE2246F02E3F2CBEA61B9 /* fontello_entypo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */; };
+		5AF471D762FB721D6491275661D76235 /* fontello_zocial.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */; };
+		5B12F429AAA15C42FF5B5F7A052C4A57 /* fontello_meteocons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 110AD36118B6957DB8E796642B38BCEA /* fontello_meteocons.ttf */; };
+		5B1AF8B6D07FA01316058C49151CF53A /* GTMOAuth2Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = FD29354907C00E73E700B753C78247BA /* GTMOAuth2Authentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F601238564DCFCFD426D2CBD164067E /* Maki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748FA3DF09B62B5D73325F07AC9302 /* Maki.swift */; };
+		61B38118D1D2B629C44C27437CBC9315 /* Websymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B972D068B2A49E2CDBBE715803617 /* Websymbols.swift */; };
+		62B8C292871F144627C7D17775E96E88 /* Fontello-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DECAE3E3C5C8D1BF198DE7F718C5A03 /* Fontello-Swift-dummy.m */; };
+		6379DD8D746A78B958CA94ADC5CA3044 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */; };
+		658773114243D9151B13A21C87ADA67A /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2555920AE5BF163691EAB84CB96BD616 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6697AAC7CD4F9193D14EF995A8735047 /* GTMNSString+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = A3E2BFEFF399B4BB18E8B8CA900F6BAB /* GTMNSString+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69D8B83F45A597F07017CFEEA2A8AC8F /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 393D2118F9E8E1465CE7780CBFD2BE5A /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DF1728A542A08BDB26CDD6CA88DF61D /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DFB3FE01E4BEA24C10CA9DD1E40C3 /* GTMNSDictionary+URLArguments.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		73FA912FFA3B3632B7C9F11577F11F53 /* fontello_mfglabs.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */; };
+		741C7EF7CB09028A6C14145A105E82F6 /* GTMSessionUploadFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B47655601102253B4DA032C2FB03951 /* GTMSessionUploadFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7601DDA64276393F8FFBB15C49B91086 /* fontello_zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84F8BD100929D48A42483990A04E5679 /* fontello_zocial.ttf */; };
+		76A80DD2CD1629835DA9FC6AA7A5C732 /* GTMSessionFetcher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B27153E498A49BAEBC340FAB726F654 /* GTMSessionFetcher-dummy.m */; };
+		7B69AB5961CE68E708B34DD02FAA313D /* fontello_elusive.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF224FB99D7987FCFF7CC08DAC934D6E /* fontello_elusive.ttf */; };
+		7BDAABCE7592CA33415FC92215EF4A70 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326A7E7C2FC9838EED7C7D9131DB5B7 /* FontAwesome.swift */; };
+		7C18A23B104C2672BD935467D0B80ECB /* GTMMIMEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C56463190DFF034DD8FD05858C3E31 /* GTMMIMEDocument.m */; };
+		80FC90ABCC793FABF9A03E70624BA28A /* fontello_entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7F5DF1E6343224AD3440FDE9934D4 /* fontello_entypo.ttf */; };
+		825E04D7BE74FA284EF0CA950CB62016 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396CC0C3B746AD81E94FA16C11DB258E /* Security.framework */; };
+		86CAE2CF3CC3C71470FE32071D426E1E /* fontello_meteocons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */; };
+		8D21BA5050722A2533E6DD66866D0F26 /* fontello_linecons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */; };
+		8DBD79DD89E835D879F19571B82BBC10 /* GTMSessionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EF812D05D9504AE142C67E6F8ABC64 /* GTMSessionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F59E9B423934E144B7417098B791729 /* Iconic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B7F08B19DBC65BBFB6578C53AAFA /* Iconic.swift */; };
+		9001F5C577EB3655559E482136D0BCCD /* Elusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F088F821ABD16709BA0022E7E9BE618 /* Elusive.swift */; };
+		96ACDA4D360DF9B9C30420A889E4416C /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5ECC5B9FB635801C050D1F692DC5CA /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		97A7685F7E591CE42212614A7C396CC8 /* fontello_iconic.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */; };
+		98714C893E8D07613970FF200FF873CB /* GTMGatherInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B8FBD11A6C4F9E90FFF1A1C17F84B05 /* GTMGatherInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9999293624ADED116AD20362A9659EAA /* Linecons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330820738D5E8CD0556173BA8C488E6E /* Linecons.swift */; };
+		9A1979111B9315BFF4BB91436CB46FB8 /* Entypo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B586908EBAF58DC7FAB356E5C4E5AA5 /* Entypo.swift */; };
+		9C845B6C711AEE7BC73EA326F15F29B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */; };
+		9E04897DC27E8CFB6E58A6255687D9D8 /* GTMGatherInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E7EAF230FFA3DA5EB9B99539BDCB9 /* GTMGatherInputStream.m */; };
+		9FE7B426DCB711A471EAF1AD5019DBF7 /* GTMSessionFetcher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCE8E32657468ABE8AC9441F61CFD83A /* GTMSessionFetcher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FFACFE50F924C7F9CB07C5F2B8C3472 /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 261EAC67495EFB479C0D97190C55F2DC /* GoogleToolboxForMac-dummy.m */; };
+		B73A419BA20F2F07A61FE4B0B5192377 /* GTMSessionFetcherService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D497930D68BBC122EE22CE4122AE18F /* GTMSessionFetcherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8CE2B730775367EB0244424F9F9A435 /* fontello_brandico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE01C20B42626ACC798016134435807C /* fontello_brandico.ttf */; };
+		BA7F6EAA26CF9D5C1BCA6FCC5F22BD7E /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F80140309F93503A74BC6F1402BC8E7 /* GTMSessionUploadFetcher.m */; };
+		C09A9D7003942172FB4178D1413EC484 /* GTMReadMonitorInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A44505B9B87AC1522A7F6D74ED0E5EF /* GTMReadMonitorInputStream.m */; };
+		C0C230C1F946996EAF828E81BD6E3ECE /* ModernPictograms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B04B3E1634BCCDCC8F71B175527F38 /* ModernPictograms.swift */; };
+		C1797C7DC6F8BE7B52F8798F6C0F24BD /* Meteocons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718466E3B6763727F44F48C32642BEF /* Meteocons.swift */; };
+		C74B3A13CCDFEE1E745A02475B21832F /* Pods-Swipe Rewards-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 431A80A73A6C371638ABE7D35B6F627A /* Pods-Swipe Rewards-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C86C2ADAE2DF5C7B8EA5C9B74F7C7A79 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396CC0C3B746AD81E94FA16C11DB258E /* Security.framework */; };
+		C96981E23AE78948D8573B95042A9441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */; };
+		CB8DEAB39CEA8CBFA79C0EE66C0B119A /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453883BAD93D580BA4A2DE0AAD18B8F5 /* GTMSessionFetcher.framework */; };
+		CD02EFF91211DCC1DE607F885831F891 /* GTMOAuth2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B438B1115E23BD2CFBCC0F39B0A1355 /* GTMOAuth2-dummy.m */; };
+		D7CA73C9A0FC93B74677AE9CE29CF271 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */; };
+		DA3DBF695866FE18C2B40E995E572A08 /* fontello_mfglabs.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46B62EF92DCC8CCA88A7124C97B6797A /* fontello_mfglabs.ttf */; };
+		DD1F853E8FE6DC1EC09051BE70D1F035 /* GTMDebugSelectorValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 91CB3D6C223A434E012FEE50F6AEA10F /* GTMDebugSelectorValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF173A37791E61F97381A047920591CC /* fontello_websymbols.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2EF6FA97901D51EFE20FA147412F9B /* fontello_websymbols.ttf */; };
+		E328C749EDF3643DA1D1C89E86151FE7 /* fontello_elusive.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */; };
+		E886D0F5F4888EFBB17D33E0F9D45F35 /* Fontelico.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BCFCA6B587B35B5A0B2E82C2156D7A /* Fontelico.swift */; };
+		EA372B74AEFF6424327A6C964B67916B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0BED2015E9D7DC6F23AE11878A9270 /* SystemConfiguration.framework */; };
+		EEF384E2ECE3BE3751CA789D9005491F /* fontello_modernpictograms.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */; };
+		F5531F9DDD1D852322A97C682A5AFC15 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097470D2272EA19A9EDFCFC5CA3750F4 /* GTMOAuth2ViewTouch.xib */; };
+		F6CA012C4CEB1D996CC12EEADD21CDB1 /* GTMSessionFetcherLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BFE1DF64267DD1B886A2EDAA04865CF /* GTMSessionFetcherLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7FE33143309BA08E61A8224A10EBA0A /* Fontello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C0AEAAC33DB614379764215CD1159 /* Fontello.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06A88589D1B03318B7748A3152457DA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DEE87C3330FEB88145E6028A3DCB071;
+			remoteInfo = "Fontello-Swift-fontello_brandico";
+		};
+		0A33A7972E8ECEEC2CA48D4FAE1E9212 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B476BA792778CDAC45BEC5ABF558A057;
+			remoteInfo = "Fontello-Swift-fontello_modernpictograms";
+		};
+		0CA01E524D45EA7E0E26606AD595E32D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7897D6A6A311123B5F1AB20745877DE;
+			remoteInfo = "Fontello-Swift-fontello_fontelico";
+		};
+		170F5BE3B9815D61BA81BCBD97BCE075 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 681BE6E3D02A43F9BA63777AC435C8FD;
+			remoteInfo = GTMSessionFetcher;
+		};
+		1A03A328CAA60620DEBB3794369F63D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 681BE6E3D02A43F9BA63777AC435C8FD;
+			remoteInfo = GTMSessionFetcher;
+		};
+		1B71B46AEC95D05BA09DDC1B3DD2CD64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5076D5832785F93851D9178A0F972C2;
+			remoteInfo = "Fontello-Swift-fontello_maki";
+		};
+		235A8C1188BB1AAC6AA404409812D4E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F05BBF0ABCBAB1D55C2FE0C052A8CF62;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		346A85161593F3A8458C1EF0508964FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7193DC9DE89E0CBBEB30CA21E29F91B;
+			remoteInfo = "Fontello-Swift-fontello_iconic";
+		};
+		4748D6B380B7C7778A38D95085F016A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6C844B166EBB51E8A65590523564FA3;
+			remoteInfo = "Fontello-Swift-fontello_linecons";
+		};
+		51D4A397D9EE3394BED1FA6F31133D4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E208C17F33E09D8BEA6A806E151DFD6;
+			remoteInfo = "Fontello-Swift-fontello_typicons";
+		};
+		58FD639238D5F700806D27E141E99AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 773AF9ACBA871DF03A71C4DBFFCC90BB;
+			remoteInfo = "Fontello-Swift-fontello_elusive";
+		};
+		79BC07BE0A276385C6744D87DD40AB11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C50FA72CD4401F3684FF618370F5F224;
+			remoteInfo = "Fontello-Swift";
+		};
+		9864750DE2C1FC369619EA398519B7ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 205D6C3C5C72C68B0FF2B4D483639251;
+			remoteInfo = "Fontello-Swift-fontello_mfglabs";
+		};
+		A6B6CF6A8228AA642DB44697134FBA94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C73172F826638A56DDC9DFAE35674368;
+			remoteInfo = "Fontello-Swift-fontello_websymbols";
+		};
+		A74EC0B885D37F1BD5E3994A8D6D84F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D5BCFA35D4271BF47D1297DE53CFD12;
+			remoteInfo = "Fontello-Swift-fontello_zocial";
+		};
+		B56700B6C952F5E2A5D4B2771CAE9097 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00945EC5F4999D4798C4F91374C84BA8;
+			remoteInfo = "Fontello-Swift-fontello_fontawesome";
+		};
+		D2290C05712ECA21FF9929F19CA3A006 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72259BDD5BCB995A8335FDDD3B344BD6;
+			remoteInfo = "Fontello-Swift-fontello_entypo";
+		};
+		DA56FBC3DC0A8DE46D39DF7FAD67CE70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C4AAFAF49036C7007633DAA3C806AD;
+			remoteInfo = GTMOAuth2;
+		};
+		E8D28ED352C5CD3CAB9C4E706EA4FB3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8075330FC0D928D7B44C3CA4C8FA4DE0;
+			remoteInfo = "Fontello-Swift-fontello_meteocons";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00C03B745323D96870F704E170B3C5AE /* MFGLabs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MFGLabs.swift; path = "Fontello-Swift/Fontello-Swift/MFGLabs.swift"; sourceTree = "<group>"; };
+		06ED4B70A5E71BCCCEE0A61EACA536A8 /* GTMReadMonitorInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMReadMonitorInputStream.h; path = Source/GTMReadMonitorInputStream.h; sourceTree = "<group>"; };
+		0878EF2F1D500FDF9A942369FFFB1E76 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
+		097470D2272EA19A9EDFCFC5CA3750F4 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = Source/Touch/GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
+		0A44505B9B87AC1522A7F6D74ED0E5EF /* GTMReadMonitorInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMReadMonitorInputStream.m; path = Source/GTMReadMonitorInputStream.m; sourceTree = "<group>"; };
+		0B586908EBAF58DC7FAB356E5C4E5AA5 /* Entypo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entypo.swift; path = "Fontello-Swift/Fontello-Swift/Entypo.swift"; sourceTree = "<group>"; };
+		0B8FBD11A6C4F9E90FFF1A1C17F84B05 /* GTMGatherInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGatherInputStream.h; path = Source/GTMGatherInputStream.h; sourceTree = "<group>"; };
+		0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_iconic.bundle; path = "Fontello-Swift-fontello_iconic.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		110AD36118B6957DB8E796642B38BCEA /* fontello_meteocons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_meteocons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_meteocons.ttf"; sourceTree = "<group>"; };
+		12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_zocial.bundle; path = "Fontello-Swift-fontello_zocial.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		162FECDA26F7F8D1B0758E6A6F65E024 /* fontello_iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_iconic.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_iconic.ttf"; sourceTree = "<group>"; };
+		16862276526FE817D35D6C7D4F80B449 /* Typicons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typicons.swift; path = "Fontello-Swift/Fontello-Swift/Typicons.swift"; sourceTree = "<group>"; };
+		1718466E3B6763727F44F48C32642BEF /* Meteocons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Meteocons.swift; path = "Fontello-Swift/Fontello-Swift/Meteocons.swift"; sourceTree = "<group>"; };
+		1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1B27153E498A49BAEBC340FAB726F654 /* GTMSessionFetcher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTMSessionFetcher-dummy.m"; sourceTree = "<group>"; };
+		1B807D402C37616B2BDDE8C4EA5FE498 /* ResourceBundle-fontello_typicons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_typicons-Info.plist"; sourceTree = "<group>"; };
+		1BFE1DF64267DD1B886A2EDAA04865CF /* GTMSessionFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherLogging.h; path = Source/GTMSessionFetcherLogging.h; sourceTree = "<group>"; };
+		1F2CD4FC31E80E16B7A1D7DE2F0B7772 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fontello_Swift.framework; path = "Fontello-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		211DFB3FE01E4BEA24C10CA9DD1E40C3 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSDictionary+URLArguments.m"; path = "Foundation/GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
+		2138E42B9700B15C0A3E34E8389D60C1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24356405FC7B53C1F5EC1EC7E59B9F6C /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherService.m; path = Source/GTMSessionFetcherService.m; sourceTree = "<group>"; };
+		2555920AE5BF163691EAB84CB96BD616 /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
+		261EAC67495EFB479C0D97190C55F2DC /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		271BA81B8AA97B45E8F9ACBAC527EBC6 /* GTMOAuth2.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMOAuth2.xcconfig; sourceTree = "<group>"; };
+		2C86F3BEC563F9F58C3946375A94A3F8 /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2Authentication.m; path = Source/GTMOAuth2Authentication.m; sourceTree = "<group>"; };
+		2D497930D68BBC122EE22CE4122AE18F /* GTMSessionFetcherService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherService.h; path = Source/GTMSessionFetcherService.h; sourceTree = "<group>"; };
+		2DECAE3E3C5C8D1BF198DE7F718C5A03 /* Fontello-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Fontello-Swift-dummy.m"; sourceTree = "<group>"; };
+		2E1F57B102741D68007EFDAB2910A619 /* Pods-Swipe Rewards.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Swipe Rewards.modulemap"; sourceTree = "<group>"; };
+		2EE347075C7A5F92026CBA6B6A6CA627 /* GTMSessionFetcher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMSessionFetcher.xcconfig; sourceTree = "<group>"; };
+		30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_typicons.bundle; path = "Fontello-Swift-fontello_typicons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3208D1CBFEFF04C3235A001EBFA60861 /* Pods-Swipe Rewards-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Swipe Rewards-acknowledgements.markdown"; sourceTree = "<group>"; };
+		330820738D5E8CD0556173BA8C488E6E /* Linecons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Linecons.swift; path = "Fontello-Swift/Fontello-Swift/Linecons.swift"; sourceTree = "<group>"; };
+		365DF73F911870E64A1C0D831D2A34A1 /* GTMSessionFetcher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-prefix.pch"; sourceTree = "<group>"; };
+		37A1B94BCF0189AFF0DE8C9EE6045849 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C56463190DFF034DD8FD05858C3E31 /* GTMMIMEDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMMIMEDocument.m; path = Source/GTMMIMEDocument.m; sourceTree = "<group>"; };
+		393D2118F9E8E1465CE7780CBFD2BE5A /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "Foundation/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
+		396CC0C3B746AD81E94FA16C11DB258E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_fontawesome.bundle; path = "Fontello-Swift-fontello_fontawesome.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41EC0F69FDD89ED674C43D544D7F3091 /* Pods-Swipe Rewards-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Swipe Rewards-dummy.m"; sourceTree = "<group>"; };
+		431A80A73A6C371638ABE7D35B6F627A /* Pods-Swipe Rewards-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Swipe Rewards-umbrella.h"; sourceTree = "<group>"; };
+		44E165480A2A4B66B5525A542D24FEC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		453883BAD93D580BA4A2DE0AAD18B8F5 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46B62EF92DCC8CCA88A7124C97B6797A /* fontello_mfglabs.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_mfglabs.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_mfglabs.ttf"; sourceTree = "<group>"; };
+		46C57C7CA3A6CAC41744F4DECBA0E4AA /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		4AEB91DA2BF6587AF888BB732D288AC3 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
+		4B0BED2015E9D7DC6F23AE11878A9270 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		4B47655601102253B4DA032C2FB03951 /* GTMSessionUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionUploadFetcher.h; path = Source/GTMSessionUploadFetcher.h; sourceTree = "<group>"; };
+		4D970F205FCD3381E8C67F96855DC2E2 /* ResourceBundle-fontello_linecons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_linecons-Info.plist"; sourceTree = "<group>"; };
+		4F088F821ABD16709BA0022E7E9BE618 /* Elusive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Elusive.swift; path = "Fontello-Swift/Fontello-Swift/Elusive.swift"; sourceTree = "<group>"; };
+		4F80140309F93503A74BC6F1402BC8E7 /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionUploadFetcher.m; path = Source/GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
+		50D563C4925F7128E118B62CC5072076 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		50EC577C41E63ABC210D762C737D04D4 /* Pods-Swipe Rewards-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Swipe Rewards-resources.sh"; sourceTree = "<group>"; };
+		529F0F2FC49E5A4B0610D9080D494C26 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_linecons.bundle; path = "Fontello-Swift-fontello_linecons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF2937E1AB0E56A76924FB382E9DFDD /* fontello_fontelico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_fontelico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontelico.ttf"; sourceTree = "<group>"; };
+		64EF812D05D9504AE142C67E6F8ABC64 /* GTMSessionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcher.h; path = Source/GTMSessionFetcher.h; sourceTree = "<group>"; };
+		6AB6F8E8250BF6E3B06935D085E4FC50 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ACFA17DF49CB0605206DD0DAE6CCD8F /* fontello_linecons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_linecons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_linecons.ttf"; sourceTree = "<group>"; };
+		6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_meteocons.bundle; path = "Fontello-Swift-fontello_meteocons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C39329C2EE51540CBD74C86918E40E0 /* ResourceBundle-fontello_meteocons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_meteocons-Info.plist"; sourceTree = "<group>"; };
+		7280E01CD3CAC0086A03F5CDC598F16B /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = Source/Touch/GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
+		7326A7E7C2FC9838EED7C7D9131DB5B7 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = "Fontello-Swift/Fontello-Swift/FontAwesome.swift"; sourceTree = "<group>"; };
+		75214BC0EF1147BE099764FE08281466 /* Zocial.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Zocial.swift; path = "Fontello-Swift/Fontello-Swift/Zocial.swift"; sourceTree = "<group>"; };
+		75A1ED28C9ECAC094FA5962DEE7A097A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76D7621AB1021CB9E43358F50048F95D /* GTMSessionFetcher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GTMSessionFetcher.modulemap; sourceTree = "<group>"; };
+		77A6B18E8551B3EF985166172DBD6A9E /* GTMDebugThreadValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugThreadValidation.h; path = DebugUtils/GTMDebugThreadValidation.h; sourceTree = "<group>"; };
+		794B41814801AE4F274D046557E0936F /* GTMOAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMOAuth2.framework; path = GTMOAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_entypo.bundle; path = "Fontello-Swift-fontello_entypo.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CEE1AE5936961A8605BCDC2718EDC5C /* ResourceBundle-fontello_modernpictograms-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_modernpictograms-Info.plist"; sourceTree = "<group>"; };
+		7E5B972D068B2A49E2CDBBE715803617 /* Websymbols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Websymbols.swift; path = "Fontello-Swift/Fontello-Swift/Websymbols.swift"; sourceTree = "<group>"; };
+		7EC7F5DF1E6343224AD3440FDE9934D4 /* fontello_entypo.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_entypo.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_entypo.ttf"; sourceTree = "<group>"; };
+		83748FA3DF09B62B5D73325F07AC9302 /* Maki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Maki.swift; path = "Fontello-Swift/Fontello-Swift/Maki.swift"; sourceTree = "<group>"; };
+		84F8BD100929D48A42483990A04E5679 /* fontello_zocial.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_zocial.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_zocial.ttf"; sourceTree = "<group>"; };
+		8601BEB97A1824E6D4F502B3268739A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8663C767C0DFA7C8398B34091351D996 /* fontello_fontawesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_fontawesome.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontawesome.ttf"; sourceTree = "<group>"; };
+		87A01056FF532036B9CC123AB76370D9 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8951C01491A1DCF4A56DAEE7BAC2D976 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMSessionFetcher.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADA630C54895F6EA83C0591583FBCBC /* Pods_Swipe_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Swipe_Rewards.framework; path = "Pods-Swipe Rewards.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B438B1115E23BD2CFBCC0F39B0A1355 /* GTMOAuth2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTMOAuth2-dummy.m"; sourceTree = "<group>"; };
+		8B5E7EAF230FFA3DA5EB9B99539BDCB9 /* GTMGatherInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMGatherInputStream.m; path = Source/GTMGatherInputStream.m; sourceTree = "<group>"; };
+		8D5ECC5B9FB635801C050D1F692DC5CA /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2ViewControllerTouch.m; path = Source/Touch/GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
+		8F521816C25E701D9C086C95EBA48FBE /* fontello_maki.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_maki.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_maki.ttf"; sourceTree = "<group>"; };
+		90723279D59A513FF092F27F9F21F043 /* fontello_modernpictograms.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_modernpictograms.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_modernpictograms.ttf"; sourceTree = "<group>"; };
+		91CB3D6C223A434E012FEE50F6AEA10F /* GTMDebugSelectorValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugSelectorValidation.h; path = DebugUtils/GTMDebugSelectorValidation.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_elusive.bundle; path = "Fontello-Swift-fontello_elusive.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		984C0AEAAC33DB614379764215CD1159 /* Fontello.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fontello.swift; path = "Fontello-Swift/Fontello-Swift/Fontello.swift"; sourceTree = "<group>"; };
+		9A991B0746DB35DC55362826AF863C11 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = Source/GTMOAuth2SignIn.h; sourceTree = "<group>"; };
+		9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_modernpictograms.bundle; path = "Fontello-Swift-fontello_modernpictograms.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_brandico.bundle; path = "Fontello-Swift-fontello_brandico.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2EF6FA97901D51EFE20FA147412F9B /* fontello_websymbols.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_websymbols.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_websymbols.ttf"; sourceTree = "<group>"; };
+		9EBB5BCC45F40476B989A3D599AC104F /* GTMOAuth2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMOAuth2-umbrella.h"; sourceTree = "<group>"; };
+		9F91CB841B117D7E0C8B8954D3516148 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Foundation/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		A11062F66F386B179DBA4E92BBBF8AD1 /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2SignIn.m; path = Source/GTMOAuth2SignIn.m; sourceTree = "<group>"; };
+		A3E2BFEFF399B4BB18E8B8CA900F6BAB /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_maki.bundle; path = "Fontello-Swift-fontello_maki.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A865C501A1295C83AEA8E72D882DF8F0 /* ResourceBundle-fontello_websymbols-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_websymbols-Info.plist"; sourceTree = "<group>"; };
+		AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_mfglabs.bundle; path = "Fontello-Swift-fontello_mfglabs.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF21888CA9B33422C8185316A7A93190 /* ResourceBundle-fontello_iconic-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_iconic-Info.plist"; sourceTree = "<group>"; };
+		B2B9B38DAE1F7AF7AC34A40376751B5C /* ResourceBundle-fontello_entypo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_entypo-Info.plist"; sourceTree = "<group>"; };
+		B456E3095B10A3B97AD20B7D649E81D5 /* GTMOAuth2-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMOAuth2-prefix.pch"; sourceTree = "<group>"; };
+		B647A10F1BF09E1FC468850AD5ECA5E1 /* Pods-Swipe Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swipe Rewards.release.xcconfig"; sourceTree = "<group>"; };
+		B99DB919E8FA4B088C0EE67A03C767E6 /* ResourceBundle-fontello_zocial-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_zocial-Info.plist"; sourceTree = "<group>"; };
+		BCE8E32657468ABE8AC9441F61CFD83A /* GTMSessionFetcher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-umbrella.h"; sourceTree = "<group>"; };
+		BE01C20B42626ACC798016134435807C /* fontello_brandico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_brandico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_brandico.ttf"; sourceTree = "<group>"; };
+		BF224FB99D7987FCFF7CC08DAC934D6E /* fontello_elusive.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_elusive.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_elusive.ttf"; sourceTree = "<group>"; };
+		C3BCFCA6B587B35B5A0B2E82C2156D7A /* Fontelico.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fontelico.swift; path = "Fontello-Swift/Fontello-Swift/Fontelico.swift"; sourceTree = "<group>"; };
+		C64408AD9D9CBFAE6A7F39119ACD9B0A /* Fontello-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fontello-Swift-umbrella.h"; sourceTree = "<group>"; };
+		C791B7F08B19DBC65BBFB6578C53AAFA /* Iconic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Iconic.swift; path = "Fontello-Swift/Fontello-Swift/Iconic.swift"; sourceTree = "<group>"; };
+		C7ACECB94D4419B5D1C6F9DAA5406B80 /* Fontello-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Fontello-Swift.modulemap"; sourceTree = "<group>"; };
+		CB644C45FD35C1A52097C8B5425C2CA8 /* ResourceBundle-fontello_fontelico-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_fontelico-Info.plist"; sourceTree = "<group>"; };
+		CF710BE0CF677A8B9522EF4013B5E577 /* ResourceBundle-fontello_brandico-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_brandico-Info.plist"; sourceTree = "<group>"; };
+		D1B04B3E1634BCCDCC8F71B175527F38 /* ModernPictograms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModernPictograms.swift; path = "Fontello-Swift/Fontello-Swift/ModernPictograms.swift"; sourceTree = "<group>"; };
+		D4783A9DBFF6C477F0FBB37F05AB534A /* GTMMIMEDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMIMEDocument.h; path = Source/GTMMIMEDocument.h; sourceTree = "<group>"; };
+		D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Fontello-Swift.xcconfig"; sourceTree = "<group>"; };
+		DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_fontelico.bundle; path = "Fontello-Swift-fontello_fontelico.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDC9047E1B4E5FD2ABA3A640774B418 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		DEA0623D1EED7AF02DFEC360D0A7A5C3 /* ResourceBundle-fontello_elusive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_elusive-Info.plist"; sourceTree = "<group>"; };
+		DED4318AF707ECFF8D0DF51D8EEC65CC /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = DebugUtils/GTMMethodCheck.h; sourceTree = "<group>"; };
+		E212030BE83700F62225FF1738A6183C /* ResourceBundle-fontello_fontawesome-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_fontawesome-Info.plist"; sourceTree = "<group>"; };
+		E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_websymbols.bundle; path = "Fontello-Swift-fontello_websymbols.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3BF921CFE9D8643359E237E5ED7EC0B /* Pods-Swipe Rewards-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Swipe Rewards-frameworks.sh"; sourceTree = "<group>"; };
+		E5D26E339303FCE5CB5E7584043F7924 /* fontello_typicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_typicons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_typicons.ttf"; sourceTree = "<group>"; };
+		E627179795BE1A2F6AF946E055BF2503 /* ResourceBundle-fontello_mfglabs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_mfglabs-Info.plist"; sourceTree = "<group>"; };
+		EDC062AE64DC35F17BD07BA7ACBA8640 /* ResourceBundle-fontello_maki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_maki-Info.plist"; sourceTree = "<group>"; };
+		EDD4A4C0C451387D7F7CDBA6FBFA072D /* Pods-Swipe Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swipe Rewards.debug.xcconfig"; sourceTree = "<group>"; };
+		EF04A55E03D007810420363B5B19FC36 /* Fontello-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fontello-Swift-prefix.pch"; sourceTree = "<group>"; };
+		EF93387F248A47CF4CEA1952CFE34325 /* GTMSessionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcher.m; path = Source/GTMSessionFetcher.m; sourceTree = "<group>"; };
+		F70A4AA71FF967B12DB352A079E522B1 /* GTMSessionFetcherLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherLogging.m; path = Source/GTMSessionFetcherLogging.m; sourceTree = "<group>"; };
+		F877773E5EAA9FF7FC5EE0C8EEC6BA2F /* Brandico.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Brandico.swift; path = "Fontello-Swift/Fontello-Swift/Brandico.swift"; sourceTree = "<group>"; };
+		FA5927D87CB55CC1D7096115DE0D337C /* GTMOAuth2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GTMOAuth2.modulemap; sourceTree = "<group>"; };
+		FD29354907C00E73E700B753C78247BA /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = Source/GTMOAuth2Authentication.h; sourceTree = "<group>"; };
+		FDEB5A052273BB085DF95C35926DDDF4 /* Pods-Swipe Rewards-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Swipe Rewards-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0288F4DE71AD5B2C3A136B137DDA06D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6379DD8D746A78B958CA94ADC5CA3044 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06E8B40595B147D945D3E95D50B74299 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA94EA2975A09C68E2336E86271B738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F74EE0D3EAB5C66764D828A61A5F11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45CAA4986176DE04132AB95358B45564 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45EFD90EA60236F5BF66B50104E6B517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C81C4B2DAE36CCA1DE17880B954ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40486D64EFBA73D2A44063CEABBE6AC5 /* Foundation.framework in Frameworks */,
+				324AB1AD812DDFD3D9664C5DEE481E6C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63855603F080F744CA25861EA806738A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BABEAC4B5D34936D93D5F23A41FAD25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D236D0A3B19C523CFF2D5D008B8AD18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76119BFC3F7D28885FDCC80458A5B292 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7CA73C9A0FC93B74677AE9CE29CF271 /* Foundation.framework in Frameworks */,
+				CB8DEAB39CEA8CBFA79C0EE66C0B119A /* GTMSessionFetcher.framework in Frameworks */,
+				C86C2ADAE2DF5C7B8EA5C9B74F7C7A79 /* Security.framework in Frameworks */,
+				EA372B74AEFF6424327A6C964B67916B /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CA1D7380B0F6B2E4C150D30A40F3604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85211E7BC2181B8A1DAE1BF2BDD5EABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C845B6C711AEE7BC73EA326F15F29B2 /* Foundation.framework in Frameworks */,
+				825E04D7BE74FA284EF0CA950CB62016 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C86115A675E64547239157797AACBDA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96981E23AE78948D8573B95042A9441 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E793B85BB1A77EF99A281CCD78545BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED3D7F35BA3DB54B0182CB5E48F881C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFA76F05C2220880443AA6A2A928086 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6B106632E3F064B46A12AA3819DF7EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92EF01CE9D20C0D44A574D688887EFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		062FED94AF0535EE5E3CEE057DF3B03E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9F9410875311708B38E5943C32A8FCB /* Pods-Swipe Rewards */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		0FB99F467E737F3290069E2F60B2FF8C /* GTMOAuth2 */ = {
+			isa = PBXGroup;
+			children = (
+				FD29354907C00E73E700B753C78247BA /* GTMOAuth2Authentication.h */,
+				2C86F3BEC563F9F58C3946375A94A3F8 /* GTMOAuth2Authentication.m */,
+				9A991B0746DB35DC55362826AF863C11 /* GTMOAuth2SignIn.h */,
+				A11062F66F386B179DBA4E92BBBF8AD1 /* GTMOAuth2SignIn.m */,
+				7280E01CD3CAC0086A03F5CDC598F16B /* GTMOAuth2ViewControllerTouch.h */,
+				8D5ECC5B9FB635801C050D1F692DC5CA /* GTMOAuth2ViewControllerTouch.m */,
+				257CA0698288A31B4804103A36F2E0BD /* Resources */,
+				3593F28023FA8FD4474717A68004CEE6 /* Support Files */,
+			);
+			name = GTMOAuth2;
+			path = GTMOAuth2;
+			sourceTree = "<group>";
+		};
+		10B2C7A51E23D1D7D2E6992FD9307977 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8663C767C0DFA7C8398B34091351D996 /* fontello_fontawesome.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1E8D0AFA4BE9419B6299CB778A0886A1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */,
+				396CC0C3B746AD81E94FA16C11DB258E /* Security.framework */,
+				4B0BED2015E9D7DC6F23AE11878A9270 /* SystemConfiguration.framework */,
+				44E165480A2A4B66B5525A542D24FEC2 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1F14F0B32FB6187AC556C587390C455A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE01C20B42626ACC798016134435807C /* fontello_brandico.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1F57005124766259074F68F0DE17B310 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				76D7621AB1021CB9E43358F50048F95D /* GTMSessionFetcher.modulemap */,
+				2EE347075C7A5F92026CBA6B6A6CA627 /* GTMSessionFetcher.xcconfig */,
+				1B27153E498A49BAEBC340FAB726F654 /* GTMSessionFetcher-dummy.m */,
+				365DF73F911870E64A1C0D831D2A34A1 /* GTMSessionFetcher-prefix.pch */,
+				BCE8E32657468ABE8AC9441F61CFD83A /* GTMSessionFetcher-umbrella.h */,
+				8601BEB97A1824E6D4F502B3268739A5 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTMSessionFetcher";
+			sourceTree = "<group>";
+		};
+		21841399B166D6B37073679109061214 /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				359E5C7FD9DD3D0EC685B60E147B318B /* Frameworks */,
+				555C7A676BE4A51DFB4237E248740A7B /* Resources */,
+			);
+			name = GoogleSignIn;
+			path = GoogleSignIn;
+			sourceTree = "<group>";
+		};
+		222D239E6937E2ED75A3A24E5A592E86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFA17DF49CB0605206DD0DAE6CCD8F /* fontello_linecons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		23074A1D325EC8EBB1955E67922E7F36 /* ModernPictograms */ = {
+			isa = PBXGroup;
+			children = (
+				D1B04B3E1634BCCDCC8F71B175527F38 /* ModernPictograms.swift */,
+				8DC40441E4B72E96D8E55B982655A3C7 /* Resources */,
+			);
+			name = ModernPictograms;
+			sourceTree = "<group>";
+		};
+		25487752A027639FCD7C9FD681819D12 /* MFGLabs */ = {
+			isa = PBXGroup;
+			children = (
+				00C03B745323D96870F704E170B3C5AE /* MFGLabs.swift */,
+				3D1C895AD7B5BEFC3AF2CD883312B482 /* Resources */,
+			);
+			name = MFGLabs;
+			sourceTree = "<group>";
+		};
+		257CA0698288A31B4804103A36F2E0BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				097470D2272EA19A9EDFCFC5CA3750F4 /* GTMOAuth2ViewTouch.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2C099CBD7243E18983D236391384EAEC /* Typicons */ = {
+			isa = PBXGroup;
+			children = (
+				16862276526FE817D35D6C7D4F80B449 /* Typicons.swift */,
+				F1FD92CBC732FFC2C9AE52D3B801EA8D /* Resources */,
+			);
+			name = Typicons;
+			sourceTree = "<group>";
+		};
+		2DFB524FEF5BB8D5888EDD8A37794DD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E2EF6FA97901D51EFE20FA147412F9B /* fontello_websymbols.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2EC3679A3CB1ED1F3A68E742A13F16F5 /* Brandico */ = {
+			isa = PBXGroup;
+			children = (
+				F877773E5EAA9FF7FC5EE0C8EEC6BA2F /* Brandico.swift */,
+				1F14F0B32FB6187AC556C587390C455A /* Resources */,
+			);
+			name = Brandico;
+			sourceTree = "<group>";
+		};
+		343C7A3CC1E0489BB2B3E438C4994334 /* GTMSessionFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				5825347F62994FF832DFDB0BEE742C97 /* Core */,
+				9C7970C97314E07EDE94F66C268EE29F /* Full */,
+				1F57005124766259074F68F0DE17B310 /* Support Files */,
+			);
+			name = GTMSessionFetcher;
+			path = GTMSessionFetcher;
+			sourceTree = "<group>";
+		};
+		3593F28023FA8FD4474717A68004CEE6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA5927D87CB55CC1D7096115DE0D337C /* GTMOAuth2.modulemap */,
+				271BA81B8AA97B45E8F9ACBAC527EBC6 /* GTMOAuth2.xcconfig */,
+				8B438B1115E23BD2CFBCC0F39B0A1355 /* GTMOAuth2-dummy.m */,
+				B456E3095B10A3B97AD20B7D649E81D5 /* GTMOAuth2-prefix.pch */,
+				9EBB5BCC45F40476B989A3D599AC104F /* GTMOAuth2-umbrella.h */,
+				6AB6F8E8250BF6E3B06935D085E4FC50 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTMOAuth2";
+			sourceTree = "<group>";
+		};
+		359E5C7FD9DD3D0EC685B60E147B318B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0878EF2F1D500FDF9A942369FFFB1E76 /* GoogleSignIn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		371587B25C8B85EDC7F3443BFD50440A /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				50D563C4925F7128E118B62CC5072076 /* GTMDefines.h */,
+			);
+			name = Defines;
+			sourceTree = "<group>";
+		};
+		3BD42074498017BFEBB434BABA5D27C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84F8BD100929D48A42483990A04E5679 /* fontello_zocial.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3D1C895AD7B5BEFC3AF2CD883312B482 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46B62EF92DCC8CCA88A7124C97B6797A /* fontello_mfglabs.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		486F8871801441EC331816B89609189B /* GoogleToolboxForMac */ = {
+			isa = PBXGroup;
+			children = (
+				D31D5AAC65292F0D206AD76B09582EAE /* DebugUtils */,
+				371587B25C8B85EDC7F3443BFD50440A /* Defines */,
+				835135919FFFBDE2D67B800F5D6D0FBA /* NSDictionary+URLArguments */,
+				C52070F4507CFDCB54C00BD973941320 /* NSString+URLArguments */,
+				B7170FDBEAD5A374E08D96209FCF0644 /* Support Files */,
+			);
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
+			sourceTree = "<group>";
+		};
+		555C7A676BE4A51DFB4237E248740A7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				529F0F2FC49E5A4B0610D9080D494C26 /* GoogleSignIn.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5825347F62994FF832DFDB0BEE742C97 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				64EF812D05D9504AE142C67E6F8ABC64 /* GTMSessionFetcher.h */,
+				EF93387F248A47CF4CEA1952CFE34325 /* GTMSessionFetcher.m */,
+				1BFE1DF64267DD1B886A2EDAA04865CF /* GTMSessionFetcherLogging.h */,
+				F70A4AA71FF967B12DB352A079E522B1 /* GTMSessionFetcherLogging.m */,
+				2D497930D68BBC122EE22CE4122AE18F /* GTMSessionFetcherService.h */,
+				24356405FC7B53C1F5EC1EC7E59B9F6C /* GTMSessionFetcherService.m */,
+				4B47655601102253B4DA032C2FB03951 /* GTMSessionUploadFetcher.h */,
+				4F80140309F93503A74BC6F1402BC8E7 /* GTMSessionUploadFetcher.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		6554EF4EA06D34CF2E56D365A34B1702 /* Fontello */ = {
+			isa = PBXGroup;
+			children = (
+				984C0AEAAC33DB614379764215CD1159 /* Fontello.swift */,
+			);
+			name = Fontello;
+			sourceTree = "<group>";
+		};
+		66C9939F3D23041824A0A4088924D336 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				110AD36118B6957DB8E796642B38BCEA /* fontello_meteocons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		74B6C5CC9DCAE07EE99181FF8896A71D /* Linecons */ = {
+			isa = PBXGroup;
+			children = (
+				330820738D5E8CD0556173BA8C488E6E /* Linecons.swift */,
+				222D239E6937E2ED75A3A24E5A592E86 /* Resources */,
+			);
+			name = Linecons;
+			sourceTree = "<group>";
+		};
+		7953BA8DACFBA9809AB4C7F9912525FF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7ACECB94D4419B5D1C6F9DAA5406B80 /* Fontello-Swift.modulemap */,
+				D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */,
+				2DECAE3E3C5C8D1BF198DE7F718C5A03 /* Fontello-Swift-dummy.m */,
+				EF04A55E03D007810420363B5B19FC36 /* Fontello-Swift-prefix.pch */,
+				C64408AD9D9CBFAE6A7F39119ACD9B0A /* Fontello-Swift-umbrella.h */,
+				75A1ED28C9ECAC094FA5962DEE7A097A /* Info.plist */,
+				CF710BE0CF677A8B9522EF4013B5E577 /* ResourceBundle-fontello_brandico-Info.plist */,
+				DEA0623D1EED7AF02DFEC360D0A7A5C3 /* ResourceBundle-fontello_elusive-Info.plist */,
+				B2B9B38DAE1F7AF7AC34A40376751B5C /* ResourceBundle-fontello_entypo-Info.plist */,
+				E212030BE83700F62225FF1738A6183C /* ResourceBundle-fontello_fontawesome-Info.plist */,
+				CB644C45FD35C1A52097C8B5425C2CA8 /* ResourceBundle-fontello_fontelico-Info.plist */,
+				AF21888CA9B33422C8185316A7A93190 /* ResourceBundle-fontello_iconic-Info.plist */,
+				4D970F205FCD3381E8C67F96855DC2E2 /* ResourceBundle-fontello_linecons-Info.plist */,
+				EDC062AE64DC35F17BD07BA7ACBA8640 /* ResourceBundle-fontello_maki-Info.plist */,
+				6C39329C2EE51540CBD74C86918E40E0 /* ResourceBundle-fontello_meteocons-Info.plist */,
+				E627179795BE1A2F6AF946E055BF2503 /* ResourceBundle-fontello_mfglabs-Info.plist */,
+				7CEE1AE5936961A8605BCDC2718EDC5C /* ResourceBundle-fontello_modernpictograms-Info.plist */,
+				1B807D402C37616B2BDDE8C4EA5FE498 /* ResourceBundle-fontello_typicons-Info.plist */,
+				A865C501A1295C83AEA8E72D882DF8F0 /* ResourceBundle-fontello_websymbols-Info.plist */,
+				B99DB919E8FA4B088C0EE67A03C767E6 /* ResourceBundle-fontello_zocial-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Fontello-Swift";
+			sourceTree = "<group>";
+		};
+		796E66479B1D690893B54EFB26D6A794 /* Elusive */ = {
+			isa = PBXGroup;
+			children = (
+				4F088F821ABD16709BA0022E7E9BE618 /* Elusive.swift */,
+				8C5AE2A58BF2CF60EAC13D0A73CE3736 /* Resources */,
+			);
+			name = Elusive;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A4D09AE356D2A30C03C178BF9536C0C0 /* Frameworks */,
+				E45C1ED32437711BF6A1BEA2B8635044 /* Pods */,
+				C457366DDBBD1A5A66D5B4838924FAF3 /* Products */,
+				062FED94AF0535EE5E3CEE057DF3B03E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		835135919FFFBDE2D67B800F5D6D0FBA /* NSDictionary+URLArguments */ = {
+			isa = PBXGroup;
+			children = (
+				9F91CB841B117D7E0C8B8954D3516148 /* GTMNSDictionary+URLArguments.h */,
+				211DFB3FE01E4BEA24C10CA9DD1E40C3 /* GTMNSDictionary+URLArguments.m */,
+			);
+			name = "NSDictionary+URLArguments";
+			sourceTree = "<group>";
+		};
+		89F7F802C4E681F50853035E38BDD5EA /* Maki */ = {
+			isa = PBXGroup;
+			children = (
+				83748FA3DF09B62B5D73325F07AC9302 /* Maki.swift */,
+				EF477B31BBB28327E32A6E824FB48CD9 /* Resources */,
+			);
+			name = Maki;
+			sourceTree = "<group>";
+		};
+		8C5AE2A58BF2CF60EAC13D0A73CE3736 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF224FB99D7987FCFF7CC08DAC934D6E /* fontello_elusive.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8DC40441E4B72E96D8E55B982655A3C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90723279D59A513FF092F27F9F21F043 /* fontello_modernpictograms.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		93402EEC7801D4B5D1BCBAD9CC5BDF5C /* Iconic */ = {
+			isa = PBXGroup;
+			children = (
+				C791B7F08B19DBC65BBFB6578C53AAFA /* Iconic.swift */,
+				E28E1CEFE5BFBA940B02D44A8D5FD92F /* Resources */,
+			);
+			name = Iconic;
+			sourceTree = "<group>";
+		};
+		9C7970C97314E07EDE94F66C268EE29F /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				0B8FBD11A6C4F9E90FFF1A1C17F84B05 /* GTMGatherInputStream.h */,
+				8B5E7EAF230FFA3DA5EB9B99539BDCB9 /* GTMGatherInputStream.m */,
+				D4783A9DBFF6C477F0FBB37F05AB534A /* GTMMIMEDocument.h */,
+				38C56463190DFF034DD8FD05858C3E31 /* GTMMIMEDocument.m */,
+				06ED4B70A5E71BCCCEE0A61EACA536A8 /* GTMReadMonitorInputStream.h */,
+				0A44505B9B87AC1522A7F6D74ED0E5EF /* GTMReadMonitorInputStream.m */,
+			);
+			name = Full;
+			sourceTree = "<group>";
+		};
+		A4D09AE356D2A30C03C178BF9536C0C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				453883BAD93D580BA4A2DE0AAD18B8F5 /* GTMSessionFetcher.framework */,
+				1E8D0AFA4BE9419B6299CB778A0886A1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5071C4D7AD9460FE80C0E300B3850A9 /* Fontello-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				2EC3679A3CB1ED1F3A68E742A13F16F5 /* Brandico */,
+				796E66479B1D690893B54EFB26D6A794 /* Elusive */,
+				B1BA50BEAF55E9AC450B9F91042328E1 /* Entypo */,
+				CF85F1AC1FF61B0CAA7EEB139ED7526F /* FontAwesome */,
+				FE97A1B974979C062584A0471BA08356 /* Fontelico */,
+				6554EF4EA06D34CF2E56D365A34B1702 /* Fontello */,
+				93402EEC7801D4B5D1BCBAD9CC5BDF5C /* Iconic */,
+				74B6C5CC9DCAE07EE99181FF8896A71D /* Linecons */,
+				89F7F802C4E681F50853035E38BDD5EA /* Maki */,
+				B1885A9ABBBEA2B4617F795C34FEC983 /* Meteocons */,
+				25487752A027639FCD7C9FD681819D12 /* MFGLabs */,
+				23074A1D325EC8EBB1955E67922E7F36 /* ModernPictograms */,
+				7953BA8DACFBA9809AB4C7F9912525FF /* Support Files */,
+				2C099CBD7243E18983D236391384EAEC /* Typicons */,
+				EA41301E0E64F3C44C85E3C8A8FCED23 /* Websymbols */,
+				D342662924E9FF239E4C7259E79A1073 /* Zocial */,
+			);
+			name = "Fontello-Swift";
+			path = "Fontello-Swift";
+			sourceTree = "<group>";
+		};
+		AAEFA5E6D468862E98EAB9AB69D2B4BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2937E1AB0E56A76924FB382E9DFDD /* fontello_fontelico.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B1885A9ABBBEA2B4617F795C34FEC983 /* Meteocons */ = {
+			isa = PBXGroup;
+			children = (
+				1718466E3B6763727F44F48C32642BEF /* Meteocons.swift */,
+				66C9939F3D23041824A0A4088924D336 /* Resources */,
+			);
+			name = Meteocons;
+			sourceTree = "<group>";
+		};
+		B1BA50BEAF55E9AC450B9F91042328E1 /* Entypo */ = {
+			isa = PBXGroup;
+			children = (
+				0B586908EBAF58DC7FAB356E5C4E5AA5 /* Entypo.swift */,
+				E4D2CF56B570EAB9FFC24C580808FEB6 /* Resources */,
+			);
+			name = Entypo;
+			sourceTree = "<group>";
+		};
+		B7170FDBEAD5A374E08D96209FCF0644 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				46C57C7CA3A6CAC41744F4DECBA0E4AA /* GoogleToolboxForMac.modulemap */,
+				4AEB91DA2BF6587AF888BB732D288AC3 /* GoogleToolboxForMac.xcconfig */,
+				261EAC67495EFB479C0D97190C55F2DC /* GoogleToolboxForMac-dummy.m */,
+				DBDC9047E1B4E5FD2ABA3A640774B418 /* GoogleToolboxForMac-prefix.pch */,
+				2555920AE5BF163691EAB84CB96BD616 /* GoogleToolboxForMac-umbrella.h */,
+				37A1B94BCF0189AFF0DE8C9EE6045849 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleToolboxForMac";
+			sourceTree = "<group>";
+		};
+		C457366DDBBD1A5A66D5B4838924FAF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */,
+				97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */,
+				7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */,
+				3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */,
+				DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */,
+				0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */,
+				5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */,
+				A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */,
+				6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */,
+				AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */,
+				9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */,
+				1F2CD4FC31E80E16B7A1D7DE2F0B7772 /* Fontello_Swift.framework */,
+				30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */,
+				E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */,
+				12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */,
+				87A01056FF532036B9CC123AB76370D9 /* GoogleToolboxForMac.framework */,
+				794B41814801AE4F274D046557E0936F /* GTMOAuth2.framework */,
+				8951C01491A1DCF4A56DAEE7BAC2D976 /* GTMSessionFetcher.framework */,
+				8ADA630C54895F6EA83C0591583FBCBC /* Pods_Swipe_Rewards.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C52070F4507CFDCB54C00BD973941320 /* NSString+URLArguments */ = {
+			isa = PBXGroup;
+			children = (
+				A3E2BFEFF399B4BB18E8B8CA900F6BAB /* GTMNSString+URLArguments.h */,
+				393D2118F9E8E1465CE7780CBFD2BE5A /* GTMNSString+URLArguments.m */,
+			);
+			name = "NSString+URLArguments";
+			sourceTree = "<group>";
+		};
+		CF85F1AC1FF61B0CAA7EEB139ED7526F /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				7326A7E7C2FC9838EED7C7D9131DB5B7 /* FontAwesome.swift */,
+				10B2C7A51E23D1D7D2E6992FD9307977 /* Resources */,
+			);
+			name = FontAwesome;
+			sourceTree = "<group>";
+		};
+		D31D5AAC65292F0D206AD76B09582EAE /* DebugUtils */ = {
+			isa = PBXGroup;
+			children = (
+				91CB3D6C223A434E012FEE50F6AEA10F /* GTMDebugSelectorValidation.h */,
+				77A6B18E8551B3EF985166172DBD6A9E /* GTMDebugThreadValidation.h */,
+				DED4318AF707ECFF8D0DF51D8EEC65CC /* GTMMethodCheck.h */,
+			);
+			name = DebugUtils;
+			sourceTree = "<group>";
+		};
+		D342662924E9FF239E4C7259E79A1073 /* Zocial */ = {
+			isa = PBXGroup;
+			children = (
+				75214BC0EF1147BE099764FE08281466 /* Zocial.swift */,
+				3BD42074498017BFEBB434BABA5D27C2 /* Resources */,
+			);
+			name = Zocial;
+			sourceTree = "<group>";
+		};
+		E28E1CEFE5BFBA940B02D44A8D5FD92F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				162FECDA26F7F8D1B0758E6A6F65E024 /* fontello_iconic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E45C1ED32437711BF6A1BEA2B8635044 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5071C4D7AD9460FE80C0E300B3850A9 /* Fontello-Swift */,
+				21841399B166D6B37073679109061214 /* GoogleSignIn */,
+				486F8871801441EC331816B89609189B /* GoogleToolboxForMac */,
+				0FB99F467E737F3290069E2F60B2FF8C /* GTMOAuth2 */,
+				343C7A3CC1E0489BB2B3E438C4994334 /* GTMSessionFetcher */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4D2CF56B570EAB9FFC24C580808FEB6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7EC7F5DF1E6343224AD3440FDE9934D4 /* fontello_entypo.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E9F9410875311708B38E5943C32A8FCB /* Pods-Swipe Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				2138E42B9700B15C0A3E34E8389D60C1 /* Info.plist */,
+				2E1F57B102741D68007EFDAB2910A619 /* Pods-Swipe Rewards.modulemap */,
+				3208D1CBFEFF04C3235A001EBFA60861 /* Pods-Swipe Rewards-acknowledgements.markdown */,
+				FDEB5A052273BB085DF95C35926DDDF4 /* Pods-Swipe Rewards-acknowledgements.plist */,
+				41EC0F69FDD89ED674C43D544D7F3091 /* Pods-Swipe Rewards-dummy.m */,
+				E3BF921CFE9D8643359E237E5ED7EC0B /* Pods-Swipe Rewards-frameworks.sh */,
+				50EC577C41E63ABC210D762C737D04D4 /* Pods-Swipe Rewards-resources.sh */,
+				431A80A73A6C371638ABE7D35B6F627A /* Pods-Swipe Rewards-umbrella.h */,
+				EDD4A4C0C451387D7F7CDBA6FBFA072D /* Pods-Swipe Rewards.debug.xcconfig */,
+				B647A10F1BF09E1FC468850AD5ECA5E1 /* Pods-Swipe Rewards.release.xcconfig */,
+			);
+			name = "Pods-Swipe Rewards";
+			path = "Target Support Files/Pods-Swipe Rewards";
+			sourceTree = "<group>";
+		};
+		EA41301E0E64F3C44C85E3C8A8FCED23 /* Websymbols */ = {
+			isa = PBXGroup;
+			children = (
+				7E5B972D068B2A49E2CDBBE715803617 /* Websymbols.swift */,
+				2DFB524FEF5BB8D5888EDD8A37794DD4 /* Resources */,
+			);
+			name = Websymbols;
+			sourceTree = "<group>";
+		};
+		EF477B31BBB28327E32A6E824FB48CD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F521816C25E701D9C086C95EBA48FBE /* fontello_maki.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F1FD92CBC732FFC2C9AE52D3B801EA8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5D26E339303FCE5CB5E7584043F7924 /* fontello_typicons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FE97A1B974979C062584A0471BA08356 /* Fontelico */ = {
+			isa = PBXGroup;
+			children = (
+				C3BCFCA6B587B35B5A0B2E82C2156D7A /* Fontelico.swift */,
+				AAEFA5E6D468862E98EAB9AB69D2B4BE /* Resources */,
+			);
+			name = Fontelico;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0739C5796C7E0354469039BB1E4A01F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA262A5B0E51523B71A926AB5B2333F /* GTMOAuth2-umbrella.h in Headers */,
+				5B1AF8B6D07FA01316058C49151CF53A /* GTMOAuth2Authentication.h in Headers */,
+				333726D18E7D4FC18D95792999A41B80 /* GTMOAuth2SignIn.h in Headers */,
+				3EA5EB74DECDECA27E6505BD395A6BB9 /* GTMOAuth2ViewControllerTouch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E61B23507FCA76D65AEB691166AA317 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98714C893E8D07613970FF200FF873CB /* GTMGatherInputStream.h in Headers */,
+				1CAD2D19B6043B494770E9DC585D276D /* GTMMIMEDocument.h in Headers */,
+				437AA21C3A4AB90265CE9B0F754FA4C5 /* GTMReadMonitorInputStream.h in Headers */,
+				9FE7B426DCB711A471EAF1AD5019DBF7 /* GTMSessionFetcher-umbrella.h in Headers */,
+				8DBD79DD89E835D879F19571B82BBC10 /* GTMSessionFetcher.h in Headers */,
+				F6CA012C4CEB1D996CC12EEADD21CDB1 /* GTMSessionFetcherLogging.h in Headers */,
+				B73A419BA20F2F07A61FE4B0B5192377 /* GTMSessionFetcherService.h in Headers */,
+				741C7EF7CB09028A6C14145A105E82F6 /* GTMSessionUploadFetcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F522078A18B54A7076140BBC1386F1B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				658773114243D9151B13A21C87ADA67A /* GoogleToolboxForMac-umbrella.h in Headers */,
+				DD1F853E8FE6DC1EC09051BE70D1F035 /* GTMDebugSelectorValidation.h in Headers */,
+				1FC0636631161F17CC5913D5D0389FD6 /* GTMDebugThreadValidation.h in Headers */,
+				27BD00C727F5CD5BC3AC1BD24D44C2EC /* GTMDefines.h in Headers */,
+				0D7C63C47B5504AC01F82DCEC92ECDC2 /* GTMMethodCheck.h in Headers */,
+				4B1E96A8E3D342CABEF2397796855A27 /* GTMNSDictionary+URLArguments.h in Headers */,
+				6697AAC7CD4F9193D14EF995A8735047 /* GTMNSString+URLArguments.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920B0FAF10AFC74A289B50B73A3A7A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DEAD82067F890FE06451BFA3945CEC /* Fontello-Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955824341347CD134460DDBD60D4B74F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74B3A13CCDFEE1E745A02475B21832F /* Pods-Swipe Rewards-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		00945EC5F4999D4798C4F91374C84BA8 /* Fontello-Swift-fontello_fontawesome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C0FFDC31A4C041735C5C7B5D1B5EF1E /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_fontawesome" */;
+			buildPhases = (
+				12CC57CE78102418CFE4C9ABE1D753CA /* Sources */,
+				7CA1D7380B0F6B2E4C150D30A40F3604 /* Frameworks */,
+				D8430B8D4A70854608212A263A2CBB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_fontawesome";
+			productName = "Fontello-Swift-fontello_fontawesome";
+			productReference = 3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		205D6C3C5C72C68B0FF2B4D483639251 /* Fontello-Swift-fontello_mfglabs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF928BF2F01518F749D082937A8FCE15 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_mfglabs" */;
+			buildPhases = (
+				B4E1FFEBC87D482E02480A3144B881D9 /* Sources */,
+				E793B85BB1A77EF99A281CCD78545BA2 /* Frameworks */,
+				E8814789D350AA24D35B6A7EB1ABF74E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_mfglabs";
+			productName = "Fontello-Swift-fontello_mfglabs";
+			productReference = AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		2E208C17F33E09D8BEA6A806E151DFD6 /* Fontello-Swift-fontello_typicons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A7C07304502F5AE0B3F8675FC0A3140 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_typicons" */;
+			buildPhases = (
+				4DA9839A8B1E41A8A91BA4099560D47F /* Sources */,
+				6D236D0A3B19C523CFF2D5D008B8AD18 /* Frameworks */,
+				F9F302A2A42FC57DB0DE8BC75E5A57BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_typicons";
+			productName = "Fontello-Swift-fontello_typicons";
+			productReference = 30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		4DEE87C3330FEB88145E6028A3DCB071 /* Fontello-Swift-fontello_brandico */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C58C5ED47BAB3EB8B450C584E1979025 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_brandico" */;
+			buildPhases = (
+				410992D3E74AEDFF748D270CCA3E7B0A /* Sources */,
+				45EFD90EA60236F5BF66B50104E6B517 /* Frameworks */,
+				C55A3FCD6279E622479632D764257F22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_brandico";
+			productName = "Fontello-Swift-fontello_brandico";
+			productReference = 9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		681BE6E3D02A43F9BA63777AC435C8FD /* GTMSessionFetcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC6FDF0A36E8D94AB02E27F123E1E33 /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */;
+			buildPhases = (
+				401A903882CA74E40FBF62890EBDB0AA /* Sources */,
+				85211E7BC2181B8A1DAE1BF2BDD5EABF /* Frameworks */,
+				6E61B23507FCA76D65AEB691166AA317 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTMSessionFetcher;
+			productName = GTMSessionFetcher;
+			productReference = 8951C01491A1DCF4A56DAEE7BAC2D976 /* GTMSessionFetcher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		72259BDD5BCB995A8335FDDD3B344BD6 /* Fontello-Swift-fontello_entypo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7386EA4622F44B9C84AAEFE48F03B51 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_entypo" */;
+			buildPhases = (
+				D1FD7C29412192976B41657BC65E57C3 /* Sources */,
+				0FA94EA2975A09C68E2336E86271B738 /* Frameworks */,
+				A5D2C5080488D48AC98C2BA810C37F85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_entypo";
+			productName = "Fontello-Swift-fontello_entypo";
+			productReference = 7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		773AF9ACBA871DF03A71C4DBFFCC90BB /* Fontello-Swift-fontello_elusive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11F21EFAF50426056DD8E9077A5625A9 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_elusive" */;
+			buildPhases = (
+				786D1732E9E93EA7E7F193EE738CA79B /* Sources */,
+				6BABEAC4B5D34936D93D5F23A41FAD25 /* Frameworks */,
+				B56CD683E2127D6EE214F07BD2AA547F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_elusive";
+			productName = "Fontello-Swift-fontello_elusive";
+			productReference = 97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		7D5BCFA35D4271BF47D1297DE53CFD12 /* Fontello-Swift-fontello_zocial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 575FF14A70999882AF6A312BC7CA07E3 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_zocial" */;
+			buildPhases = (
+				74622F162F504C3D3A5546CCE25B2AD6 /* Sources */,
+				06E8B40595B147D945D3E95D50B74299 /* Frameworks */,
+				B4155B7DCB2E34ABC7747EB1266F7391 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_zocial";
+			productName = "Fontello-Swift-fontello_zocial";
+			productReference = 12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8075330FC0D928D7B44C3CA4C8FA4DE0 /* Fontello-Swift-fontello_meteocons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB528558743DD796608AC419930C9F81 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_meteocons" */;
+			buildPhases = (
+				28B3AD18AE4669CCD9A320892F49B00A /* Sources */,
+				42F74EE0D3EAB5C66764D828A61A5F11 /* Frameworks */,
+				205B5270059E403E85904548FF9C78D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_meteocons";
+			productName = "Fontello-Swift-fontello_meteocons";
+			productReference = 6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A7193DC9DE89E0CBBEB30CA21E29F91B /* Fontello-Swift-fontello_iconic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BD8DAFE317C7070B859FD08C845284B /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_iconic" */;
+			buildPhases = (
+				822461B26A6147D83CE8E4675EB469CF /* Sources */,
+				F6B106632E3F064B46A12AA3819DF7EB /* Frameworks */,
+				4DC7C4A2317C954536C558D183FF2866 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_iconic";
+			productName = "Fontello-Swift-fontello_iconic";
+			productReference = 0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B1C4AAFAF49036C7007633DAA3C806AD /* GTMOAuth2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB158E1F36AA30684612A296A5755DC7 /* Build configuration list for PBXNativeTarget "GTMOAuth2" */;
+			buildPhases = (
+				048652B2CDB8D351E86B2CBBABBFB98D /* Sources */,
+				76119BFC3F7D28885FDCC80458A5B292 /* Frameworks */,
+				0739C5796C7E0354469039BB1E4A01F3 /* Headers */,
+				E22DB137D55176346F8380E16536A19E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3685CC549B13D25F9B663361874E198F /* PBXTargetDependency */,
+			);
+			name = GTMOAuth2;
+			productName = GTMOAuth2;
+			productReference = 794B41814801AE4F274D046557E0936F /* GTMOAuth2.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B476BA792778CDAC45BEC5ABF558A057 /* Fontello-Swift-fontello_modernpictograms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BB38BB9CFAAA3B6ADAF7F36D6A779FF /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_modernpictograms" */;
+			buildPhases = (
+				B3633BF37A7F1E7012E73AC326DF181D /* Sources */,
+				EFFA76F05C2220880443AA6A2A928086 /* Frameworks */,
+				F08F29C7CB3CAEC502703EA5CCD0A722 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_modernpictograms";
+			productName = "Fontello-Swift-fontello_modernpictograms";
+			productReference = 9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		C50FA72CD4401F3684FF618370F5F224 /* Fontello-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F937C73C002A8129B32E7CB59BE01687 /* Build configuration list for PBXNativeTarget "Fontello-Swift" */;
+			buildPhases = (
+				9DB69DED077AAA486BE1837DC0F90E21 /* Sources */,
+				53C81C4B2DAE36CCA1DE17880B954ECE /* Frameworks */,
+				D1582088F961C5AA40A93B3B41F769B4 /* Resources */,
+				8920B0FAF10AFC74A289B50B73A3A7A1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E62C57E8CECC445964259B61B1D1F27 /* PBXTargetDependency */,
+				B3FE51959FD471EE9E9158AC28FB54C5 /* PBXTargetDependency */,
+				1FFB253F1F81143749DC601D6BA5E208 /* PBXTargetDependency */,
+				6B0C82020530D8C9875B8294BA5692A2 /* PBXTargetDependency */,
+				7A4FCE1BEC39B5F5DE45B016153D8A9A /* PBXTargetDependency */,
+				0D7609A48BEFDAA1BDE438A7E071D2CA /* PBXTargetDependency */,
+				6A18B05F04A544D4EAA3C85A8AF681C9 /* PBXTargetDependency */,
+				FB73C303A0C5168B34A9DDC390CEC66C /* PBXTargetDependency */,
+				DEE41DA628933FA01DC085CB966F87C0 /* PBXTargetDependency */,
+				1A830CC35BD51C7365063313A6B9E5A1 /* PBXTargetDependency */,
+				84B3A08916B77652BF4B30D518498B11 /* PBXTargetDependency */,
+				EB6EF42050661BD57AE1C770B8B1409D /* PBXTargetDependency */,
+				E411A0B09165C7E1D637C4E746566747 /* PBXTargetDependency */,
+				183956B6BB3921904FA13C6679AF6EBD /* PBXTargetDependency */,
+			);
+			name = "Fontello-Swift";
+			productName = "Fontello-Swift";
+			productReference = 1F2CD4FC31E80E16B7A1D7DE2F0B7772 /* Fontello_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C6C844B166EBB51E8A65590523564FA3 /* Fontello-Swift-fontello_linecons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5470D27DE2C853A4D7D7BF9A12C5E3D0 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_linecons" */;
+			buildPhases = (
+				20F4EC15E2D4D02FEED071F0F4F63E65 /* Sources */,
+				63855603F080F744CA25861EA806738A /* Frameworks */,
+				CDB9440AF4AB05423E409630411B15A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_linecons";
+			productName = "Fontello-Swift-fontello_linecons";
+			productReference = 5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		C73172F826638A56DDC9DFAE35674368 /* Fontello-Swift-fontello_websymbols */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0689D467F579043E9EA2DAFEFC76A879 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_websymbols" */;
+			buildPhases = (
+				9A143397A7CAD8F4627B829ECAE7E229 /* Sources */,
+				ED3D7F35BA3DB54B0182CB5E48F881C3 /* Frameworks */,
+				CA001BDCD28198BCA8E5024A2BE638AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_websymbols";
+			productName = "Fontello-Swift-fontello_websymbols";
+			productReference = E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D5076D5832785F93851D9178A0F972C2 /* Fontello-Swift-fontello_maki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 878C3C7F3F474C2F4AD6A269D1366088 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_maki" */;
+			buildPhases = (
+				420FA5CE69416543FDC807B28EAC6A32 /* Sources */,
+				F92EF01CE9D20C0D44A574D688887EFB /* Frameworks */,
+				4A250350E76394E3546059B65F3F00CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_maki";
+			productName = "Fontello-Swift-fontello_maki";
+			productReference = A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D63012ADED4B2DAAE4E3341D310BD1AF /* Pods-Swipe Rewards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66D00850CF1CC15FE7D5E0E32FC487D7 /* Build configuration list for PBXNativeTarget "Pods-Swipe Rewards" */;
+			buildPhases = (
+				CF242F35BBFDD6F1C5B9E33B8099EDCD /* Sources */,
+				0288F4DE71AD5B2C3A136B137DDA06D8 /* Frameworks */,
+				955824341347CD134460DDBD60D4B74F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				139A24B39B470AB1E904FB6915197C10 /* PBXTargetDependency */,
+				489FE045FDC65E66F86E9FA9CA28B84E /* PBXTargetDependency */,
+				978E17AC561AECDFD1B2836E44BDEB47 /* PBXTargetDependency */,
+				3D643EF5183EC88D84A4A3C0AC0B82C9 /* PBXTargetDependency */,
+			);
+			name = "Pods-Swipe Rewards";
+			productName = "Pods-Swipe Rewards";
+			productReference = 8ADA630C54895F6EA83C0591583FBCBC /* Pods_Swipe_Rewards.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F05BBF0ABCBAB1D55C2FE0C052A8CF62 /* GoogleToolboxForMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EE8318BBF256E155822C62A0FD0BE45 /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
+			buildPhases = (
+				C943A859CB0DA39C3E671E345D308FC9 /* Sources */,
+				C86115A675E64547239157797AACBDA0 /* Frameworks */,
+				6F522078A18B54A7076140BBC1386F1B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoogleToolboxForMac;
+			productName = GoogleToolboxForMac;
+			productReference = 87A01056FF532036B9CC123AB76370D9 /* GoogleToolboxForMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F7897D6A6A311123B5F1AB20745877DE /* Fontello-Swift-fontello_fontelico */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E07B551BF5AEA32D91C7CA76597E3596 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_fontelico" */;
+			buildPhases = (
+				3FB1AE5C99B3110619A74BC98E4F9035 /* Sources */,
+				45CAA4986176DE04132AB95358B45564 /* Frameworks */,
+				445D8B877A4B0DB556B47D7A420FC475 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontello-Swift-fontello_fontelico";
+			productName = "Fontello-Swift-fontello_fontelico";
+			productReference = DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C457366DDBBD1A5A66D5B4838924FAF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C50FA72CD4401F3684FF618370F5F224 /* Fontello-Swift */,
+				4DEE87C3330FEB88145E6028A3DCB071 /* Fontello-Swift-fontello_brandico */,
+				773AF9ACBA871DF03A71C4DBFFCC90BB /* Fontello-Swift-fontello_elusive */,
+				72259BDD5BCB995A8335FDDD3B344BD6 /* Fontello-Swift-fontello_entypo */,
+				00945EC5F4999D4798C4F91374C84BA8 /* Fontello-Swift-fontello_fontawesome */,
+				F7897D6A6A311123B5F1AB20745877DE /* Fontello-Swift-fontello_fontelico */,
+				A7193DC9DE89E0CBBEB30CA21E29F91B /* Fontello-Swift-fontello_iconic */,
+				C6C844B166EBB51E8A65590523564FA3 /* Fontello-Swift-fontello_linecons */,
+				D5076D5832785F93851D9178A0F972C2 /* Fontello-Swift-fontello_maki */,
+				8075330FC0D928D7B44C3CA4C8FA4DE0 /* Fontello-Swift-fontello_meteocons */,
+				205D6C3C5C72C68B0FF2B4D483639251 /* Fontello-Swift-fontello_mfglabs */,
+				B476BA792778CDAC45BEC5ABF558A057 /* Fontello-Swift-fontello_modernpictograms */,
+				2E208C17F33E09D8BEA6A806E151DFD6 /* Fontello-Swift-fontello_typicons */,
+				C73172F826638A56DDC9DFAE35674368 /* Fontello-Swift-fontello_websymbols */,
+				7D5BCFA35D4271BF47D1297DE53CFD12 /* Fontello-Swift-fontello_zocial */,
+				F05BBF0ABCBAB1D55C2FE0C052A8CF62 /* GoogleToolboxForMac */,
+				B1C4AAFAF49036C7007633DAA3C806AD /* GTMOAuth2 */,
+				681BE6E3D02A43F9BA63777AC435C8FD /* GTMSessionFetcher */,
+				D63012ADED4B2DAAE4E3341D310BD1AF /* Pods-Swipe Rewards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		205B5270059E403E85904548FF9C78D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B12F429AAA15C42FF5B5F7A052C4A57 /* fontello_meteocons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		445D8B877A4B0DB556B47D7A420FC475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EB87C78D1C1320E3D9F6B983F06B966 /* fontello_fontelico.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A250350E76394E3546059B65F3F00CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				297EDA214D19FD9E36F2DDD4EC7821E5 /* fontello_maki.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DC7C4A2317C954536C558D183FF2866 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				268626874E52F374467D6C2B30AEE380 /* fontello_iconic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2C5080488D48AC98C2BA810C37F85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80FC90ABCC793FABF9A03E70624BA28A /* fontello_entypo.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4155B7DCB2E34ABC7747EB1266F7391 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7601DDA64276393F8FFBB15C49B91086 /* fontello_zocial.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56CD683E2127D6EE214F07BD2AA547F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B69AB5961CE68E708B34DD02FAA313D /* fontello_elusive.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C55A3FCD6279E622479632D764257F22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8CE2B730775367EB0244424F9F9A435 /* fontello_brandico.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA001BDCD28198BCA8E5024A2BE638AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF173A37791E61F97381A047920591CC /* fontello_websymbols.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDB9440AF4AB05423E409630411B15A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A73D19D52B84ECE29578B2F51CCFF54 /* fontello_linecons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1582088F961C5AA40A93B3B41F769B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CBC031F8E2F49761E69E829A9EE568 /* fontello_brandico.bundle in Resources */,
+				E328C749EDF3643DA1D1C89E86151FE7 /* fontello_elusive.bundle in Resources */,
+				54D80A9355CBE2246F02E3F2CBEA61B9 /* fontello_entypo.bundle in Resources */,
+				492A919310DB7508BA9AF91AD9727AB6 /* fontello_fontawesome.bundle in Resources */,
+				439BB83B2BC604C337954E90BF8F4DFB /* fontello_fontelico.bundle in Resources */,
+				97A7685F7E591CE42212614A7C396CC8 /* fontello_iconic.bundle in Resources */,
+				8D21BA5050722A2533E6DD66866D0F26 /* fontello_linecons.bundle in Resources */,
+				30078B7A2D80D3F9B6E77DBEBCEBCF4E /* fontello_maki.bundle in Resources */,
+				86CAE2CF3CC3C71470FE32071D426E1E /* fontello_meteocons.bundle in Resources */,
+				73FA912FFA3B3632B7C9F11577F11F53 /* fontello_mfglabs.bundle in Resources */,
+				EEF384E2ECE3BE3751CA789D9005491F /* fontello_modernpictograms.bundle in Resources */,
+				087246BEDC5E162D8D33B2DCE4471AD0 /* fontello_typicons.bundle in Resources */,
+				443AAC121B4EA78974391CF73EDF8A22 /* fontello_websymbols.bundle in Resources */,
+				5AF471D762FB721D6491275661D76235 /* fontello_zocial.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8430B8D4A70854608212A263A2CBB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416967184A09738672D04F2B1BE4274F /* fontello_fontawesome.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E22DB137D55176346F8380E16536A19E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5531F9DDD1D852322A97C682A5AFC15 /* GTMOAuth2ViewTouch.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8814789D350AA24D35B6A7EB1ABF74E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA3DBF695866FE18C2B40E995E572A08 /* fontello_mfglabs.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F08F29C7CB3CAEC502703EA5CCD0A722 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27A42BEFCFFB2D770FBE774A02556F69 /* fontello_modernpictograms.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F302A2A42FC57DB0DE8BC75E5A57BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0909B362E9AA974A1DC5E74C1BA4F4F4 /* fontello_typicons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		048652B2CDB8D351E86B2CBBABBFB98D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD02EFF91211DCC1DE607F885831F891 /* GTMOAuth2-dummy.m in Sources */,
+				31A17D8E7663090166267CB950E5DB45 /* GTMOAuth2Authentication.m in Sources */,
+				1351C79BE5DA3A3D43D42036A647C262 /* GTMOAuth2SignIn.m in Sources */,
+				96ACDA4D360DF9B9C30420A889E4416C /* GTMOAuth2ViewControllerTouch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC57CE78102418CFE4C9ABE1D753CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F4EC15E2D4D02FEED071F0F4F63E65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B3AD18AE4669CCD9A320892F49B00A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FB1AE5C99B3110619A74BC98E4F9035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		401A903882CA74E40FBF62890EBDB0AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E04897DC27E8CFB6E58A6255687D9D8 /* GTMGatherInputStream.m in Sources */,
+				7C18A23B104C2672BD935467D0B80ECB /* GTMMIMEDocument.m in Sources */,
+				C09A9D7003942172FB4178D1413EC484 /* GTMReadMonitorInputStream.m in Sources */,
+				76A80DD2CD1629835DA9FC6AA7A5C732 /* GTMSessionFetcher-dummy.m in Sources */,
+				2DEA98AA54F4D62EEB952189658BD89C /* GTMSessionFetcher.m in Sources */,
+				4905FAB08AE41BB9C94F10772472AB1F /* GTMSessionFetcherLogging.m in Sources */,
+				360F3EFFFCCF95B8D073D7C72067AD1C /* GTMSessionFetcherService.m in Sources */,
+				BA7F6EAA26CF9D5C1BCA6FCC5F22BD7E /* GTMSessionUploadFetcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		410992D3E74AEDFF748D270CCA3E7B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		420FA5CE69416543FDC807B28EAC6A32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DA9839A8B1E41A8A91BA4099560D47F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74622F162F504C3D3A5546CCE25B2AD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786D1732E9E93EA7E7F193EE738CA79B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		822461B26A6147D83CE8E4675EB469CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A143397A7CAD8F4627B829ECAE7E229 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB69DED077AAA486BE1837DC0F90E21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACF64866CFDF5C9B1416D16A5389F3F /* Brandico.swift in Sources */,
+				9001F5C577EB3655559E482136D0BCCD /* Elusive.swift in Sources */,
+				9A1979111B9315BFF4BB91436CB46FB8 /* Entypo.swift in Sources */,
+				7BDAABCE7592CA33415FC92215EF4A70 /* FontAwesome.swift in Sources */,
+				E886D0F5F4888EFBB17D33E0F9D45F35 /* Fontelico.swift in Sources */,
+				62B8C292871F144627C7D17775E96E88 /* Fontello-Swift-dummy.m in Sources */,
+				F7FE33143309BA08E61A8224A10EBA0A /* Fontello.swift in Sources */,
+				8F59E9B423934E144B7417098B791729 /* Iconic.swift in Sources */,
+				9999293624ADED116AD20362A9659EAA /* Linecons.swift in Sources */,
+				5F601238564DCFCFD426D2CBD164067E /* Maki.swift in Sources */,
+				C1797C7DC6F8BE7B52F8798F6C0F24BD /* Meteocons.swift in Sources */,
+				49B1311B0476D392CD9318D4BB940783 /* MFGLabs.swift in Sources */,
+				C0C230C1F946996EAF828E81BD6E3ECE /* ModernPictograms.swift in Sources */,
+				3220540E61A2B13171EDBDAD2721E140 /* Typicons.swift in Sources */,
+				61B38118D1D2B629C44C27437CBC9315 /* Websymbols.swift in Sources */,
+				0FFD86729464519E93A1F632B45A4AF2 /* Zocial.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3633BF37A7F1E7012E73AC326DF181D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4E1FFEBC87D482E02480A3144B881D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C943A859CB0DA39C3E671E345D308FC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FFACFE50F924C7F9CB07C5F2B8C3472 /* GoogleToolboxForMac-dummy.m in Sources */,
+				6DF1728A542A08BDB26CDD6CA88DF61D /* GTMNSDictionary+URLArguments.m in Sources */,
+				69D8B83F45A597F07017CFEEA2A8AC8F /* GTMNSString+URLArguments.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF242F35BBFDD6F1C5B9E33B8099EDCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A08E2FC5FD901C187EA0F1BE84CB97A /* Pods-Swipe Rewards-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FD7C29412192976B41657BC65E57C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D7609A48BEFDAA1BDE438A7E071D2CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_iconic";
+			target = A7193DC9DE89E0CBBEB30CA21E29F91B /* Fontello-Swift-fontello_iconic */;
+			targetProxy = 346A85161593F3A8458C1EF0508964FD /* PBXContainerItemProxy */;
+		};
+		139A24B39B470AB1E904FB6915197C10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift";
+			target = C50FA72CD4401F3684FF618370F5F224 /* Fontello-Swift */;
+			targetProxy = 79BC07BE0A276385C6744D87DD40AB11 /* PBXContainerItemProxy */;
+		};
+		183956B6BB3921904FA13C6679AF6EBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_zocial";
+			target = 7D5BCFA35D4271BF47D1297DE53CFD12 /* Fontello-Swift-fontello_zocial */;
+			targetProxy = A74EC0B885D37F1BD5E3994A8D6D84F7 /* PBXContainerItemProxy */;
+		};
+		1A830CC35BD51C7365063313A6B9E5A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_mfglabs";
+			target = 205D6C3C5C72C68B0FF2B4D483639251 /* Fontello-Swift-fontello_mfglabs */;
+			targetProxy = 9864750DE2C1FC369619EA398519B7ED /* PBXContainerItemProxy */;
+		};
+		1FFB253F1F81143749DC601D6BA5E208 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_entypo";
+			target = 72259BDD5BCB995A8335FDDD3B344BD6 /* Fontello-Swift-fontello_entypo */;
+			targetProxy = D2290C05712ECA21FF9929F19CA3A006 /* PBXContainerItemProxy */;
+		};
+		3685CC549B13D25F9B663361874E198F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = 681BE6E3D02A43F9BA63777AC435C8FD /* GTMSessionFetcher */;
+			targetProxy = 170F5BE3B9815D61BA81BCBD97BCE075 /* PBXContainerItemProxy */;
+		};
+		3D643EF5183EC88D84A4A3C0AC0B82C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = F05BBF0ABCBAB1D55C2FE0C052A8CF62 /* GoogleToolboxForMac */;
+			targetProxy = 235A8C1188BB1AAC6AA404409812D4E1 /* PBXContainerItemProxy */;
+		};
+		489FE045FDC65E66F86E9FA9CA28B84E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMOAuth2;
+			target = B1C4AAFAF49036C7007633DAA3C806AD /* GTMOAuth2 */;
+			targetProxy = DA56FBC3DC0A8DE46D39DF7FAD67CE70 /* PBXContainerItemProxy */;
+		};
+		6A18B05F04A544D4EAA3C85A8AF681C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_linecons";
+			target = C6C844B166EBB51E8A65590523564FA3 /* Fontello-Swift-fontello_linecons */;
+			targetProxy = 4748D6B380B7C7778A38D95085F016A3 /* PBXContainerItemProxy */;
+		};
+		6B0C82020530D8C9875B8294BA5692A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_fontawesome";
+			target = 00945EC5F4999D4798C4F91374C84BA8 /* Fontello-Swift-fontello_fontawesome */;
+			targetProxy = B56700B6C952F5E2A5D4B2771CAE9097 /* PBXContainerItemProxy */;
+		};
+		6E62C57E8CECC445964259B61B1D1F27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_brandico";
+			target = 4DEE87C3330FEB88145E6028A3DCB071 /* Fontello-Swift-fontello_brandico */;
+			targetProxy = 06A88589D1B03318B7748A3152457DA1 /* PBXContainerItemProxy */;
+		};
+		7A4FCE1BEC39B5F5DE45B016153D8A9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_fontelico";
+			target = F7897D6A6A311123B5F1AB20745877DE /* Fontello-Swift-fontello_fontelico */;
+			targetProxy = 0CA01E524D45EA7E0E26606AD595E32D /* PBXContainerItemProxy */;
+		};
+		84B3A08916B77652BF4B30D518498B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_modernpictograms";
+			target = B476BA792778CDAC45BEC5ABF558A057 /* Fontello-Swift-fontello_modernpictograms */;
+			targetProxy = 0A33A7972E8ECEEC2CA48D4FAE1E9212 /* PBXContainerItemProxy */;
+		};
+		978E17AC561AECDFD1B2836E44BDEB47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = 681BE6E3D02A43F9BA63777AC435C8FD /* GTMSessionFetcher */;
+			targetProxy = 1A03A328CAA60620DEBB3794369F63D6 /* PBXContainerItemProxy */;
+		};
+		B3FE51959FD471EE9E9158AC28FB54C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_elusive";
+			target = 773AF9ACBA871DF03A71C4DBFFCC90BB /* Fontello-Swift-fontello_elusive */;
+			targetProxy = 58FD639238D5F700806D27E141E99AB5 /* PBXContainerItemProxy */;
+		};
+		DEE41DA628933FA01DC085CB966F87C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_meteocons";
+			target = 8075330FC0D928D7B44C3CA4C8FA4DE0 /* Fontello-Swift-fontello_meteocons */;
+			targetProxy = E8D28ED352C5CD3CAB9C4E706EA4FB3B /* PBXContainerItemProxy */;
+		};
+		E411A0B09165C7E1D637C4E746566747 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_websymbols";
+			target = C73172F826638A56DDC9DFAE35674368 /* Fontello-Swift-fontello_websymbols */;
+			targetProxy = A6B6CF6A8228AA642DB44697134FBA94 /* PBXContainerItemProxy */;
+		};
+		EB6EF42050661BD57AE1C770B8B1409D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_typicons";
+			target = 2E208C17F33E09D8BEA6A806E151DFD6 /* Fontello-Swift-fontello_typicons */;
+			targetProxy = 51D4A397D9EE3394BED1FA6F31133D4C /* PBXContainerItemProxy */;
+		};
+		FB73C303A0C5168B34A9DDC390CEC66C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fontello-Swift-fontello_maki";
+			target = D5076D5832785F93851D9178A0F972C2 /* Fontello-Swift-fontello_maki */;
+			targetProxy = 1B71B46AEC95D05BA09DDC1B3DD2CD64 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0071F579325247E097E85999080FD3F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_elusive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_elusive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		01A8ABEC3BE5CC9C8664412152196FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_meteocons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_meteocons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		07E26C0C593EEFEF2B812CFF02565435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AEB91DA2BF6587AF888BB732D288AC3 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				PRODUCT_MODULE_NAME = GoogleToolboxForMac;
+				PRODUCT_NAME = GoogleToolboxForMac;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		081F173E0C82D232FAB0222C9F4A2DCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_brandico-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_brandico;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		0D07B033DD17E745C80E03654AD644AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_maki-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_maki;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		10A9523C742E7C89EDA39223C5076942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_maki-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_maki;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		188650E168AF2CB7AA6B9B69ED88F323 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B647A10F1BF09E1FC468850AD5ECA5E1 /* Pods-Swipe Rewards.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Swipe Rewards/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39D6BD7AB663823930B5469E91038264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_entypo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_entypo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		3A531D78470BDCD94855A48E75EC0D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_modernpictograms-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_modernpictograms;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		3DBF46463D03BA4C9DF76B24F9D5DB82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_fontelico-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_fontelico;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		4949C5B0538608BB4F790D0BC21FAE54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_fontelico-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_fontelico;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		540C1B20EF797E8E813BA7494F8688B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271BA81B8AA97B45E8F9ACBAC527EBC6 /* GTMOAuth2.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTMOAuth2/GTMOAuth2-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMOAuth2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GTMOAuth2/GTMOAuth2.modulemap";
+				PRODUCT_MODULE_NAME = GTMOAuth2;
+				PRODUCT_NAME = GTMOAuth2;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		56930578267F1C2A708B7E68550039F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_iconic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_iconic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		5F9916018CCA16D4B705BE42D7134CF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_websymbols-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_websymbols;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		67DFF3187E5F905CE729AD7142D5E517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_mfglabs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_mfglabs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		768321FDE50515821637D976B3E71AE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_fontawesome-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_fontawesome;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		8226CD14BF23F47F02F1AA2F2011294E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AEB91DA2BF6587AF888BB732D288AC3 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				PRODUCT_MODULE_NAME = GoogleToolboxForMac;
+				PRODUCT_NAME = GoogleToolboxForMac;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		825D6CFFD9CD2A2BBCC15A806182CCFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_zocial-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_zocial;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		85CB0722012504192AEDFF2AC824F695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		88B7A62DE8BA8FB17D4778DB35F4CB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_typicons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_typicons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		8E9B103C7C9D2EC383241F6CBA79998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_meteocons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_meteocons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B3F78CB4921CDC1E0F803A0BE78B36EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDD4A4C0C451387D7F7CDBA6FBFA072D /* Pods-Swipe Rewards.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Swipe Rewards/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B7E209B13D30439ACA24E5A807A68220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		BD4B742D596184A61C547913E38C9D12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_websymbols-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_websymbols;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C3064A3E16F2823DFEAABD69DC88E212 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Fontello-Swift/Fontello-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Fontello-Swift/Fontello-Swift.modulemap";
+				PRODUCT_MODULE_NAME = Fontello_Swift;
+				PRODUCT_NAME = Fontello_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C376BFEF22A4BC4A4E50947264EB256C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE347075C7A5F92026CBA6B6A6CA627 /* GTMSessionFetcher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
+				PRODUCT_MODULE_NAME = GTMSessionFetcher;
+				PRODUCT_NAME = GTMSessionFetcher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C51B02A4D01DE0980A8014B03274C024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_linecons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_linecons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C805295016A7587E1AF4625591347356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_linecons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_linecons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		CB57C2BB49DBA5FBC1F5DC7453C21736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE347075C7A5F92026CBA6B6A6CA627 /* GTMSessionFetcher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
+				PRODUCT_MODULE_NAME = GTMSessionFetcher;
+				PRODUCT_NAME = GTMSessionFetcher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D07D081F478561709C3D4331C62CB78E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_brandico-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_brandico;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D3BE5FA7AE279B7DD2D4536392C5217D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_modernpictograms-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_modernpictograms;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		D621E62F950F2655A7416A5D020B0579 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Fontello-Swift/Fontello-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Fontello-Swift/Fontello-Swift.modulemap";
+				PRODUCT_MODULE_NAME = Fontello_Swift;
+				PRODUCT_NAME = Fontello_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D800B1D8591A4E2CE3ACC66A57F87358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_typicons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_typicons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		E5E1367A8A9DF6F3A1CF66FC7B259031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_iconic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_iconic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		E74C68BD4FE987F7CBA7003D54735CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_elusive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_elusive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		EFEA2BACC439BF5989224926278CDC6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271BA81B8AA97B45E8F9ACBAC527EBC6 /* GTMOAuth2.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTMOAuth2/GTMOAuth2-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMOAuth2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GTMOAuth2/GTMOAuth2.modulemap";
+				PRODUCT_MODULE_NAME = GTMOAuth2;
+				PRODUCT_NAME = GTMOAuth2;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F0BF708D93735D12C70E14ECF15261F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_zocial-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_zocial;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F707E73D547C0FF871CF2AFB10AD0F05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_fontawesome-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_fontawesome;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F8776CB108331A9268AC1B45F4FDDF9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_mfglabs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_mfglabs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FC2419B5EC4F34D1BB17FF6AA922C649 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Fontello-Swift";
+				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/ResourceBundle-fontello_entypo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = fontello_entypo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0689D467F579043E9EA2DAFEFC76A879 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_websymbols" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD4B742D596184A61C547913E38C9D12 /* Debug */,
+				5F9916018CCA16D4B705BE42D7134CF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11F21EFAF50426056DD8E9077A5625A9 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_elusive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E74C68BD4FE987F7CBA7003D54735CAD /* Debug */,
+				0071F579325247E097E85999080FD3F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BB38BB9CFAAA3B6ADAF7F36D6A779FF /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_modernpictograms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3BE5FA7AE279B7DD2D4536392C5217D /* Debug */,
+				3A531D78470BDCD94855A48E75EC0D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BD8DAFE317C7070B859FD08C845284B /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_iconic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56930578267F1C2A708B7E68550039F6 /* Debug */,
+				E5E1367A8A9DF6F3A1CF66FC7B259031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7E209B13D30439ACA24E5A807A68220 /* Debug */,
+				85CB0722012504192AEDFF2AC824F695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EE8318BBF256E155822C62A0FD0BE45 /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07E26C0C593EEFEF2B812CFF02565435 /* Debug */,
+				8226CD14BF23F47F02F1AA2F2011294E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5470D27DE2C853A4D7D7BF9A12C5E3D0 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_linecons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C805295016A7587E1AF4625591347356 /* Debug */,
+				C51B02A4D01DE0980A8014B03274C024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		575FF14A70999882AF6A312BC7CA07E3 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_zocial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BF708D93735D12C70E14ECF15261F1 /* Debug */,
+				825D6CFFD9CD2A2BBCC15A806182CCFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C0FFDC31A4C041735C5C7B5D1B5EF1E /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_fontawesome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F707E73D547C0FF871CF2AFB10AD0F05 /* Debug */,
+				768321FDE50515821637D976B3E71AE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66D00850CF1CC15FE7D5E0E32FC487D7 /* Build configuration list for PBXNativeTarget "Pods-Swipe Rewards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3F78CB4921CDC1E0F803A0BE78B36EE /* Debug */,
+				188650E168AF2CB7AA6B9B69ED88F323 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		878C3C7F3F474C2F4AD6A269D1366088 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_maki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10A9523C742E7C89EDA39223C5076942 /* Debug */,
+				0D07B033DD17E745C80E03654AD644AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A7C07304502F5AE0B3F8675FC0A3140 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_typicons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B7A62DE8BA8FB17D4778DB35F4CB28 /* Debug */,
+				D800B1D8591A4E2CE3ACC66A57F87358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C58C5ED47BAB3EB8B450C584E1979025 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_brandico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081F173E0C82D232FAB0222C9F4A2DCD /* Debug */,
+				D07D081F478561709C3D4331C62CB78E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E07B551BF5AEA32D91C7CA76597E3596 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_fontelico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBF46463D03BA4C9DF76B24F9D5DB82 /* Debug */,
+				4949C5B0538608BB4F790D0BC21FAE54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF928BF2F01518F749D082937A8FCE15 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_mfglabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8776CB108331A9268AC1B45F4FDDF9F /* Debug */,
+				67DFF3187E5F905CE729AD7142D5E517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFC6FDF0A36E8D94AB02E27F123E1E33 /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C376BFEF22A4BC4A4E50947264EB256C /* Debug */,
+				CB57C2BB49DBA5FBC1F5DC7453C21736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7386EA4622F44B9C84AAEFE48F03B51 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_entypo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC2419B5EC4F34D1BB17FF6AA922C649 /* Debug */,
+				39D6BD7AB663823930B5469E91038264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F937C73C002A8129B32E7CB59BE01687 /* Build configuration list for PBXNativeTarget "Fontello-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3064A3E16F2823DFEAABD69DC88E212 /* Debug */,
+				D621E62F950F2655A7416A5D020B0579 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB158E1F36AA30684612A296A5755DC7 /* Build configuration list for PBXNativeTarget "GTMOAuth2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFEA2BACC439BF5989224926278CDC6C /* Debug */,
+				540C1B20EF797E8E813BA7494F8688B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB528558743DD796608AC419930C9F81 /* Build configuration list for PBXNativeTarget "Fontello-Swift-fontello_meteocons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A8ABEC3BE5CC9C8664412152196FF8 /* Debug */,
+				8E9B103C7C9D2EC383241F6CBA79998C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
