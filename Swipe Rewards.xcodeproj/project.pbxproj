@@ -7,14 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
+		8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
+		8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
+		8E1E053920EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
+		8E1E053A20EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
+		8E1E053B20EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
 		8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C4C20E3BA38000CF233 /* AppDelegate.swift */; };
-		8E636C4F20E3BA38000CF233 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C4E20E3BA38000CF233 /* ViewController.swift */; };
+		8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C4E20E3BA38000CF233 /* SignInController.swift */; };
 		8E636C5220E3BA38000CF233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5020E3BA38000CF233 /* Main.storyboard */; };
 		8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */; };
 		8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5620E3BA3A000CF233 /* Assets.xcassets */; };
 		8E636C5A20E3BA3A000CF233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */; };
 		8E636C6520E3BA3A000CF233 /* Swipe_RewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6420E3BA3A000CF233 /* Swipe_RewardsTests.swift */; };
 		8E636C7020E3BA3A000CF233 /* Swipe_RewardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */; };
+		8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
+		8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
+		8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
+		8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34520EB989400604B37 /* swipelogo.ttf */; };
+		8EF1D34720EB989400604B37 /* swipelogo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34520EB989400604B37 /* swipelogo.ttf */; };
+		8EF1D34820EB989400604B37 /* swipelogo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34520EB989400604B37 /* swipelogo.ttf */; };
+		8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */; };
+		8EF1D34C20EB997C00604B37 /* FontSwipeLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */; };
+		8EF1D34D20EB997C00604B37 /* FontSwipeLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */; };
+		8EF1D35E20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34E20EBA76A00604B37 /* SFProDisplay-Light.ttf */; };
+		8EF1D35F20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34E20EBA76A00604B37 /* SFProDisplay-Light.ttf */; };
+		8EF1D36020EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34E20EBA76A00604B37 /* SFProDisplay-Light.ttf */; };
+		8EF1D36120EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34F20EBA76A00604B37 /* SFProDisplay-Thin.ttf */; };
+		8EF1D36220EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34F20EBA76A00604B37 /* SFProDisplay-Thin.ttf */; };
+		8EF1D36320EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D34F20EBA76A00604B37 /* SFProDisplay-Thin.ttf */; };
+		8EF1D36420EBA76D00604B37 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35020EBA76A00604B37 /* SFProText-Medium.ttf */; };
+		8EF1D36520EBA76D00604B37 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35020EBA76A00604B37 /* SFProText-Medium.ttf */; };
+		8EF1D36620EBA76D00604B37 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35020EBA76A00604B37 /* SFProText-Medium.ttf */; };
+		8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35120EBA76A00604B37 /* SFProDisplay-SemiBold.ttf */; };
+		8EF1D36820EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35120EBA76A00604B37 /* SFProDisplay-SemiBold.ttf */; };
+		8EF1D36920EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35120EBA76A00604B37 /* SFProDisplay-SemiBold.ttf */; };
+		8EF1D36A20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35220EBA76B00604B37 /* SFProDisplay-UltraLight.ttf */; };
+		8EF1D36B20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35220EBA76B00604B37 /* SFProDisplay-UltraLight.ttf */; };
+		8EF1D36C20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35220EBA76B00604B37 /* SFProDisplay-UltraLight.ttf */; };
+		8EF1D36D20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35320EBA76B00604B37 /* SFProText-Regular.ttf */; };
+		8EF1D36E20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35320EBA76B00604B37 /* SFProText-Regular.ttf */; };
+		8EF1D36F20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35320EBA76B00604B37 /* SFProText-Regular.ttf */; };
+		8EF1D37020EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35420EBA76B00604B37 /* SFProText-SemiBold.ttf */; };
+		8EF1D37120EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35420EBA76B00604B37 /* SFProText-SemiBold.ttf */; };
+		8EF1D37220EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35420EBA76B00604B37 /* SFProText-SemiBold.ttf */; };
+		8EF1D37320EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35520EBA76B00604B37 /* SFProText-Heavy.ttf */; };
+		8EF1D37420EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35520EBA76B00604B37 /* SFProText-Heavy.ttf */; };
+		8EF1D37520EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35520EBA76B00604B37 /* SFProText-Heavy.ttf */; };
+		8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35620EBA76B00604B37 /* SFProDisplay-BlackItalic.ttf */; };
+		8EF1D37720EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35620EBA76B00604B37 /* SFProDisplay-BlackItalic.ttf */; };
+		8EF1D37820EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35620EBA76B00604B37 /* SFProDisplay-BlackItalic.ttf */; };
+		8EF1D37920EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35720EBA76C00604B37 /* SFProDisplay-Heavy.ttf */; };
+		8EF1D37A20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35720EBA76C00604B37 /* SFProDisplay-Heavy.ttf */; };
+		8EF1D37B20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35720EBA76C00604B37 /* SFProDisplay-Heavy.ttf */; };
+		8EF1D37C20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35820EBA76C00604B37 /* SFProDisplay-Medium.ttf */; };
+		8EF1D37D20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35820EBA76C00604B37 /* SFProDisplay-Medium.ttf */; };
+		8EF1D37E20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35820EBA76C00604B37 /* SFProDisplay-Medium.ttf */; };
+		8EF1D37F20EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35920EBA76C00604B37 /* SFProDisplay-Bold.ttf */; };
+		8EF1D38020EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35920EBA76C00604B37 /* SFProDisplay-Bold.ttf */; };
+		8EF1D38120EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35920EBA76C00604B37 /* SFProDisplay-Bold.ttf */; };
+		8EF1D38220EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35A20EBA76C00604B37 /* SFProDisplay-Black.ttf */; };
+		8EF1D38320EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35A20EBA76C00604B37 /* SFProDisplay-Black.ttf */; };
+		8EF1D38420EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35A20EBA76C00604B37 /* SFProDisplay-Black.ttf */; };
+		8EF1D38520EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35B20EBA76C00604B37 /* SFProDisplay-Regular.ttf */; };
+		8EF1D38620EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35B20EBA76C00604B37 /* SFProDisplay-Regular.ttf */; };
+		8EF1D38720EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35B20EBA76C00604B37 /* SFProDisplay-Regular.ttf */; };
+		8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35C20EBA76D00604B37 /* SFProText-Bold.ttf */; };
+		8EF1D38920EBA76D00604B37 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35C20EBA76D00604B37 /* SFProText-Bold.ttf */; };
+		8EF1D38A20EBA76D00604B37 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35C20EBA76D00604B37 /* SFProText-Bold.ttf */; };
+		8EF1D38B20EBA76D00604B37 /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35D20EBA76D00604B37 /* SFProText-Light.ttf */; };
+		8EF1D38C20EBA76D00604B37 /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35D20EBA76D00604B37 /* SFProText-Light.ttf */; };
+		8EF1D38D20EBA76D00604B37 /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1D35D20EBA76D00604B37 /* SFProText-Light.ttf */; };
+		8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */; };
+		8EF1D39120EBAC6E00604B37 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */; };
+		8EF1D39220EBAC6E00604B37 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */; };
+		8EFDF82C20E4B0A7008586F3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82820E4B0A5008586F3 /* Bolts.framework */; };
+		8EFDF82D20E4B0A7008586F3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82820E4B0A5008586F3 /* Bolts.framework */; };
+		8EFDF82E20E4B0A7008586F3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82820E4B0A5008586F3 /* Bolts.framework */; };
+		8EFDF82F20E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */; };
+		8EFDF83020E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */; };
+		8EFDF83120E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */; };
+		8EFDF83220E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */; };
+		8EFDF83320E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */; };
+		8EFDF83420E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */; };
+		8EFDF83520E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
+		8EFDF83620E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
+		8EFDF83720E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
+		8EFDF84220E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
+		8EFDF84320E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
+		8EFDF84420E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
+		CD79C2ED61DAD75C7BC95B8B /* Pods_Swipe_Rewards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2885E6A4437E21C2272B23A /* Pods_Swipe_Rewards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +117,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180724A3112F76AB7218229F /* Pods-Swipe Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.debug.xcconfig"; sourceTree = "<group>"; };
+		6F9E6B04F2DCFCE5658FBD83 /* Pods-Swipe Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.release.xcconfig"; sourceTree = "<group>"; };
+		8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		8E1E053820EA4D4A001C1328 /* swipe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe.ttf; sourceTree = "<group>"; };
 		8E636C4920E3BA38000CF233 /* Swipe Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swipe Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C4C20E3BA38000CF233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8E636C4E20E3BA38000CF233 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8E636C4E20E3BA38000CF233 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		8E636C5120E3BA38000CF233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E636C5420E3BA38000CF233 /* Swipe_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swipe_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		8E636C5620E3BA3A000CF233 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +135,32 @@
 		8E636C6B20E3BA3A000CF233 /* Swipe RewardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swipe RewardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe_RewardsUITests.swift; sourceTree = "<group>"; };
 		8E636C7120E3BA3B000CF233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF1D34020EB53A000604B37 /* FontSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipe.swift; sourceTree = "<group>"; };
+		8EF1D34520EB989400604B37 /* swipelogo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipelogo.ttf; sourceTree = "<group>"; };
+		8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipeLogo.swift; sourceTree = "<group>"; };
+		8EF1D34E20EBA76A00604B37 /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
+		8EF1D34F20EBA76A00604B37 /* SFProDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.ttf"; sourceTree = "<group>"; };
+		8EF1D35020EBA76A00604B37 /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		8EF1D35120EBA76A00604B37 /* SFProDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		8EF1D35220EBA76B00604B37 /* SFProDisplay-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-UltraLight.ttf"; sourceTree = "<group>"; };
+		8EF1D35320EBA76B00604B37 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		8EF1D35420EBA76B00604B37 /* SFProText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-SemiBold.ttf"; sourceTree = "<group>"; };
+		8EF1D35520EBA76B00604B37 /* SFProText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Heavy.ttf"; sourceTree = "<group>"; };
+		8EF1D35620EBA76B00604B37 /* SFProDisplay-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BlackItalic.ttf"; sourceTree = "<group>"; };
+		8EF1D35720EBA76C00604B37 /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; };
+		8EF1D35820EBA76C00604B37 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		8EF1D35920EBA76C00604B37 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		8EF1D35A20EBA76C00604B37 /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
+		8EF1D35B20EBA76C00604B37 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		8EF1D35C20EBA76D00604B37 /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
+		8EF1D35D20EBA76D00604B37 /* SFProText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.ttf"; sourceTree = "<group>"; };
+		8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		8EFDF82820E4B0A5008586F3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8EFDF84120E4EC3A008586F3 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		C2885E6A4437E21C2272B23A /* Pods_Swipe_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipe_Rewards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +168,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFDF83520E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */,
+				8EFDF82F20E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */,
+				8EFDF83220E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */,
+				8EFDF82C20E4B0A7008586F3 /* Bolts.framework in Frameworks */,
+				CD79C2ED61DAD75C7BC95B8B /* Pods_Swipe_Rewards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +180,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFDF83620E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */,
+				8EFDF83020E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */,
+				8EFDF83320E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */,
+				8EFDF82D20E4B0A7008586F3 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +191,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFDF83720E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */,
+				8EFDF83120E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */,
+				8EFDF83420E4B0A7008586F3 /* FBSDKCoreKit.framework in Frameworks */,
+				8EFDF82E20E4B0A7008586F3 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BE1F99CD372DD33D223F173 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				180724A3112F76AB7218229F /* Pods-Swipe Rewards.debug.xcconfig */,
+				6F9E6B04F2DCFCE5658FBD83 /* Pods-Swipe Rewards.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E1E053320EA019F001C1328 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		8E636C4020E3BA38000CF233 = {
 			isa = PBXGroup;
 			children = (
 				8E636C4B20E3BA38000CF233 /* Swipe Rewards */,
+				8EFDF82720E4B083008586F3 /* Frameworks */,
 				8E636C6320E3BA3A000CF233 /* Swipe RewardsTests */,
 				8E636C6E20E3BA3A000CF233 /* Swipe RewardsUITests */,
 				8E636C4A20E3BA38000CF233 /* Products */,
+				7BE1F99CD372DD33D223F173 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +243,17 @@
 		8E636C4B20E3BA38000CF233 /* Swipe Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
+				8EF1D34920EB98B800604B37 /* Model */,
+				8E1E053320EA019F001C1328 /* Interfaces */,
 				8E636C4C20E3BA38000CF233 /* AppDelegate.swift */,
-				8E636C4E20E3BA38000CF233 /* ViewController.swift */,
+				8E636C4E20E3BA38000CF233 /* SignInController.swift */,
+				8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */,
 				8E636C5020E3BA38000CF233 /* Main.storyboard */,
 				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
 				8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
+				8EFDF84120E4EC3A008586F3 /* credentials.plist */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
 			path = "Swipe Rewards";
@@ -128,6 +277,52 @@
 			path = "Swipe RewardsUITests";
 			sourceTree = "<group>";
 		};
+		8EF1D34920EB98B800604B37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EF1D34020EB53A000604B37 /* FontSwipe.swift */,
+				8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8EF1D38E20EBA78B00604B37 /* SwipeFonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E1E053820EA4D4A001C1328 /* swipe.ttf */,
+				8EF1D34520EB989400604B37 /* swipelogo.ttf */,
+				8EF1D35A20EBA76C00604B37 /* SFProDisplay-Black.ttf */,
+				8EF1D35620EBA76B00604B37 /* SFProDisplay-BlackItalic.ttf */,
+				8EF1D35920EBA76C00604B37 /* SFProDisplay-Bold.ttf */,
+				8EF1D35720EBA76C00604B37 /* SFProDisplay-Heavy.ttf */,
+				8EF1D34E20EBA76A00604B37 /* SFProDisplay-Light.ttf */,
+				8EF1D35820EBA76C00604B37 /* SFProDisplay-Medium.ttf */,
+				8EF1D35B20EBA76C00604B37 /* SFProDisplay-Regular.ttf */,
+				8EF1D35120EBA76A00604B37 /* SFProDisplay-SemiBold.ttf */,
+				8EF1D34F20EBA76A00604B37 /* SFProDisplay-Thin.ttf */,
+				8EF1D35220EBA76B00604B37 /* SFProDisplay-UltraLight.ttf */,
+				8EF1D35C20EBA76D00604B37 /* SFProText-Bold.ttf */,
+				8EF1D35520EBA76B00604B37 /* SFProText-Heavy.ttf */,
+				8EF1D35D20EBA76D00604B37 /* SFProText-Light.ttf */,
+				8EF1D35020EBA76A00604B37 /* SFProText-Medium.ttf */,
+				8EF1D35320EBA76B00604B37 /* SFProText-Regular.ttf */,
+				8EF1D35420EBA76B00604B37 /* SFProText-SemiBold.ttf */,
+			);
+			path = SwipeFonts;
+			sourceTree = "<group>";
+		};
+		8EFDF82720E4B083008586F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EFDF82820E4B0A5008586F3 /* Bolts.framework */,
+				8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */,
+				8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */,
+				8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */,
+				C2885E6A4437E21C2272B23A /* Pods_Swipe_Rewards.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +330,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E636C7420E3BA3B000CF233 /* Build configuration list for PBXNativeTarget "Swipe Rewards" */;
 			buildPhases = (
+				D15726D94A2CB89C2F6F8348 /* [CP] Check Pods Manifest.lock */,
 				8E636C4520E3BA38000CF233 /* Sources */,
 				8E636C4620E3BA38000CF233 /* Frameworks */,
 				8E636C4720E3BA38000CF233 /* Resources */,
+				23EE140CE6E04A6F6BC339DE /* [CP] Copy Pods Resources */,
+				3704AD4EDE2DE27520650CCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,8 +430,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D37C20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */,
+				8EF1D36420EBA76D00604B37 /* SFProText-Medium.ttf in Resources */,
 				8E636C5A20E3BA3A000CF233 /* LaunchScreen.storyboard in Resources */,
+				8EF1D38520EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
+				8EF1D37320EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
+				8EF1D38B20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
+				8EF1D36120EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
+				8EFDF84220E4EC3A008586F3 /* credentials.plist in Resources */,
+				8EF1D38220EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
+				8EF1D37020EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
+				8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
+				8EF1D36A20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
+				8EF1D37F20EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */,
+				8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
+				8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
+				8EF1D36D20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
+				8EF1D35E20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
+				8EF1D37920EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
 				8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */,
+				8E1E053920EA4D4A001C1328 /* swipe.ttf in Resources */,
 				8E636C5220E3BA38000CF233 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +459,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D37720EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
+				8EFDF84320E4EC3A008586F3 /* credentials.plist in Resources */,
+				8EF1D36820EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
+				8EF1D36220EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
+				8EF1D37420EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
+				8E1E053A20EA4D4A001C1328 /* swipe.ttf in Resources */,
+				8EF1D36B20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
+				8EF1D38920EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
+				8EF1D37D20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */,
+				8EF1D37120EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
+				8EF1D36520EBA76D00604B37 /* SFProText-Medium.ttf in Resources */,
+				8EF1D34720EB989400604B37 /* swipelogo.ttf in Resources */,
+				8EF1D36E20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
+				8EF1D38320EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
+				8EF1D38020EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8EF1D38620EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
+				8EF1D37A20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
+				8EF1D35F20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
+				8EF1D38C20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,19 +485,105 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D37820EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
+				8EFDF84420E4EC3A008586F3 /* credentials.plist in Resources */,
+				8EF1D36920EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
+				8EF1D36320EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
+				8EF1D37520EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
+				8E1E053B20EA4D4A001C1328 /* swipe.ttf in Resources */,
+				8EF1D36C20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
+				8EF1D38A20EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
+				8EF1D37E20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */,
+				8EF1D37220EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
+				8EF1D36620EBA76D00604B37 /* SFProText-Medium.ttf in Resources */,
+				8EF1D34820EB989400604B37 /* swipelogo.ttf in Resources */,
+				8EF1D36F20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
+				8EF1D38420EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
+				8EF1D38120EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8EF1D38720EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
+				8EF1D37B20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
+				8EF1D36020EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
+				8EF1D38D20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23EE140CE6E04A6F6BC339DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3704AD4EDE2DE27520650CCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fontello-Swift/Fontello_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fontello_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D15726D94A2CB89C2F6F8348 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swipe Rewards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E636C4520E3BA38000CF233 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
-				8E636C4F20E3BA38000CF233 /* ViewController.swift in Sources */,
+				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */,
+				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */,
+				8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +591,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D39120EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E636C6520E3BA3A000CF233 /* Swipe_RewardsTests.swift in Sources */,
+				8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
+				8EF1D34C20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
+				8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +603,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF1D39220EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E636C7020E3BA3A000CF233 /* Swipe_RewardsUITests.swift in Sources */,
+				8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
+				8EF1D34D20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
+				8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +762,16 @@
 		};
 		8E636C7520E3BA3B000CF233 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180724A3112F76AB7218229F /* Pods-Swipe Rewards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,10 +785,16 @@
 		};
 		8E636C7620E3BA3B000CF233 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F9E6B04F2DCFCE5658FBD83 /* Pods-Swipe Rewards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,6 +812,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe RewardsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +836,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe RewardsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,6 +859,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe RewardsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +882,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Swipe RewardsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
