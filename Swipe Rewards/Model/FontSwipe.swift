@@ -11,6 +11,8 @@ import Fontello_Swift
 
 class FontSwipe: NSObject {
     
+    
+    
         enum FontSwipe: String {
         case Username = "\u{e811}"
         case Wallet = "\u{e800}"

@@ -1,14 +1,14 @@
 //
-//  SignUpController.swift
+//  WalletController.swift
 //  Swipe Rewards
 //
-//  Created by Bharathan on 03/07/18.
+//  Created by Bharathan on 04/07/18.
 //  Copyright © 2018 SwipeRewards. All rights reserved.
 //
 
 import UIKit
 
-class SignUpController: UIViewController {
+class WalletController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

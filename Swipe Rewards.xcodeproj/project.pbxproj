@@ -21,6 +21,33 @@
 		8E636C5A20E3BA3A000CF233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */; };
 		8E636C6520E3BA3A000CF233 /* Swipe_RewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6420E3BA3A000CF233 /* Swipe_RewardsTests.swift */; };
 		8E636C7020E3BA3A000CF233 /* Swipe_RewardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */; };
+		8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
+		8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
+		8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
+		8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
+		8E95A7DE20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
+		8E95A7DF20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
+		8E95A7E020ECD38700C22263 /* Retailshoplistcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */; };
+		8E95A7E120ECD38700C22263 /* Retailshoplistcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */; };
+		8E95A7E220ECD38700C22263 /* Retailshoplistcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */; };
+		8E95A7E420ECE1B100C22263 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E320ECE1B100C22263 /* SettingsController.swift */; };
+		8E95A7E520ECE1B100C22263 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E320ECE1B100C22263 /* SettingsController.swift */; };
+		8E95A7E620ECE1B100C22263 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E320ECE1B100C22263 /* SettingsController.swift */; };
+		8E95A7E820ECE1C400C22263 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E720ECE1C400C22263 /* HistoryController.swift */; };
+		8E95A7E920ECE1C400C22263 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E720ECE1C400C22263 /* HistoryController.swift */; };
+		8E95A7EA20ECE1C400C22263 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7E720ECE1C400C22263 /* HistoryController.swift */; };
+		8E95A7EC20ECE1D900C22263 /* WalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EB20ECE1D900C22263 /* WalletController.swift */; };
+		8E95A7ED20ECE1D900C22263 /* WalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EB20ECE1D900C22263 /* WalletController.swift */; };
+		8E95A7EE20ECE1D900C22263 /* WalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EB20ECE1D900C22263 /* WalletController.swift */; };
+		8E95A7F020ECE1EC00C22263 /* RedeemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */; };
+		8E95A7F120ECE1EC00C22263 /* RedeemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */; };
+		8E95A7F220ECE1EC00C22263 /* RedeemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */; };
+		8E95A7F520ECE89F00C22263 /* SettingslistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7F320ECE89F00C22263 /* SettingslistCell.swift */; };
+		8E95A7F620ECE89F00C22263 /* SettingslistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7F320ECE89F00C22263 /* SettingslistCell.swift */; };
+		8E95A7F720ECE89F00C22263 /* SettingslistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7F320ECE89F00C22263 /* SettingslistCell.swift */; };
+		8E95A7F820ECE89F00C22263 /* SettingslistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7F420ECE89F00C22263 /* SettingslistCell.xib */; };
+		8E95A7F920ECE89F00C22263 /* SettingslistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7F420ECE89F00C22263 /* SettingslistCell.xib */; };
+		8E95A7FA20ECE89F00C22263 /* SettingslistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A7F420ECE89F00C22263 /* SettingslistCell.xib */; };
 		8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
@@ -135,6 +162,16 @@
 		8E636C6B20E3BA3A000CF233 /* Swipe RewardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swipe RewardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe_RewardsUITests.swift; sourceTree = "<group>"; };
 		8E636C7120E3BA3B000CF233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E95A7D420ECA2E400C22263 /* Swipe Rewards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swipe Rewards-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E95A7D520ECC18400C22263 /* UserDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
+		8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retailshoplistcell.swift; sourceTree = "<group>"; };
+		8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Retailshoplistcell.xib; sourceTree = "<group>"; };
+		8E95A7E320ECE1B100C22263 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		8E95A7E720ECE1C400C22263 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		8E95A7EB20ECE1D900C22263 /* WalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletController.swift; sourceTree = "<group>"; };
+		8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemController.swift; sourceTree = "<group>"; };
+		8E95A7F320ECE89F00C22263 /* SettingslistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingslistCell.swift; sourceTree = "<group>"; };
+		8E95A7F420ECE89F00C22263 /* SettingslistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingslistCell.xib; sourceTree = "<group>"; };
 		8EF1D34020EB53A000604B37 /* FontSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipe.swift; sourceTree = "<group>"; };
 		8EF1D34520EB989400604B37 /* swipelogo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipelogo.ttf; sourceTree = "<group>"; };
 		8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipeLogo.swift; sourceTree = "<group>"; };
@@ -213,7 +250,10 @@
 		8E1E053320EA019F001C1328 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */,
+				8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */,
+				8E95A7F320ECE89F00C22263 /* SettingslistCell.swift */,
+				8E95A7F420ECE89F00C22263 /* SettingslistCell.xib */,
+				8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -245,14 +285,14 @@
 			children = (
 				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
 				8EF1D34920EB98B800604B37 /* Model */,
+				8E95A7DA20ECD1CA00C22263 /* View */,
+				8E95A7D920ECD18700C22263 /* Controller */,
 				8E1E053320EA019F001C1328 /* Interfaces */,
 				8E636C4C20E3BA38000CF233 /* AppDelegate.swift */,
-				8E636C4E20E3BA38000CF233 /* SignInController.swift */,
-				8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */,
-				8E636C5020E3BA38000CF233 /* Main.storyboard */,
 				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
 				8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
+				8E95A7D420ECA2E400C22263 /* Swipe Rewards-Bridging-Header.h */,
 				8EFDF84120E4EC3A008586F3 /* credentials.plist */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
@@ -277,11 +317,34 @@
 			path = "Swipe RewardsUITests";
 			sourceTree = "<group>";
 		};
+		8E95A7D920ECD18700C22263 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E636C4E20E3BA38000CF233 /* SignInController.swift */,
+				8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */,
+				8E95A7D520ECC18400C22263 /* UserDashboardController.swift */,
+				8E95A7EB20ECE1D900C22263 /* WalletController.swift */,
+				8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */,
+				8E95A7E320ECE1B100C22263 /* SettingsController.swift */,
+				8E95A7E720ECE1C400C22263 /* HistoryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E95A7DA20ECD1CA00C22263 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E636C5020E3BA38000CF233 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8EF1D34920EB98B800604B37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				8EF1D34020EB53A000604B37 /* FontSwipe.swift */,
 				8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */,
+				8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,10 +506,12 @@
 				8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
 				8EF1D36A20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
 				8EF1D37F20EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8E95A7E020ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */,
 				8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
 				8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8EF1D36D20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
+				8E95A7F820ECE89F00C22263 /* SettingslistCell.xib in Resources */,
 				8EF1D35E20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
 				8EF1D37920EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
 				8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */,
@@ -474,9 +539,11 @@
 				8EF1D36E20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
 				8EF1D38320EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
 				8EF1D38020EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8E95A7F920ECE89F00C22263 /* SettingslistCell.xib in Resources */,
 				8EF1D38620EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
 				8EF1D37A20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
 				8EF1D35F20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
+				8E95A7E120ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D38C20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,9 +567,11 @@
 				8EF1D36F20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
 				8EF1D38420EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
 				8EF1D38120EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8E95A7FA20ECE89F00C22263 /* SettingslistCell.xib in Resources */,
 				8EF1D38720EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
 				8EF1D37B20EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
 				8EF1D36020EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
+				8E95A7E220ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D38D20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,12 +646,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
 				8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
 				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */,
+				8E95A7EC20ECE1D900C22263 /* WalletController.swift in Sources */,
+				8E95A7E420ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,
+				8E95A7E820ECE1C400C22263 /* HistoryController.swift in Sources */,
+				8E95A7F520ECE89F00C22263 /* SettingslistCell.swift in Sources */,
 				8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */,
+				8E95A7F020ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,11 +667,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E95A7E520ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D39120EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E95A7F620ECE89F00C22263 /* SettingslistCell.swift in Sources */,
 				8E636C6520E3BA3A000CF233 /* Swipe_RewardsTests.swift in Sources */,
 				8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
+				8E95A7E920ECE1C400C22263 /* HistoryController.swift in Sources */,
 				8EF1D34C20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */,
+				8E95A7DE20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
+				8E95A7ED20ECE1D900C22263 /* WalletController.swift in Sources */,
+				8E95A7F120ECE1EC00C22263 /* RedeemController.swift in Sources */,
+				8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,11 +686,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E95A7E620ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D39220EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E95A7F720ECE89F00C22263 /* SettingslistCell.swift in Sources */,
 				8E636C7020E3BA3A000CF233 /* Swipe_RewardsUITests.swift in Sources */,
 				8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
+				8E95A7EA20ECE1C400C22263 /* HistoryController.swift in Sources */,
 				8EF1D34D20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */,
+				8E95A7DF20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
+				8E95A7EE20ECE1D900C22263 /* WalletController.swift in Sources */,
+				8E95A7F220ECE1EC00C22263 /* RedeemController.swift in Sources */,
+				8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,9 +859,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Swipe Rewards/Swipe Rewards-Bridging-Header.h\"",
 				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -794,7 +885,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
