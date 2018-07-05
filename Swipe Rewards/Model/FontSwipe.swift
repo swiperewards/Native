@@ -70,6 +70,8 @@ class FontSwipe: NSObject {
     
     func fontOfSize(_ fontSize: CGFloat) -> UIFont {
         return Fontello.fontOfSize(fontSize, name: "swipe")
+        
+        
     }
     func stringWithName(_ name: FontSwipe) -> String {
         return name.rawValue.substring(to: name.rawValue.characters.index(name.rawValue.startIndex, offsetBy: 1))

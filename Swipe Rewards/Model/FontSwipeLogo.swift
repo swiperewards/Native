@@ -10,6 +10,8 @@ import UIKit
 import Fontello_Swift
 class FontSwipeLogo: NSObject {
 
+    
+    
     enum FontSwipeLogo: String {
         case Swipelogo = "\u{e800}"}
     let FontSwipeLogoIcons : Dictionary = [

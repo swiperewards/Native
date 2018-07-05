@@ -12,9 +12,16 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var DashboardView: UIView!
     @IBOutlet weak var Retailshoplist: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "HOME"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.topItem?.title = "HOME"
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
         
         

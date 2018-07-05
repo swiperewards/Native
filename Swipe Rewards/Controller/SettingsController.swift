@@ -18,18 +18,45 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let fontswipe = FontSwipe()
     var fontData = [[:]]
     
+    private let settingsTitlearray = ["Notification",
+                                      "Change Password",
+                                      "Contact Us",
+                                      "Privacy & Security",
+                                      "Terms of Use",
+                                      "Sign Out"]
     
+    private var settingsIconArray = NSArray()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
+        
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+
+
+        
+//      settingsIconArray =  [fontswipe.stringWithName(.Notification),
+//         fontswipe.stringWithName(.Password),
+//         fontswipe.stringWithName(.Contact),
+//         fontswipe.stringWithName(.Privacysecurity),
+//         fontswipe.stringWithName(.Termsofuse),
+//         fontswipe.stringWithName(.Signout)]
+//
+        
         
         fontData = [
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Notification) + "   Notification" ],
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Password) + "   Change Password"],
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Contact) + "   Contact Us"],
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Privacysecurity) + "   Privacy & Security"],
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Termsofuse) + "   Terms of Use"],
-    ["font":fontswipe.fontOfSize(19), "text":fontswipe.stringWithName(.Signout) + "   Sign Out"]
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Notification)  ],
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Password) ],
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Contact) ],
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Privacysecurity) ],
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Termsofuse)],
+    ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Signout) ]
         ]
         
         let maskLayer = CAShapeLayer(layer: SettingsView.layer)
@@ -62,7 +89,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fontData.count
+        return settingsTitlearray.count
     }
     
     // Cell
@@ -70,19 +97,17 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingslistCell", for: indexPath) as! SettingslistCell
         
-        cell.textLabel?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        cell.SettingsTitle?.font = fontData[indexPath.row]["font"] as! UIFont
-        cell.SettingsTitle?.text = fontData[indexPath.row]["text"] as? String
-        
+        cell.SettingsTitle?.text = settingsTitlearray[indexPath.row]
+        cell.SettingsIcon?.text =  fontData[indexPath.row]["text"] as? String
+        cell.SettingsIcon?.font =  fontData[indexPath.row]["font"] as! UIFont
+        cell.SettingsIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+
         if indexPath.row == 0 {
             cell.NotificationSwitch.isHidden = false
         }else {
             cell.NotificationSwitch.isHidden = true
         }
         
-        
-        //        cell.titlelab.text = ((responseArray[indexPath.row] as AnyObject).value(forKey: "projecttitle") as? String)!
-        //        cell.tasktitlelab.text = ((responseArray[indexPath.row] as AnyObject).value(forKey: "task_title") as? String)!
         
         return cell
     }

@@ -1,18 +1,17 @@
 //
-//  SettingslistCell.swift
+//  WalletCardsCell.swift
 //  Swipe Rewards
 //
-//  Created by Bharathan on 04/07/18.
+//  Created by Bharathan on 05/07/18.
 //  Copyright © 2018 SwipeRewards. All rights reserved.
 //
 
 import UIKit
 
-class SettingslistCell: UITableViewCell {
-    @IBOutlet weak var SettingsTitle: UILabel!
-    @IBOutlet weak var NotificationSwitch: UISwitch!
-    @IBOutlet weak var SettingsIcon: UILabel!
-    
+class WalletCardsCell: UITableViewCell {
+
+    @IBOutlet weak var CardIcon: UILabel!
+    @IBOutlet weak var CardNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

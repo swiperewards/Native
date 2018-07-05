@@ -20,3 +20,5 @@ FOUNDATION_EXPORT double Fontello_SwiftVersionNumber;
 FOUNDATION_EXPORT const unsigned char Fontello_SwiftVersionString[];
 
 #endif /* Swipe_Rewards_Bridging_Header_h */
+
+

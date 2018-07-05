@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -245,17 +245,17 @@
 		0A44505B9B87AC1522A7F6D74ED0E5EF /* GTMReadMonitorInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMReadMonitorInputStream.m; path = Source/GTMReadMonitorInputStream.m; sourceTree = "<group>"; };
 		0B586908EBAF58DC7FAB356E5C4E5AA5 /* Entypo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entypo.swift; path = "Fontello-Swift/Fontello-Swift/Entypo.swift"; sourceTree = "<group>"; };
 		0B8FBD11A6C4F9E90FFF1A1C17F84B05 /* GTMGatherInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGatherInputStream.h; path = Source/GTMGatherInputStream.h; sourceTree = "<group>"; };
-		0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_iconic.bundle; path = "Fontello-Swift-fontello_iconic.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		110AD36118B6957DB8E796642B38BCEA /* fontello_meteocons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_meteocons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_meteocons.ttf"; sourceTree = "<group>"; };
-		12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_zocial.bundle; path = "Fontello-Swift-fontello_zocial.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		162FECDA26F7F8D1B0758E6A6F65E024 /* fontello_iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_iconic.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_iconic.ttf"; sourceTree = "<group>"; };
+		0F559658BC17B0B50EE8A154BD3BCAC0 /* fontello_iconic.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_iconic.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		110AD36118B6957DB8E796642B38BCEA /* fontello_meteocons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_meteocons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_meteocons.ttf"; sourceTree = "<group>"; };
+		12E51C56B7DEAB11F7404500E4D5D0F5 /* fontello_zocial.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_zocial.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		162FECDA26F7F8D1B0758E6A6F65E024 /* fontello_iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_iconic.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_iconic.ttf"; sourceTree = "<group>"; };
 		16862276526FE817D35D6C7D4F80B449 /* Typicons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typicons.swift; path = "Fontello-Swift/Fontello-Swift/Typicons.swift"; sourceTree = "<group>"; };
 		1718466E3B6763727F44F48C32642BEF /* Meteocons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Meteocons.swift; path = "Fontello-Swift/Fontello-Swift/Meteocons.swift"; sourceTree = "<group>"; };
 		1AA7FFD413295E2F1C1554601819948B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1B27153E498A49BAEBC340FAB726F654 /* GTMSessionFetcher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTMSessionFetcher-dummy.m"; sourceTree = "<group>"; };
 		1B807D402C37616B2BDDE8C4EA5FE498 /* ResourceBundle-fontello_typicons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_typicons-Info.plist"; sourceTree = "<group>"; };
 		1BFE1DF64267DD1B886A2EDAA04865CF /* GTMSessionFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherLogging.h; path = Source/GTMSessionFetcherLogging.h; sourceTree = "<group>"; };
-		1F2CD4FC31E80E16B7A1D7DE2F0B7772 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fontello_Swift.framework; path = "Fontello-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2CD4FC31E80E16B7A1D7DE2F0B7772 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211DFB3FE01E4BEA24C10CA9DD1E40C3 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSDictionary+URLArguments.m"; path = "Foundation/GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
 		2138E42B9700B15C0A3E34E8389D60C1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24356405FC7B53C1F5EC1EC7E59B9F6C /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherService.m; path = Source/GTMSessionFetcherService.m; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		2DECAE3E3C5C8D1BF198DE7F718C5A03 /* Fontello-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Fontello-Swift-dummy.m"; sourceTree = "<group>"; };
 		2E1F57B102741D68007EFDAB2910A619 /* Pods-Swipe Rewards.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Swipe Rewards.modulemap"; sourceTree = "<group>"; };
 		2EE347075C7A5F92026CBA6B6A6CA627 /* GTMSessionFetcher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMSessionFetcher.xcconfig; sourceTree = "<group>"; };
-		30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_typicons.bundle; path = "Fontello-Swift-fontello_typicons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30CD5BA9E068FC0BB99843DB1130F958 /* fontello_typicons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_typicons.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3208D1CBFEFF04C3235A001EBFA60861 /* Pods-Swipe Rewards-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Swipe Rewards-acknowledgements.markdown"; sourceTree = "<group>"; };
 		330820738D5E8CD0556173BA8C488E6E /* Linecons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Linecons.swift; path = "Fontello-Swift/Fontello-Swift/Linecons.swift"; sourceTree = "<group>"; };
 		365DF73F911870E64A1C0D831D2A34A1 /* GTMSessionFetcher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-prefix.pch"; sourceTree = "<group>"; };
@@ -275,12 +275,12 @@
 		38C56463190DFF034DD8FD05858C3E31 /* GTMMIMEDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMMIMEDocument.m; path = Source/GTMMIMEDocument.m; sourceTree = "<group>"; };
 		393D2118F9E8E1465CE7780CBFD2BE5A /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "Foundation/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
 		396CC0C3B746AD81E94FA16C11DB258E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_fontawesome.bundle; path = "Fontello-Swift-fontello_fontawesome.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEC12131579A68C19241F2F91A053D9 /* fontello_fontawesome.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_fontawesome.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EC0F69FDD89ED674C43D544D7F3091 /* Pods-Swipe Rewards-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Swipe Rewards-dummy.m"; sourceTree = "<group>"; };
 		431A80A73A6C371638ABE7D35B6F627A /* Pods-Swipe Rewards-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Swipe Rewards-umbrella.h"; sourceTree = "<group>"; };
 		44E165480A2A4B66B5525A542D24FEC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		453883BAD93D580BA4A2DE0AAD18B8F5 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46B62EF92DCC8CCA88A7124C97B6797A /* fontello_mfglabs.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_mfglabs.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_mfglabs.ttf"; sourceTree = "<group>"; };
+		46B62EF92DCC8CCA88A7124C97B6797A /* fontello_mfglabs.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_mfglabs.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_mfglabs.ttf"; sourceTree = "<group>"; };
 		46C57C7CA3A6CAC41744F4DECBA0E4AA /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
 		4AEB91DA2BF6587AF888BB732D288AC3 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
 		4B0BED2015E9D7DC6F23AE11878A9270 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -291,12 +291,12 @@
 		50D563C4925F7128E118B62CC5072076 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		50EC577C41E63ABC210D762C737D04D4 /* Pods-Swipe Rewards-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Swipe Rewards-resources.sh"; sourceTree = "<group>"; };
 		529F0F2FC49E5A4B0610D9080D494C26 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
-		5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_linecons.bundle; path = "Fontello-Swift-fontello_linecons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FF2937E1AB0E56A76924FB382E9DFDD /* fontello_fontelico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_fontelico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontelico.ttf"; sourceTree = "<group>"; };
+		5AAB8716340087D0FCFC47358393A59B /* fontello_linecons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_linecons.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF2937E1AB0E56A76924FB382E9DFDD /* fontello_fontelico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_fontelico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontelico.ttf"; sourceTree = "<group>"; };
 		64EF812D05D9504AE142C67E6F8ABC64 /* GTMSessionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcher.h; path = Source/GTMSessionFetcher.h; sourceTree = "<group>"; };
 		6AB6F8E8250BF6E3B06935D085E4FC50 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6ACFA17DF49CB0605206DD0DAE6CCD8F /* fontello_linecons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_linecons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_linecons.ttf"; sourceTree = "<group>"; };
-		6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_meteocons.bundle; path = "Fontello-Swift-fontello_meteocons.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACFA17DF49CB0605206DD0DAE6CCD8F /* fontello_linecons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_linecons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_linecons.ttf"; sourceTree = "<group>"; };
+		6BD0EE1B1E3ED4ECC61E3A96AFF3FEA6 /* fontello_meteocons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_meteocons.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C39329C2EE51540CBD74C86918E40E0 /* ResourceBundle-fontello_meteocons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_meteocons-Info.plist"; sourceTree = "<group>"; };
 		7280E01CD3CAC0086A03F5CDC598F16B /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = Source/Touch/GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
 		7326A7E7C2FC9838EED7C7D9131DB5B7 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = "Fontello-Swift/Fontello-Swift/FontAwesome.swift"; sourceTree = "<group>"; };
@@ -304,46 +304,46 @@
 		75A1ED28C9ECAC094FA5962DEE7A097A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D7621AB1021CB9E43358F50048F95D /* GTMSessionFetcher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GTMSessionFetcher.modulemap; sourceTree = "<group>"; };
 		77A6B18E8551B3EF985166172DBD6A9E /* GTMDebugThreadValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugThreadValidation.h; path = DebugUtils/GTMDebugThreadValidation.h; sourceTree = "<group>"; };
-		794B41814801AE4F274D046557E0936F /* GTMOAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMOAuth2.framework; path = GTMOAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_entypo.bundle; path = "Fontello-Swift-fontello_entypo.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		794B41814801AE4F274D046557E0936F /* GTMOAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTMOAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ADAA05F1FCBCC5AFE513A6E4E8697DA /* fontello_entypo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_entypo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEE1AE5936961A8605BCDC2718EDC5C /* ResourceBundle-fontello_modernpictograms-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_modernpictograms-Info.plist"; sourceTree = "<group>"; };
 		7E5B972D068B2A49E2CDBBE715803617 /* Websymbols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Websymbols.swift; path = "Fontello-Swift/Fontello-Swift/Websymbols.swift"; sourceTree = "<group>"; };
-		7EC7F5DF1E6343224AD3440FDE9934D4 /* fontello_entypo.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_entypo.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_entypo.ttf"; sourceTree = "<group>"; };
+		7EC7F5DF1E6343224AD3440FDE9934D4 /* fontello_entypo.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_entypo.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_entypo.ttf"; sourceTree = "<group>"; };
 		83748FA3DF09B62B5D73325F07AC9302 /* Maki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Maki.swift; path = "Fontello-Swift/Fontello-Swift/Maki.swift"; sourceTree = "<group>"; };
-		84F8BD100929D48A42483990A04E5679 /* fontello_zocial.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_zocial.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_zocial.ttf"; sourceTree = "<group>"; };
+		84F8BD100929D48A42483990A04E5679 /* fontello_zocial.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_zocial.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_zocial.ttf"; sourceTree = "<group>"; };
 		8601BEB97A1824E6D4F502B3268739A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8663C767C0DFA7C8398B34091351D996 /* fontello_fontawesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_fontawesome.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontawesome.ttf"; sourceTree = "<group>"; };
-		87A01056FF532036B9CC123AB76370D9 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8951C01491A1DCF4A56DAEE7BAC2D976 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMSessionFetcher.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ADA630C54895F6EA83C0591583FBCBC /* Pods_Swipe_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Swipe_Rewards.framework; path = "Pods-Swipe Rewards.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8663C767C0DFA7C8398B34091351D996 /* fontello_fontawesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_fontawesome.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_fontawesome.ttf"; sourceTree = "<group>"; };
+		87A01056FF532036B9CC123AB76370D9 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8951C01491A1DCF4A56DAEE7BAC2D976 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADA630C54895F6EA83C0591583FBCBC /* Pods_Swipe_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipe_Rewards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B438B1115E23BD2CFBCC0F39B0A1355 /* GTMOAuth2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTMOAuth2-dummy.m"; sourceTree = "<group>"; };
 		8B5E7EAF230FFA3DA5EB9B99539BDCB9 /* GTMGatherInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMGatherInputStream.m; path = Source/GTMGatherInputStream.m; sourceTree = "<group>"; };
 		8D5ECC5B9FB635801C050D1F692DC5CA /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2ViewControllerTouch.m; path = Source/Touch/GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
-		8F521816C25E701D9C086C95EBA48FBE /* fontello_maki.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_maki.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_maki.ttf"; sourceTree = "<group>"; };
-		90723279D59A513FF092F27F9F21F043 /* fontello_modernpictograms.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_modernpictograms.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_modernpictograms.ttf"; sourceTree = "<group>"; };
+		8F521816C25E701D9C086C95EBA48FBE /* fontello_maki.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_maki.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_maki.ttf"; sourceTree = "<group>"; };
+		90723279D59A513FF092F27F9F21F043 /* fontello_modernpictograms.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_modernpictograms.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_modernpictograms.ttf"; sourceTree = "<group>"; };
 		91CB3D6C223A434E012FEE50F6AEA10F /* GTMDebugSelectorValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugSelectorValidation.h; path = DebugUtils/GTMDebugSelectorValidation.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_elusive.bundle; path = "Fontello-Swift-fontello_elusive.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97080BDD239266118085404E1C74D866 /* fontello_elusive.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_elusive.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		984C0AEAAC33DB614379764215CD1159 /* Fontello.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fontello.swift; path = "Fontello-Swift/Fontello-Swift/Fontello.swift"; sourceTree = "<group>"; };
 		9A991B0746DB35DC55362826AF863C11 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = Source/GTMOAuth2SignIn.h; sourceTree = "<group>"; };
-		9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_modernpictograms.bundle; path = "Fontello-Swift-fontello_modernpictograms.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_brandico.bundle; path = "Fontello-Swift-fontello_brandico.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E2EF6FA97901D51EFE20FA147412F9B /* fontello_websymbols.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_websymbols.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_websymbols.ttf"; sourceTree = "<group>"; };
+		9C723E9C9F56230086B1B22018442C1F /* fontello_modernpictograms.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_modernpictograms.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2E03FDDA64AC102A6BB393ADDF1D8F /* fontello_brandico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_brandico.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2EF6FA97901D51EFE20FA147412F9B /* fontello_websymbols.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_websymbols.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_websymbols.ttf"; sourceTree = "<group>"; };
 		9EBB5BCC45F40476B989A3D599AC104F /* GTMOAuth2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMOAuth2-umbrella.h"; sourceTree = "<group>"; };
 		9F91CB841B117D7E0C8B8954D3516148 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Foundation/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
 		A11062F66F386B179DBA4E92BBBF8AD1 /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2SignIn.m; path = Source/GTMOAuth2SignIn.m; sourceTree = "<group>"; };
 		A3E2BFEFF399B4BB18E8B8CA900F6BAB /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
-		A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_maki.bundle; path = "Fontello-Swift-fontello_maki.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A639168BFA6BBBE7734C54784E1257E7 /* fontello_maki.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_maki.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A865C501A1295C83AEA8E72D882DF8F0 /* ResourceBundle-fontello_websymbols-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_websymbols-Info.plist"; sourceTree = "<group>"; };
-		AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_mfglabs.bundle; path = "Fontello-Swift-fontello_mfglabs.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9657B6514B2D0D2CD012D1D41918B5 /* fontello_mfglabs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_mfglabs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF21888CA9B33422C8185316A7A93190 /* ResourceBundle-fontello_iconic-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_iconic-Info.plist"; sourceTree = "<group>"; };
 		B2B9B38DAE1F7AF7AC34A40376751B5C /* ResourceBundle-fontello_entypo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_entypo-Info.plist"; sourceTree = "<group>"; };
 		B456E3095B10A3B97AD20B7D649E81D5 /* GTMOAuth2-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMOAuth2-prefix.pch"; sourceTree = "<group>"; };
 		B647A10F1BF09E1FC468850AD5ECA5E1 /* Pods-Swipe Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swipe Rewards.release.xcconfig"; sourceTree = "<group>"; };
 		B99DB919E8FA4B088C0EE67A03C767E6 /* ResourceBundle-fontello_zocial-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_zocial-Info.plist"; sourceTree = "<group>"; };
 		BCE8E32657468ABE8AC9441F61CFD83A /* GTMSessionFetcher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-umbrella.h"; sourceTree = "<group>"; };
-		BE01C20B42626ACC798016134435807C /* fontello_brandico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_brandico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_brandico.ttf"; sourceTree = "<group>"; };
-		BF224FB99D7987FCFF7CC08DAC934D6E /* fontello_elusive.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_elusive.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_elusive.ttf"; sourceTree = "<group>"; };
+		BE01C20B42626ACC798016134435807C /* fontello_brandico.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_brandico.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_brandico.ttf"; sourceTree = "<group>"; };
+		BF224FB99D7987FCFF7CC08DAC934D6E /* fontello_elusive.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_elusive.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_elusive.ttf"; sourceTree = "<group>"; };
 		C3BCFCA6B587B35B5A0B2E82C2156D7A /* Fontelico.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fontelico.swift; path = "Fontello-Swift/Fontello-Swift/Fontelico.swift"; sourceTree = "<group>"; };
 		C64408AD9D9CBFAE6A7F39119ACD9B0A /* Fontello-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fontello-Swift-umbrella.h"; sourceTree = "<group>"; };
 		C791B7F08B19DBC65BBFB6578C53AAFA /* Iconic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Iconic.swift; path = "Fontello-Swift/Fontello-Swift/Iconic.swift"; sourceTree = "<group>"; };
@@ -353,14 +353,14 @@
 		D1B04B3E1634BCCDCC8F71B175527F38 /* ModernPictograms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModernPictograms.swift; path = "Fontello-Swift/Fontello-Swift/ModernPictograms.swift"; sourceTree = "<group>"; };
 		D4783A9DBFF6C477F0FBB37F05AB534A /* GTMMIMEDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMIMEDocument.h; path = Source/GTMMIMEDocument.h; sourceTree = "<group>"; };
 		D56F7819888954D6DBBA1BF2C95F172F /* Fontello-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Fontello-Swift.xcconfig"; sourceTree = "<group>"; };
-		DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_fontelico.bundle; path = "Fontello-Swift-fontello_fontelico.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB19BA5E9162E88729888C928B58B776 /* fontello_fontelico.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_fontelico.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDC9047E1B4E5FD2ABA3A640774B418 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		DEA0623D1EED7AF02DFEC360D0A7A5C3 /* ResourceBundle-fontello_elusive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_elusive-Info.plist"; sourceTree = "<group>"; };
 		DED4318AF707ECFF8D0DF51D8EEC65CC /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = DebugUtils/GTMMethodCheck.h; sourceTree = "<group>"; };
 		E212030BE83700F62225FF1738A6183C /* ResourceBundle-fontello_fontawesome-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_fontawesome-Info.plist"; sourceTree = "<group>"; };
-		E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = fontello_websymbols.bundle; path = "Fontello-Swift-fontello_websymbols.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E39D210F610C484BB124E51C244DCE40 /* fontello_websymbols.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fontello_websymbols.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BF921CFE9D8643359E237E5ED7EC0B /* Pods-Swipe Rewards-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Swipe Rewards-frameworks.sh"; sourceTree = "<group>"; };
-		E5D26E339303FCE5CB5E7584043F7924 /* fontello_typicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = fontello_typicons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_typicons.ttf"; sourceTree = "<group>"; };
+		E5D26E339303FCE5CB5E7584043F7924 /* fontello_typicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = fontello_typicons.ttf; path = "Fontello-Swift/Fontello-Swift/fontello_typicons.ttf"; sourceTree = "<group>"; };
 		E627179795BE1A2F6AF946E055BF2503 /* ResourceBundle-fontello_mfglabs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_mfglabs-Info.plist"; sourceTree = "<group>"; };
 		EDC062AE64DC35F17BD07BA7ACBA8640 /* ResourceBundle-fontello_maki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-fontello_maki-Info.plist"; sourceTree = "<group>"; };
 		EDD4A4C0C451387D7F7CDBA6FBFA072D /* Pods-Swipe Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swipe Rewards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -540,7 +540,6 @@
 				257CA0698288A31B4804103A36F2E0BD /* Resources */,
 				3593F28023FA8FD4474717A68004CEE6 /* Support Files */,
 			);
-			name = GTMOAuth2;
 			path = GTMOAuth2;
 			sourceTree = "<group>";
 		};
@@ -591,7 +590,6 @@
 				359E5C7FD9DD3D0EC685B60E147B318B /* Frameworks */,
 				555C7A676BE4A51DFB4237E248740A7B /* Resources */,
 			);
-			name = GoogleSignIn;
 			path = GoogleSignIn;
 			sourceTree = "<group>";
 		};
@@ -662,7 +660,6 @@
 				9C7970C97314E07EDE94F66C268EE29F /* Full */,
 				1F57005124766259074F68F0DE17B310 /* Support Files */,
 			);
-			name = GTMSessionFetcher;
 			path = GTMSessionFetcher;
 			sourceTree = "<group>";
 		};
@@ -721,7 +718,6 @@
 				C52070F4507CFDCB54C00BD973941320 /* NSString+URLArguments */,
 				B7170FDBEAD5A374E08D96209FCF0644 /* Support Files */,
 			);
-			name = GoogleToolboxForMac;
 			path = GoogleToolboxForMac;
 			sourceTree = "<group>";
 		};
@@ -906,7 +902,6 @@
 				EA41301E0E64F3C44C85E3C8A8FCED23 /* Websymbols */,
 				D342662924E9FF239E4C7259E79A1073 /* Zocial */,
 			);
-			name = "Fontello-Swift";
 			path = "Fontello-Swift";
 			sourceTree = "<group>";
 		};
@@ -1506,7 +1501,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2022,11 +2017,7 @@
 				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
 				PRODUCT_MODULE_NAME = GoogleToolboxForMac;
 				PRODUCT_NAME = GoogleToolboxForMac;
@@ -2105,11 +2096,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Swipe Rewards/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.modulemap";
 				OTHER_LDFLAGS = "";
@@ -2208,11 +2195,7 @@
 				INFOPLIST_FILE = "Target Support Files/GTMOAuth2/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GTMOAuth2/GTMOAuth2.modulemap";
 				PRODUCT_MODULE_NAME = GTMOAuth2;
 				PRODUCT_NAME = GTMOAuth2;
@@ -2308,11 +2291,7 @@
 				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
 				PRODUCT_MODULE_NAME = GoogleToolboxForMac;
 				PRODUCT_NAME = GoogleToolboxForMac;
@@ -2397,6 +2376,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -2450,11 +2430,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Swipe Rewards/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.modulemap";
 				OTHER_LDFLAGS = "";
@@ -2510,6 +2486,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Swipe Rewards/Swipe Rewards-Bridging-Header.h\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2564,15 +2544,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Swipe Rewards/Swipe Rewards-Bridging-Header.h\"",
+				);
 				GCC_PREFIX_HEADER = "Target Support Files/Fontello-Swift/Fontello-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Fontello-Swift/Fontello-Swift.modulemap";
 				PRODUCT_MODULE_NAME = Fontello_Swift;
 				PRODUCT_NAME = Fontello_Swift;
@@ -2604,11 +2584,7 @@
 				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
 				PRODUCT_MODULE_NAME = GTMSessionFetcher;
 				PRODUCT_NAME = GTMSessionFetcher;
@@ -2671,11 +2647,7 @@
 				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
 				PRODUCT_MODULE_NAME = GTMSessionFetcher;
 				PRODUCT_NAME = GTMSessionFetcher;
@@ -2739,11 +2711,7 @@
 				INFOPLIST_FILE = "Target Support Files/Fontello-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Fontello-Swift/Fontello-Swift.modulemap";
 				PRODUCT_MODULE_NAME = Fontello_Swift;
 				PRODUCT_NAME = Fontello_Swift;
@@ -2824,11 +2792,7 @@
 				INFOPLIST_FILE = "Target Support Files/GTMOAuth2/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GTMOAuth2/GTMOAuth2.modulemap";
 				PRODUCT_MODULE_NAME = GTMOAuth2;
 				PRODUCT_NAME = GTMOAuth2;
