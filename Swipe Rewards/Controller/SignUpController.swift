@@ -11,6 +11,7 @@ import Fontello_Swift
 
 class SignUpController: UIViewController {
 
+    @IBOutlet weak var SignInbutton: UIButton!
     @IBOutlet weak var ConfirmPasswordIcon: UILabel!
     @IBOutlet weak var PasswordIcon: UILabel!
     @IBOutlet weak var EmailIcon: UILabel!
@@ -18,8 +19,19 @@ class SignUpController: UIViewController {
     @IBOutlet weak var Firstnameicon: UILabel!
     @IBOutlet weak var Swipelogoicon: UILabel!
     
+    var attrs = [
+        //  kCTFontAttributeName : UIFont.fontNames(forFamilyName: "SF Pro Text Semibold"),
+        kCTForegroundColorAttributeName : UIColor.white,
+        kCTUnderlineStyleAttributeName : 1] as [CFString : Any]
+    
+    var attributedString = NSMutableAttributedString(string:"")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let buttonTitleStr = NSMutableAttributedString(string:"Sign In", attributes:attrs as [NSAttributedStringKey : Any] as [NSAttributedStringKey : Any])
+        attributedString.append(buttonTitleStr)
+        SignInbutton.setAttributedTitle(attributedString, for: .normal)
         
         
         let fontswipe = FontSwipe()

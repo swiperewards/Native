@@ -53,6 +53,7 @@
 		<string>SFProDisplay-Thin.ttf</string>
 		<string>SFProText-Light.ttf</string>
 		<string>SFProText-Regular.ttf</string>
+		<string>SFProDisplay-BlackItalic.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

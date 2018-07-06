@@ -14,6 +14,7 @@ import Fontello_Swift
 
 class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate  {
     
+    @IBOutlet weak var ForgotPasswordButton: UIButton!
     @IBOutlet weak var Email: FloatLabelTextField! //Email Textfield
     @IBOutlet weak var Password: FloatLabelTextField! //Password Textfiled
     var dict : [String : AnyObject]!
@@ -21,12 +22,24 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate  
     @IBOutlet weak var PasswordIcon: UILabel!
     @IBOutlet weak var SwipelogoIcon: UILabel!
     
+    
+    var attrs = [
+      //  kCTFontAttributeName : UIFont.fontNames(forFamilyName: "SF Pro Text Semibold"),
+        kCTForegroundColorAttributeName : UIColor.white,
+        kCTUnderlineStyleAttributeName : 1] as [CFString : Any]
+    
+    var attributedString = NSMutableAttributedString(string:"")
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.current()) != nil{
             getFBUserData()
         }
+        
+        let buttonTitleStr = NSMutableAttributedString(string:"Forgot Password", attributes:attrs as [NSAttributedStringKey : Any] as [NSAttributedStringKey : Any])
+        attributedString.append(buttonTitleStr)
+        ForgotPasswordButton.setAttributedTitle(attributedString, for: .normal)
         
         let fontswipe = FontSwipe()
         let fontswipelogo = FontSwipeLogo()

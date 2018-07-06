@@ -36,8 +36,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
-        
-            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
 
         
@@ -111,7 +110,44 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         return cell
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+       
+        switch indexPath.row {
+        case 0:
+            
+            break
+        case 1:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "ForgotController")
+            self.present(navigationController, animated: true, completion: nil)
+            break
+        case 2:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let view: ContactUsController = storyboard.instantiateViewController(withIdentifier: "ContactUsController") as! ContactUsController
+            self.navigationController?.pushViewController(view, animated: true)
+            break
+        case 3:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let view: PrivacyController = storyboard.instantiateViewController(withIdentifier: "PrivacyController") as! PrivacyController
+            self.navigationController?.pushViewController(view, animated: true)
+            break
+        case 4:
+            
+            break
+        case 5:
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            break
+            
+        default:
+            break
+        }
+        
+        
+    }
     /*
     // MARK: - Navigation
 
