@@ -22,6 +22,7 @@
 		8E1E053920EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
 		8E1E053A20EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
 		8E1E053B20EA4D4A001C1328 /* swipe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1E053820EA4D4A001C1328 /* swipe.ttf */; };
+		8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */; };
 		8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C4C20E3BA38000CF233 /* AppDelegate.swift */; };
 		8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C4E20E3BA38000CF233 /* SignInController.swift */; };
 		8E636C5220E3BA38000CF233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5020E3BA38000CF233 /* Main.storyboard */; };
@@ -174,6 +175,7 @@
 		8E10D05F20EF608200C6020D /* ForgotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
 		8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		8E1E053820EA4D4A001C1328 /* swipe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe.ttf; sourceTree = "<group>"; };
+		8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRewardsAPI.swift; sourceTree = "<group>"; };
 		8E636C4920E3BA38000CF233 /* Swipe Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swipe Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C4C20E3BA38000CF233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E636C4E20E3BA38000CF233 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
@@ -296,6 +298,14 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		8E4D3A1520FF08FC008B2F9B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8E636C4020E3BA38000CF233 = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
+				8E4D3A1520FF08FC008B2F9B /* Helpers */,
 				8EF1D34920EB98B800604B37 /* Model */,
 				8E95A7DA20ECD1CA00C22263 /* View */,
 				8E95A7D920ECD18700C22263 /* Controller */,
@@ -701,6 +712,7 @@
 				8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
 				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
 				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E95A80520EE36F600C22263 /* WalletCardsCell.swift in Sources */,
 				8E10D05C20EF601600C6020D /* PrivacyController.swift in Sources */,
