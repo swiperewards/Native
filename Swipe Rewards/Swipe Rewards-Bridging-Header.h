@@ -11,7 +11,7 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import <AFNetworking/AFNetworking.h>
 
 //! Project version number for Fontello-Swift.
 FOUNDATION_EXPORT double Fontello_SwiftVersionNumber;

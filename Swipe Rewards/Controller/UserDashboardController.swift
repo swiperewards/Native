@@ -25,17 +25,17 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 
         
         
-        let maskLayer = CAShapeLayer(layer: DashboardView.layer)
+        let maskLayer = CAShapeLayer(layer: self.view.layer)
         let arrowPath = UIBezierPath()
         arrowPath.move(to: CGPoint(x:0, y:0))
-        arrowPath.addLine(to: CGPoint(x:DashboardView.bounds.size.width, y:0))
-        arrowPath.addLine(to: CGPoint(x:DashboardView.bounds.size.width, y:DashboardView.bounds.size.height - (DashboardView.bounds.size.height*0.2)))
-        arrowPath.addQuadCurve(to: CGPoint(x:0, y:DashboardView.bounds.size.height - (DashboardView.bounds.size.height*0.2)), controlPoint: CGPoint(x:DashboardView.bounds.size.width/2, y:DashboardView.bounds.size.height))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:0))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:DashboardView.bounds.size.height - (DashboardView.bounds.size.height*0.2)))
+        arrowPath.addQuadCurve(to: CGPoint(x:0, y:DashboardView.bounds.size.height - (DashboardView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:DashboardView.bounds.size.height))
         arrowPath.addLine(to: CGPoint(x:0, y:0))
         arrowPath.close()
 
         maskLayer.path = arrowPath.cgPath
-        maskLayer.frame = DashboardView.bounds
+        maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
         DashboardView.layer.mask = maskLayer
         

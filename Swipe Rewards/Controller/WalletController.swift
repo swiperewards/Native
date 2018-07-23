@@ -42,16 +42,16 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         self.navigationController?.navigationBar.topItem?.title = "WALLET"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let maskLayer = CAShapeLayer(layer: WalletView.layer)
+        let maskLayer = CAShapeLayer(layer: self.view.layer)
         let arrowPath = UIBezierPath()
         arrowPath.move(to: CGPoint(x:0, y:0))
-        arrowPath.addLine(to: CGPoint(x:WalletView.bounds.size.width, y:0))
-        arrowPath.addLine(to: CGPoint(x:WalletView.bounds.size.width, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)))
-        arrowPath.addQuadCurve(to: CGPoint(x:0, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)), controlPoint: CGPoint(x:WalletView.bounds.size.width/2, y:WalletView.bounds.size.height))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:0))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)))
+        arrowPath.addQuadCurve(to: CGPoint(x:0, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:WalletView.bounds.size.height))
         arrowPath.addLine(to: CGPoint(x:0, y:0))
         arrowPath.close()
         maskLayer.path = arrowPath.cgPath
-        maskLayer.frame = WalletView.bounds
+        maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
         WalletView.layer.mask = maskLayer
 

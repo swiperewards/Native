@@ -9,7 +9,7 @@
 import UIKit
 import Fontello_Swift
 
-class ForgotController: UIViewController {
+class ForgotController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var BackIcon: UILabel!
     @IBOutlet weak var EmailIcon: UILabel!
@@ -40,7 +40,16 @@ class ForgotController: UIViewController {
     
     @IBAction func SubmitPressed(_ sender: Any) {
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

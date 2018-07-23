@@ -8,9 +8,15 @@
 
 import UIKit
 import Fontello_Swift
+import AFNetworking
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController,UITextFieldDelegate {
 
+    @IBOutlet weak var confirmpassword: FloatLabelTextField!
+    @IBOutlet weak var password: FloatLabelTextField!
+    @IBOutlet weak var emailid: FloatLabelTextField!
+    @IBOutlet weak var lastname: FloatLabelTextField!
+    @IBOutlet weak var firstname: FloatLabelTextField!
     @IBOutlet weak var SignInbutton: UIButton!
     @IBOutlet weak var ConfirmPasswordIcon: UILabel!
     @IBOutlet weak var PasswordIcon: UILabel!
@@ -18,14 +24,14 @@ class SignUpController: UIViewController {
     @IBOutlet weak var Lastnameicon: UILabel!
     @IBOutlet weak var Firstnameicon: UILabel!
     @IBOutlet weak var Swipelogoicon: UILabel!
-    
     var attrs = [
         //  kCTFontAttributeName : UIFont.fontNames(forFamilyName: "SF Pro Text Semibold"),
         kCTForegroundColorAttributeName : UIColor.white,
         kCTUnderlineStyleAttributeName : 1] as [CFString : Any]
-    
     var attributedString = NSMutableAttributedString(string:"")
     
+    
+    //MARK: -  ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,21 +70,52 @@ class SignUpController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // //MARK: -  Textfield Keyboard Hides
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    */
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //MARK: -  Tap SignUp
+    @IBAction func SignUpTap(_ sender: Any){
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let fullname = firstname.text! + "/" + lastname.text!
+        var paramDict = [String: AnyObject]()
+        paramDict =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": [
+                "emailId": emailid.text as AnyObject,
+                "fullName": fullname as AnyObject,
+                "isSocialLogin": false as AnyObject,
+                "lat": "" as AnyObject,
+                "long": "" as AnyObject,
+                "password": password.text as AnyObject
+            ]] as [String : AnyObject]
+        RequestManager.getPath(urlString: SwipeRewardsAPI.serverURL, params: paramDict, successBlock:{
+                (response) -> () in self.loginparseResponse(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+    //MARK: -  Tap SignIn
+    @IBAction func SignInTap(_ sender: Any) {
+    }
+    //MARK: -  Fetching Signup data from server
+    func loginparseResponse(response: [String : AnyObject]){
+        print(response)
+    }
+    
+    
 
 }

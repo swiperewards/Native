@@ -27,17 +27,17 @@ class RedeemController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let maskLayer = CAShapeLayer(layer: RedeemView.layer)
+        let maskLayer = CAShapeLayer(layer: self.view.layer)
         let arrowPath = UIBezierPath()
         arrowPath.move(to: CGPoint(x:0, y:0))
-        arrowPath.addLine(to: CGPoint(x:RedeemView.bounds.size.width, y:0))
-        arrowPath.addLine(to: CGPoint(x:RedeemView.bounds.size.width, y:RedeemView.bounds.size.height - (RedeemView.bounds.size.height*0.2)))
-        arrowPath.addQuadCurve(to: CGPoint(x:0, y:RedeemView.bounds.size.height - (RedeemView.bounds.size.height*0.2)), controlPoint: CGPoint(x:RedeemView.bounds.size.width/2, y:RedeemView.bounds.size.height))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:0))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:RedeemView.bounds.size.height - (RedeemView.bounds.size.height*0.2)))
+        arrowPath.addQuadCurve(to: CGPoint(x:0, y:RedeemView.bounds.size.height - (RedeemView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:RedeemView.bounds.size.height))
         arrowPath.addLine(to: CGPoint(x:0, y:0))
         arrowPath.close()
         
         maskLayer.path = arrowPath.cgPath
-        maskLayer.frame = RedeemView.bounds
+        maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
         RedeemView.layer.mask = maskLayer
         

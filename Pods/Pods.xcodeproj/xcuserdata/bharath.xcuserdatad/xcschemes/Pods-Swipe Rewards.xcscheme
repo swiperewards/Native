@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D63012ADED4B2DAAE4E3341D310BD1AF"
+               BlueprintIdentifier = "B29590508F666A0E75EF1044EB0D43D2"
                BuildableName = "Pods_Swipe_Rewards.framework"
                BlueprintName = "Pods-Swipe Rewards"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D63012ADED4B2DAAE4E3341D310BD1AF"
+            BlueprintIdentifier = "B29590508F666A0E75EF1044EB0D43D2"
             BuildableName = "Pods_Swipe_Rewards.framework"
             BlueprintName = "Pods-Swipe Rewards"
             ReferencedContainer = "container:Pods.xcodeproj">

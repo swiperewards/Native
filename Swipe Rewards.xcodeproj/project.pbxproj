@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03C50A2105DF520019FC6C /* WebClientRequest.swift */; };
 		8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05720EF420800C6020D /* ContactUsController.swift */; };
 		8E10D05920EF420800C6020D /* ContactUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05720EF420800C6020D /* ContactUsController.swift */; };
 		8E10D05A20EF420800C6020D /* ContactUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05720EF420800C6020D /* ContactUsController.swift */; };
@@ -170,6 +171,7 @@
 /* Begin PBXFileReference section */
 		180724A3112F76AB7218229F /* Pods-Swipe Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.debug.xcconfig"; sourceTree = "<group>"; };
 		6F9E6B04F2DCFCE5658FBD83 /* Pods-Swipe Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.release.xcconfig"; sourceTree = "<group>"; };
+		8E03C50A2105DF520019FC6C /* WebClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClientRequest.swift; sourceTree = "<group>"; };
 		8E10D05720EF420800C6020D /* ContactUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsController.swift; sourceTree = "<group>"; };
 		8E10D05B20EF601600C6020D /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		8E10D05F20EF608200C6020D /* ForgotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */,
+				8E03C50A2105DF520019FC6C /* WebClientRequest.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Fontello-Swift/Fontello_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -671,6 +675,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fontello_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -712,6 +717,7 @@
 				8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
 				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */,
 				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
 				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E95A80520EE36F600C22263 /* WalletCardsCell.swift in Sources */,

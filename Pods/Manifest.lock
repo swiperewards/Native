@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Fontello-Swift (1.2):
     - Fontello-Swift/Brandico (= 1.2)
     - Fontello-Swift/Elusive (= 1.2)
@@ -66,11 +81,13 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.15)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - Fontello-Swift
   - GoogleSignIn
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AFNetworking
     - Fontello-Swift
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -78,12 +95,13 @@ SPEC REPOS:
     - GTMSessionFetcher
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Fontello-Swift: e36df108f387b8cea11ee833c4485363332119a0
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
 
-PODFILE CHECKSUM: 0e1cc470bd5a7554296e579be8b3c6e7adf413f4
+PODFILE CHECKSUM: bf0fd61b40b4202175634f0de8c9ea756ac8ee8e
 
 COCOAPODS: 1.5.3

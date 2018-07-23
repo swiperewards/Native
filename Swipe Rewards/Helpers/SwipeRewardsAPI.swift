@@ -10,5 +10,5 @@
 import UIKit
 class SwipeRewardsAPI: NSObject {
 static let sharedInstance = SwipeRewardsAPI()
-    static let serverURL = "https://"
+    static let serverURL = "http://winjitstaging.cloudapp.net:5000/users/registerUser"
 }

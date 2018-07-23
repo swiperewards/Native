@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 import Fontello_Swift
 
-class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate  {
+class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate  {
     
     @IBOutlet weak var ForgotPasswordButton: UIButton!
     @IBOutlet weak var Email: FloatLabelTextField! //Email Textfield
@@ -145,6 +145,23 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate  
         self.dismiss(animated: true, completion: nil)
     }
     
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        
+    }
     
 }
 
