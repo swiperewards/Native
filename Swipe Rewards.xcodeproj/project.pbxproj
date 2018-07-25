@@ -17,6 +17,9 @@
 		8E10D06020EF608300C6020D /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05F20EF608200C6020D /* ForgotController.swift */; };
 		8E10D06120EF608300C6020D /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05F20EF608200C6020D /* ForgotController.swift */; };
 		8E10D06220EF608300C6020D /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10D05F20EF608200C6020D /* ForgotController.swift */; };
+		8E172B442106F8290068565D /* NetworkConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E172B432106F8290068565D /* NetworkConnectivity.swift */; };
+		8E172B462106F8FB0068565D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E172B452106F8FB0068565D /* Constants.swift */; };
+		8E172B4E210741610068565D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E172B4D210741610068565D /* NavigationController.swift */; };
 		8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
 		8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
 		8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */; };
@@ -73,6 +76,8 @@
 		8E95A80A20EE36F600C22263 /* WalletCardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A80420EE36F600C22263 /* WalletCardsCell.xib */; };
 		8E95A80C20EE3B5600C22263 /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E95A80B20EE3B5600C22263 /* Fontello_Swift.framework */; };
 		8E95A80E20EE3B6800C22263 /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */; };
+		8EC78FAD21084B320082376C /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC78FAC21084B320082376C /* ChangePasswordController.swift */; };
+		8EC78FAF21088D9E0082376C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC78FAE21088D9E0082376C /* CoreLocation.framework */; };
 		8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
@@ -175,6 +180,9 @@
 		8E10D05720EF420800C6020D /* ContactUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsController.swift; sourceTree = "<group>"; };
 		8E10D05B20EF601600C6020D /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		8E10D05F20EF608200C6020D /* ForgotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
+		8E172B432106F8290068565D /* NetworkConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectivity.swift; sourceTree = "<group>"; };
+		8E172B452106F8FB0068565D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E172B4D210741610068565D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		8E1E053820EA4D4A001C1328 /* swipe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe.ttf; sourceTree = "<group>"; };
 		8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRewardsAPI.swift; sourceTree = "<group>"; };
@@ -208,6 +216,9 @@
 		8E95A80420EE36F600C22263 /* WalletCardsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCardsCell.xib; sourceTree = "<group>"; };
 		8E95A80B20EE3B5600C22263 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EC78FAC21084B320082376C /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
+		8EC78FAE21088D9E0082376C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8EC78FB021088FD70082376C /* Swipe Rewards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swipe Rewards.entitlements"; sourceTree = "<group>"; };
 		8EF1D34020EB53A000604B37 /* FontSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipe.swift; sourceTree = "<group>"; };
 		8EF1D34520EB989400604B37 /* swipelogo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipelogo.ttf; sourceTree = "<group>"; };
 		8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipeLogo.swift; sourceTree = "<group>"; };
@@ -241,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC78FAF21088D9E0082376C /* CoreLocation.framework in Frameworks */,
 				8E95A80E20EE3B6800C22263 /* Fontello_Swift.framework in Frameworks */,
 				8EFDF83520E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */,
 				8EFDF82F20E4B0A7008586F3 /* FBSDKLoginKit.framework in Frameworks */,
@@ -305,6 +317,8 @@
 			children = (
 				8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */,
 				8E03C50A2105DF520019FC6C /* WebClientRequest.swift */,
+				8E172B432106F8290068565D /* NetworkConnectivity.swift */,
+				8E172B452106F8FB0068565D /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -334,6 +348,7 @@
 		8E636C4B20E3BA38000CF233 /* Swipe Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				8EC78FB021088FD70082376C /* Swipe Rewards.entitlements */,
 				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
 				8E4D3A1520FF08FC008B2F9B /* Helpers */,
 				8EF1D34920EB98B800604B37 /* Model */,
@@ -375,6 +390,8 @@
 				8E636C4E20E3BA38000CF233 /* SignInController.swift */,
 				8EF1D38F20EBAC6E00604B37 /* SignUpController.swift */,
 				8E10D05F20EF608200C6020D /* ForgotController.swift */,
+				8EC78FAC21084B320082376C /* ChangePasswordController.swift */,
+				8E172B4D210741610068565D /* NavigationController.swift */,
 				8E95A7D520ECC18400C22263 /* UserDashboardController.swift */,
 				8E95A7EB20ECE1D900C22263 /* WalletController.swift */,
 				8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */,
@@ -432,6 +449,7 @@
 		8EFDF82720E4B083008586F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EC78FAE21088D9E0082376C /* CoreLocation.framework */,
 				8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */,
 				8E95A80B20EE3B5600C22263 /* Fontello_Swift.framework */,
 				8EFDF82820E4B0A5008586F3 /* Bolts.framework */,
@@ -514,6 +532,14 @@
 				TargetAttributes = {
 					8E636C4820E3BA38000CF233 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Wallet = {
+								enabled = 0;
+							};
+						};
 					};
 					8E636C5F20E3BA3A000CF233 = {
 						CreatedOnToolsVersion = 9.4;
@@ -712,11 +738,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E95A7FD20EDE53100C22263 /* HistorylistCell.swift in Sources */,
+				8E172B4E210741610068565D /* NavigationController.swift in Sources */,
 				8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
 				8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */,
+				8EC78FAD21084B320082376C /* ChangePasswordController.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
 				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8E172B462106F8FB0068565D /* Constants.swift in Sources */,
 				8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */,
 				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
 				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
@@ -724,6 +753,7 @@
 				8E10D05C20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E10D06020EF608300C6020D /* ForgotController.swift in Sources */,
 				8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */,
+				8E172B442106F8290068565D /* NetworkConnectivity.swift in Sources */,
 				8E95A7EC20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8E95A7E420ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,

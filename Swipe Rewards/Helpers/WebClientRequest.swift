@@ -10,9 +10,9 @@ import UIKit
 import AFNetworking
 let RequestManager = WebClientRequest.sharedInstance
 class WebClientRequest: AFHTTPSessionManager {
-    
-    static let sharedInstance = WebClientRequest(url: NSURL(string: SwipeRewardsAPI.serverURL)!, securityPolicy: AFSecurityPolicy(pinningMode: AFSSLPinningMode.none))
-    convenience init(url: NSURL, securityPolicy: AFSecurityPolicy){
+     let manager = AFHTTPSessionManager()
+     static let sharedInstance = WebClientRequest(url: NSURL(string: SwipeRewardsAPI.serverURL)!, securityPolicy: AFSecurityPolicy(pinningMode: AFSSLPinningMode.none)) //PublicKey needs to change here
+     convenience init(url: NSURL, securityPolicy: AFSecurityPolicy){
         self.init(baseURL: url as URL)
         self.securityPolicy = securityPolicy
         }
@@ -22,11 +22,10 @@ class WebClientRequest: AFHTTPSessionManager {
                  addToken: Bool = true,
                  successBlock success:@escaping (AnyObject) -> (),
                  failureBlock failure: @escaping (NSError) -> ()){
-        
-        let manager = AFHTTPSessionManager()
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>
+    manager.requestSerializer.setValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbElkIjoicXdlcnR5QGdtYWlsLmNvbSIsImZ1bGxOYW1lIjoid3d3L3FxcSIsInVzZXJJZCI6MzcsImlhdCI6MTUzMjUyMzUwNywiZXhwIjoxNTMyNTI3MTA3fQ.Ao2CJIlRXb8RUtZ8SE3Fkniun8SdJyKZQyIlj7lM1GY", forHTTPHeaderField: "auth") //Change password header for auth
         manager.post((NSURL(string: urlString, relativeTo: self.baseURL)?.absoluteString)!, parameters: params, progress: nil, success:{
             (sessionTask, responseObject) -> () in
             success(responseObject! as AnyObject)

@@ -35,18 +35,14 @@ class RedeemController: UIViewController {
         arrowPath.addQuadCurve(to: CGPoint(x:0, y:RedeemView.bounds.size.height - (RedeemView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:RedeemView.bounds.size.height))
         arrowPath.addLine(to: CGPoint(x:0, y:0))
         arrowPath.close()
-        
         maskLayer.path = arrowPath.cgPath
         maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
         RedeemView.layer.mask = maskLayer
-        
-        
         let fontswipe = FontSwipe()
         SelectedBankDownIcon.font = fontswipe.fontOfSize(20)
         SelectedBankDownIcon.text = fontswipe.stringWithName(.Downarrow)
         SelectedBankDownIcon.textColor = UIColor.darkGray
-        
         PaytowhereDownIcon.font = fontswipe.fontOfSize(20)
         PaytowhereDownIcon.text = fontswipe.stringWithName(.Downarrow)
         PaytowhereDownIcon.textColor = UIColor.darkGray

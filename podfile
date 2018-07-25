@@ -6,6 +6,7 @@ target "Swipe Rewards" do
   pod 'Fontello-Swift'
   pod 'GoogleSignIn'
   pod 'AFNetworking', '~> 3.0'
+  
 
   
 end 

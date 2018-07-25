@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -94,7 +93,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="Cashback" destination="poe-r7-GcU" id="UkA-47-N1T"/>
                 <outlet property="CellView" destination="fyf-L0-Y9v" id="5k4-o4-sui"/>
+                <outlet property="Location" destination="KUx-wh-tQg" id="2Y2-cU-vNC"/>
+                <outlet property="Promotiondate" destination="Btd-qH-XEH" id="kl5-fl-WuX"/>
+                <outlet property="Storename" destination="XdS-Zh-fK7" id="ZXH-ii-Hes"/>
             </connections>
             <point key="canvasLocation" x="-97.5" y="133"/>
         </tableViewCell>

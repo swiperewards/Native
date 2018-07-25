@@ -10,6 +10,10 @@ import UIKit
 
 class Retailshoplistcell: UITableViewCell {
 
+    @IBOutlet weak var Promotiondate: UILabel!
+    @IBOutlet weak var Cashback: UILabel!
+    @IBOutlet weak var Location: UILabel!
+    @IBOutlet weak var Storename: UILabel!
     @IBOutlet weak var CellView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
