@@ -13,14 +13,10 @@ class Constants: NSObject {
     
     static let Networkerror = "Please check your Internet Connection!"
     static let NetworkerrorTitle = "Network Connectivity"
-    
     static let errInvalidEmail   = "Please enter valid email id"
     static let errPassword = "Password is not matching"
     static let errInvalidPassword = "8 char long,1 upper & 1 Special"
     static let errEmailexits = "Email Already Exists"
-    
-    
-    
     static let emptyEmail = "Email is required"
     static let emptyFirstname = "Firstname is required"
     static let emptyLastname = "Lastname is required"
@@ -28,17 +24,57 @@ class Constants: NSObject {
     static let emptyConfirmPassword = "Confirm Password is required"
     static let emptyOldPassword = "Old Password is required"
     static let emptynewPassword = "New Password is required"
-    
     //Default Placeholder
-    
     static let Email   = "Email ID"
     static let Firstname = "Firstname"
     static let Lastname = "Lastname"
     static let Password = "Password"
     static let ConfirmPassword = "Confirm Password"
-    
     static let OldPassword = "Old Password"
     static let NewPassword = "New Password"
+    
+    static let emptyCardNumber = "CardNumber is required"
+    static let emptyExpiry = "Expiry on is required"
+    static let emptyCvv = "Cvv is required"
+    static let emptyNameonCard = "Name on Card is required"
+
+    static let CardNumber = "Card Number"
+    static let Expiry = "Expiry on"
+    static let Cvv = "Cvv"
+    static let NameonCard = "Name on Card"
+    
+    //DB
+    static var Token = String()
+    static let Tokenkey = "Auth"
+    
+    //DB
+    static var profileimage = String()
+    static let profileimagekey = "Profile"
+    
+    //DB
+    static var Termsofuse = String()
+    static let Termsofusekey = "Termsofuse"
+    //DB
+    static var Privacy = String()
+    static let Privacykey = "Privacy"
+    
+    static var Username = String()
+    static let UsernameKey = "User"
+ //   static var cardID = [String]()
+    static var cardIDkey = "CardID"
+    
+    
+    static var minlevel = Int()
+    static let minlevelKey = "minlevel"
+    
+    static var maxlevel = Int()
+    static let maxlevelKey = "maxlevel"
+    
+    static var level = Int()
+    static let levelKey = "level"
+    
+    static var userlevel = Float()
+    static let userlevelKey = "userlevel"
 
     
 }

@@ -26,6 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = "95348320579-k7liklk3h6s94hr1smoa0l4du6nofvga.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        let token = Database.value(forKey: Constants.Tokenkey) as? String
+        if token != nil {
+            //Navigating to Home Dashboard Screen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            let window = UIApplication.shared.delegate!.window!!
+            window.rootViewController = navigationController
+            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        }
+        else{
+            
+        }
         return true
     }
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool{

@@ -23,7 +23,6 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
          setUpNavBar()
         let fontswipe = FontSwipe()
-        
         oldpasswordICON.font = fontswipe.fontOfSize(20)
         oldpasswordICON.text = fontswipe.stringWithName(.Password)
         oldpasswordICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -74,7 +73,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         SubmitButton.setTitle("", for: .normal)
         showSpinning()
         let ChangePasswordServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.ChangePasswordURL
-        RequestManager.getPath(urlString: ChangePasswordServer, params: Input, successBlock:{
+        RequestManager.PostPathwithAUTH(urlString: ChangePasswordServer, params: Input, successBlock:{
         (response) -> () in self.ChangePasswordResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
@@ -96,13 +95,29 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         print("ChangePassword response :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
+            SubmitButton.isUserInteractionEnabled = true
             hideLoading()
-            self.navigationController?.popViewController(animated: true)
+            let alert = UIAlertController(title: "Change Password" , message: "Successfully created a new password", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: dosomething)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            //
          }else{
             SubmitButton.isUserInteractionEnabled = true
+            let alert = UIAlertController(title: "Change Password" , message: "Invalid password", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
             hideLoading()
         }
         
+    }
+    func dosomething(action: UIAlertAction)   {
+        self.navigationController?.popViewController(animated: true)
     }
     func isAllFieldSet() -> Bool {
         let fontswipe = FontSwipe()
@@ -124,8 +139,6 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
             confirmpasswordICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             ConfirmPassword.attributedPlaceholder = NSAttributedString(string: Constants.ConfirmPassword)
             ConfirmPassword.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
-            
             return false
         }else if (NewPassword.text?.isEmpty)! {
             NewPassword.attributedPlaceholder = NSAttributedString(string: Constants.emptynewPassword, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])

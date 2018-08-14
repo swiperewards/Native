@@ -10,7 +10,7 @@ import UIKit
 
 class WalletCardsCell: UITableViewCell {
 
-    @IBOutlet weak var CardIcon: UILabel!
+    @IBOutlet weak var CardIcon: UIImageView!
     @IBOutlet weak var CardNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

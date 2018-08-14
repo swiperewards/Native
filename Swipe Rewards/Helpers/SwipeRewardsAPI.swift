@@ -10,9 +10,27 @@
 import UIKit
 class SwipeRewardsAPI: NSObject {
 static let sharedInstance = SwipeRewardsAPI()
+    
+    //http://192.168.0.198:5000/
     static let serverURL = "http://winjitstaging.cloudapp.net:5000/"
     static let signUpURL = "users/registerUser"
     static let signInURL = "users/loginUser"
     static let ChangePasswordURL = "users/changePassword"
     static let DealsURL = "deals/getDeals"
+    static let AddCardURL = "user/cards/addCard"
+    static let GetCardURL = "user/cards/getCards"
+    static let DeleteCardURL = "user/cards/deleteCard"
+    static let GetRedeemURL = "redeem/getRedeemOptions"
+    static let RaiseRedeemURL = "redeem/raiseRedeemRequest"
+    static let InitSwipeURL = "config/initSwipe"
+    static let EventHistoryURL = "event/getEventNotifications"
+    static let GetTicketsURL = "tickets/getTicketTypes"
+    static let SendTicketsURL = "tickets/generateTicket"
+    static let UploadImageURL = "users/updateProfilePic"
+    static let ForgotPasswordURL = "users/forgotPassword"
+    static let ResetPasswordURL = "users/setPassword"
+    
+    ///http://winjitstaging.cloudapp.net:5000/public/ProfileImages/uid42-8B1EC230-9B81-4B32-9590-90B71421DBDA.jpeg
+    
+    
 }
