@@ -40,7 +40,7 @@ extension TCPickerViewThemeType {
     }
     
     public var closeText: String {
-        return "Close"
+        return "Cancel"
     }
     
     public var backgroundColor: UIColor {
@@ -60,15 +60,15 @@ extension TCPickerViewThemeType {
     }
     
     public var headerBackgroundColor: UIColor {
-        return UIColor(red: 75/255, green: 178/255, blue: 218/255, alpha: 1)
+        return UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
     }
     
     public var doneBackgroundColor: UIColor {
-        return UIColor(red: 75/255, green: 178/255, blue: 218/255, alpha: 1)
+        return UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
     }
     
     public var closeBackgroundColor: UIColor {
-        return UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1)
+        return UIColor.darkGray
     }
     
     public var separatorColor: UIColor {
@@ -80,15 +80,15 @@ extension TCPickerViewThemeType {
     }
     
     public var titleFont: UIFont{
-        return UIFont.boldSystemFont(ofSize: 18)
+        return UIFont.boldSystemFont(ofSize: 14)
     }
     
     public var rowHeight: CGFloat {
-        return 50
+        return 35
     }
     
     public var headerHeight: CGFloat {
-        return 60
+        return 50
     }
     
     public var cornerRadius: CGFloat {

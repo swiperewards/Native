@@ -8,15 +8,16 @@
 
 import UIKit
 import Fontello_Swift
+import MXParallaxHeader
 
 
-
-class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSource,MXParallaxHeaderDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
     @IBOutlet var Cashback: UILabel!
     @IBOutlet var Level: UILabel!
     @IBOutlet var Levelmode: UILabel!
     
     
+    @IBOutlet var HeaderView: UIView!
     
     var creditCardValidator: CreditCardValidator!
     @IBOutlet weak var profileimageview: UIImageView!
@@ -42,9 +43,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "WALLET"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        
-        
+    
         let username: String?
         username = Database.value(forKey: Constants.profileimagekey) as? String
         if  username == "" || username == nil{
@@ -66,21 +65,36 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         ConnecttoWalletCARD()
         
     }
-
+    func configureHeader() {
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        customView.backgroundColor = UIColor.white
+        let label = UILabel(frame: CGRect(x: 5, y: 0, width: 200, height: 21))
+        label.textAlignment = .left
+        label.text = "Credit/Debit Cards"
+        label.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+        customView.addSubview(label)
+        BankCardNumberTV.tableHeaderView = customView
+ }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        Progressview.layer.borderWidth = 1.5
 //        Progressview.layer.cornerRadius = 5
 //        Progressview.layer.borderColor = UIColor.white.cgColor
 //        Progressview.clipsToBounds = true
-         creditCardValidator = CreditCardValidator()
+        
      
+        self.navigationController?.navigationBar.topItem?.title = "WALLET"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
         
+        BankCardNumberTV.parallaxHeader.view = HeaderView // You can set the parallax header view from the floating view
+        BankCardNumberTV.parallaxHeader.height = 180
+        BankCardNumberTV.parallaxHeader.minimumHeight = 0
+        BankCardNumberTV.parallaxHeader.mode = MXParallaxHeaderMode.fill
+        BankCardNumberTV.parallaxHeader.delegate = self
+        configureHeader()
         
-        
-        
-        
+        creditCardValidator = CreditCardValidator()
         Progressview.animationDuration = 0.5
         Progressview.minimumValue = Float(Constants.minlevel)
         Progressview.maximumValue = Float(Constants.maxlevel)
@@ -98,8 +112,8 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameofSwipe.text = string2
-        CreditorDebitHeader.text = "Credit/Debit Cards"
-        CreditorDebitHeader?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+//        CreditorDebitHeader.text = "Credit/Debit Cards"
+//        CreditorDebitHeader?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         view.addSubview(indicator)
@@ -120,6 +134,11 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             self.present(alert, animated: true, completion: nil)
             return
         }
+    }
+    // MARK: - Parallax header delegate setupParallaxHeaders
+    
+    func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
+        NSLog("progress %f", parallaxHeader.progress)
     }
     func ConnecttoWalletCARD(){
         
@@ -169,14 +188,14 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             let arrowPath = UIBezierPath()
             arrowPath.move(to: CGPoint(x:0, y:0))
             arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:0))
-            arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)))
-            arrowPath.addQuadCurve(to: CGPoint(x:0, y:WalletView.bounds.size.height - (WalletView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:WalletView.bounds.size.height))
+            arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:HeaderView.bounds.size.height - (HeaderView.bounds.size.height*0.2)))
+            arrowPath.addQuadCurve(to: CGPoint(x:0, y:HeaderView.bounds.size.height - (HeaderView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:HeaderView.bounds.size.height))
             arrowPath.addLine(to: CGPoint(x:0, y:0))
             arrowPath.close()
             maskLayer.path = arrowPath.cgPath
             maskLayer.frame = self.view.bounds
             maskLayer.masksToBounds = true
-            WalletView.layer.mask = maskLayer
+            HeaderView.layer.mask = maskLayer
     }
     override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -263,9 +282,14 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let selectedCell = tableView.cellForRow(at: indexPath) as! WalletCardsCell
         if selectedCell.CardNumber.text == "Add New Card" {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let view: AddCardController = storyboard.instantiateViewController(withIdentifier: "AddCardController") as! AddCardController
-            self.navigationController?.pushViewController(view, animated: true)
+            
+            
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let view: AddCardController = storyboard.instantiateViewController(withIdentifier: "AddCardController") as! AddCardController
+                self.navigationController?.pushViewController(view, animated: true)
+            
+            
+           
         }
     }
     

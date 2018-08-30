@@ -40,7 +40,7 @@ class Constants: NSObject {
 
     static let CardNumber = "Card Number"
     static let Expiry = "Expiry on"
-    static let Cvv = "Cvv"
+    static let Cvv = "CVV"
     static let NameonCard = "Name on Card"
     
     //DB
@@ -50,6 +50,9 @@ class Constants: NSObject {
     //DB
     static var profileimage = String()
     static let profileimagekey = "Profile"
+    
+    static var cityname = String()
+    static let citynamekey = "cityname"
     
     //DB
     static var Termsofuse = String()

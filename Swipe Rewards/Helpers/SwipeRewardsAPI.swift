@@ -16,7 +16,7 @@ static let sharedInstance = SwipeRewardsAPI()
     static let signUpURL = "users/registerUser"
     static let signInURL = "users/loginUser"
     static let ChangePasswordURL = "users/changePassword"
-    static let DealsURL = "deals/getDeals"
+    static let DealsURL = "deals/getDealsWithPaging"
     static let AddCardURL = "user/cards/addCard"
     static let GetCardURL = "user/cards/getCards"
     static let DeleteCardURL = "user/cards/deleteCard"
@@ -29,6 +29,11 @@ static let sharedInstance = SwipeRewardsAPI()
     static let UploadImageURL = "users/updateProfilePic"
     static let ForgotPasswordURL = "users/forgotPassword"
     static let ResetPasswordURL = "users/setPassword"
+    static let GetcityURL = "config/getCities"
+    
+    //config/getCities
+    
+    //http://host:5000/deals/getDealsWithPaging
     
     ///http://winjitstaging.cloudapp.net:5000/public/ProfileImages/uid42-8B1EC230-9B81-4B32-9590-90B71421DBDA.jpeg
     

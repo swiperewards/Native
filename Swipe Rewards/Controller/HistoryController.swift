@@ -29,6 +29,7 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpUI()
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)

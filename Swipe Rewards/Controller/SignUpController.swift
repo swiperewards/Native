@@ -11,12 +11,13 @@ import Fontello_Swift
 import AFNetworking
 import FBSDKLoginKit
 import GoogleSignIn
-class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate {
+class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
 
     @IBOutlet weak var FieldsView: UIView!
     @IBOutlet weak var contentview: UIView!
     @IBOutlet weak var sv: UIScrollView!
-    @IBOutlet weak var SubmitButton: UIButton!
+   
+    @IBOutlet var SubmitButton: TKTransitionSubmitButton!
     @IBOutlet weak var confirmpassword: FloatLabelTextField!
     @IBOutlet weak var password: FloatLabelTextField!
     @IBOutlet weak var emailid: FloatLabelTextField!
@@ -113,10 +114,7 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         
         SignUpApiInputBody() //Calling Input API Body for SignUp
         
-        SubmitButton.isUserInteractionEnabled = false
-        SubmitButton.backgroundColor = UIColor.lightGray
-        SubmitButton.setTitle("", for: .normal)
-        showSpinning()
+        
         let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
         RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
                 (response) -> () in self.SignupResponse(response: response as! [String : AnyObject])})
@@ -156,7 +154,7 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         print("SignUp response :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-             hideLoading()
+            // hideLoading()
             
             let alert = UIAlertController(title: "Success" , message: "Please click on the verification link you received in registered email", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: doSomething)
@@ -169,7 +167,8 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             emailid.text = ""
             password.text = ""
             confirmpassword.text = ""
-            
+            SubmitButton.layer.cornerRadius  = 0.0
+            SubmitButton.layer.masksToBounds = false
             
             
             //Navigating to Home Dashboard Screen
@@ -179,8 +178,9 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
 //            window.rootViewController = navigationController
 //            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         }else{
-            SubmitButton.isUserInteractionEnabled = true
-            hideLoading()
+            
+            SubmitButton.layer.cornerRadius  = 0.0
+            SubmitButton.layer.masksToBounds = false
             
             let alert = UIAlertController(title: "Failure" , message: "Invalid Credentials", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -362,30 +362,7 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         return passwordTest.evaluate(with: testStr)
     }
 
-//MARK: -  Activity Indicator
-    func hideLoading(){
-        SubmitButton.setTitle("Submit", for: .normal)
-        SubmitButton.backgroundColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        indicator.stopAnimating()
-    }
-    private func createActivityIndicator() -> UIActivityIndicatorView {
-        indicator.hidesWhenStopped = true
-        indicator.color = UIColor.white
-        return indicator
-    }
-    private func showSpinning() {
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        SubmitButton.addSubview(indicator)
-        centerActivityIndicatorInButton()
-        indicator.startAnimating()
-    }
-    
-    private func centerActivityIndicatorInButton() {
-        let xCenterConstraint = NSLayoutConstraint(item: SubmitButton, attribute: .centerX, relatedBy: .equal, toItem: indicator, attribute: .centerX, multiplier: 1, constant: 0)
-        SubmitButton.addConstraint(xCenterConstraint)
-        let yCenterConstraint = NSLayoutConstraint(item: SubmitButton, attribute: .centerY, relatedBy: .equal, toItem: indicator, attribute: .centerY, multiplier: 1, constant: 0)
-        SubmitButton.addConstraint(yCenterConstraint)
-    }
+
     
     @IBAction func GoogleSignIn(_ sender: Any) {
         
@@ -398,14 +375,11 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             if (error == nil){
-                self.hideLoading()
+               // self.hideLoading()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 if fbloginresult.grantedPermissions != nil {
                     if(fbloginresult.grantedPermissions.contains("email")){
-                        self.SubmitButton.isUserInteractionEnabled = false
-                        self.SubmitButton.backgroundColor = UIColor.lightGray
-                        self.SubmitButton.setTitle("", for: .normal)
-                        self.showSpinning()
+                       
                         self.getFBUserData()
                         fbLoginManager.logOut()
                     }
@@ -470,8 +444,8 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     func FacebookResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
         
-        SubmitButton.isUserInteractionEnabled = true
-        hideLoading()
+//        SubmitButton.isUserInteractionEnabled = true
+//        hideLoading()
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
@@ -481,44 +455,47 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
-            //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+                UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                
+            })
+            
+          
         }else{}
     }
     //MARK: - Google SignIn Delegate Methods
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        SubmitButton.isUserInteractionEnabled = false
-        SubmitButton.backgroundColor = UIColor.lightGray
-        SubmitButton.setTitle("", for: .normal)
-        showSpinning()
+        
         if let error = error{
             print("\(error.localizedDescription)")} else{
-            //
-            //            let userId = user.userID                  // For client-side use only!
-            //            let idToken = user.authentication.idToken // Safe to send to the server
-                        let fullName = user.profile.name
-            //            let givenName = user.profile.givenName
-            //            let familyName = user.profile.familyName
-            let getemail = user.profile.email
-            // self.emailtext.text = getemail
+            fullName = user.profile.name
+            getemail = user.profile.email
             var imageURL = ""
             if user.profile.hasImage {
                 imageURL = user.profile.imageURL(withDimension: 100).absoluteString
             }
             let url = NSURL(string: imageURL)
             let data = NSData.init(contentsOf: url! as URL)
+//            SubmitButton.isUserInteractionEnabled = false
+//            SubmitButton.backgroundColor = UIColor.lightGray
+//            SubmitButton.setTitle("", for: .normal)
+//            showSpinning()
+            GoogleApiInputBody()
+            let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
+            RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
+                (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in}
             if data != nil{//self.editbtnimage.setImage(UIImage(data:data! as Data) , for: UIControlState.normal)
+                
             }}
         
-        GoogleApiInputBody()
-        let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
-        RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
-            (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
-        { (error: NSError) ->() in}
+       
         
         
     }
@@ -544,22 +521,28 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     }
     func GoogleResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
-        SubmitButton.isUserInteractionEnabled = true
-        hideLoading()
+      //  SubmitButton.isUserInteractionEnabled = true
+      //  hideLoading()
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
-            Constants.Username = response["responseData"]?.value(forKey: "fullName") as! String
+            Constants.Username = fullName
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
-            //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+                UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                
+            })
+            
+           
         }else{}
     }
     func sign(_ signIn: GIDSignIn!,
@@ -569,6 +552,11 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     func sign(_ signIn: GIDSignIn!,
               dismiss viewController: UIViewController!){
         self.dismiss(animated: true, completion: nil)
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.view.superview?.layer.cornerRadius  = 0.0
+        self.view.superview?.layer.masksToBounds = false
     }
     
 }

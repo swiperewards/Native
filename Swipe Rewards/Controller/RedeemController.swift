@@ -57,7 +57,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     var SelectedBankID = NSNumber()
     
     
-    
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addDoneButtonOnKeyboard()
@@ -71,7 +72,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
         
         
-        
+        self.navigationController?.navigationBar.topItem?.title = "REDEEM"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
         
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
@@ -260,31 +262,42 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         
        
         let a:Int? = Int(RedeemAmount.text!)
-      //  print("Redeem Amont : ",a)
+        
+        let amontstring: String = RedeemAmount.text!
+       // amontstring.prefix(4)
+        
+        print("Redeem Amont : %@",amontstring.prefix(1))
         
         if Paytowhere.text == "" {
-            let alert = UIAlertController(title: "Empty Bank" , message: "Please Select Your Bank Type", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Bank Account" , message: "Please Select Your Bank Type", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else if SelectedBank.text == ""{
-            let alert = UIAlertController(title: "Empty Bank Name" , message: "Please Select Your Bank Name", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Bank Account Name" , message: "Please Select Your Bank Name", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else if PaymentAccountNo.text == ""{
-            let alert = UIAlertController(title: "Empty Address" , message: "Please enter your address", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Account Number" , message: "Please Enter Your Account Number", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-        } else if RedeemAmount.text == "0"{
-            let alert = UIAlertController(title: "Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
+        } else if RedeemAmount.text == "0" || amontstring.prefix(1) == "0" {
+            let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             
-        }else if a! >= 258 {
-            let alert = UIAlertController(title: "Redeem" , message: "You can not redeem more than $258", preferredStyle: .alert)
+        }else if a == 0 {
+            let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else if a! >= 258 {
+            let alert = UIAlertController(title: "Invalid Redeem" , message: "You can not redeem more than $258", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
@@ -398,6 +411,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                     self.PaymentAccountNo.text = ""
                     self.SelectedBankButton.isUserInteractionEnabled = true
                     self.SelectedBankDownIcon.isHidden = false
+                }else if self.Paytowhere.text == "Cryptocurrency"{
+                    
                 }
             }
         }
@@ -428,9 +443,13 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             if self.Paytowhere.text == "Cheque" {
                 self.SelectedBank.text = ""
                 self.PaymentAccountNo.text = ""
+                self.PaymentAccountNo.placeholder = "Address"
+                self.SelectedBank.placeholder = "Name as per bank"
                 self.SelectedBankButton.isUserInteractionEnabled = false
                 self.SelectedBankDownIcon.isHidden = true
             }else if self.Paytowhere.text == "Bank Account" {
+                self.PaymentAccountNo.placeholder = "Account Number"
+                
 //                self.SelectedBank.text = "Choose Your Bank"
 //                self.PaymentAccountNo.text = ""
 //                self.SelectedBankButton.isUserInteractionEnabled = true
@@ -438,6 +457,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             }
             else if self.Paytowhere.text == "Cryptocurrency"{
                 
+            self.PaymentAccountNo.placeholder = "Wallet Address"
                 self.SelectedBank.text = SelectedBankTypearray[0]
                 self.SelectedBankID = self.SelectedBankTypearrayID[0]
             }
@@ -459,9 +479,26 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         if textField == RedeemAmount{
             if range.location == 8 {
                 return false}
+            //Prevent "0" characters as the first characters. (i.e.: There should not be values like "003" "01" "000012" etc.)
+            if textField.text?.count == 0 && string == "0" {
+                
+                return false
+            }
+            //Have a decimal keypad. Which means user will be able to enter Double values. (Needless to say "." will be limited one)
+            if (textField.text?.contains("."))! && string == "." {
+                
+                return false
+            }
            
+        }else if textField == PaymentAccountNo
+        {
+            if range.location == 20 {
+            return false}
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+            
         }
-        
         
         return true
     }
@@ -494,12 +531,20 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         
     //Need to calculate keyboard exact size due to Apple suggestions
    // scrollview.isScrollEnabled = true
+        
+         print(scrollview.contentInset.bottom)
+        
     var info = notification.userInfo!
     let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-    let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+    let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height+100, 0.0)
     
     scrollview.contentInset = contentInsets
     scrollview.scrollIndicatorInsets = contentInsets
+        
+        print(scrollview.frame.size.height)
+        print(scrollview.contentSize.height)
+        print("Bottom",scrollview.contentInset.bottom)
+        print("TOP",scrollview.contentInset.top)
     
 //    var aRect : CGRect = self.view.frame
 //    aRect.size.height -= keyboardSize!.height
@@ -514,11 +559,17 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     //Once keyboard disappears, restore original positions
     var info = notification.userInfo!
     let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-    let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+    let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0,0.0, 0.0)
     scrollview.contentInset = contentInsets
     scrollview.scrollIndicatorInsets = contentInsets
-    //self.view.endEditing(true)
-    //scrollview.isScrollEnabled = false
+        
+        print(scrollview.frame.size.height)
+        print(scrollview.contentSize.height)
+        print("Bottom",scrollview.contentInset.bottom)
+        print("TOP",scrollview.contentInset.top)
+    //scrollview.contentSize = CGSize(width: self.view.frame.size.width, height:655)
+   // self.view.endEditing(true)
+    scrollview.isScrollEnabled = true
 }
 
 
@@ -548,4 +599,18 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         let yCenterConstraint = NSLayoutConstraint(item: ConfirmButton, attribute: .centerY, relatedBy: .equal, toItem: indicator, attribute: .centerY, multiplier: 1, constant: 0)
         ConfirmButton.addConstraint(yCenterConstraint)
     }
+    
+    
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(true, animated: true)}
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(true, animated: true)
+//
+//    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        searchBar.setShowsCancelButton(false, animated: true)
+//        searchBar.text = ""
+//    }
 }

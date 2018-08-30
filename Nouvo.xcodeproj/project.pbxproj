@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E01B0BF21302A770083E5DF /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E01B0BE21302A770083E5DF /* MXParallaxHeader.framework */; };
 		8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03C50A2105DF520019FC6C /* WebClientRequest.swift */; };
 		8E0EC9DE210EE0FB002C48E7 /* TCPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EC9D9210EE0FB002C48E7 /* TCPickerView.swift */; };
 		8E0EC9DF210EE0FB002C48E7 /* TCPickerViewThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EC9DA210EE0FB002C48E7 /* TCPickerViewThemeType.swift */; };
@@ -50,6 +51,7 @@
 		8E636C5A20E3BA3A000CF233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */; };
 		8E636C6520E3BA3A000CF233 /* Swipe_RewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6420E3BA3A000CF233 /* Swipe_RewardsTests.swift */; };
 		8E636C7020E3BA3A000CF233 /* Swipe_RewardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */; };
+		8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ACC0A213680A0000A95B7 /* credentials.plist */; };
 		8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
 		8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
 		8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
@@ -91,8 +93,28 @@
 		8E95A80A20EE36F600C22263 /* WalletCardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E95A80420EE36F600C22263 /* WalletCardsCell.xib */; };
 		8E95A80C20EE3B5600C22263 /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E95A80B20EE3B5600C22263 /* Fontello_Swift.framework */; };
 		8E95A80E20EE3B6800C22263 /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */; };
+		8E9ACDDC2130108A00C955DE /* FRStretchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9ACDDB2130108A00C955DE /* FRStretchView.swift */; };
+		8EB844012126A7C300515F8F /* ModernSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB843FC2126A7C200515F8F /* ModernSearchBarDelegate.swift */; };
+		8EB844022126A7C300515F8F /* ModernSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB843FD2126A7C200515F8F /* ModernSearchBar.swift */; };
+		8EB844032126A7C300515F8F /* ModernSearchBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB843FE2126A7C300515F8F /* ModernSearchBarIcon.swift */; };
+		8EB844042126A7C300515F8F /* ModernSearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB843FF2126A7C300515F8F /* ModernSearchBarCell.swift */; };
+		8EB844052126A7C400515F8F /* ModernSearchBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB844002126A7C300515F8F /* ModernSearchBarModel.swift */; };
 		8EC78FAD21084B320082376C /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC78FAC21084B320082376C /* ChangePasswordController.swift */; };
 		8EC78FAF21088D9E0082376C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC78FAE21088D9E0082376C /* CoreLocation.framework */; };
+		8ECB0B7E21341A3000B36030 /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7921341A2E00B36030 /* TimerEx.swift */; };
+		8ECB0B7F21341A3000B36030 /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */; };
+		8ECB0B8021341A3000B36030 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */; };
+		8ECB0B8121341A3000B36030 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */; };
+		8ECB0B8221341A3000B36030 /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */; };
+		8ECB0B8F213581CA00B36030 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B8E213581CA00B36030 /* RAMBadge.swift */; };
+		8ECB0B91213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B90213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift */; };
+		8ECB0B93213581E800B36030 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B92213581E800B36030 /* RAMBounceAnimation.swift */; };
+		8ECB0B95213581F200B36030 /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B94213581F100B36030 /* RAMFrameItemAnimation.swift */; };
+		8ECB0B97213581FB00B36030 /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B96213581FB00B36030 /* RAMFumeAnimation.swift */; };
+		8ECB0B992135820300B36030 /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B982135820300B36030 /* RAMRotationAnimation.swift */; };
+		8ECB0B9B2135820B00B36030 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9A2135820B00B36030 /* RAMTransitionItemAnimations.swift */; };
+		8ECB0B9E2135821C00B36030 /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */; };
+		8ECB0B9F2135821C00B36030 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */; };
 		8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
 		8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D34020EB53A000604B37 /* FontSwipe.swift */; };
@@ -165,9 +187,6 @@
 		8EFDF83520E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
 		8EFDF83620E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
 		8EFDF83720E4B0A7008586F3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */; };
-		8EFDF84220E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
-		8EFDF84320E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
-		8EFDF84420E4EC3A008586F3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EFDF84120E4EC3A008586F3 /* credentials.plist */; };
 		CD79C2ED61DAD75C7BC95B8B /* Pods_Swipe_Rewards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2885E6A4437E21C2272B23A /* Pods_Swipe_Rewards.framework */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +210,7 @@
 /* Begin PBXFileReference section */
 		180724A3112F76AB7218229F /* Pods-Swipe Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.debug.xcconfig"; sourceTree = "<group>"; };
 		6F9E6B04F2DCFCE5658FBD83 /* Pods-Swipe Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipe Rewards.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipe Rewards/Pods-Swipe Rewards.release.xcconfig"; sourceTree = "<group>"; };
+		8E01B0BE21302A770083E5DF /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03C50A2105DF520019FC6C /* WebClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClientRequest.swift; sourceTree = "<group>"; };
 		8E0EC9D9210EE0FB002C48E7 /* TCPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPickerView.swift; sourceTree = "<group>"; };
 		8E0EC9DA210EE0FB002C48E7 /* TCPickerViewThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPickerViewThemeType.swift; sourceTree = "<group>"; };
@@ -216,7 +236,7 @@
 		8E50104E2118A48F00AEDDE4 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8E5010502118B70000AEDDE4 /* LinearProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		8E501052211A215A00AEDDE4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		8E636C4920E3BA38000CF233 /* Swipe Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swipe Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E636C4920E3BA38000CF233 /* Nouvo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouvo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C4C20E3BA38000CF233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E636C4E20E3BA38000CF233 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		8E636C5120E3BA38000CF233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -230,6 +250,7 @@
 		8E636C6B20E3BA3A000CF233 /* Swipe RewardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swipe RewardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C6F20E3BA3A000CF233 /* Swipe_RewardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe_RewardsUITests.swift; sourceTree = "<group>"; };
 		8E636C7120E3BA3B000CF233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E8ACC0A213680A0000A95B7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		8E95A7D420ECA2E400C22263 /* Swipe Rewards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swipe Rewards-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E95A7D520ECC18400C22263 /* UserDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
 		8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retailshoplistcell.swift; sourceTree = "<group>"; };
@@ -246,9 +267,29 @@
 		8E95A80420EE36F600C22263 /* WalletCardsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCardsCell.xib; sourceTree = "<group>"; };
 		8E95A80B20EE3B5600C22263 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9ACDDB2130108A00C955DE /* FRStretchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRStretchView.swift; sourceTree = "<group>"; };
+		8EB843FC2126A7C200515F8F /* ModernSearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernSearchBarDelegate.swift; sourceTree = "<group>"; };
+		8EB843FD2126A7C200515F8F /* ModernSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernSearchBar.swift; sourceTree = "<group>"; };
+		8EB843FE2126A7C300515F8F /* ModernSearchBarIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernSearchBarIcon.swift; sourceTree = "<group>"; };
+		8EB843FF2126A7C300515F8F /* ModernSearchBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernSearchBarCell.swift; sourceTree = "<group>"; };
+		8EB844002126A7C300515F8F /* ModernSearchBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernSearchBarModel.swift; sourceTree = "<group>"; };
 		8EC78FAC21084B320082376C /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		8EC78FAE21088D9E0082376C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8EC78FB021088FD70082376C /* Swipe Rewards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swipe Rewards.entitlements"; sourceTree = "<group>"; };
+		8ECB0B7921341A2E00B36030 /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
+		8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionSubmitButton.swift; sourceTree = "<group>"; };
+		8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
+		8ECB0B8E213581CA00B36030 /* RAMBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBadge.swift; sourceTree = "<group>"; };
+		8ECB0B90213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarController+BottomLine.swift"; sourceTree = "<group>"; };
+		8ECB0B92213581E800B36030 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		8ECB0B94213581F100B36030 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
+		8ECB0B96213581FB00B36030 /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFumeAnimation.swift; sourceTree = "<group>"; };
+		8ECB0B982135820300B36030 /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMRotationAnimation.swift; sourceTree = "<group>"; };
+		8ECB0B9A2135820B00B36030 /* RAMTransitionItemAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimations.swift; sourceTree = "<group>"; };
+		8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
+		8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8EF1D34020EB53A000604B37 /* FontSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipe.swift; sourceTree = "<group>"; };
 		8EF1D34520EB989400604B37 /* swipelogo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipelogo.ttf; sourceTree = "<group>"; };
 		8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwipeLogo.swift; sourceTree = "<group>"; };
@@ -273,7 +314,6 @@
 		8EFDF82920E4B0A5008586F3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8EFDF82A20E4B0A6008586F3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8EFDF82B20E4B0A7008586F3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		8EFDF84120E4EC3A008586F3 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		C2885E6A4437E21C2272B23A /* Pods_Swipe_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipe_Rewards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -282,6 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E01B0BF21302A770083E5DF /* MXParallaxHeader.framework in Frameworks */,
 				8E501053211A215A00AEDDE4 /* AssetsLibrary.framework in Frameworks */,
 				8EC78FAF21088D9E0082376C /* CoreLocation.framework in Frameworks */,
 				8E95A80E20EE3B6800C22263 /* Fontello_Swift.framework in Frameworks */,
@@ -382,7 +423,7 @@
 		8E636C4A20E3BA38000CF233 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E636C4920E3BA38000CF233 /* Swipe Rewards.app */,
+				8E636C4920E3BA38000CF233 /* Nouvo.app */,
 				8E636C6020E3BA3A000CF233 /* Swipe RewardsTests.xctest */,
 				8E636C6B20E3BA3A000CF233 /* Swipe RewardsUITests.xctest */,
 			);
@@ -395,6 +436,7 @@
 				8EC78FB021088FD70082376C /* Swipe Rewards.entitlements */,
 				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
 				8E4D3A1520FF08FC008B2F9B /* Helpers */,
+				8ECB0B852135812F00B36030 /* RAMAnimatedTabBarController */,
 				8EF1D34920EB98B800604B37 /* Model */,
 				8E95A7DA20ECD1CA00C22263 /* View */,
 				8E95A7D920ECD18700C22263 /* Controller */,
@@ -403,8 +445,8 @@
 				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
 				8E636C5820E3BA3A000CF233 /* LaunchScreen.storyboard */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
+				8E8ACC0A213680A0000A95B7 /* credentials.plist */,
 				8E95A7D420ECA2E400C22263 /* Swipe Rewards-Bridging-Header.h */,
-				8EFDF84120E4EC3A008586F3 /* credentials.plist */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
 			path = "Swipe Rewards";
@@ -459,9 +501,99 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8ECB0B852135812F00B36030 /* RAMAnimatedTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B8C2135819600B36030 /* BottomLine */,
+				8ECB0B8D213581B600B36030 /* RAMBadge */,
+				8ECB0B862135814A00B36030 /* Animations */,
+				8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */,
+				8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */,
+			);
+			name = RAMAnimatedTabBarController;
+			path = Animations/RAMAnimatedTabBarController;
+			sourceTree = "<group>";
+		};
+		8ECB0B862135814A00B36030 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B8B2135818E00B36030 /* TransitionAniamtions */,
+				8ECB0B8A2135818700B36030 /* RotationAnimation */,
+				8ECB0B892135817E00B36030 /* FumeAnimation */,
+				8ECB0B882135817600B36030 /* FrameAnimation */,
+				8ECB0B872135816600B36030 /* BounceAnimation */,
+			);
+			name = Animations;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8ECB0B872135816600B36030 /* BounceAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B92213581E800B36030 /* RAMBounceAnimation.swift */,
+			);
+			name = BounceAnimation;
+			sourceTree = "<group>";
+		};
+		8ECB0B882135817600B36030 /* FrameAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B94213581F100B36030 /* RAMFrameItemAnimation.swift */,
+			);
+			path = FrameAnimation;
+			sourceTree = "<group>";
+		};
+		8ECB0B892135817E00B36030 /* FumeAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B96213581FB00B36030 /* RAMFumeAnimation.swift */,
+			);
+			name = FumeAnimation;
+			sourceTree = "<group>";
+		};
+		8ECB0B8A2135818700B36030 /* RotationAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B982135820300B36030 /* RAMRotationAnimation.swift */,
+			);
+			path = RotationAnimation;
+			sourceTree = "<group>";
+		};
+		8ECB0B8B2135818E00B36030 /* TransitionAniamtions */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B9A2135820B00B36030 /* RAMTransitionItemAnimations.swift */,
+			);
+			name = TransitionAniamtions;
+			sourceTree = "<group>";
+		};
+		8ECB0B8C2135819600B36030 /* BottomLine */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B90213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift */,
+			);
+			name = BottomLine;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8ECB0B8D213581B600B36030 /* RAMBadge */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB0B8E213581CA00B36030 /* RAMBadge.swift */,
+			);
+			name = RAMBadge;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		8EF1D34920EB98B800604B37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */,
+				8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */,
+				8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */,
+				8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */,
+				8ECB0B7921341A2E00B36030 /* TimerEx.swift */,
+				8E9ACDDB2130108A00C955DE /* FRStretchView.swift */,
 				8EF1D34020EB53A000604B37 /* FontSwipe.swift */,
 				8EF1D34A20EB997C00604B37 /* FontSwipeLogo.swift */,
 				8E1E053420EA01C8001C1328 /* FloatLabelTextField.swift */,
@@ -469,6 +601,11 @@
 				8E1AF510211B100400A7CFDD /* CreditCardValidationType.swift */,
 				8E1AF50F211B100400A7CFDD /* CreditCardValidator.swift */,
 				8E1AF513211C699200A7CFDD /* MonthYearPickerView.swift */,
+				8EB843FD2126A7C200515F8F /* ModernSearchBar.swift */,
+				8EB843FF2126A7C300515F8F /* ModernSearchBarCell.swift */,
+				8EB843FC2126A7C200515F8F /* ModernSearchBarDelegate.swift */,
+				8EB843FE2126A7C300515F8F /* ModernSearchBarIcon.swift */,
+				8EB844002126A7C300515F8F /* ModernSearchBarModel.swift */,
 				8E0EC9D8210EE0DC002C48E7 /* PickerViewLibrary */,
 			);
 			path = Model;
@@ -502,6 +639,7 @@
 		8EFDF82720E4B083008586F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E01B0BE21302A770083E5DF /* MXParallaxHeader.framework */,
 				8E501052211A215A00AEDDE4 /* AssetsLibrary.framework */,
 				8EC78FAE21088D9E0082376C /* CoreLocation.framework */,
 				8E95A80D20EE3B6800C22263 /* Fontello_Swift.framework */,
@@ -518,9 +656,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E636C4820E3BA38000CF233 /* Swipe Rewards */ = {
+		8E636C4820E3BA38000CF233 /* Nouvo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E636C7420E3BA3B000CF233 /* Build configuration list for PBXNativeTarget "Swipe Rewards" */;
+			buildConfigurationList = 8E636C7420E3BA3B000CF233 /* Build configuration list for PBXNativeTarget "Nouvo" */;
 			buildPhases = (
 				D15726D94A2CB89C2F6F8348 /* [CP] Check Pods Manifest.lock */,
 				8E636C4520E3BA38000CF233 /* Sources */,
@@ -533,9 +671,9 @@
 			);
 			dependencies = (
 			);
-			name = "Swipe Rewards";
+			name = Nouvo;
 			productName = "Swipe Rewards";
-			productReference = 8E636C4920E3BA38000CF233 /* Swipe Rewards.app */;
+			productReference = 8E636C4920E3BA38000CF233 /* Nouvo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8E636C5F20E3BA3A000CF233 /* Swipe RewardsTests */ = {
@@ -605,7 +743,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E636C4420E3BA38000CF233 /* Build configuration list for PBXProject "Swipe Rewards" */;
+			buildConfigurationList = 8E636C4420E3BA38000CF233 /* Build configuration list for PBXProject "Nouvo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -618,7 +756,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E636C4820E3BA38000CF233 /* Swipe Rewards */,
+				8E636C4820E3BA38000CF233 /* Nouvo */,
 				8E636C5F20E3BA3A000CF233 /* Swipe RewardsTests */,
 				8E636C6A20E3BA3A000CF233 /* Swipe RewardsUITests */,
 			);
@@ -637,7 +775,6 @@
 				8EF1D37320EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
 				8EF1D38B20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
 				8EF1D36120EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
-				8EFDF84220E4EC3A008586F3 /* credentials.plist in Resources */,
 				8EF1D38220EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
 				8EF1D37020EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
 				8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
@@ -656,6 +793,7 @@
 				8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */,
 				8E1E053920EA4D4A001C1328 /* swipe.ttf in Resources */,
 				8E636C5220E3BA38000CF233 /* Main.storyboard in Resources */,
+				8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +802,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF1D37720EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
-				8EFDF84320E4EC3A008586F3 /* credentials.plist in Resources */,
 				8EF1D36820EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8EF1D36220EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
 				8EF1D37420EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
@@ -694,7 +831,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF1D37820EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
-				8EFDF84420E4EC3A008586F3 /* credentials.plist in Resources */,
 				8EF1D36920EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8EF1D36320EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
 				8EF1D37520EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
@@ -752,6 +888,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -760,6 +898,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -795,33 +935,51 @@
 				8E2C8335211D670000CDBE37 /* SetPasswordController.swift in Sources */,
 				8E0EC9DF210EE0FB002C48E7 /* TCPickerViewThemeType.swift in Sources */,
 				8E0EC9DE210EE0FB002C48E7 /* TCPickerView.swift in Sources */,
+				8ECB0B7E21341A3000B36030 /* TimerEx.swift in Sources */,
 				8E44027321098E47005952E3 /* AddCardController.swift in Sources */,
 				8E172B4E210741610068565D /* NavigationController.swift in Sources */,
+				8ECB0B7F21341A3000B36030 /* TransitionSubmitButton.swift in Sources */,
 				8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
 				8E5010512118B70000AEDDE4 /* LinearProgressView.swift in Sources */,
+				8ECB0B8021341A3000B36030 /* FadeTransition.swift in Sources */,
 				8E50104F2118A48F00AEDDE4 /* TabViewController.swift in Sources */,
 				8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
+				8ECB0B8121341A3000B36030 /* CGRectEx.swift in Sources */,
+				8EB844052126A7C400515F8F /* ModernSearchBarModel.swift in Sources */,
 				8E0EC9E0210EE0FB002C48E7 /* TCPickerViewDarkTheme.swift in Sources */,
 				8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */,
+				8ECB0B9E2135821C00B36030 /* RAMAnimatedTabBarController.swift in Sources */,
+				8EB844022126A7C300515F8F /* ModernSearchBar.swift in Sources */,
 				8E1AF511211B100500A7CFDD /* CreditCardValidator.swift in Sources */,
 				8EC78FAD21084B320082376C /* ChangePasswordController.swift in Sources */,
+				8ECB0B97213581FB00B36030 /* RAMFumeAnimation.swift in Sources */,
+				8ECB0B9F2135821C00B36030 /* RAMItemAnimationProtocol.swift in Sources */,
 				8E636C5520E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld in Sources */,
 				8EF1D39020EBAC6E00604B37 /* SignUpController.swift in Sources */,
+				8ECB0B91213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */,
 				8E440275210993C5005952E3 /* LocalDatabase.swift in Sources */,
 				8E172B462106F8FB0068565D /* Constants.swift in Sources */,
 				8E0EC9E2210EE0FB002C48E7 /* TCPickerTableViewCell.swift in Sources */,
 				8E0EC9E1210EE0FB002C48E7 /* TCPickerViewLightTheme.swift in Sources */,
 				8E1AF50E211AE7B300A7CFDD /* TermsofUseController.swift in Sources */,
 				8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */,
+				8EB844042126A7C300515F8F /* ModernSearchBarCell.swift in Sources */,
 				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
 				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E95A80520EE36F600C22263 /* WalletCardsCell.swift in Sources */,
 				8E10D05C20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E10D06020EF608300C6020D /* ForgotController.swift in Sources */,
+				8ECB0B93213581E800B36030 /* RAMBounceAnimation.swift in Sources */,
+				8EB844012126A7C300515F8F /* ModernSearchBarDelegate.swift in Sources */,
+				8EB844032126A7C300515F8F /* ModernSearchBarIcon.swift in Sources */,
 				8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */,
+				8E9ACDDC2130108A00C955DE /* FRStretchView.swift in Sources */,
+				8ECB0B8221341A3000B36030 /* SpinerLayer.swift in Sources */,
 				8E172B442106F8290068565D /* NetworkConnectivity.swift in Sources */,
 				8E95A7EC20ECE1D900C22263 /* WalletController.swift in Sources */,
+				8ECB0B9B2135820B00B36030 /* RAMTransitionItemAnimations.swift in Sources */,
 				8E1AF512211B100500A7CFDD /* CreditCardValidationType.swift in Sources */,
+				8ECB0B992135820300B36030 /* RAMRotationAnimation.swift in Sources */,
 				8E95A7E420ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7E820ECE1C400C22263 /* HistoryController.swift in Sources */,
@@ -829,6 +987,8 @@
 				8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */,
 				8E95A7F020ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E1AF514211C699200A7CFDD /* MonthYearPickerView.swift in Sources */,
+				8ECB0B8F213581CA00B36030 /* RAMBadge.swift in Sources */,
+				8ECB0B95213581F200B36030 /* RAMFrameItemAnimation.swift in Sources */,
 				8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -886,12 +1046,12 @@
 /* Begin PBXTargetDependency section */
 		8E636C6220E3BA3A000CF233 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8E636C4820E3BA38000CF233 /* Swipe Rewards */;
+			target = 8E636C4820E3BA38000CF233 /* Nouvo */;
 			targetProxy = 8E636C6120E3BA3A000CF233 /* PBXContainerItemProxy */;
 		};
 		8E636C6D20E3BA3A000CF233 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8E636C4820E3BA38000CF233 /* Swipe Rewards */;
+			target = 8E636C4820E3BA38000CF233 /* Nouvo */;
 			targetProxy = 8E636C6C20E3BA3A000CF233 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1041,7 +1201,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
-					"\"$(SRCROOT)/Swipe Rewards/Swipe Rewards-Bridging-Header.h\"",
+					"\"$(SRCROOT)/Swipe Rewards/Swipe Rewards-Bridging-Header.h\"/**",
 				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1050,9 +1210,9 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "Swipe.com.Swipe-Rewards";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1539c5d9-7d59-4754-82c4-58807c51b36c";
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_NAME = Nouvo;
+				PROVISIONING_PROFILE = "2865ace3-ff2f-450c-9ecb-84a6e042706a";
 				PROVISIONING_PROFILE_SPECIFIER = WinjitDemoApps;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1070,6 +1230,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Swipe Rewards/Swipe Rewards-Bridging-Header.h\"",
 				);
 				INFOPLIST_FILE = "Swipe Rewards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1077,9 +1238,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Swipe.com.Swipe-Rewards";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1539c5d9-7d59-4754-82c4-58807c51b36c";
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_NAME = Nouvo;
+				PROVISIONING_PROFILE = "2865ace3-ff2f-450c-9ecb-84a6e042706a";
 				PROVISIONING_PROFILE_SPECIFIER = WinjitDemoApps;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1183,7 +1344,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E636C4420E3BA38000CF233 /* Build configuration list for PBXProject "Swipe Rewards" */ = {
+		8E636C4420E3BA38000CF233 /* Build configuration list for PBXProject "Nouvo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E636C7220E3BA3B000CF233 /* Debug */,
@@ -1192,7 +1353,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E636C7420E3BA3B000CF233 /* Build configuration list for PBXNativeTarget "Swipe Rewards" */ = {
+		8E636C7420E3BA3B000CF233 /* Build configuration list for PBXNativeTarget "Nouvo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E636C7520E3BA3B000CF233 /* Debug */,

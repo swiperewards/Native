@@ -210,7 +210,7 @@ class AddCardController: UIViewController,UITextFieldDelegate {
             NameonCard.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             
             return false
-        }else if (NameonCard.text?.isEmpty)! {
+        }else if (NameonCard.text?.isEmpty)! || NameonCard.text! == ""  || (NameonCard.text?.trimmingCharacters(in: .whitespaces).isEmpty)!{
             NameonCard.attributedPlaceholder = NSAttributedString(string: Constants.emptyNameonCard, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             NameonCard.titleTextColour = UIColor.red
             NameonCardICON.textColor = UIColor.red
@@ -234,13 +234,15 @@ class AddCardController: UIViewController,UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
             
             return false
-        }else if  CardNumber.text!.characters.count != 19{
-            let alert = UIAlertController(title: "Card Number", message: "Enter 16 digit Card Number", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }else {
+        }
+//        else if  CardNumber.text!.characters.count != 15{
+//            let alert = UIAlertController(title: "Card Number", message: "Enter 12 digit Card Number", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
+//            return false
+//        }
+        else {
             CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             ExpiryICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
@@ -262,41 +264,46 @@ class AddCardController: UIViewController,UITextFieldDelegate {
         
          //MARK: -  Expiry On
         if textField == ExpiryOn{
-            
             if CardNumber.text!.characters.count != 19{
                 CardNumber.attributedPlaceholder = NSAttributedString(string: "Enter 16 digit Card Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
                 CardNumber.titleTextColour = UIColor.red
                 CardnumberICON.textColor = UIColor.red
-            }
-            else{
+            }else{
                 if range.location == 7 {
+                    textField.resignFirstResponder()
+                    Cvv.becomeFirstResponder()
                     return false}
                 // Auto-add hyphen before appending 4rd or 7th digit
                 if range.length == 0 && (range.location == 2 || range.location == 3) {
                     ExpiryOn.text = "\(textField.text!)-\(string)"
                     return false
                 }
-            }
+            }}else if textField == CardNumber{
             
-       
-        }//MARK: -  Card Number
-        else if textField == CardNumber{
-            
-            
-            if range.location == 19 {
+            let  char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            if (isBackSpace == -92) {
+                print("Backspace was pressed")
+            }else if range.location >= 18 {
+                CardNumber.text = "\(textField.text!)\(string)"
+                textField.resignFirstResponder()
+                ExpiryOn.becomeFirstResponder()
                 return false}
             // Auto-add hyphen before appending 4rd or 7th digit
             if range.length == 0 && (range.location == 4 || range.location == 9 || range.location == 14) {
                 CardNumber.text = "\(textField.text!)-\(string)"
                 return false
             }
-            validateCardNumber(number: CardNumber.text!)
+           // validateCardNumber(number: CardNumber.text!)
             detectCardNumberType(number: CardNumber.text!)
         }else if textField == Cvv {
-            if range.location == 3 {
+            if range.location >= 2 {
+               
+                Cvv.text = "\(textField.text!)\(string)"
+                textField.resignFirstResponder()
+                NameonCard.becomeFirstResponder()
                 return false}
-        }
-        else{
+        }else{
             let currentText = textField.text ?? ""
             guard let stringRange = Range(range, in: currentText) else { return false }
             
@@ -320,14 +327,18 @@ class AddCardController: UIViewController,UITextFieldDelegate {
 //        let strValid = numberOnly.isSuperset(of: stringFromTextField as CharacterSet)
 //        return strValid
     
+    
+    
+    //MARK: - Controlling the Keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }/**
+    }
+   /**
      * Called when the user click on the view (outside the UITextField).
      */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        validateCardNumber(number: CardNumber.text!)
+      //  validateCardNumber(number: CardNumber.text!)
         validateCardNumberdigit(number: CardNumber.text!)
         self.view.endEditing(true)
     }
@@ -362,18 +373,27 @@ class AddCardController: UIViewController,UITextFieldDelegate {
      - parameter number: credit card number
      */
     func validateCardNumber(number: String) {
-        if creditCardValidator.validate(string: number) {
+        
+        
+        if number.isEmpty {
             
-            CardNumber.attributedPlaceholder = NSAttributedString(string: "Card Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-            CardNumber.titleTextColour = UIColor.gray
-            CardnumberICON.textColor = UIColor.gray
-            
-       
-        } else {
-            CardNumber.attributedPlaceholder = NSAttributedString(string: "Card Number is Invalid", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
-            CardNumber.titleTextColour = UIColor.red
-            CardnumberICON.textColor = UIColor.red
         }
+        else{
+            if creditCardValidator.validate(string: number) {
+                
+                CardNumber.attributedPlaceholder = NSAttributedString(string: "Card Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+                CardNumber.titleTextColour = UIColor.gray
+                CardnumberICON.textColor = UIColor.gray
+                
+                
+            } else {
+                CardNumber.attributedPlaceholder = NSAttributedString(string: "Card Number is Invalid", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+                CardNumber.titleTextColour = UIColor.red
+                CardnumberICON.textColor = UIColor.red
+            }
+        }
+        
+       
     }
     func validateCardNumberdigit(number: String) {
     }
@@ -393,30 +413,64 @@ class AddCardController: UIViewController,UITextFieldDelegate {
             if type.name == "Visa"{
                 let image: UIImage = UIImage(named: "Visa")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "Amex"{
                 let image: UIImage = UIImage(named: "Amex")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "MasterCard"{
                 let image: UIImage = UIImage(named: "MasterCard")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "Maestro"{
                 let image: UIImage = UIImage(named: "Maestro")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "Diners Club"{
                 let image: UIImage = UIImage(named: "DinersClub")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "JCB"{
                 let image: UIImage = UIImage(named: "JCB")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "Discover"{
                 let image: UIImage = UIImage(named: "Discover")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                
             }else if type.name == "UnionPay"{
                 let image: UIImage = UIImage(named: "UnionPay")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else if type.name == "RuPay"{
                 let image: UIImage = UIImage(named: "RuPay")!
                 CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+            }else if type.name == "Dankort"{
+                let image: UIImage = UIImage(named: "Dankort")!
+                CardImagevw.image = image
+                CardnumberICON.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+                CardNumber.attributedPlaceholder = NSAttributedString(string: Constants.CardNumber)
+                CardNumber.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             }else{
                 CardnumberICON.isHidden = false
                 CardImagevw.isHidden = true

@@ -13,13 +13,15 @@ import GoogleSignIn
 import Fontello_Swift
 
 
-class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate  {
+class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate  {
     var indicator = UIActivityIndicatorView()
     var Input = [String: AnyObject]()
     var fullName = String()
     var getemail = String()
     @IBOutlet weak var SignInButton: UIButton!
-    @IBOutlet weak var ForgotPasswordButton: UIButton!
+    
+    @IBOutlet var ForgotPasswordButton: TKTransitionSubmitButton!
+    @IBOutlet var Signinbutton: TKTransitionSubmitButton!
     @IBOutlet weak var Email: FloatLabelTextField! //Email Textfield
     @IBOutlet weak var Password: FloatLabelTextField! //Password Textfiled
     var dict : [String : AnyObject]!
@@ -33,6 +35,7 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         kCTUnderlineStyleAttributeName : 1] as [CFString : Any]
    var attributedString = NSMutableAttributedString(string:"")
     
+    @IBOutlet var Signup: TKTransitionSubmitButton!
     override func viewDidLoad(){
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,6 +45,12 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         
         setupUIImages()
         ForceUpdatetoUserAPIWithoutLogin()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        Signup.layer.cornerRadius  = 0.0
+        Signup.layer.masksToBounds = false
+        Signinbutton.layer.cornerRadius  = 0.0
+        Signinbutton.layer.masksToBounds = false
     }
     func setupUIImages()  {
         let buttonTitleStr = NSMutableAttributedString(string:"Forgot Password", attributes:attrs as [NSAttributedStringKey : Any] as [NSAttributedStringKey : Any])
@@ -104,15 +113,15 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             if (error == nil){
-                self.hideLoading()
+              //  self.hideLoading()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 if fbloginresult.grantedPermissions != nil {
                     if(fbloginresult.grantedPermissions.contains("email")){
-                        
-                        self.SignInButton.isUserInteractionEnabled = false
-                        self.SignInButton.backgroundColor = UIColor.lightGray
-                        self.SignInButton.setTitle("", for: .normal)
-                        self.showSpinning()
+//
+//                        self.SignInButton.isUserInteractionEnabled = false
+//                        self.SignInButton.backgroundColor = UIColor.lightGray
+//                        self.SignInButton.setTitle("", for: .normal)
+                       // self.showSpinning()
                         self.getFBUserData()
                         fbLoginManager.logOut()
                     }
@@ -185,8 +194,8 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     func FacebookResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
         
-        SignInButton.isUserInteractionEnabled = true
-        hideLoading()
+        //SignInButton.isUserInteractionEnabled = true
+    //    hideLoading()
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
@@ -196,12 +205,20 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
-            //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            Signinbutton.animates(0.5, CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn), completion: { () -> () in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+               // self.present(window.rootViewController!, animated: true, completion: nil)
+               //  UIView.transition(with: window, duration: 0.1, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                self.navigationController?.pushViewController(window.rootViewController!, animated: true)
+                
+                
+            })
+            
         }else{}
     }
     
@@ -214,53 +231,33 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     }
     //MARK: - Google SignIn Delegate Methods
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        SignInButton.isUserInteractionEnabled = false
-        SignInButton.backgroundColor = UIColor.lightGray
-        SignInButton.setTitle("", for: .normal)
-        showSpinning()
+       
         if let error = error{
-            print("\(error.localizedDescription)")} else{
-            //
-            
-            /*
-             {
-             "deviceId": "268eded3c05cf50e",
-             "lat": "",
-             "long": "",
-             "platform": "Android",
-             "requestData":
-             {
-             "emailId": "vishalb@winjit.com",
-             "fullName": "vishal bharati",
-             "isSocialLogin": 0,
-             "lat": "",
-             "long": "",
-             "password": "winjit@123"
-             }
-             }
-             */
-            
-            // let userId = user.userID                  // For client-side use only!
-            // let idToken = user.authentication.idToken // Safe to send to the server
+            print("\(error.localizedDescription)")}
+        else{
              fullName = user.profile.name
-            // let givenName = user.profile.givenName
-            // let familyName = user.profile.familyName
              getemail = user.profile.email
-             //self.emailtext.text = getemail
             var imageURL = ""
             if user.profile.hasImage {
                 imageURL = user.profile.imageURL(withDimension: 100).absoluteString
             }
             let url = NSURL(string: imageURL)
             let data = NSData.init(contentsOf: url! as URL)
+//            SignInButton.isUserInteractionEnabled = false
+//            SignInButton.backgroundColor = UIColor.lightGray
+//            SignInButton.setTitle("", for: .normal)
+//            showSpinning()
+            GoogleApiInputBody()
+            let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
+            RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
+                (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in}
             if data != nil{//self.editbtnimage.setImage(UIImage(data:data! as Data) , for: UIControlState.normal)
+                
+                
             }}
         
-        GoogleApiInputBody()
-        let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
-        RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
-            (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
-        { (error: NSError) ->() in}
+      
         
         
         
@@ -288,8 +285,8 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     }
     func GoogleResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
-        SignInButton.isUserInteractionEnabled = true
-        hideLoading()
+//        SignInButton.isUserInteractionEnabled = true
+//        hideLoading()
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
@@ -299,13 +296,23 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
-            //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
-        }else{}
+            
+            Signinbutton.animates(0.5, CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn), completion: { () -> () in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+                self.navigationController?.pushViewController(window.rootViewController!, animated: true)
+              
+                
+            })
+            
+           
+        }else{
+            
+        }
  }
     func sign(_ signIn: GIDSignIn!,
               present viewController: UIViewController!){
@@ -317,8 +324,8 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
        
         self.dismiss(animated: true, completion: nil)
     }
-    //MARK: -  Tap Normal  SignIn
-    @IBAction func SignInTap(_ sender: Any) {
+    
+    @IBAction func SigninTap(_ sender: TKTransitionSubmitButton) {
         //Check Internet Connectivity
         
         Email.resignFirstResponder()
@@ -337,16 +344,16 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
             return
         }
         SignInApiInputBody() //Calling Input API Body for SignIN
-        SignInButton.isUserInteractionEnabled = false
-        SignInButton.backgroundColor = UIColor.lightGray
-        SignInButton.setTitle("", for: .normal)
-        showSpinning()
+        
+        
+        
+        
         let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signInURL
         RequestManager.getPath(urlString: signInServer, params: Input, successBlock:{
             (response) -> () in self.SignInResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
-        
     }
+    
     //MARK: -  SignUp API Input Body
     func SignInApiInputBody(){
          let deviceid = UIDevice.current.identifierForVendor?.uuidString
@@ -366,33 +373,40 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         print("SignIn response :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            hideLoading()
-            SignInButton.isUserInteractionEnabled = true
+           
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
             Constants.Username = response["responseData"]?.value(forKey: "fullName") as! String
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
-            //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
-        }else{
-            SignInButton.isUserInteractionEnabled = true
-            hideLoading()
-            let alert = UIAlertController(title: "Invalid Credentials" , message: "Please check username or password", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-
+            Signinbutton.animates(0.2, CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn), completion: { () -> () in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+               self.navigationController?.pushViewController(window.rootViewController!, animated: true)
+                
+                
+            })
             
-//            // Email Id already Exists Error
-//            Email.attributedPlaceholder = NSAttributedString(string: Constants.errEmailexits, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
-//            Email.titleTextColour = UIColor.red
-//            EmailIcon.textColor = UIColor.red
+            
+            //Navigating to Home Dashboard Screen
+          
+        }else{
+            Signinbutton.animate(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault), completion: { () -> () in
+                let alert = UIAlertController(title: "Invalid Credentials" , message: "Please check username or password", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                
+                self.Signinbutton.layer.cornerRadius  = 0.0
+                self.Signinbutton.layer.masksToBounds = false
+                
+            })
+    
         }
         
     }
@@ -433,6 +447,9 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     }
     //MARK: -  Tap Normal  SignUp
     @IBAction func SignUpTap(_ sender: Any) {
+        
+        Signinbutton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
+ })
     }/**
      * Called when 'return' key pressed. return NO to ignore.
      */
@@ -446,35 +463,67 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         self.view.endEditing(true)
         }
     
-    //MARK: -  Activity Indicator
-    func hideLoading(){
-        SignInButton.setTitle("Sign In", for: .normal)
-        SignInButton.backgroundColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        indicator.stopAnimating()
-    }
-    private func createActivityIndicator() -> UIActivityIndicatorView {
-        indicator.hidesWhenStopped = true
-        indicator.color = UIColor.white
-        return indicator
-    }
-    private func showSpinning() {
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        SignInButton.addSubview(indicator)
-        centerActivityIndicatorInButton()
-        indicator.startAnimating()
-    }
-    
-    private func centerActivityIndicatorInButton() {
-        let xCenterConstraint = NSLayoutConstraint(item: SignInButton, attribute: .centerX, relatedBy: .equal, toItem: indicator, attribute: .centerX, multiplier: 1, constant: 0)
-        SignInButton.addConstraint(xCenterConstraint)
-        let yCenterConstraint = NSLayoutConstraint(item: SignInButton, attribute: .centerY, relatedBy: .equal, toItem: indicator, attribute: .centerY, multiplier: 1, constant: 0)
-        SignInButton.addConstraint(yCenterConstraint)
-    }
+//    //MARK: -  Activity Indicator
+//    func hideLoading(){
+//        SignInButton.setTitle("Sign In", for: .normal)
+//        SignInButton.backgroundColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+//        indicator.stopAnimating()
+//    }
+//    private func createActivityIndicator() -> UIActivityIndicatorView {
+//        indicator.hidesWhenStopped = true
+//        indicator.color = UIColor.white
+//        return indicator
+//    }
+//    private func showSpinning() {
+//        indicator.translatesAutoresizingMaskIntoConstraints = false
+//        SignInButton.addSubview(indicator)
+//        centerActivityIndicatorInButton()
+//        indicator.startAnimating()
+//    }
+//
+//    private func centerActivityIndicatorInButton() {
+//        let xCenterConstraint = NSLayoutConstraint(item: SignInButton, attribute: .centerX, relatedBy: .equal, toItem: indicator, attribute: .centerX, multiplier: 1, constant: 0)
+//        SignInButton.addConstraint(xCenterConstraint)
+//        let yCenterConstraint = NSLayoutConstraint(item: SignInButton, attribute: .centerY, relatedBy: .equal, toItem: indicator, attribute: .centerY, multiplier: 1, constant: 0)
+//        SignInButton.addConstraint(yCenterConstraint)
+//    }
     @IBAction func ForgotTap(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let ForgotController = storyboard.instantiateViewController(withIdentifier: "ForgotController")
-        self.present(ForgotController, animated: true, completion: nil)
+        
+       
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let ForgotController = storyboard.instantiateViewController(withIdentifier: "ForgotController")
+            self.present(ForgotController, animated: true, completion: nil)
+        
     }
     
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return TKFadeInAnimator(transitionDuration: 0.5, startingAlpha: 0.8)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.view.superview?.layer.cornerRadius  = 0.0
+        self.view.superview?.layer.masksToBounds = false
+    }
+    
+    
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+       
+        return nil
+    }
+    
+    @IBAction func SignUp(_ sender: TKTransitionSubmitButton) {
+        sender.animates(0.3, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let ForgotController = storyboard.instantiateViewController(withIdentifier: "SignUpController")
+            ForgotController.transitioningDelegate = self
+            self.present(ForgotController, animated: true, completion: nil) })
+        
+    }
 }
 

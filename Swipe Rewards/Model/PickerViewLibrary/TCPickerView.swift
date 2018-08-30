@@ -12,6 +12,7 @@ public protocol TCPickerViewOutput: class {
     func pickerView(_ pickerView: TCPickerViewInput, didSelectRowAtIndex index: Int)
     func pickerView(_ pickerView: TCPickerViewInput,
         cellForRowAt indexPath: IndexPath) -> (UITableViewCell & TCPickerCellType)?
+    
 }
 
 public extension TCPickerViewOutput {
@@ -99,7 +100,7 @@ open class TCPickerView: UIView, UITableViewDataSource, UITableViewDelegate, TCP
             height: screenHeight)
 
         let width: CGFloat = screenWidth - 84
-        let height: CGFloat = 270
+        let height: CGFloat = 300
         var containerFrame: CGRect = CGRect(x: 0, y: 0, width: width, height: height)
         if let size = size {
             containerFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -187,6 +188,8 @@ open class TCPickerView: UIView, UITableViewDataSource, UITableViewDelegate, TCP
     }
     
     @objc private func close() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CloseBackgroundview"), object: nil)
+
         UIView.animate(withDuration: 0.7, delay: 0.0,
             usingSpringWithDamping: 1, initialSpringVelocity: 1.0,
             options: .allowAnimatedContent, animations: {
@@ -309,7 +312,7 @@ extension TCPickerView {
             attribute: .width, multiplier: 0.5, constant: 0))
         doneButton.addConstraint(NSLayoutConstraint(item: doneButton,
             attribute: .height, relatedBy: .equal, toItem: nil,
-            attribute: .height, multiplier: 1.0, constant: 50))
+            attribute: .height, multiplier: 1.0, constant: 35))
         
         containerView.addConstraint(NSLayoutConstraint(item: containerView,
             attribute: .leading, relatedBy: .equal, toItem: closeButton,
@@ -322,7 +325,7 @@ extension TCPickerView {
             attribute: .width, multiplier: 0.5, constant: 0))
         closeButton.addConstraint(NSLayoutConstraint(item: closeButton,
             attribute: .height, relatedBy: .equal, toItem: nil,
-            attribute: .height, multiplier: 1.0, constant: 50))
+            attribute: .height, multiplier: 1.0, constant: 35))
         
         //tableView
         containerView.addConstraint(NSLayoutConstraint(item: containerView,
@@ -365,6 +368,7 @@ extension TCPickerView {
         self.headerSeparator?.backgroundColor = self.theme.separatorColor
         
         self.titleLabel?.font = self.theme.titleFont
+        self.titleLabel?.numberOfLines = 0
         self.doneButton?.titleLabel?.font = self.theme.buttonsFont
         self.closeButton?.titleLabel?.font = self.theme.buttonsFont
         

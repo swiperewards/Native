@@ -10,8 +10,11 @@ import UIKit
 import Fontello_Swift
 import AssetsLibrary
 import GoogleSignIn
-class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+import MXParallaxHeader
 
+class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSource,MXParallaxHeaderDelegate {
+
+    @IBOutlet var headerview: UIView!
     @IBOutlet weak var ImageButton: UIButton!
     @IBOutlet weak var userimageview: UIImageView!
     @IBOutlet weak var NameofSwipe: UILabel!
@@ -42,9 +45,10 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
        
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       // setupParallaxHeader()
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameofSwipe.text = string2
@@ -87,19 +91,26 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Signout) ]
         ]
         
+        
+        SettingsTV.parallaxHeader.view = headerview // You can set the parallax header view from the floating view
+        SettingsTV.parallaxHeader.height = 180
+        SettingsTV.parallaxHeader.minimumHeight = 0
+        SettingsTV.parallaxHeader.mode = MXParallaxHeaderMode.fill
+        SettingsTV.parallaxHeader.delegate = self
+        
         let maskLayer = CAShapeLayer(layer: self.view.layer)
         let arrowPath = UIBezierPath()
         arrowPath.move(to: CGPoint(x:0, y:0))
         arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:0))
-        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:SettingsView.bounds.size.height - (SettingsView.bounds.size.height*0.2)))
-        arrowPath.addQuadCurve(to: CGPoint(x:0, y:SettingsView.bounds.size.height - (SettingsView.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:SettingsView.bounds.size.height))
+        arrowPath.addLine(to: CGPoint(x:self.view.bounds.size.width, y:headerview.bounds.size.height - (headerview.bounds.size.height*0.2)))
+        arrowPath.addQuadCurve(to: CGPoint(x:0, y:headerview.bounds.size.height - (headerview.bounds.size.height*0.2)), controlPoint: CGPoint(x:self.view.bounds.size.width/2, y:headerview.bounds.size.height))
         arrowPath.addLine(to: CGPoint(x:0, y:0))
         arrowPath.close()
         
         maskLayer.path = arrowPath.cgPath
         maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
-        SettingsView.layer.mask = maskLayer
+        headerview.layer.mask = maskLayer
         
         
         SettingsTV.register(UINib(nibName: "SettingslistCell", bundle: nil),
@@ -164,6 +175,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             let view: ChangePasswordController = storyboard.instantiateViewController(withIdentifier: "ChangePasswordController") as! ChangePasswordController
             self.navigationController?.pushViewController(view, animated: true)
+            
             break
         case 2:
            

@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
     }
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GIDSignIn.sharedInstance().clientID = "95348320579-k7liklk3h6s94hr1smoa0l4du6nofvga.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = "26831433128-ahuf7eg93phklvpf1ru37d69bnqup6vh.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -31,11 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         let token = Database.value(forKey: Constants.Tokenkey) as? String
         if token != nil {
             //Navigating to Home Dashboard Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = navigationController
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            
+          
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+                UIView.transition(with: window, duration: 0.1, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                
+         
+            
+            
         }
         else{
             

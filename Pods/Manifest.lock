@@ -79,11 +79,15 @@ PODS:
   - GTMSessionFetcher/Core (1.1.15)
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
+  - MXParallaxHeader (0.6.1)
+  - ParallaxHeader (2.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Fontello-Swift
   - GoogleSignIn
+  - MXParallaxHeader
+  - ParallaxHeader (~> 2.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -93,6 +97,8 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMOAuth2
     - GTMSessionFetcher
+    - MXParallaxHeader
+    - ParallaxHeader
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -101,7 +107,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
+  ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
 
-PODFILE CHECKSUM: e5ce499f34a8ef90d636dbf8cd125af4c497b7cf
+PODFILE CHECKSUM: 2eaa2b837b8ab5a3e4950f19999ef0506ae3ab98
 
 COCOAPODS: 1.5.3
