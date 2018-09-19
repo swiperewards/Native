@@ -677,6 +677,10 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         ConfirmButton.addConstraint(yCenterConstraint)
     }
     
+    @IBAction func Settingstap(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 2
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeindex"), object: nil)
+    }
     
 //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 //        searchBar.setShowsCancelButton(true, animated: true)}

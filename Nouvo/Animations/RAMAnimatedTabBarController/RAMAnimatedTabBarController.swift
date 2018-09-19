@@ -249,6 +249,8 @@ open class RAMAnimatedTabBarController: UITabBarController {
     
     open override var selectedIndex: Int {
         didSet {
+            
+            print(selectedIndex)
            self.setBottomLinePosition(index: selectedIndex)
         }
     }
@@ -260,6 +262,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(RAMAnimatedTabBarController.tapHandler1(_:)), name: NSNotification.Name(rawValue: "changeindex"), object: nil)
         initializeContainers()
     }
 
@@ -452,6 +455,56 @@ open class RAMAnimatedTabBarController: UITabBarController {
     }
 
     // MARK: actions
+    
+    @objc func tapHandler1(_ gesture: UIGestureRecognizer){
+        //do stuff
+        //gesture.view?.tag = 4
+        
+        let items = tabBar.items as? [RAMAnimatedTabBarItem]
+        
+//        guard let items = tabBar.items as? [RAMAnimatedTabBarItem],
+//            let gestureView = gesture.view else {
+//                fatalError("items must inherit RAMAnimatedTabBarItem")
+//        }
+        
+       // gestureView.tag = 4
+        
+        let currentIndex = 4
+        
+        if items![currentIndex].isEnabled == false { return }
+        
+        let controller = childViewControllers[currentIndex]
+        
+        if let shouldSelect = delegate?.tabBarController?(self, shouldSelect: controller)
+            , !shouldSelect {
+            return
+        }
+        print(selectedIndex)
+        if selectedIndex != currentIndex {
+            let animationItem: RAMAnimatedTabBarItem = items![currentIndex]
+            animationItem.playAnimation()
+            
+            let deselectItem = items![selectedIndex]
+            
+            let containerPrevious: UIView = deselectItem.iconView!.icon.superview!
+            containerPrevious.backgroundColor = items![currentIndex].bgDefaultColor
+            
+            deselectItem.deselectAnimation()
+            
+            let container: UIView = animationItem.iconView!.icon.superview!
+            container.backgroundColor = items![currentIndex].bgSelectedColor
+            
+            selectedIndex = 4
+            
+        } else if selectedIndex == currentIndex {
+            
+            if let navVC = self.viewControllers![selectedIndex] as? UINavigationController {
+                navVC.popToRootViewController(animated: true)
+            }
+        }
+        delegate?.tabBarController?(self, didSelect: controller)
+    
+    }
 
     @objc open func tapHandler(_ gesture: UIGestureRecognizer) {
 
@@ -471,6 +524,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
             return
         }
 
+        print(selectedIndex)
         if selectedIndex != currentIndex {
             let animationItem: RAMAnimatedTabBarItem = items[currentIndex]
             animationItem.playAnimation()

@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/SettingsController.swift"
-            timestampString = "558015337.74657"
+            timestampString = "559033988.4248281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "540"
             endingLineNumber = "540"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendUploadPhotoRequest(image:activityIndicator:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,28 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/SettingsController.swift"
-            timestampString = "558015337.74668"
+            timestampString = "559033988.42498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "470"
             endingLineNumber = "470"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "viewWillAppear(_:)"
+            landmarkName = "UpdateResponse(response:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096576"
+            timestampString = "559054935.920105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
             landmarkName = "ForceUpdateWithLoginResponse(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096629"
+            timestampString = "559054935.924389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "683"
-            endingLineNumber = "683"
+            startingLineNumber = "719"
+            endingLineNumber = "719"
             landmarkName = "DealsResponse(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/WalletController.swift"
-            timestampString = "558015337.74719"
+            timestampString = "559054935.926888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -202,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/WalletController.swift"
-            timestampString = "558015337.74726"
+            timestampString = "559054935.9272979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -218,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-            timestampString = "557935297.497466"
+            timestampString = "559043877.104367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "186"
@@ -282,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/RedeemController.swift"
-            timestampString = "558015337.747457"
+            timestampString = "559053372.879391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "466"
@@ -298,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-            timestampString = "557935297.498039"
+            timestampString = "559043877.104452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -314,7 +298,7 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-                  timestampString = "558363969.185256"
+                  timestampString = "559054251.291502"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
@@ -329,12 +313,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-                  timestampString = "558363969.1876841"
+                  timestampString = "559054251.296038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -344,12 +328,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-                  timestampString = "558363969.189766"
+                  timestampString = "559054251.3004169"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "59"
                   endingLineNumber = "59"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "66">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -361,7 +345,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-            timestampString = "557935297.498188"
+            timestampString = "559043877.104493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -377,12 +361,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-                  timestampString = "558363969.196643"
+                  timestampString = "559054251.316788"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -392,12 +376,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Model/PickerViewLibrary/TCPickerView.swift"
-                  timestampString = "558363969.1997859"
+                  timestampString = "559054251.334237"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
                   endingLineNumber = "93"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -409,7 +393,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/RedeemController.swift"
-            timestampString = "558015337.7475899"
+            timestampString = "559053372.87947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
@@ -425,7 +409,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/RedeemController.swift"
-            timestampString = "558015337.747654"
+            timestampString = "559053372.8795151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "332"
@@ -441,7 +425,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/RedeemController.swift"
-            timestampString = "558015337.747715"
+            timestampString = "559053372.879558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
@@ -457,7 +441,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/RedeemController.swift"
-            timestampString = "558015337.747776"
+            timestampString = "559053372.879621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -505,12 +489,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Controller/SignUpController.swift"
-                  timestampString = "558363969.229664"
+                  timestampString = "559054251.44472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "222"
                   endingLineNumber = "222"
-                  offsetFromSymbolStart = "2772">
+                  offsetFromSymbolStart = "3667">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -520,12 +504,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Controller/SignUpController.swift"
-                  timestampString = "558363969.232085"
+                  timestampString = "559054251.450266"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "222"
                   endingLineNumber = "222"
-                  offsetFromSymbolStart = "36628">
+                  offsetFromSymbolStart = "50677">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -537,11 +521,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096825"
+            timestampString = "559054935.928393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "612"
-            endingLineNumber = "612"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
             landmarkName = "InitializeLocationManager()"
             landmarkType = "7">
          </BreakpointContent>
@@ -553,11 +537,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096873"
+            timestampString = "559054935.92986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1074"
-            endingLineNumber = "1074"
+            startingLineNumber = "1110"
+            endingLineNumber = "1110"
             landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -617,12 +601,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Controller/LaunchView.swift"
-                  timestampString = "558363969.26832"
+                  timestampString = "559054251.507057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -632,12 +616,12 @@
                   moduleName = "Nouvo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bharath/Desktop/Nouvo/Nouvo/Controller/LaunchView.swift"
-                  timestampString = "558363969.271222"
+                  timestampString = "559054251.510988"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "57">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -665,13 +649,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/SettingsController.swift"
-            timestampString = "558015337.748101"
+            timestampString = "559033988.425696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -681,11 +665,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.096967"
+            timestampString = "559054935.932171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "ForceUpdateWithLoginResponse(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -697,11 +681,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097013"
+            timestampString = "559054935.9334559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "831"
-            endingLineNumber = "831"
+            startingLineNumber = "867"
+            endingLineNumber = "867"
             landmarkName = "DealsResponse(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -713,11 +697,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097057"
+            timestampString = "559054935.934904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "903"
-            endingLineNumber = "903"
+            startingLineNumber = "939"
+            endingLineNumber = "939"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -729,11 +713,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097102"
+            timestampString = "559054935.937502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "932"
-            endingLineNumber = "932"
+            startingLineNumber = "968"
+            endingLineNumber = "968"
             landmarkName = "searchBar(_:selectedScopeButtonIndexDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -745,11 +729,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097146"
+            timestampString = "559054935.938917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "923"
-            endingLineNumber = "923"
+            startingLineNumber = "959"
+            endingLineNumber = "959"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -761,11 +745,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.09719"
+            timestampString = "559054935.9406101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "657"
-            endingLineNumber = "657"
+            startingLineNumber = "693"
+            endingLineNumber = "693"
             landmarkName = "DealsAPIInputBody()"
             landmarkType = "7">
          </BreakpointContent>
@@ -777,11 +761,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097232"
+            timestampString = "559054935.942548"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
+            startingLineNumber = "684"
+            endingLineNumber = "684"
             landmarkName = "ConnecttoDealsAPISERVER()"
             landmarkType = "7">
          </BreakpointContent>
@@ -793,11 +777,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097275"
+            timestampString = "559054935.944068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "901"
-            endingLineNumber = "901"
+            startingLineNumber = "937"
+            endingLineNumber = "937"
             landmarkName = "pickerView(_:didSelectRowAtIndex:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -809,11 +793,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097316"
+            timestampString = "559054935.9454499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1013"
-            endingLineNumber = "1013"
+            startingLineNumber = "1049"
+            endingLineNumber = "1049"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -825,11 +809,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.09736"
+            timestampString = "559054935.946696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
             landmarkName = "ConvertLatandLongtoCityName()"
             landmarkType = "7">
          </BreakpointContent>
@@ -841,11 +825,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097403"
+            timestampString = "559054935.948137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "912"
-            endingLineNumber = "912"
+            startingLineNumber = "948"
+            endingLineNumber = "948"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -857,11 +841,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097446"
+            timestampString = "559054935.949497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "999"
-            endingLineNumber = "999"
+            startingLineNumber = "1035"
+            endingLineNumber = "1035"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -873,11 +857,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097489"
+            timestampString = "559054935.951288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "925"
-            endingLineNumber = "925"
+            startingLineNumber = "961"
+            endingLineNumber = "961"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -889,11 +873,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097532"
+            timestampString = "559054935.9528919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "916"
-            endingLineNumber = "916"
+            startingLineNumber = "952"
+            endingLineNumber = "952"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -905,12 +889,364 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nouvo/Controller/UserDashboardController.swift"
-            timestampString = "558437875.097574"
+            timestampString = "559054935.954388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "765"
-            endingLineNumber = "765"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
             landmarkName = "DealsResponse(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Controller/UserDashboardController.swift"
+            timestampString = "559054935.955942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1120"
+            endingLineNumber = "1120"
+            landmarkName = "Settingss(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Controller/WalletController.swift"
+            timestampString = "559054935.957602"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
+            landmarkName = "SettingTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.886961"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "selectedState()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887092"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "deselectedState()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "changeSelectedColor(_:iconSelectedColor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "setSelectIndex(from:to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.88735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "setSelectIndex(from:to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "selectedIndex"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.8876131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887692"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887814"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.887956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.888009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.888059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
+            landmarkName = "tapHandler1(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.888108"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.888171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "530"
+            endingLineNumber = "530"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Animations/RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift"
+            timestampString = "559053372.8882411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "545"
+            endingLineNumber = "545"
+            landmarkName = "tapHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Controller/UserDashboardController.swift"
+            timestampString = "559054935.9591399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1121"
+            endingLineNumber = "1121"
+            landmarkName = "Settingss(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nouvo/Controller/UserDashboardController.swift"
+            timestampString = "559054935.960784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "send(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

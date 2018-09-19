@@ -14,6 +14,7 @@ import SDWebImage
 class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,UISearchBarDelegate,UIScrollViewDelegate,ModernSearchBarDelegate,MXParallaxHeaderDelegate,UISearchDisplayDelegate,TCPickerViewOutput,UIGestureRecognizerDelegate {
     
     
+    @IBOutlet var profiletapbutton: UIButton!
     @IBOutlet var Nodealslabel1: UILabel!
     @IBOutlet var Nodeallabel: UILabel!
     //For Pagination
@@ -95,6 +96,14 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet var HideBtn: UIButton!
     
+    @IBAction func send(_ sender: Any) {
+       // print("hi")
+        self.tabBarController?.selectedIndex = 0
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeindex"), object: nil)
+    }
+    @IBAction func check(_ sender: Any) {
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "HOME"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -147,9 +156,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         print("Button tapped")
     }
     
-    @objc func closebackgroundview() {
-        Bgview.isHidden = true
-    }
+//    @objc func closebackgroundview() {
+//        Bgview.isHidden = true
+//    }
     override func viewDidAppear(_ animated: Bool) {
         
         let username: String?
@@ -175,33 +184,60 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             //}
         }
     }
-   
-    ///Handle click on shadow view
-    @objc func onClickShadowViews(){
-          Bgview.isHidden = true
-    }
+//
+//    ///Handle click on shadow view
+//    @objc func onClickShadowViews(){
+//          Bgview.isHidden = true
+//    }
     ///Handle click on shadow view
     @objc func closebackgroundviews(){
         self.Retailshoplist.endEditing(true)
         self.mySearchBar.endEditing(true)
         self.mySearchBar.resignFirstResponder()
     }
+    
+//    @objc func taps(){
+//
+//    }
    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        DashboardView.isUserInteractionEnabled = true
+        
+        
+//        DashboardView.addSubview(profiletapbutton)
+//        headerview.addSubview(DashboardView)
+//        profiletapbutton.addTarget(self,action:#selector(UserDashboardController.taps),
+//                                   for:.touchUpInside)
+//
+        
+       
+        
+//        // add gesture
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.taps))
+//        tapGesture.numberOfTouchesRequired = 1
+//        tapGesture.delegate = self
+//        profileimageview.addGestureRecognizer(tapGesture)
+//
+        
+        
+        
       //#selector(YourClass.sayHello)
      
   
-        NotificationCenter.default.addObserver(self, selector: #selector(UserDashboardController.closebackgroundview), name: NSNotification.Name(rawValue: "CloseBackgroundview"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(UserDashboardController.closebackgroundview), name: NSNotification.Name(rawValue: "CloseBackgroundview"), object: nil)
 
         
-       // addParallaxToView(vw: DashboardView)
-       
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        Bgview.addSubview(blurEffectView)
+//       // addParallaxToView(vw: DashboardView)
+//
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        Bgview.addSubview(blurEffectView)
         
         
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.closebackgroundviews))
@@ -212,7 +248,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
        // Bgview.addSubview(HideBtn)
     
         
-        Bgview.isHidden = true
+       // Bgview.isHidden = true
       //  HideBtn.isHidden = true
         Nodealslabel1.isHidden = true
         
@@ -223,12 +259,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 //        Nodeallabel.layer.masksToBounds = true
         Nodealslabel1.layer.masksToBounds = true
 
-        
+        Retailshoplist.parallaxHeader.view?.isUserInteractionEnabled = true
         Retailshoplist.parallaxHeader.view = headerview // You can set the parallax header view from the floating view
         Retailshoplist.parallaxHeader.height = 180
         Retailshoplist.parallaxHeader.minimumHeight = 0
         Retailshoplist.parallaxHeader.mode = MXParallaxHeaderMode.center
         Retailshoplist.parallaxHeader.delegate = self
+        
         
       //  Retailshoplist.parallaxHeader.view?.backgroundColor = UIColor.blue
        
@@ -597,8 +634,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         maskLayer.frame = self.view.bounds
         maskLayer.masksToBounds = true
         headerview.layer.mask = maskLayer
-    
-      
+        headerview.isUserInteractionEnabled = true;
         
         
     }
@@ -1080,6 +1116,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         searchidentity = ""
     }
   
+    @IBAction func Settingss(_ sender: UIButton) {
+        self.tabBarController?.selectedIndex = 4
+    }
+    @IBAction func GotoSettings(_ sender: Any) {
+        
+        
+    }
     
     ///Called if you use String suggestion list
     func onClickItemSuggestionsView(item: String) {

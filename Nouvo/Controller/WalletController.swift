@@ -447,5 +447,10 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         
     }
 
-
+    @IBAction func SettingTap(_ sender: Any) {
+       self.tabBarController?.selectedIndex = 1
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeindex"), object: nil)
+       // self.RAMAnimatedTabBarController?.selectedIndex = 4
+    }
+    
 }
