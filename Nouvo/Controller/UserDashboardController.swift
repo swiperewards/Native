@@ -78,12 +78,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var responseArray = NSArray()
     var responseArraycountzero = NSArray()
     var Totalcityarray = [String]()
-    var TotalDealnamearray = [String]()
+    var TotalDealnamearray = [AnyObject]()
     var TotalDealstartdatearray = [String]()
     var TotalDealenddatearray = [String]()
     var TotalDeallocationarray = [String]()
     var TotalDealcashbackarray = [AnyObject]()
     var pickeridentity = String()
+    var searchidentity = String()
     var Paginationidentity = String()
     let scrollViewContentHeight = 1200 as CGFloat
     var Test_View = UIView()
@@ -203,10 +204,10 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         Bgview.addSubview(blurEffectView)
         
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.closebackgroundviews))
-        tapGesture.cancelsTouchesInView = true
-        Retailshoplist.addGestureRecognizer(tapGesture)
-    
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.closebackgroundviews))
+//        tapGesture.cancelsTouchesInView = true
+//        Retailshoplist.addGestureRecognizer(tapGesture)
+//
         
        // Bgview.addSubview(HideBtn)
     
@@ -714,7 +715,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     }else{
                        // Nodeallabel.isHidden = false
                         Nodealslabel1.isHidden = false
-                         Nodealslabel1.text = ("Stores not available in \(self.CityLocation.text!)! Please change the city.")
+                        Nodealslabel1.text = ("Stores not available in \(self.CityLocation.text!)! Please change the city.")
                         
                         currentDealnameArray = [Dealname]()
                         currentDealLocationArray = [DealLocation]()
@@ -728,7 +729,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         DealStartDateArray = [DealStartDate]()
                         DealEndDateArray = [DealEndDate]()
                         Retailshoplist.reloadData()
-                        Bgview.isHidden = false
+                       // Bgview.isHidden = false
                      //   HideBtn.isHidden = false
 //
 //                        ///Configure the gesture to handle click on shadow and improve focus on searchbar
@@ -745,22 +746,72 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         
                        
                         
-                        picker.title = ("Stores not available in \(self.CityLocation.text!)! Please change your city")
-                        let values = Totalcityarray.map { TCPickerView.Value(title: $0) }
-                        picker.values = values
-                        picker.delegate = self as? TCPickerViewOutput
-                        picker.selection = .single
-                        picker.completion = { (selectedIndexes) in
-                            for i in selectedIndexes {
-                                print(values[i].title)
-                                self.citynamesIS = values[i].title
-                            }}
-                        picker.show()
+//                        picker.title = ("Stores not available in \(self.CityLocation.text!)! Please change your city")
+//                        let values = Totalcityarray.map { TCPickerView.Value(title: $0) }
+//                        picker.values = values
+//                        picker.delegate = self as? TCPickerViewOutput
+//                        picker.selection = .single
+//                        picker.completion = { (selectedIndexes) in
+//                            for i in selectedIndexes {
+//                                print(values[i].title)
+//                                self.citynamesIS = values[i].title
+//                            }}
+//                        picker.show()
                     }
                     
                 }
                 
-            }else{
+            } else if searchidentity == "Seaching store names"{
+                searchidentity = ""
+                Nodealslabel1.isHidden = true
+                hideLoading()
+                pickeridentity = "NO"
+                //Dealalertlabel.text = "Load More"
+                responseArray = data1 as! NSArray
+                print("responseArray1  :", responseArray)
+                TotalDealnamearray = response["responseData"]?.value(forKey: "shortDescription") as! [AnyObject]
+                TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
+                TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
+                TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
+                TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                
+                for var names in TotalDealnamearray {
+                    
+                    if names is NSNull{
+                        names = "" as AnyObject
+                        DealnameArray.append(Dealname(name: names as! String))
+                    }else{
+                        DealnameArray.append(Dealname(name: (names ) as! String))
+                    }
+                    
+                }
+                for loc in TotalDeallocationarray {
+                    DealLocationArray.append(DealLocation(location: loc))
+                }
+                for cash in TotalDealcashbackarray {
+                    DealcashbackArray.append(Dealcashback(cashback: cash))
+                }
+                for start in TotalDealstartdatearray {
+                    DealStartDateArray.append(DealStartDate(promotionstartdate: start))
+                }
+                for end in TotalDealenddatearray {
+                    DealEndDateArray.append(DealEndDate(promotionenddate: end))
+                }
+                
+                
+                
+                print("Deal total",DealnameArray.count)
+                
+                
+                currentDealnameArray = DealnameArray
+                currentDealLocationArray = DealLocationArray
+                currentDealcashbackArray = DealcashbackArray
+                currentDealStartDateArray = DealStartDateArray
+                currentDealEndDateArray = DealEndDateArray
+            }
+            
+            else{
+                //searchidentity = ""
                // Nodeallabel.isHidden = true
                 Nodealslabel1.isHidden = true
                 hideLoading()
@@ -768,14 +819,21 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 //Dealalertlabel.text = "Load More"
                 responseArray = data1 as! NSArray
                 print("responseArray1  :", responseArray)
-                TotalDealnamearray = response["responseData"]?.value(forKey: "shortDescription") as! [String]
+                TotalDealnamearray = response["responseData"]?.value(forKey: "shortDescription") as! [AnyObject]
                 TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
                 TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
                 TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
                 TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
                 
-                for names in TotalDealnamearray {
-                    DealnameArray.append(Dealname(name: names))
+                for var names in TotalDealnamearray {
+                    
+                    if names is NSNull{
+                        names = "" as AnyObject
+                        DealnameArray.append(Dealname(name: names as! String))
+                    }else{
+                        DealnameArray.append(Dealname(name: (names ) as! String))
+                    }
+                    
                 }
                 for loc in TotalDeallocationarray {
                     DealLocationArray.append(DealLocation(location: loc))
@@ -816,6 +874,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         pickeridentity = "YES"
         Paginationidentity = "NO"
+        searchidentity = ""
         
         self.citynamesIS = Totalcityarray[index]
         mySearchBar.text =  self.citynamesIS
@@ -856,7 +915,19 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         mySearchBar.suggestionsShadow.isHidden = true
+        
+        searchidentity = "Seaching store names"
         Retailshoplist.reloadData()
+    }
+    // When button "Search" pressed
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        print("end searching --> Close Keyboard")
+        self.mySearchBar.endEditing(true)
+        print("Value",searchBar.text!)
+        searchidentity = ""
+        
+        
+        
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         switch selectedScope {
@@ -934,7 +1005,11 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     print("pageNo After",self.pageNo)
                     Paginationidentity = "YES"
                     spinner.startAnimating()
+                    //searchidentity = ""
                     ConnecttoDealsAPISERVER()
+                
+                
+                
                     
                 
             }
@@ -1002,19 +1077,16 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 
         self.mySearchBar.endEditing(true)
         searchbar.resignFirstResponder()
+        searchidentity = ""
     }
-    // When button "Search" pressed
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
-        print("end searching --> Close Keyboard")
-        self.mySearchBar.endEditing(true)
-        
-    }
+  
     
     ///Called if you use String suggestion list
     func onClickItemSuggestionsView(item: String) {
         print("User touched this item: "+item)
         pickeridentity = "NO"
         Paginationidentity = "NO"
+        searchidentity = ""
         mySearchBar.text = item
         Constants.cityname = item
         self.CityLocation.text = Constants.cityname

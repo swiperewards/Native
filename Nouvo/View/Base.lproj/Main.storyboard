@@ -1597,8 +1597,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19.5" id="zjP-dO-NQw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                <color key="textColor" white="0.47396763392857144" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2821,7 +2821,6 @@
                         <outlet property="Cashback" destination="Tg4-Er-ik4" id="18y-nL-Oah"/>
                         <outlet property="CityLocation" destination="ZrT-Bd-aKR" id="ggr-p2-w5o"/>
                         <outlet property="DashboardView" destination="9hV-Ka-bAd" id="j4K-zw-V1c"/>
-                        <outlet property="Gest" destination="E6b-5p-lLb" id="Cax-bb-TmV"/>
                         <outlet property="Level" destination="l3p-2Q-ZmU" id="W5o-mv-LgX"/>
                         <outlet property="Levelmode" destination="NdM-pB-QW2" id="xtC-fD-QSc"/>
                         <outlet property="NameOfSwipe" destination="SSC-Al-eQ6" id="ulZ-TV-fNe"/>
@@ -2840,12 +2839,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
-                <tapGestureRecognizer id="E6b-5p-lLb">
-                    <connections>
-                        <action selector="Tap:" destination="DBE-As-xNI" id="YG2-X8-UDP"/>
-                        <outlet property="delegate" destination="DBE-As-xNI" id="SEC-a7-96y"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <view contentMode="scaleToFill" id="W4r-vV-yPk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

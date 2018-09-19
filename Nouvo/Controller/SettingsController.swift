@@ -64,7 +64,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         print(appVersionString)
         
-        Version.text = "\("Version") \(appVersionString)"
+        Version.text = "\("Version:")\(appVersionString)"
 
         let socialIdenity: String?
         socialIdenity = Database.value(forKey: Constants.GoogleIdentityforchangepasswordkey) as? String
