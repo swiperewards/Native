@@ -11,11 +11,14 @@ import UIKit
 
 class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,UIScrollViewDelegate {
     
+    @IBOutlet var Rountingnumber: UITextField!
+    @IBOutlet var viewheight: NSLayoutConstraint!
     @IBOutlet var BGview: UIView!
     @IBOutlet var Level: UILabel!
     @IBOutlet weak var profileimageview: UIImageView!
     @IBOutlet weak var contentview: UIView!
    
+    @IBOutlet var RountingView: UIView!
     @IBOutlet var Levelmode: UILabel!
     @IBOutlet var Cashback: UILabel!
     @IBOutlet weak var Progressview: LinearProgressView!
@@ -66,8 +69,127 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     @objc func onClickShadowViews(){
         BGview.isHidden = true
     }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.global(qos: .background).async {
+            self.ForceUpdatetoUserAPIWithLoginwallet()
+            DispatchQueue.main.async {
+                
+            }
+        }
+    }
+    func ForceUpdatetoUserAPIWithLoginwallet()  {
+        
+        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+        view.addSubview(indicator)
+        indicator.frame = view.bounds
+        indicator.startAnimating()
+        ForceUpdatewithLoginApiInputBodywallet()
+        let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.InitSwipeURL
+        RequestManager.PostPathwithAUTH(urlString: signInServer, params: Input, successBlock:{
+            (response) -> () in self.ForceUpdateWithLoginResponses(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+    func ForceUpdateWithLoginResponses(response: [String : AnyObject]) {
+        print("ForceUpdateWithLoginResponse :", response)
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            var generalsettings = [String : AnyObject]()
+            generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
+            let playstoreurl = generalsettings["playStoreURL"] as! String
+            print("playstoreurl response :", playstoreurl)
+            Constants.Privacy = generalsettings["privacySecurityUrl"] as! String
+            Constants.Termsofuse = generalsettings["termsOfUseUrl"] as! String
+            var userprofilesettings = [String : AnyObject]()
+            var userlevelsettings = [String : AnyObject]()
+            userprofilesettings =  response["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
+            userlevelsettings =  userprofilesettings["level"] as! [String : AnyObject]
+            let wallet: NSNumber = userprofilesettings["walletBalance"] as! NSNumber
+            if wallet is Double {
+                print("Double type")
+                if wallet == 0{
+                    Cashback.text = ("$\(wallet).00")
+                }else{
+                    Cashback.text = ("$\(wallet)")
+                }
+                
+            } else if wallet is Int {
+                print("Int type")
+                Cashback.text = ("$\(wallet).00")
+            } else if wallet is Float {
+                print("Float type")
+                Cashback.text = ("$\(wallet)")
+            } else {
+                print("Unkown type")
+            }
+            
+            
+            Constants.WalletBalance = Cashback.text!
+            let profilePicUrl: String?
+            profilePicUrl = userprofilesettings["profilePicUrl"] as? String
+            if profilePicUrl == nil || profilePicUrl == ""  {
+            }
+            else{
+                Constants.profileimage = profilePicUrl!
+                Database.set(Constants.profileimage, forKey: Constants.profileimagekey)
+                Database.synchronize()
+            }
+            Constants.minlevel = userlevelsettings["levelMin"] as! Int
+            Constants.maxlevel = userlevelsettings["levelMax"] as! Int
+            Constants.userlevel = userlevelsettings["userXP"] as! Float
+            Constants.level = userlevelsettings["userLevel"] as! Int
+            print(Constants.level)
+            print(Constants.maxlevel)
+            Progressview.animationDuration = 0.5
+            Progressview.minimumValue = Float(Constants.minlevel)
+            Progressview.maximumValue = Float(Constants.maxlevel)
+            Progressview.setProgress(userlevelsettings["userXP"] as! Float , animated: true)
+            
+            Level.text = String(format: "Level %d", Constants.level)
+            Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
+            print(userlevelsettings)
+            Database.set(Constants.WalletBalance, forKey: Constants.WalletBalancekey)
+            Database.set(Constants.minlevel, forKey: Constants.minlevelKey)
+            Database.set(Constants.maxlevel, forKey: Constants.maxlevelKey)
+            Database.set(Constants.userlevel, forKey: Constants.userlevelKey)
+            Database.set(Constants.level, forKey: Constants.levelKey)
+            Database.set(Constants.Privacy, forKey: Constants.Privacykey)
+            Database.set(Constants.Termsofuse, forKey: Constants.Termsofusekey)
+            Database.synchronize()
+            PaytowhereAPI()
+            
+            // ConnecttoDealsAPISERVER()
+            //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
+            //  UIApplication.shared.openURL(NSURL(string: playstoreurl)! as URL)
+        }else{
+            
+        }
+    }
+    func ForceUpdatewithLoginApiInputBodywallet()  {
+        // Version 1.0
+        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        Input =  [
+            "device_id": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": [
+                "appVersionCode": appVersionString as AnyObject
+            ]] as [String : AnyObject]
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(RedeemController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollview.addSubview(self.refreshControl)
          NotificationCenter.default.addObserver(self, selector: #selector(RedeemController.closebackgroundviews), name: NSNotification.Name(rawValue: "CloseBackgroundview1"), object: nil)
         self.addDoneButtonOnKeyboard()
         BGview.isHidden = true
@@ -99,8 +221,16 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
-        CityLocation.text = city
+        let city: String?
+        city = Database.value(forKey: Constants.citynamekey) as? String
+        if  city == "" || city == nil{
+            
+            CityLocation.text = ""
+        }
+        else{
+            let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
+            CityLocation.text = city
+        }
         
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
@@ -122,8 +252,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         view.addSubview(indicator)
         indicator.frame = view.bounds
         indicator.startAnimating()
-        ConnectivityNetworkCheck()
-        PaytowhereAPI()
         registerForKeyboardNotifications()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -141,13 +269,17 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         items.add(done)
         doneToolbar.items = items as? [UIBarButtonItem]
         doneToolbar.sizeToFit()
+        
+        self.Rountingnumber.inputAccessoryView = doneToolbar
         self.RedeemAmount.inputAccessoryView = doneToolbar
        // self.textField.inputAccessoryView = doneToolbar
         
     }
     @objc func doneButtonAction()
     {
+        self.Rountingnumber.resignFirstResponder()
         self.RedeemAmount.resignFirstResponder()
+        
     }
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         PaymentAccountNo.resignFirstResponder()
@@ -158,7 +290,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         self.scrollview.endEditing(true)
     }
     func setupNavigationBar()  {
-        scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+       // scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+       // viewheight.constant = scrollview.contentSize.height
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let maskLayer = CAShapeLayer(layer: self.view.layer)
@@ -195,6 +328,9 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         WithdrawalView.layer.cornerRadius = 4.0
         WithdrawalView.layer.borderWidth = 0.4
         WithdrawalView.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0).cgColor
+        RountingView.layer.cornerRadius = 4.0
+        RountingView.layer.borderWidth = 0.4
+        RountingView.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0).cgColor
     }
     func ConnectivityNetworkCheck() {
         //Check Internet Connectivity
@@ -256,9 +392,65 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             self.SelectedBankID = self.SelectedBankTypearrayID[0]
             
             
+            if self.Paytowhere.text == "Cheque" {
+                self.SelectedBank.text = ""
+                self.PaymentAccountNo.text = ""
+                self.RountingView.isHidden = true
+                self.WithdrawalView.frame.origin.y = 165
+                self.ConfirmButton.frame.origin.y = 255
+                self.SelectedBankButton.isUserInteractionEnabled = false
+                self.SelectedBankDownIcon.isHidden = true
+                self.PaymentAccountNo.placeholder = "Address"
+                self.SelectedBank.placeholder = "Name as per bank"
+            }else if self.Paytowhere.text == "Bank Account" {
+                self.SelectedBank.text = "Choose Your Bank"
+                self.PaymentAccountNo.placeholder = "Account Number"
+                self.PaymentAccountNo.text = ""
+                self.RountingView.isHidden = false
+                self.WithdrawalView.frame.origin.y = 220
+                self.ConfirmButton.frame.origin.y = 310
+                self.SelectedBankButton.isUserInteractionEnabled = true
+                self.SelectedBankDownIcon.isHidden = false
+            }else if self.Paytowhere.text == "Cryptocurrencies"{
+                self.SelectedBankButton.isUserInteractionEnabled = true
+                self.RountingView.isHidden = true
+                self.WithdrawalView.frame.origin.y = 165
+                self.ConfirmButton.frame.origin.y = 255
+                self.SelectedBankDownIcon.isHidden = false
+                self.PaymentAccountNo.placeholder = "Wallet Address"
+                
+            }
+            
+            
+//            if self.Paytowhere.text == "Cheque" {
+//                self.SelectedBank.text = ""
+//                self.PaymentAccountNo.text = ""
+//
+//                self.SelectedBankButton.isUserInteractionEnabled = false
+//                self.SelectedBankDownIcon.isHidden = true
+//            }else if self.Paytowhere.text == "Bank Account" {
+//
+//
+//            }
+//                //
+//            else if self.Paytowhere.text == "Cryptocurrencies"{
+//
+//
+//                self.SelectedBank.text = SelectedBankTypearray[0]
+//                self.SelectedBankID = self.SelectedBankTypearrayID[0]
+//            }
+            
+            
         }else{
         }
+        refreshControl.endRefreshing()
    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    
+        scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -308,13 +500,22 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             
         }
         
-        let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
-        CityLocation.text = city
+        let city: String?
+        city = Database.value(forKey: Constants.citynamekey) as? String
+        if  city == "" || city == nil{
+            
+            CityLocation.text = ""
+        }
+        else{
+            let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
+            CityLocation.text = city
+        }
         
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
         
-        
+        ConnectivityNetworkCheck()
+        PaytowhereAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -327,17 +528,20 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
        //Fields need to verify must, dont forgot
         
        
-        let a:Int? = Int(RedeemAmount.text!)
+        var a:Float? = Float(RedeemAmount.text!)
       //  let cashback:Int? = Int(Cashback.text!)
         
         
         print("Cashback",Cashback.text!)
-       // print("Balance",Balance)
-       // print("cashbacks",cashback!)
         
+        if a == nil {
+            a = 0
+        }
+        
+        let cashwallet = (Cashback.text?.replacingOccurrences(of: "$", with: ""))!
+        let b:Float? = Float(cashwallet)
         let amontstring: String = RedeemAmount.text!
        // amontstring.prefix(4)
-        
         print("Redeem Amont : %@",amontstring.prefix(1))
         
         if Paytowhere.text == "" {
@@ -355,7 +559,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-        } else if RedeemAmount.text == "0" || amontstring.prefix(1) == "0" {
+        }  else if RedeemAmount.text == "0" || amontstring.prefix(1) == "0" {
             let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
@@ -369,24 +573,45 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             
         }
             //a! >= cashback!
-        else if RedeemAmount.text! >= Cashback.text! {
+        else if a! > b! {
             let alert = UIAlertController(title: "Invalid Redeem" , message: ("You cannot redeem more than \(self.Cashback.text!)"), preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
         else{
+            
+            if self.Paytowhere.text == "Bank Account" {
+                if Rountingnumber.text == ""{
+                    let alert = UIAlertController(title: "Routing Number" , message: "Please Enter Your Routing Number", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                    }else{
+                    RedeemAPIInputBody()
+                    ConfirmButton.isUserInteractionEnabled = false
+                    ConfirmButton.backgroundColor = UIColor.lightGray
+                    ConfirmButton.setTitle("", for: .normal)
+                    showSpinning()
+                    let RaiseredeemServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.RaiseRedeemURL
+                    RequestManager.PostPathwithAUTH(urlString: RaiseredeemServer, params: Input, successBlock:{
+                        (response) -> () in self.RaiseRedeemResponse(response: response as! [String : AnyObject])})
+                    { (error: NSError) ->() in}
+                   }
+            } else{
+                RedeemAPIInputBody()
+                ConfirmButton.isUserInteractionEnabled = false
+                ConfirmButton.backgroundColor = UIColor.lightGray
+                ConfirmButton.setTitle("", for: .normal)
+                showSpinning()
+                let RaiseredeemServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.RaiseRedeemURL
+                RequestManager.PostPathwithAUTH(urlString: RaiseredeemServer, params: Input, successBlock:{
+                    (response) -> () in self.RaiseRedeemResponse(response: response as! [String : AnyObject])})
+                { (error: NSError) ->() in}
+            }
+            }
         
-        RedeemAPIInputBody()
-        ConfirmButton.isUserInteractionEnabled = false
-        ConfirmButton.backgroundColor = UIColor.lightGray
-        ConfirmButton.setTitle("", for: .normal)
-        showSpinning()
-        let RaiseredeemServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.RaiseRedeemURL
-        RequestManager.PostPathwithAUTH(urlString: RaiseredeemServer, params: Input, successBlock:{
-            (response) -> () in self.RaiseRedeemResponse(response: response as! [String : AnyObject])})
-        { (error: NSError) ->() in}
-        }
+       
         
     }
     func RedeemAPIInputBody(){
@@ -421,7 +646,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-            
+            Rountingnumber.text = ""
             Paytowhere.text = ""
             SelectedBank.text = ""
             PaymentAccountNo.text = ""
@@ -479,15 +704,24 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 if self.Paytowhere.text == "Cheque" {
                     self.SelectedBank.text = ""
                     self.PaymentAccountNo.text = ""
+                    self.RountingView.isHidden = true
+                    self.WithdrawalView.frame.origin.y = 165
+                    self.ConfirmButton.frame.origin.y = 255
                     self.SelectedBankButton.isUserInteractionEnabled = false
                     self.SelectedBankDownIcon.isHidden = true
                 }else if self.Paytowhere.text == "Bank Account" {
                     self.SelectedBank.text = "Choose Your Bank"
                     self.PaymentAccountNo.text = ""
+                    self.RountingView.isHidden = false
+                    self.WithdrawalView.frame.origin.y = 220
+                    self.ConfirmButton.frame.origin.y = 310
                     self.SelectedBankButton.isUserInteractionEnabled = true
                     self.SelectedBankDownIcon.isHidden = false
-                }else if self.Paytowhere.text == "Cryptocurrency"{
+                }else if self.Paytowhere.text == "Cryptocurrencies"{
                     self.SelectedBankButton.isUserInteractionEnabled = true
+                    self.RountingView.isHidden = true
+                    self.WithdrawalView.frame.origin.y = 165
+                    self.ConfirmButton.frame.origin.y = 255
                     self.SelectedBankDownIcon.isHidden = false
                     
                 }
@@ -526,15 +760,13 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.SelectedBankDownIcon.isHidden = true
             }else if self.Paytowhere.text == "Bank Account" {
                 self.PaymentAccountNo.placeholder = "Account Number"
-                
-//                self.SelectedBank.text = "Choose Your Bank"
-//                self.PaymentAccountNo.text = ""
-//                self.SelectedBankButton.isUserInteractionEnabled = true
-//                self.SelectedBankDownIcon.isHidden = false
+                self.Rountingnumber.text = ""
+
             }
-            else if self.Paytowhere.text == "Cryptocurrency"{
-                
-            self.PaymentAccountNo.placeholder = "Wallet Address"
+                //
+            else if self.Paytowhere.text == "Cryptocurrencies"{
+                self.PaymentAccountNo.text = ""
+                self.PaymentAccountNo.placeholder = "Wallet Address"
                 self.SelectedBank.text = SelectedBankTypearray[0]
                 self.SelectedBankID = self.SelectedBankTypearrayID[0]
             }
@@ -567,7 +799,17 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 return false
             }
            
-        }else if textField == PaymentAccountNo
+        }else if textField == Rountingnumber{
+            if range.location == 9 {
+                return false}
+            //Prevent "0" characters as the first characters. (i.e.: There should not be values like "003" "01" "000012" etc.)
+            //Have a decimal keypad. Which means user will be able to enter Double values. (Needless to say "." will be limited one)
+            if (textField.text?.contains("."))! && string == "." {
+                return false
+            }
+        }
+        
+        else if textField == PaymentAccountNo
         {
             if range.location == 20 {
             return false}

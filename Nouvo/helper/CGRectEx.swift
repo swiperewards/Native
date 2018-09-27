@@ -1,8 +1,8 @@
 //
 //  CGRectEx.swift
-//  SubmitTransition
+//  BezierPathAnimation
 //
-//  Created by Takuya Okamoto on 2015/08/07.
+//  Created by Takuya Okamoto on 2015/08/11.
 //  Copyright (c) 2015年 Uniface. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ extension CGRect {
             return self.origin.x
         }
         set {
-            self = CGRect(x: newValue, y: self.y, width: self.width, height: self.height)
+            self = CGRect(x: newValue, y: self.minY, width: self.width, height: self.height)
         }
     }
     
@@ -32,7 +32,7 @@ extension CGRect {
             return self.size.width
         }
         set {
-            self = CGRect(x: self.x, y: self.y, width: newValue, height: self.height)
+            self = CGRect(x: self.x, y: self.width, width: newValue, height: self.height)
         }
     }
     
@@ -41,7 +41,7 @@ extension CGRect {
             return self.size.height
         }
         set {
-            self = CGRect(x: self.x, y: self.y, width: self.width, height: newValue)
+            self = CGRect(x: self.x, y: self.minY, width: self.width, height: newValue)
         }
     }
     
@@ -101,7 +101,7 @@ extension CGRect {
         }
     }
     
-
+    
     var center: CGPoint {
         get {
             return CGPoint(x: self.midX, y: self.midY)

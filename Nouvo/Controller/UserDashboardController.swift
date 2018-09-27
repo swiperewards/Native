@@ -10,18 +10,31 @@ import UIKit
 import CoreLocation
 import MXParallaxHeader
 import SDWebImage
+import CRRefresh
+
 
 class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,UISearchBarDelegate,UIScrollViewDelegate,ModernSearchBarDelegate,MXParallaxHeaderDelegate,UISearchDisplayDelegate,TCPickerViewOutput,UIGestureRecognizerDelegate {
-    
-    
+    var suggestionList = Array<String>()
+//    var refresh = Refresh
     @IBOutlet var profiletapbutton: UIButton!
     @IBOutlet var Nodealslabel1: UILabel!
     @IBOutlet var Nodeallabel: UILabel!
     //For Pagination
     @IBOutlet var Bgview: UIView!
+    
+    
+    @IBOutlet var referralbgviewview: UIView!
+    @IBOutlet var referralview: UIView!
+    @IBOutlet var Referraltext: UITextField!
+    
+    
+    
+    
+    var textField: UITextField!
     var isDataLoading:Bool=false
     var pageNo:Int=0
     var limit:Int=15
+    var tags1:Int=0
     var citynamesIS : String?
     var picker: TCPickerViewInput = TCPickerView()
     var DealnameArray = [Dealname]()
@@ -87,6 +100,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var pickeridentity = String()
     var searchidentity = String()
     var Paginationidentity = String()
+    var firsttimecallAPI = String()
+    var refreshAPI = String()
     let scrollViewContentHeight = 1200 as CGFloat
     var Test_View = UIView()
     //MARK: -  ViewWillAppear
@@ -96,6 +111,90 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet var HideBtn: UIButton!
     
+    @IBAction func RefApplyTap(_ sender: Any) {
+        referralbgviewview.isHidden = true
+        //referralview.isHidden = true
+        Referraltext.resignFirstResponder()
+        
+        //ApplyreferralcodeURL
+        
+        if Referraltext.text == "" || (Referraltext.text?.isEmpty)!{
+            
+            referralbgviewview.isHidden = false
+           // referralview.isHidden = false
+            Referraltext.becomeFirstResponder();
+            
+            let alert = UIAlertController(title: "Referral Code" , message: "Please enter your referral code!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            
+             ApplyReferralcodeAPIInputBody()
+             let ReferralAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.ApplyreferralcodeURL
+            RequestManager.PostPathwithAUTH(urlString: ReferralAPI, params: Input, successBlock:{
+                (response) -> () in self.ApplyReferralcodeResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in }
+        }
+        
+        
+        
+    }
+    func ApplyReferralcodeAPIInputBody() {
+        
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        Input =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": [
+                "referredBy": textField.text as AnyObject
+            ]] as [String : AnyObject]
+    }
+    func ApplyReferralcodeResponse(response: [String : AnyObject]){
+        print("Referral Code :", response)
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            hideLoading()
+            referralbgviewview.isHidden = true
+            self.referralbgviewview.isHidden = true
+            Constants.Newrecord = 0
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+            Database.synchronize()
+            let alert = UIAlertController(title: "Referral Code", message: "Successfully applied your referral code", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        }else{
+            checkreferral1()
+//            let alert = UIAlertController(title: "Referral Code", message: "Invalid Referral code", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
+            
+            
+            textField.placeholder = "Invalid Referral code"
+            hideLoading()
+            referralbgviewview.isHidden = false
+           // referralview.isHidden = false
+            textField.becomeFirstResponder();
+        }
+        
+//        Constants.Newrecord = 0
+//        Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+//        Database.synchronize()
+        
+    }
+    @IBAction func RefCancelTap(_ sender: Any) {
+        Constants.Newrecord = 0
+        Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+        Database.synchronize()
+        referralbgviewview.isHidden = true
+        //referralview.isHidden = true
+        Referraltext.resignFirstResponder()
+    }
     @IBAction func send(_ sender: Any) {
        // print("hi")
         self.tabBarController?.selectedIndex = 0
@@ -107,7 +206,33 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "HOME"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    
+        
+        pickeridentity = "NO"
+        Paginationidentity = "NO"
+        searchidentity = ""
+        DealnameArray = [Dealname]()
+        DealLocationArray = [DealLocation]()
+        DealcashbackArray = [Dealcashback]()
+        DealStartDateArray = [DealStartDate]()
+        DealEndDateArray = [DealEndDate]()
+        self.pageNo = 0
+        self.limit = 15
+        refreshAPI = ""
+       // self.InitializeLocationManager()
+            let city: String?
+            city = Database.value(forKey: Constants.citynamekey) as? String
+            if  city == "" || city == nil{
+                //self.AskcitynameAPI()
+               CityLocation.text = ""
+            }
+            else{
+                 CityLocation.text = city
+                 self.ConnecttoDealsAPISERVER()
+               
+            }
+            
+       
+        
         
     }
 //    private func makingSearchBarAwesome(){
@@ -199,15 +324,264 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 //    @objc func taps(){
 //
 //    }
-   
- 
+//    override var preferredStatusBarStyle : UIStatusBarStyle {
+//        return .lightContent
+//    }
+//    func makeMock() {
+//        let headerView = UIView()
+//        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 64)
+//        headerView.backgroundColor = UIColor.lightGray
+//        self.view.addSubview(headerView)
+//
+//        let headerLine = UIView()
+//        headerLine.frame = CGRect(x: 0, y: 0, width: 120, height: 8)
+//        headerLine.layer.cornerRadius = headerLine.frame.height/2
+//        headerLine.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+//        headerLine.center = CGPoint(x: headerView.frame.center.x, y: 20 + 44/2)
+//        headerView.addSubview(headerLine)
+//    }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+
+        
+        pickeridentity = "NO"
+        Paginationidentity = "NO"
+        searchidentity = ""
+        DealnameArray = [Dealname]()
+        DealLocationArray = [DealLocation]()
+        DealcashbackArray = [Dealcashback]()
+        DealStartDateArray = [DealStartDate]()
+        DealEndDateArray = [DealEndDate]()
+        self.pageNo = 0
+        self.limit = 15
+        refreshAPI = "R"
+        DispatchQueue.global(qos: .background).async {
+          
+            self.ForceUpdatetoUserAPIWithLogin()
+            DispatchQueue.main.async {
+              
+            }
+        }
+        
+        
+        //self.Retailshoplist.reloadData()
+       
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(UserDashboardController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
+    func checkreferral()  {
+        let isnewrecord: Int?
+        isnewrecord = Database.value(forKey: Constants.NewrecordKey) as? Int
+        //let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as! Int)
+        
+        
+        if isnewrecord == 1{
+            let alert = UIAlertController(title: "Referral Code", message: "Have a referral code, apply it here to get the XP points!", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
+                self.referralbgviewview.isHidden = true
+                Constants.Newrecord = 0
+                Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+                Database.synchronize()
+                
+            })
+            
+            let submitAction = UIAlertAction(title: "Apply", style: .default, handler: { (action) -> Void in
+                self.textField = alert.textFields![0]
+                print(self.textField.text!)
+                if self.textField.text == "" || (self.textField.text?.isEmpty)!{
+                    self.referralbgviewview.isHidden = false
+                    self.present(alert, animated: true, completion: nil)
+                   //Please enter your referral code!
+                }else{
+                    self.ApplyReferralcodeAPIInputBody()
+                    let ReferralAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.ApplyreferralcodeURL
+                    RequestManager.PostPathwithAUTH(urlString: ReferralAPI, params: self.Input, successBlock:{
+                        (response) -> () in self.ApplyReferralcodeResponse(response: response as! [String : AnyObject])})
+                    { (error: NSError) ->() in }
+                }
+                
+            })
+            
+            alert.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Enter Referral Code"
+                textField.superview?.backgroundColor = UIColor.gray
+                
+            }
+           
+//            // Add 1 textField and customize it
+//            alert.addTextField { textField in
+//               // textField.keyboardAppearance = .dark
+//              //  textField.keyboardType = .default
+//                //textField.autocorrectionType = .default
+//                textField.placeholder = "Enter Referral Code"
+//               // textField.clearButtonMode = .whileEditing
+////
+////                textField.layer.masksToBounds = true
+////                textField.layer.cornerRadius = 15.0
+////                textField.layer.borderWidth = 0.5
+//            }
+            // Add action buttons and present the Alert
+            alert.addAction(cancel)
+            alert.addAction(submitAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            for textField in alert.textFields! {
+                if let container = textField.superview, let effectView = container.superview?.subviews.first, effectView is UIVisualEffectView {
+                    container.backgroundColor = UIColor.lightText
+                    container.layer.masksToBounds = true
+                    container.layer.cornerRadius = 5.0
+                    container.layer.borderWidth = 0.5
+                    container.layer.borderColor = UIColor.lightGray.cgColor
+                    effectView.removeFromSuperview()
+                }
+            }
+        }
+        else{
+            self.referralbgviewview.isHidden = true
+            Constants.Newrecord = 0
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+            Database.synchronize()
+        }
+    }
+    func checkreferral1()  {
+        let isnewrecord: Int?
+        isnewrecord = Database.value(forKey: Constants.NewrecordKey) as? Int
+        //let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as! Int)
+        if isnewrecord == 1{
+            let alert = UIAlertController(title: "Invalid Referral Code!", message: "Have a referral code, apply it here to get the XP points!", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
+                self.referralbgviewview.isHidden = true
+                Constants.Newrecord = 0
+                Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+                Database.synchronize()
+                
+            })
+            
+            let submitAction = UIAlertAction(title: "APPLY", style: .default, handler: { (action) -> Void in
+                self.textField = alert.textFields![0]
+                print(self.textField.text!)
+                if self.textField.text == "" || (self.textField.text?.isEmpty)!{
+                    self.referralbgviewview.isHidden = false
+                  //  self.present(alert, animated: true, completion: nil)
+                    //Please enter your referral code!
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    self.ApplyReferralcodeAPIInputBody()
+                    let ReferralAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.ApplyreferralcodeURL
+                    RequestManager.PostPathwithAUTH(urlString: ReferralAPI, params: self.Input, successBlock:{
+                        (response) -> () in self.ApplyReferralcodeResponse(response: response as! [String : AnyObject])})
+                    { (error: NSError) ->() in }
+                }
+                
+            })
+            
+           
+            
+            
+            // Add 1 textField and customize it
+            alert.addTextField { textField in
+//                textField.keyboardAppearance = .dark
+//                textField.keyboardType = .default
+//                textField.autocorrectionType = .default
+                textField.placeholder = "Enter Referral Code"
+                //textField.clearButtonMode = .whileEditing
+                
+                textField.superview?.backgroundColor = UIColor.gray
+            }
+            // Add action buttons and present the Alert
+            alert.addAction(cancel)
+            alert.addAction(submitAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            for textField in alert.textFields! {
+                if let container = textField.superview, let effectView = container.superview?.subviews.first, effectView is UIVisualEffectView {
+                    container.backgroundColor = UIColor.lightText
+                    container.layer.masksToBounds = true
+                    container.layer.cornerRadius = 5.0
+                    container.layer.borderWidth = 0.5
+                    container.layer.borderColor = UIColor.lightGray.cgColor
+                    effectView.removeFromSuperview()
+                }
+            }
+        }else{
+            
+                self.referralbgviewview.isHidden = true
+                Constants.Newrecord = 0
+                Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+                Database.synchronize()
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         DashboardView.isUserInteractionEnabled = true
+        checkreferral()
+        
+      //  Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
         
         
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        referralbgviewview.addSubview(blurEffectView)
+        
+//        referralbgviewview.isUserInteractionEnabled = false
+//        referralview.isUserInteractionEnabled = true
+//        referralview.layer.cornerRadius = 4.0
+//        referralview.layer.borderWidth = 0.4
+//        referralview.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0).cgColor
+        
+            
+            
+//            referralbgviewview.isHidden = false
+//            referralview.isHidden = false
+//            Referraltext.becomeFirstResponder();
+            
+            
+            
+
+//        }else{
+////            referralbgviewview.isHidden = true
+////            referralview.isHidden = true
+//        }
+        
+       
+       // Retailshoplist.parallaxHeader.view?.addSubview(self.refreshControl)
+       
+//        gearRefreshControl.addTarget(self, action: #selector(UserDashboardController.refresh), for: UIControlEvents.valueChanged)
+//        gearRefreshControl.gearTintColor = .red
+//        self.refreshControl = gearRefreshControl
+//
+//        let bodyView = UIView()
+//        bodyView.frame = self.view.frame
+//        bodyView.frame.y += 20 + 44
+//        self.view.addSubview(bodyView)
+//
+//        let tableViewWrapper = PullToBounceWrapper(scrollView: Retailshoplist)
+//        bodyView.addSubview(tableViewWrapper)
+//
+//        tableViewWrapper.didPullToRefresh = {
+//            _ = Timer.schedule(delay: 2) { timer in
+//                tableViewWrapper.stopLoadingAnimation()
+//            }
+//        }
+
+      //  makeMock()
 //        DashboardView.addSubview(profiletapbutton)
 //        headerview.addSubview(DashboardView)
 //        profiletapbutton.addTarget(self,action:#selector(UserDashboardController.taps),
@@ -265,8 +639,18 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         Retailshoplist.parallaxHeader.minimumHeight = 0
         Retailshoplist.parallaxHeader.mode = MXParallaxHeaderMode.center
         Retailshoplist.parallaxHeader.delegate = self
+        Retailshoplist.parallaxHeader.view = self.refreshControl
         
-        
+//        Retailshoplist.cr.addHeadRefresh(animator: refresh.header.commont()) { [weak self] in
+//            print("开始刷新")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//                self?.pageNo = 0
+//                self?.Retailshoplist.cr.endHeaderRefresh()
+//                self?.Retailshoplist.cr.resetNoMore()
+//                self?.Retailshoplist.reloadData()
+//            })
+//        }
+//
       //  Retailshoplist.parallaxHeader.view?.backgroundColor = UIColor.blue
        
 
@@ -343,12 +727,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 //
 //        print("scrollViewDidEndDragging")
-//        if ((Retailshoplist.contentOffset.y + Retailshoplist.frame.size.height) >= Retailshoplist.contentSize.height)
-//        {
 //
 //
-//
-//        }
 //
 //
 //    }
@@ -356,6 +736,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         print("scrollViewDidEndDecelerating")
+
+        //ConnecttoDealsAPISERVER()
     }
 //
 //
@@ -420,10 +802,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         view.addSubview(indicator)
         indicator.frame = view.bounds
         indicator.startAnimating()
-        
-        // To remove it, just call removeFromSuperview()
-       //
-        
         ForceUpdatewithLoginApiInputBody()
         let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.InitSwipeURL
         RequestManager.PostPathwithAUTH(urlString: signInServer, params: Input, successBlock:{
@@ -438,47 +816,52 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
             let playstoreurl = generalsettings["playStoreURL"] as! String
             print("playstoreurl response :", playstoreurl)
-            
             Constants.Privacy = generalsettings["privacySecurityUrl"] as! String
             Constants.Termsofuse = generalsettings["termsOfUseUrl"] as! String
-            
             var userprofilesettings = [String : AnyObject]()
             var userlevelsettings = [String : AnyObject]()
-            //ar profilePicUrl = String()
-         
-            
             userprofilesettings =  response["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
             userlevelsettings =  userprofilesettings["level"] as! [String : AnyObject]
+           // let wallet
+            let invitecode: String?
+            let wallet: NSNumber = userprofilesettings["walletBalance"] as! NSNumber
+            invitecode = userprofilesettings["userReferralCode"] as? String
+            Constants.mycode = invitecode!
+            if wallet is Double {
+                print("Double type")
+                if wallet == 0{
+                    Cashback.text = ("$\(wallet).00")
+                }else{
+                    Cashback.text = ("$\(wallet)")
+                }
+                
+            } else if wallet is Int {
+                print("Int type")
+                Cashback.text = ("$\(wallet).00")
+            } else if wallet is Float {
+                print("Float type")
+                Cashback.text = ("$\(wallet)")
+            } else {
+                print("Unkown type")
+            }
             
-            let wallet: Int?
-            wallet = userprofilesettings["walletBalance"] as? Int
-            Cashback.text = String(format: "$%d.00", wallet!)
+            
             Constants.WalletBalance = Cashback.text!
-            
-      
-            
             let profilePicUrl: String?
             profilePicUrl = userprofilesettings["profilePicUrl"] as? String
             if profilePicUrl == nil || profilePicUrl == ""  {
-                
             }
             else{
                 Constants.profileimage = profilePicUrl!
                 Database.set(Constants.profileimage, forKey: Constants.profileimagekey)
                 Database.synchronize()
             }
-            
-            
-            
             Constants.minlevel = userlevelsettings["levelMin"] as! Int
             Constants.maxlevel = userlevelsettings["levelMax"] as! Int
             Constants.userlevel = userlevelsettings["userXP"] as! Float
             Constants.level = userlevelsettings["userLevel"] as! Int
-            
-            
             print(Constants.level)
             print(Constants.maxlevel)
-            
             Progressview.animationDuration = 0.5
             Progressview.minimumValue = Float(Constants.minlevel)
             Progressview.maximumValue = Float(Constants.maxlevel)
@@ -486,24 +869,21 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             
             Level.text = String(format: "Level %d", Constants.level)
             Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
-            
-            
             print(userlevelsettings)
-            
-            
-            
             Database.set(Constants.WalletBalance, forKey: Constants.WalletBalancekey)
             Database.set(Constants.minlevel, forKey: Constants.minlevelKey)
             Database.set(Constants.maxlevel, forKey: Constants.maxlevelKey)
+            Database.set(Constants.mycode, forKey: Constants.mycodeKey)
             Database.set(Constants.userlevel, forKey: Constants.userlevelKey)
             Database.set(Constants.level, forKey: Constants.levelKey)
-            
-            
             Database.set(Constants.Privacy, forKey: Constants.Privacykey)
             Database.set(Constants.Termsofuse, forKey: Constants.Termsofusekey)
             Database.synchronize()
-            
-            AskcitynameAPI()
+            if refreshAPI == "R"{
+                ConnecttoDealsAPISERVER()
+            }else{
+                 AskcitynameAPI()
+            }
 
            // ConnecttoDealsAPISERVER()
             //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
@@ -551,7 +931,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         if success == "200" {
         Totalcityarray = response["responseData"]?.value(forKey: "name") as! [String]
             
-           var suggestionList = Array<String>()
+           suggestionList = Array<String>()
             for name in Totalcityarray {
                 suggestionList.append(name)
                 
@@ -564,7 +944,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             configureSearchController()
             ///Adding delegate
             self.mySearchBar?.delegateModernSearchBar = self as ModernSearchBarDelegate
-            
             ///Set datas to search bar
             self.mySearchBar?.setDatas(datas: suggestionList)
             ConvertLatandLongtoCityName()
@@ -572,6 +951,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         }
  }
     func ConvertLatandLongtoCityName()  {
+        
+        print(lat)
+        print(long)
         // Add below code to get address for touch coordinates.
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: lat, longitude: long)
@@ -592,12 +974,20 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             // City
             if let city = placeMark.subAdministrativeArea {
                 
-                self.citynamesIS = city
-                print(self.citynamesIS as! String)
-                Constants.cityname = self.citynamesIS!
-                self.CityLocation.text = Constants.cityname
-                Database.set(Constants.cityname, forKey: Constants.citynamekey)
-                Database.synchronize()
+                if self.refreshAPI == "R"{
+                    let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
+                    self.citynamesIS = city
+                    self.CityLocation.text = city
+                }else{
+                    self.citynamesIS = city
+                    print(self.citynamesIS as! String)
+                    Constants.cityname = self.citynamesIS!
+                    self.CityLocation.text = Constants.cityname
+                    Database.set(Constants.cityname, forKey: Constants.citynamekey)
+                    Database.synchronize()
+                }
+                
+                
             }
             // Zip code
             if let zip = placeMark.isoCountryCode {
@@ -607,7 +997,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             if let country = placeMark.country {
                 print(country)
             }
-            
+            self.firsttimecallAPI = "firsttimeonly"
             self.ConnecttoDealsAPISERVER()
         })
     }
@@ -682,7 +1072,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     }
     //MARK: - Connecting to Deals API SERVER
     func ConnecttoDealsAPISERVER() {
-        
+        //refreshControl.endRefreshing()
         DealsAPIInputBody()
         let DealsAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.DealsURL
         RequestManager.PostPathwithAUTH(urlString: DealsAPI, params: Input, successBlock:{
@@ -725,76 +1115,40 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             if responseArraycountzero.count == 0{
                 
                 if Paginationidentity == "YES"{
-                    
                     self.pageNo = self.pageNo - 1
                     print("pageNo afterr",self.pageNo)
-                    
-                }else{
-                    if pickeridentity == "YES"  {
-                        
+                    }else{
+                        if pickeridentity == "YES"  {
                         Nodealslabel1.isHidden = false
-                        Nodealslabel1.text = ("Stores not available in \(self.CityLocation.text!)! Please change the city.")
+                        Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
                         currentDealnameArray = [Dealname]()
                         currentDealLocationArray = [DealLocation]()
                         currentDealcashbackArray = [Dealcashback]()
                         currentDealStartDateArray = [DealStartDate]()
                         currentDealEndDateArray = [DealEndDate]()//update table
-                        
                         DealnameArray = [Dealname]()
                         DealLocationArray = [DealLocation]()
                         DealcashbackArray = [Dealcashback]()
                         DealStartDateArray = [DealStartDate]()
                         DealEndDateArray = [DealEndDate]()
                         Retailshoplist.reloadData()
-                        
                         hideLoading()
-                    }else{
+                        }else{
                        // Nodeallabel.isHidden = false
                         Nodealslabel1.isHidden = false
-                        Nodealslabel1.text = ("Stores not available in \(self.CityLocation.text!)! Please change the city.")
-                        
+                        Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
                         currentDealnameArray = [Dealname]()
                         currentDealLocationArray = [DealLocation]()
                         currentDealcashbackArray = [Dealcashback]()
                         currentDealStartDateArray = [DealStartDate]()
                         currentDealEndDateArray = [DealEndDate]()//update table
-                        
                         DealnameArray = [Dealname]()
                         DealLocationArray = [DealLocation]()
                         DealcashbackArray = [Dealcashback]()
                         DealStartDateArray = [DealStartDate]()
                         DealEndDateArray = [DealEndDate]()
                         Retailshoplist.reloadData()
-                       // Bgview.isHidden = false
-                     //   HideBtn.isHidden = false
-//
-//                        ///Configure the gesture to handle click on shadow and improve focus on searchbar
-//                        let gestureShadow = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.onClickShadowViews))
-//                        gestureShadow.delegate = self
-//                        gestureShadow.numberOfTapsRequired = 1
-//                        gestureShadow.numberOfTouchesRequired = 1
-//                        Bgview.isUserInteractionEnabled = true
-//                        Bgview.addGestureRecognizer(gestureShadow)
-//                        self.view.addSubview(Bgview)
-                        
-//                        Nodeallabel.isHidden = true
-//                        Nodealslabel1.isHidden = true
-                        
-                       
-                        
-//                        picker.title = ("Stores not available in \(self.CityLocation.text!)! Please change your city")
-//                        let values = Totalcityarray.map { TCPickerView.Value(title: $0) }
-//                        picker.values = values
-//                        picker.delegate = self as? TCPickerViewOutput
-//                        picker.selection = .single
-//                        picker.completion = { (selectedIndexes) in
-//                            for i in selectedIndexes {
-//                                print(values[i].title)
-//                                self.citynamesIS = values[i].title
-//                            }}
-//                        picker.show()
                     }
-                    
                 }
                 
             } else if searchidentity == "Seaching store names"{
@@ -805,7 +1159,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 //Dealalertlabel.text = "Load More"
                 responseArray = data1 as! NSArray
                 print("responseArray1  :", responseArray)
-                TotalDealnamearray = response["responseData"]?.value(forKey: "shortDescription") as! [AnyObject]
+                TotalDealnamearray = response["responseData"]?.value(forKey: "entityName") as! [AnyObject]
                 TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
                 TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
                 TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
@@ -847,63 +1201,60 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             }
             
             else{
-                //searchidentity = ""
-               // Nodeallabel.isHidden = true
-                Nodealslabel1.isHidden = true
-                hideLoading()
-                pickeridentity = "NO"
-                //Dealalertlabel.text = "Load More"
-                responseArray = data1 as! NSArray
-                print("responseArray1  :", responseArray)
-                TotalDealnamearray = response["responseData"]?.value(forKey: "shortDescription") as! [AnyObject]
-                TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
-                TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
-                TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
-                TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
                 
-                for var names in TotalDealnamearray {
+                
                     
-                    if names is NSNull{
-                        names = "" as AnyObject
-                        DealnameArray.append(Dealname(name: names as! String))
-                    }else{
-                        DealnameArray.append(Dealname(name: (names ) as! String))
+                    //searchidentity = ""
+                    // Nodeallabel.isHidden = true
+                    Nodealslabel1.isHidden = true
+                    hideLoading()
+                    pickeridentity = "NO"
+                    //Dealalertlabel.text = "Load More"
+                    responseArray = data1 as! NSArray
+                    print("responseArray1  :", responseArray)
+                    TotalDealnamearray = response["responseData"]?.value(forKey: "entityName") as! [AnyObject]
+                    TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
+                    TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
+                    TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
+                    TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                    for var names in TotalDealnamearray {
+                        
+                        if names is NSNull{
+                            names = "" as AnyObject
+                            DealnameArray.append(Dealname(name: names as! String))
+                        }else{
+                            DealnameArray.append(Dealname(name: (names ) as! String))
+                        }
+                        
                     }
-                    
-                }
-                for loc in TotalDeallocationarray {
-                    DealLocationArray.append(DealLocation(location: loc))
-                }
-                for cash in TotalDealcashbackarray {
-                    DealcashbackArray.append(Dealcashback(cashback: cash))
-                }
-                for start in TotalDealstartdatearray {
-                    DealStartDateArray.append(DealStartDate(promotionstartdate: start))
-                }
-                for end in TotalDealenddatearray {
-                    DealEndDateArray.append(DealEndDate(promotionenddate: end))
-                }
+                    for loc in TotalDeallocationarray {
+                        DealLocationArray.append(DealLocation(location: loc))
+                    }
+                    for cash in TotalDealcashbackarray {
+                        DealcashbackArray.append(Dealcashback(cashback: cash))
+                    }
+                    for start in TotalDealstartdatearray {
+                        DealStartDateArray.append(DealStartDate(promotionstartdate: start))
+                    }
+                    for end in TotalDealenddatearray {
+                        DealEndDateArray.append(DealEndDate(promotionenddate: end))
+                    }
+                    print("Deal total",DealnameArray.count)
+                    currentDealnameArray = DealnameArray
+                    currentDealLocationArray = DealLocationArray
+                    currentDealcashbackArray = DealcashbackArray
+                    currentDealStartDateArray = DealStartDateArray
+                    currentDealEndDateArray = DealEndDateArray
+                    Retailshoplist.reloadData()
                 
-                
-              
-                print("Deal total",DealnameArray.count)
-                
-                
-                currentDealnameArray = DealnameArray
-                currentDealLocationArray = DealLocationArray
-                currentDealcashbackArray = DealcashbackArray
-                currentDealStartDateArray = DealStartDateArray
-                currentDealEndDateArray = DealEndDateArray
-                
-                
-                Retailshoplist.reloadData()
+               
             }
             
         }else{
             
             hideLoading()
         }
-        
+         refreshControl.endRefreshing()
     }
     func pickerView(_ pickerView: TCPickerViewInput, didSelectRowAtIndex index: Int) {
         print("Uuser select row at index: \(index)")
@@ -940,15 +1291,42 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         currentDealnameArray = DealnameArray.filter({ Dealname -> Bool in
             switch searchBar.selectedScopeButtonIndex {
             case 0:
-                if searchText.isEmpty { return true }
-              
-                return Dealname.name.lowercased().contains(searchText.lowercased())
+                if searchText.isEmpty {
+                    return true
+                    
+                }
+                let deal = Dealname.name.lowercased().contains(searchText.lowercased())
+                
+                if deal == true{
+                    Constants.DealnameSearch = 1
+                    Database.set(Constants.DealnameSearch, forKey: Constants.DealnameSearchKey)
+                    Database.synchronize()
+                }else{
+                    Constants.DealnameSearch = 0
+                    Database.set(Constants.DealnameSearch, forKey: Constants.DealnameSearchKey)
+                    Database.synchronize()
+                }
+                
+             
+                
+                print(deal)
+                return deal
             default:
                 
                 return false
             }
         })
         
+          print(currentDealnameArray.count)
+//         print(currentDealnameArray)
+//
+//
+//
+//        if currentDealnameArray.count == 0 {
+//            self.suggestionList.append("No Stores found!")
+//            self.mySearchBar?.setDatas(datas: self.suggestionList)
+//        }
+//        
         
         mySearchBar.suggestionsShadow.isHidden = true
         
@@ -981,8 +1359,41 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentDealnameArray.count
     }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if ((Retailshoplist.contentOffset.y + Retailshoplist.frame.size.height) >= Retailshoplist.contentSize.height)
+        {
+            let lastSectionIndex = Retailshoplist.numberOfSections - 1
+            let lastRowIndex = Retailshoplist.numberOfRows(inSection: lastSectionIndex) - 1
+            if 0 ==  lastSectionIndex && tags1 == lastRowIndex {
+                let totalRow =  Retailshoplist.numberOfRows(inSection: 0)//first get total rows in that section by current indexPath.
+                if(tags1 == totalRow - 1)
+                {
+                    
+                    spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: Retailshoplist.bounds.width, height: CGFloat(44))
+                    self.Retailshoplist.tableFooterView = spinner
+                    self.Retailshoplist.tableFooterView?.isHidden = false
+                    if responseArray.count != 0{
+                        print("pageNo Before",self.pageNo)
+                        isDataLoading = true
+                        self.pageNo=self.pageNo+1
+                        print("pageNo After",self.pageNo)
+                        Paginationidentity = "YES"
+                        spinner.startAnimating()
+                        ConnecttoDealsAPISERVER()
+                    }
+                }
+                
+            }
+        }
+        
+       
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Retailshoplistcell", for: indexPath) as! Retailshoplistcell
         cell.Storename.text = currentDealnameArray[indexPath.row].name
 //        cell.Location.text = currentDealLocationArray[indexPath.row].location
@@ -1014,48 +1425,32 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         cell.Cashback.text = "Active"
         
-        cell.Promotiondate.text = String(format: "$%@", currentDealcashbackArray[indexPath.row].cashback as! CVarArg,"%")
+        cell.Promotiondate.text = String(format: "$%.2f", currentDealcashbackArray[indexPath.row].cashback.floatValue)
+        
+        tags1 = indexPath.row
         
         
+       
         
         return cell
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastSectionIndex = tableView.numberOfSections - 1
-        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            // print("this is the last cell")
-            
-          
-            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-            self.Retailshoplist.tableFooterView = spinner
-            self.Retailshoplist.tableFooterView?.isHidden = false
-            if responseArray.count != 0{
-                
-                
-                    //Dealalertlabel.text = "Loading"
-                    print("pageNo Before",self.pageNo)
-                    isDataLoading = true
-                    self.pageNo=self.pageNo+1
-                    //self.limit=self.limit
-                    print("pageNo After",self.pageNo)
-                    Paginationidentity = "YES"
-                    spinner.startAnimating()
-                    //searchidentity = ""
-                    ConnecttoDealsAPISERVER()
-                
-                
-                
-                    
-                
-            }
-            
-           
-            
-            
-            
-            
-        }
+        
+        
+        
+        
+        
+        
+       
+        
+        
+//        if indexPath.row == lastRowIndex { // last cell
+//             // more items to fetch
+//                loadItem() // increment `fromIndex` by 20 before server call
+//            }
+//        }
+        
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -1107,13 +1502,17 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.view.addConstraint(yCenterConstraint)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as? Int)!
+        if isnewrecord == 1{
+            
+        }else{
         self.view.endEditing(true)
         self.Retailshoplist.endEditing(true)
-
-
         self.mySearchBar.endEditing(true)
         searchbar.resignFirstResponder()
-        searchidentity = ""
+            searchidentity = ""
+            
+        }
     }
   
     @IBAction func Settingss(_ sender: UIButton) {
@@ -1130,11 +1529,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         pickeridentity = "NO"
         Paginationidentity = "NO"
         searchidentity = ""
-        mySearchBar.text = item
-        Constants.cityname = item
-        self.CityLocation.text = Constants.cityname
-        Database.set(Constants.cityname, forKey: Constants.citynamekey)
-        Database.synchronize()
+        
         currentDealnameArray = [Dealname]()
         currentDealLocationArray = [DealLocation]()
         currentDealcashbackArray = [Dealcashback]()
@@ -1148,7 +1543,20 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         DealEndDateArray = [DealEndDate]()
         self.pageNo = 0
         self.limit = 15
-        ConnecttoDealsAPISERVER()
+        
+        if item == "No search results found!" {
+             Nodealslabel1.isHidden = false
+             Nodealslabel1.text = ("No search results found!")
+        }else{
+            mySearchBar.text = item
+            Constants.cityname = item
+            self.CityLocation.text = Constants.cityname
+            Database.set(Constants.cityname, forKey: Constants.citynamekey)
+            Database.synchronize()
+            ConnecttoDealsAPISERVER()
+        }
+        
+       
         
     }
     
@@ -1259,4 +1667,41 @@ class Test_View: UIView {
     }
     
 }
-
+//struct Refresh {
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//    var header: Style
+//    var footer: Style
+//    enum Style {
+//        // 普通刷新类
+//        case nomalHead
+//        case nomalFoot
+//        // slackLoading刷新控件
+//        case slackLoading
+//        // ramotion动画
+//        case ramotion
+//        // fast动画
+//        case fast
+//
+//        func commont() -> CRRefreshProtocol {
+//            switch self {
+//            case .nomalHead:
+//                return NormalHeaderAnimator()
+//            case .nomalFoot:
+//                return NormalFooterAnimator()
+//            case .slackLoading:
+//                return SlackLoadingAnimator()
+//            case .ramotion:
+//                return RamotionAnimator()
+//            case .fast:
+//                return FastAnimator()
+//            }
+//        }
+//    }
+//}
+//

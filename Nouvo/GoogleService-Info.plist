@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>945927664671-np2vsnk2ie7iooanb26pvr3ol79fqvqn.apps.googleusercontent.com</string>
+	<string>945927664671-9blvccf8j3p4mvjpp38uohkce4aeedfe.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.945927664671-np2vsnk2ie7iooanb26pvr3ol79fqvqn</string>
+	<string>com.googleusercontent.apps.945927664671-9blvccf8j3p4mvjpp38uohkce4aeedfe</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDG-z4cGNsRbP3r-8iXK-UMWrIiijJR9eY</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Swipe.com.Nouvo</string>
+	<string>com.Swipe.Nouvo</string>
 	<key>PROJECT_ID</key>
 	<string>nouvo-ios</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:945927664671:ios:58107586ac20802b</string>
+	<string>1:945927664671:ios:06e2c06fc6ef341b</string>
 	<key>DATABASE_URL</key>
 	<string>https://nouvo-ios.firebaseio.com</string>
 </dict>

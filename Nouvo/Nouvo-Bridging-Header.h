@@ -12,13 +12,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
-#import <ParallaxHeader/PublicHeader.h>
 #import <MXParallaxHeader/MXParallaxHeader.h>
 #import <MXParallaxHeader/MXScrollView.h>
 #import <MXParallaxHeader/MXScrollViewController.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIImageView+WebCache.h"
-
+#import "MBEncryptorAES.h"
 
 #endif /* Swipe_Rewards_Bridging_Header_h */
 

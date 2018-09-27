@@ -70,6 +70,17 @@ class Constants: NSObject {
     static var cardIDkey = "CardID"
     
     
+    static var Newrecord = Int()
+    static let NewrecordKey = "NewrecordKey"
+    
+    
+    static var DealnameSearch = Int()
+    static let DealnameSearchKey = "DealnameSearchKey"
+    
+    static var mycode = String()
+    static let mycodeKey = "mycodeKey"
+    
+    
     static var minlevel = Int()
     static let minlevelKey = "minlevel"
     

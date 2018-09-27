@@ -30,8 +30,11 @@ static let sharedInstance = SwipeRewardsAPI()
     static let ForgotPasswordURL = "users/forgotPassword"
     static let ResetPasswordURL = "users/setPassword"
     static let GetcityURL = "config/getCities"
+    static let ApplyreferralcodeURL = "users/applyReferralCode"
     
     //config/getCities
+    
+    ///
     
     //http://host:5000/deals/getDealsWithPaging
     

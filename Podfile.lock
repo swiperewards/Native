@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - CRRefresh (1.0.9)
+  - CryptoSwift (0.12.0)
   - Firebase/Core (5.7.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.1.1)
@@ -142,6 +144,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - CRRefresh
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
   - Firebase/Core
   - Firebase/Messaging
   - Fontello-Swift
@@ -153,6 +157,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - CRRefresh
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -171,8 +176,20 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
 
+EXTERNAL SOURCES:
+  CryptoSwift:
+    :branch: master
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
+CHECKOUT OPTIONS:
+  CryptoSwift:
+    :commit: 2bcb008fe23d286e5da79311051e19b3345f1cd5
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CRRefresh: b1c53f32bcb3edef8d60ef414a329b06dc6af34f
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
   FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
   FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
@@ -191,6 +208,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 561d6275678e3c4e89d7298d9cb028966472d849
+PODFILE CHECKSUM: 62a842ab5fd5d7b9baa1264d60baed83e76944bf
 
 COCOAPODS: 1.5.3

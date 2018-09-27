@@ -12,12 +12,14 @@ import AFNetworking
 import FBSDKLoginKit
 import GoogleSignIn
 
-class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
+class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate,UIScrollViewDelegate {
 
     @IBOutlet weak var FieldsView: UIView!
     @IBOutlet weak var contentview: UIView!
     @IBOutlet weak var sv: UIScrollView!
    
+    @IBOutlet var referralIcon: UILabel!
+    @IBOutlet var Referralcode: FloatLabelTextField!
     @IBOutlet var SubmitButton: TKTransitionSubmitButton!
     @IBOutlet weak var confirmpassword: FloatLabelTextField!
     @IBOutlet weak var password: FloatLabelTextField!
@@ -39,15 +41,18 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     
     @IBAction func Tap(_ sender: Any) {
     }
+    
     //MARK: -  ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(sv)
+        //sv.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.current()) != nil{
             getFBUserData()
         }
         self.hideKeyboardWhenTappedAround()
-        let fontswipe = FontSwipe()
+       let fontswipe = FontSwipe()
        let fontNuovo = FontNuovo()
         Firstnameicon.font = fontswipe.fontOfSize(22)
         Firstnameicon.text = fontswipe.stringWithName(.Username)
@@ -64,6 +69,9 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         ConfirmPasswordIcon.font = fontswipe.fontOfSize(22)
         ConfirmPasswordIcon.text = fontswipe.stringWithName(.Password)
         ConfirmPasswordIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+        referralIcon.font = fontswipe.fontOfSize(22)
+        referralIcon.text = fontswipe.stringWithName(.Password)
+        referralIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         Swipelogoicon.font = fontNuovo.fontOfSize(60)
         Swipelogoicon.text = fontNuovo.stringWithName(.Nuovo)
         Swipelogoicon.textColor = UIColor.white
@@ -150,9 +158,32 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             "isSocialLogin": false as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
-            "password": password.text as AnyObject
+            "password": password.text as AnyObject,
+            "referredBy": Referralcode.text as AnyObject
             ]] as [String : AnyObject]
     }
+    
+    /*
+     {
+     "platform": "android",
+     "deviceId": "some string here",
+     "lat": "some description here",
+     "long": "some web here",
+     "requestData":{
+     "fullName": "Vinay",
+     "mobileNumber": "9876543210",
+     "emailId": "pavanm344@winjit.com",
+     "password": "pavan",
+     "socialToken": "123",
+     "lat": "some description here",
+     "long": "some web here",
+     "pincode": 2,
+     "city": 1,
+     "isSocialLogin": 0,
+     "referredBy": "rwe43"
+     }
+     }
+     */
     func doSomething(action: UIAlertAction) {
         //Use action.title
         
@@ -187,6 +218,15 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
                 self.present(alert, animated: true, completion: nil)
             })
             
+           }else if success == "1096"{
+            
+            SubmitButton.layer.cornerRadius  = 0.0
+            SubmitButton.layer.masksToBounds = false
+            
+            let alert = UIAlertController(title: "Failure" , message: "Invalid referral code", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
            }else{
             
             SubmitButton.layer.cornerRadius  = 0.0
@@ -460,9 +500,12 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         if success == "200" {
             
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
+            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
+
             Constants.Username = fullName
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Constants.GoogleIdentityforchangepassword = "G"
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
@@ -541,9 +584,11 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
             Constants.Username = fullName
             Constants.GoogleIdentityforchangepassword = "G"
+            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
             Database.synchronize()
             
             SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
@@ -570,8 +615,11 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+       
         self.view.superview?.layer.cornerRadius  = 0.0
         self.view.superview?.layer.masksToBounds = false
+        sv.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
+        sv.clipsToBounds = false
     }
     
 }

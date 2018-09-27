@@ -270,15 +270,18 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 break
             case 5:
                 // text to share
-                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
-                // set up activity view controller
-                let textToShare = [ text ]
-                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-                // exclude some activity types from the list (optional)
-                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-                // present the view controller
-                self.present(activityViewController, animated: true, completion: nil)
+                
+                let view: ReferandEarnViewController = storyboard.instantiateViewController(withIdentifier: "ReferandEarnViewController") as! ReferandEarnViewController
+                self.navigationController?.pushViewController(view, animated: true)
+//                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
+//                // set up activity view controller
+//                let textToShare = [ text ]
+//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+//                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+//                // exclude some activity types from the list (optional)
+//                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+//                // present the view controller
+//                self.present(activityViewController, animated: true, completion: nil)
                  break
             case 6:
                 let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to sign out?", preferredStyle: .alert)
@@ -318,15 +321,19 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             case 4:
                 // text to share
-                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
-                // set up activity view controller
-                let textToShare = [ text ]
-                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-                // exclude some activity types from the list (optional)
-                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-                // present the view controller
-                self.present(activityViewController, animated: true, completion: nil)
+                
+                let view: ReferandEarnViewController = storyboard.instantiateViewController(withIdentifier: "ReferandEarnViewController") as! ReferandEarnViewController
+                self.navigationController?.pushViewController(view, animated: true)
+                
+//                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
+//                // set up activity view controller
+//                let textToShare = [ text ]
+//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+//                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+//                // exclude some activity types from the list (optional)
+//                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+//                // present the view controller
+//                self.present(activityViewController, animated: true, completion: nil)
                 
                 break
                 

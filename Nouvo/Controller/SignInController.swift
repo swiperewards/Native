@@ -206,8 +206,11 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         if success == "200" {
             
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
+            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
+  
             Constants.Username = fullName
             Constants.GoogleIdentityforchangepassword = "G"
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
@@ -305,10 +308,12 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         if success == "200" {
             
             Constants.Token = response["responseData"]?.value(forKey: "token") as! String
+            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
             Constants.Username = fullName
             Constants.GoogleIdentityforchangepassword = "G"
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
             
@@ -383,10 +388,34 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
                 "emailId": Email.text as AnyObject,
                 "password": Password.text as AnyObject
             ]] as [String : AnyObject]
+        
+        print(Input)
+//        print(Password.text!)
+//        print(Email.text!)
+//
+//        let script = EncryptionDecryption()
+//
+//        let constraint1 = script.encryptString(key: "abcdefghijklmnopqrstuvwxyz123456", strInput: "Bharath")
+//        print("Encryption :",constraint1)
+//
+//        let constraint = script.decryptString(key: "abcdefghijklmnopqrstuvwxyz123456", strInput: constraint1)
+//        print("Decryption :",constraint)
+//        
+      
+        
+        
     }
     //MARK: -  Fetching Signup data from server
     func SignInResponse(response: [String : AnyObject]){
         print("SignIn response :", response)
+        print(Input)
+        
+        
+        
+        
+        
+        
+        
         Signinbutton.isUserInteractionEnabled = true
         self.Signinbutton.setTitle("Sign In",for: .normal)
         self.Signinbutton.layer.cornerRadius  = 0.0

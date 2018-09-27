@@ -43,8 +43,8 @@
 		8E20C796214142BC0019CE14 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20C793214142BC0019CE14 /* LaunchView.swift */; };
 		8E28419B21397683007EE7E7 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E28419A21397683007EE7E7 /* AFNetworking.framework */; };
 		8E28419D2139768C007EE7E7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E28419C2139768C007EE7E7 /* FirebaseCore.framework */; };
-		8E28419F2139783C007EE7E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E28419E2139783C007EE7E7 /* GoogleService-Info.plist */; };
 		8E2C8335211D670000CDBE37 /* SetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */; };
+		8E3D50F6215BB025008EB122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */; };
 		8E44027321098E47005952E3 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44027221098E47005952E3 /* AddCardController.swift */; };
 		8E440275210993C5005952E3 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E440274210993C5005952E3 /* LocalDatabase.swift */; };
 		8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */; };
@@ -58,6 +58,38 @@
 		8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E636C5620E3BA3A000CF233 /* Assets.xcassets */; };
 		8E636C6520E3BA3A000CF233 /* NouvoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6420E3BA3A000CF233 /* NouvoTests.swift */; };
 		8E636C7020E3BA3A000CF233 /* NouvoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E636C6F20E3BA3A000CF233 /* NouvoUITests.swift */; };
+		8E6D20D82154C380002523B6 /* MBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */; };
+		8E6D20D92154C380002523B6 /* EncryptionDecryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */; };
+		8E6D20DA2154C380002523B6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D20D72154C380002523B6 /* NSData+Base64.m */; };
+		8E6D21122154F2A1002523B6 /* CRRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6D21112154F2A1002523B6 /* CRRefresh.framework */; };
+		8E6D214321552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
+		8E6D214421552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
+		8E6D214521552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
+		8E6D214621552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
+		8E6D214721552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
+		8E6D214821552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
+		8E6D214921552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
+		8E6D214A21552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
+		8E6D214B21552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
+		8E6D214C21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
+		8E6D214D21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
+		8E6D214E21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
+		8E6D21512155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
+		8E6D21522155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
+		8E6D21532155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
+		8E6D21542155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
+		8E6D21552155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
+		8E6D21562155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
+		8E6D215B2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
+		8E6D215C2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
+		8E6D215D2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
+		8E6D215E2155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
+		8E6D215F2155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
+		8E6D21602155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
+		8E6D21612155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
+		8E6D21622155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
+		8E6D21632155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
+		8E6D2165215920A1002523B6 /* ReferandEarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */; };
 		8E72535D214258E0006DD878 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72535C214258E0006DD878 /* SDWebImage.framework */; };
 		8E72535F21428726006DD878 /* referandearn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E72535E21428726006DD878 /* referandearn.ttf */; };
 		8E72536021428726006DD878 /* referandearn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E72535E21428726006DD878 /* referandearn.ttf */; };
@@ -117,8 +149,7 @@
 		8ECB0B7E21341A3000B36030 /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7921341A2E00B36030 /* TimerEx.swift */; };
 		8ECB0B7F21341A3000B36030 /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */; };
 		8ECB0B8021341A3000B36030 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */; };
-		8ECB0B8121341A3000B36030 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */; };
-		8ECB0B8221341A3000B36030 /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */; };
+		8ECB0B8221341A3000B36030 /* SpinerLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B7D21341A2F00B36030 /* SpinerLayers.swift */; };
 		8ECB0B8F213581CA00B36030 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B8E213581CA00B36030 /* RAMBadge.swift */; };
 		8ECB0B91213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B90213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift */; };
 		8ECB0B93213581E800B36030 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B92213581E800B36030 /* RAMBounceAnimation.swift */; };
@@ -261,8 +292,8 @@
 		8E20C793214142BC0019CE14 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		8E28419A21397683007EE7E7 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E28419C2139768C007EE7E7 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E28419E2139783C007EE7E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordController.swift; sourceTree = "<group>"; };
+		8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E44027221098E47005952E3 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
 		8E440274210993C5005952E3 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRewardsAPI.swift; sourceTree = "<group>"; };
@@ -282,6 +313,22 @@
 		8E636C6B20E3BA3A000CF233 /* NouvoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NouvoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E636C6F20E3BA3A000CF233 /* NouvoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NouvoUITests.swift; sourceTree = "<group>"; };
 		8E636C7120E3BA3B000CF233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6D20D32154C37E002523B6 /* MBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEncryptorAES.h; sourceTree = "<group>"; };
+		8E6D20D42154C37E002523B6 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEncryptorAES.m; sourceTree = "<group>"; };
+		8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionDecryption.swift; sourceTree = "<group>"; };
+		8E6D20D72154C380002523B6 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		8E6D21112154F2A1002523B6 /* CRRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CRRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToBounceWrapper.swift; sourceTree = "<group>"; };
+		8E6D214021552374002523B6 /* BounceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceView.swift; sourceTree = "<group>"; };
+		8E6D214121552374002523B6 /* BallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
+		8E6D214221552375002523B6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		8E6D214F2155237D002523B6 /* NSTimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerEx.swift; sourceTree = "<group>"; };
+		8E6D21502155237E002523B6 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		8E6D21582155277D002523B6 /* MainGear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGear.swift; sourceTree = "<group>"; };
+		8E6D21592155277D002523B6 /* BigGear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigGear.swift; sourceTree = "<group>"; };
+		8E6D215A2155277E002523B6 /* GearRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearRefreshControl.swift; sourceTree = "<group>"; };
+		8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarnViewController.swift; sourceTree = "<group>"; };
 		8E72535C214258E0006DD878 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E72535E21428726006DD878 /* referandearn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = referandearn.ttf; sourceTree = "<group>"; };
 		8E7253622142877B006DD878 /* ReferandEarn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarn.swift; sourceTree = "<group>"; };
@@ -312,8 +359,7 @@
 		8ECB0B7921341A2E00B36030 /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
 		8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionSubmitButton.swift; sourceTree = "<group>"; };
 		8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
-		8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
+		8ECB0B7D21341A2F00B36030 /* SpinerLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayers.swift; sourceTree = "<group>"; };
 		8ECB0B8E213581CA00B36030 /* RAMBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBadge.swift; sourceTree = "<group>"; };
 		8ECB0B90213581D700B36030 /* RAMAnimatedTabBarController+BottomLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarController+BottomLine.swift"; sourceTree = "<group>"; };
 		8ECB0B92213581E800B36030 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
@@ -364,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6D21122154F2A1002523B6 /* CRRefresh.framework in Frameworks */,
 				8E72535D214258E0006DD878 /* SDWebImage.framework in Frameworks */,
 				8E28419D2139768C007EE7E7 /* FirebaseCore.framework in Frameworks */,
 				8E28419B21397683007EE7E7 /* AFNetworking.framework in Frameworks */,
@@ -477,12 +524,25 @@
 				8E95A7D920ECD18700C22263 /* Controller */,
 				8E1E053320EA019F001C1328 /* Interfaces */,
 				8E636C4C20E3BA38000CF233 /* AppDelegate.swift */,
+				8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */,
+				8E6D20D32154C37E002523B6 /* MBEncryptorAES.h */,
+				8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */,
+				8E6D20D42154C37E002523B6 /* NSData+Base64.h */,
+				8E6D20D72154C380002523B6 /* NSData+Base64.m */,
+				8E6D214121552374002523B6 /* BallView.swift */,
+				8E6D214021552374002523B6 /* BounceView.swift */,
+				8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */,
+				8E6D214221552375002523B6 /* WaveView.swift */,
+				8E6D21592155277D002523B6 /* BigGear.swift */,
+				8E6D215A2155277E002523B6 /* GearRefreshControl.swift */,
+				8E6D21582155277D002523B6 /* MainGear.swift */,
+				8E6D21572155241B002523B6 /* helper */,
 				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
 				8EE3F73E214149E8001C6676 /* LaunchScreen.storyboard */,
 				8E20C78F2141424E0019CE14 /* LaunchView.xib */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
-				8E28419E2139783C007EE7E7 /* GoogleService-Info.plist */,
 				8E8ACC0A213680A0000A95B7 /* credentials.plist */,
+				8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */,
 				8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
@@ -507,6 +567,15 @@
 			path = NouvoUITests;
 			sourceTree = "<group>";
 		};
+		8E6D21572155241B002523B6 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				8E6D21502155237E002523B6 /* CGRectEx.swift */,
+				8E6D214F2155237D002523B6 /* NSTimerEx.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 		8E95A7D920ECD18700C22263 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +594,7 @@
 				8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */,
 				8E95A7E320ECE1B100C22263 /* SettingsController.swift */,
 				8E95A7E720ECE1C400C22263 /* HistoryController.swift */,
+				8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */,
 				8E10D05720EF420800C6020D /* ContactUsController.swift */,
 				8E10D05B20EF601600C6020D /* PrivacyController.swift */,
 				8E1AF50D211AE7B300A7CFDD /* TermsofUseController.swift */,
@@ -628,9 +698,8 @@
 			isa = PBXGroup;
 			children = (
 				8ECB0B7A21341A2F00B36030 /* TransitionSubmitButton.swift */,
-				8ECB0B7D21341A2F00B36030 /* SpinerLayer.swift */,
+				8ECB0B7D21341A2F00B36030 /* SpinerLayers.swift */,
 				8ECB0B7B21341A2F00B36030 /* FadeTransition.swift */,
-				8ECB0B7C21341A2F00B36030 /* CGRectEx.swift */,
 				8ECB0B7921341A2E00B36030 /* TimerEx.swift */,
 				8E9ACDDB2130108A00C955DE /* FRStretchView.swift */,
 				8EF1D34020EB53A000604B37 /* FontSwipe.swift */,
@@ -684,6 +753,7 @@
 		8EFDF82720E4B083008586F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E6D21112154F2A1002523B6 /* CRRefresh.framework */,
 				8E72535C214258E0006DD878 /* SDWebImage.framework */,
 				8E28419C2139768C007EE7E7 /* FirebaseCore.framework */,
 				8E28419A21397683007EE7E7 /* AFNetworking.framework */,
@@ -780,6 +850,7 @@
 				TargetAttributes = {
 					8E636C4820E3BA38000CF233 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -841,11 +912,11 @@
 				8EF1D37020EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
 				8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
 				8E95A80020EDE53100C22263 /* HistorylistCell.xib in Resources */,
-				8E28419F2139783C007EE7E7 /* GoogleService-Info.plist in Resources */,
 				8EF1D36A20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
 				8EF1D37F20EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
 				8E95A7E020ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */,
+				8E3D50F6215BB025008EB122 /* GoogleService-Info.plist in Resources */,
 				8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
 				8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8E95A80820EE36F600C22263 /* WalletCardsCell.xib in Resources */,
@@ -961,6 +1032,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Nouvo/Pods-Nouvo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CRRefresh/CRRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Fontello-Swift/Fontello_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -975,6 +1048,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fontello_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -1017,23 +1092,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E95A7FD20EDE53100C22263 /* HistorylistCell.swift in Sources */,
+				8E6D215E2155277E002523B6 /* BigGear.swift in Sources */,
 				8E2C8335211D670000CDBE37 /* SetPasswordController.swift in Sources */,
 				8E0EC9DF210EE0FB002C48E7 /* TCPickerViewThemeType.swift in Sources */,
 				8E0EC9DE210EE0FB002C48E7 /* TCPickerView.swift in Sources */,
 				8ECB0B7E21341A3000B36030 /* TimerEx.swift in Sources */,
 				8E44027321098E47005952E3 /* AddCardController.swift in Sources */,
+				8E6D21512155237E002523B6 /* NSTimerEx.swift in Sources */,
 				8E172B4E210741610068565D /* NavigationController.swift in Sources */,
+				8E6D215B2155277E002523B6 /* MainGear.swift in Sources */,
 				8ECB0B7F21341A3000B36030 /* TransitionSubmitButton.swift in Sources */,
 				8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
 				8E5010512118B70000AEDDE4 /* LinearProgressView.swift in Sources */,
 				8ECB0B8021341A3000B36030 /* FadeTransition.swift in Sources */,
 				8E50104F2118A48F00AEDDE4 /* TabViewController.swift in Sources */,
 				8EF1D34B20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
-				8ECB0B8121341A3000B36030 /* CGRectEx.swift in Sources */,
 				8EB844052126A7C400515F8F /* ModernSearchBarModel.swift in Sources */,
 				8E0EC9E0210EE0FB002C48E7 /* TCPickerViewDarkTheme.swift in Sources */,
 				8E10D05820EF420800C6020D /* ContactUsController.swift in Sources */,
 				8ECB0B9E2135821C00B36030 /* RAMAnimatedTabBarController.swift in Sources */,
+				8E6D20DA2154C380002523B6 /* NSData+Base64.m in Sources */,
 				8EB844022126A7C300515F8F /* ModernSearchBar.swift in Sources */,
 				8E1AF511211B100500A7CFDD /* CreditCardValidator.swift in Sources */,
 				8EC78FAD21084B320082376C /* ChangePasswordController.swift in Sources */,
@@ -1049,6 +1127,8 @@
 				8E0EC9E1210EE0FB002C48E7 /* TCPickerViewLightTheme.swift in Sources */,
 				8E1AF50E211AE7B300A7CFDD /* TermsofUseController.swift in Sources */,
 				8E03C50B2105DF520019FC6C /* WebClientRequest.swift in Sources */,
+				8E6D214621552375002523B6 /* BounceView.swift in Sources */,
+				8E6D20D82154C380002523B6 /* MBEncryptorAES.m in Sources */,
 				8EB844042126A7C300515F8F /* ModernSearchBarCell.swift in Sources */,
 				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
 				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
@@ -1062,7 +1142,11 @@
 				8E636C4F20E3BA38000CF233 /* SignInController.swift in Sources */,
 				8E9ACDDC2130108A00C955DE /* FRStretchView.swift in Sources */,
 				8EE0EB4A213E84CE00AB2668 /* CardIconFont.swift in Sources */,
-				8ECB0B8221341A3000B36030 /* SpinerLayer.swift in Sources */,
+				8E6D214C21552375002523B6 /* WaveView.swift in Sources */,
+				8E6D21612155277E002523B6 /* GearRefreshControl.swift in Sources */,
+				8E6D20D92154C380002523B6 /* EncryptionDecryption.swift in Sources */,
+				8E6D2165215920A1002523B6 /* ReferandEarnViewController.swift in Sources */,
+				8ECB0B8221341A3000B36030 /* SpinerLayers.swift in Sources */,
 				8E172B442106F8290068565D /* NetworkConnectivity.swift in Sources */,
 				8E95A7EC20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8ECB0B9B2135820B00B36030 /* RAMTransitionItemAnimations.swift in Sources */,
@@ -1071,6 +1155,8 @@
 				8E95A7E420ECE1B100C22263 /* SettingsController.swift in Sources */,
 				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7E820ECE1C400C22263 /* HistoryController.swift in Sources */,
+				8E6D214921552375002523B6 /* BallView.swift in Sources */,
+				8E6D21542155237E002523B6 /* CGRectEx.swift in Sources */,
 				8E95A7F520ECE89F00C22263 /* SettingslistCell.swift in Sources */,
 				8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */,
 				8E95A7F020ECE1EC00C22263 /* RedeemController.swift in Sources */,
@@ -1079,6 +1165,7 @@
 				8ECB0B8F213581CA00B36030 /* RAMBadge.swift in Sources */,
 				8ECB0B95213581F200B36030 /* RAMFrameItemAnimation.swift in Sources */,
 				8EE3F74321414A2E001C6676 /* LaunchViewController.swift in Sources */,
+				8E6D214321552375002523B6 /* PullToBounceWrapper.swift in Sources */,
 				8E1E053520EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1087,7 +1174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6D215F2155277E002523B6 /* BigGear.swift in Sources */,
 				8E95A7E520ECE1B100C22263 /* SettingsController.swift in Sources */,
+				8E6D215C2155277E002523B6 /* MainGear.swift in Sources */,
 				8E10D06120EF608300C6020D /* ForgotController.swift in Sources */,
 				8EF1D39120EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E95A80620EE36F600C22263 /* WalletCardsCell.swift in Sources */,
@@ -1095,6 +1184,10 @@
 				8E10D05D20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E636C6520E3BA3A000CF233 /* NouvoTests.swift in Sources */,
 				8E20C795214142BC0019CE14 /* LaunchView.swift in Sources */,
+				8E6D214A21552375002523B6 /* BallView.swift in Sources */,
+				8E6D214721552375002523B6 /* BounceView.swift in Sources */,
+				8E6D214421552375002523B6 /* PullToBounceWrapper.swift in Sources */,
+				8E6D214D21552375002523B6 /* WaveView.swift in Sources */,
 				8E95A7FE20EDE53100C22263 /* HistorylistCell.swift in Sources */,
 				8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 				8E95A7E920ECE1C400C22263 /* HistoryController.swift in Sources */,
@@ -1103,11 +1196,14 @@
 				8EF1D34C20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7DE20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
+				8E6D21622155277E002523B6 /* GearRefreshControl.swift in Sources */,
 				8EE0EB4B213E84CE00AB2668 /* CardIconFont.swift in Sources */,
 				8E95A7ED20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8E95A7F120ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05920EF420800C6020D /* ContactUsController.swift in Sources */,
+				8E6D21522155237E002523B6 /* NSTimerEx.swift in Sources */,
 				8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */,
+				8E6D21552155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,7 +1211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6D21602155277E002523B6 /* BigGear.swift in Sources */,
 				8E95A7E620ECE1B100C22263 /* SettingsController.swift in Sources */,
+				8E6D215D2155277E002523B6 /* MainGear.swift in Sources */,
 				8E10D06220EF608300C6020D /* ForgotController.swift in Sources */,
 				8EF1D39220EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E95A80720EE36F600C22263 /* WalletCardsCell.swift in Sources */,
@@ -1123,6 +1221,10 @@
 				8E10D05E20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E636C7020E3BA3A000CF233 /* NouvoUITests.swift in Sources */,
 				8E20C796214142BC0019CE14 /* LaunchView.swift in Sources */,
+				8E6D214B21552375002523B6 /* BallView.swift in Sources */,
+				8E6D214821552375002523B6 /* BounceView.swift in Sources */,
+				8E6D214521552375002523B6 /* PullToBounceWrapper.swift in Sources */,
+				8E6D214E21552375002523B6 /* WaveView.swift in Sources */,
 				8E95A7FF20EDE53100C22263 /* HistorylistCell.swift in Sources */,
 				8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 				8E95A7EA20ECE1C400C22263 /* HistoryController.swift in Sources */,
@@ -1131,11 +1233,14 @@
 				8EF1D34D20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7DF20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
+				8E6D21632155277E002523B6 /* GearRefreshControl.swift in Sources */,
 				8EE0EB4C213E84CE00AB2668 /* CardIconFont.swift in Sources */,
 				8E95A7EE20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8E95A7F220ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05A20EF420800C6020D /* ContactUsController.swift in Sources */,
+				8E6D21532155237E002523B6 /* NSTimerEx.swift in Sources */,
 				8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */,
+				8E6D21562155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1285,28 +1390,31 @@
 			baseConfigurationReference = 46DE51C810BF5FA087A09AC5 /* Pods-Nouvo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9SSYE6QZSP;
+				DEVELOPMENT_TEAM = ZZZ95T4TCY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
 					"\"$(SRCROOT)/Nouvo/Nouvo-Bridging-Header.h\"/**",
 				);
 				INFOPLIST_FILE = Nouvo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "51e448ff-c3ee-42e9-b189-897e7e30b7dc";
-				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
+				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1315,28 +1423,29 @@
 			baseConfigurationReference = E87538679C6DD5FC94B0F45A /* Pods-Nouvo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9SSYE6QZSP;
+				DEVELOPMENT_TEAM = ZZZ95T4TCY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"\"$(SRCROOT)/Nouvo/Nouvo-Bridging-Header.h\"",
-					"\"$(SRCROOT)/Nouvo/Nouvo-Bridging-Header.h\"",
 				);
 				INFOPLIST_FILE = Nouvo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "51e448ff-c3ee-42e9-b189-897e7e30b7dc";
-				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
+				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

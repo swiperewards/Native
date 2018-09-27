@@ -315,6 +315,27 @@ public class ModernSearchBar: UISearchBar, UISearchBarDelegate, UITableViewDataS
                 DispatchQueue.main.async {
                     self.suggestionListFiltred.removeAll()
                     self.suggestionListFiltred.append(contentsOf: suggestionListFiltredTmp)
+                    
+                    if suggestionListFiltredTmp.count == 0{
+                       // self.suggestionList.append(Array<"No search results found">)
+                        
+                        //   Database.set(Constants.DealnameSearch, forKey: Constants.DealnameSearchKey)
+                        
+                        let dealsearch: Int?
+                        dealsearch = Database.value(forKey: Constants.DealnameSearchKey) as? Int
+                        if  dealsearch == 1 {
+                        }
+                        else if dealsearch == nil{
+                             self.suggestionListFiltred.append(contentsOf: ["No search results found!"])
+                        }else{
+                             self.suggestionListFiltred.append(contentsOf: ["No search results found!"])
+                        }
+                        
+                       
+                        
+                        
+                    }
+                    
                     self.updateAfterSearch(caracters: caracters)
                 }
             }

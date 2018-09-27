@@ -4,8 +4,8 @@ import UIKit
 @IBDesignable
 open class TKTransitionSubmitButton : UIButton, UIViewControllerTransitioningDelegate, CAAnimationDelegate {
     
-    lazy var spiner: SpinerLayer! = {
-        let s = SpinerLayer(frame: self.frame)
+    lazy var spiner: SpinerLayers! = {
+        let s = SpinerLayers(frame: self.frame)
         self.layer.addSublayer(s)
         return s
     }()

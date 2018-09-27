@@ -75,13 +75,21 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
 //            }
 //        }
         
-        let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
-        CityLocation.text = city
+        let city: String?
+        city = Database.value(forKey: Constants.citynamekey) as? String
+        if  city == "" || city == nil{
+            
+            CityLocation.text = ""
+        }
+        else{
+            let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
+            CityLocation.text = city
+        }
         
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
         
-        
+        ConnecttoWalletCARD()
     }
     override func viewDidAppear(_ animated: Bool) {
         let username: String?
@@ -122,7 +130,126 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         customView.addSubview(label1)
         customView.addSubview(label)
         BankCardNumberTV.tableHeaderView = customView
- }
+    }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.global(qos: .background).async {
+            self.ForceUpdatetoUserAPIWithLoginwallet()
+            DispatchQueue.main.async {
+                
+            }
+        }
+    }
+    func ForceUpdatetoUserAPIWithLoginwallet()  {
+        
+        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+        view.addSubview(indicator)
+        indicator.frame = view.bounds
+        indicator.startAnimating()
+        ForceUpdatewithLoginApiInputBodywallet()
+        let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.InitSwipeURL
+        RequestManager.PostPathwithAUTH(urlString: signInServer, params: Input, successBlock:{
+            (response) -> () in self.ForceUpdateWithLoginResponses(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+    func ForceUpdateWithLoginResponses(response: [String : AnyObject]) {
+        print("ForceUpdateWithLoginResponse :", response)
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            var generalsettings = [String : AnyObject]()
+            generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
+            let playstoreurl = generalsettings["playStoreURL"] as! String
+            print("playstoreurl response :", playstoreurl)
+            Constants.Privacy = generalsettings["privacySecurityUrl"] as! String
+            Constants.Termsofuse = generalsettings["termsOfUseUrl"] as! String
+            var userprofilesettings = [String : AnyObject]()
+            var userlevelsettings = [String : AnyObject]()
+            userprofilesettings =  response["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
+            userlevelsettings =  userprofilesettings["level"] as! [String : AnyObject]
+            
+            let wallet: NSNumber = userprofilesettings["walletBalance"] as! NSNumber
+            if wallet is Double {
+                print("Double type")
+                if wallet == 0{
+                    Cashback.text = ("$\(wallet).00")
+                }else{
+                    Cashback.text = ("$\(wallet)")
+                }
+                
+            } else if wallet is Int {
+                print("Int type")
+                Cashback.text = ("$\(wallet).00")
+            } else if wallet is Float {
+                print("Float type")
+                Cashback.text = ("$\(wallet)")
+            } else {
+                print("Unkown type")
+            }
+            
+            
+            Constants.WalletBalance = Cashback.text!
+            let profilePicUrl: String?
+            profilePicUrl = userprofilesettings["profilePicUrl"] as? String
+            if profilePicUrl == nil || profilePicUrl == ""  {
+            }
+            else{
+                Constants.profileimage = profilePicUrl!
+                Database.set(Constants.profileimage, forKey: Constants.profileimagekey)
+                Database.synchronize()
+            }
+            Constants.minlevel = userlevelsettings["levelMin"] as! Int
+            Constants.maxlevel = userlevelsettings["levelMax"] as! Int
+            Constants.userlevel = userlevelsettings["userXP"] as! Float
+            Constants.level = userlevelsettings["userLevel"] as! Int
+            print(Constants.level)
+            print(Constants.maxlevel)
+            Progressview.animationDuration = 0.5
+            Progressview.minimumValue = Float(Constants.minlevel)
+            Progressview.maximumValue = Float(Constants.maxlevel)
+            Progressview.setProgress(userlevelsettings["userXP"] as! Float , animated: true)
+            
+            Level.text = String(format: "Level %d", Constants.level)
+            Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
+            print(userlevelsettings)
+            Database.set(Constants.WalletBalance, forKey: Constants.WalletBalancekey)
+            Database.set(Constants.minlevel, forKey: Constants.minlevelKey)
+            Database.set(Constants.maxlevel, forKey: Constants.maxlevelKey)
+            Database.set(Constants.userlevel, forKey: Constants.userlevelKey)
+            Database.set(Constants.level, forKey: Constants.levelKey)
+            Database.set(Constants.Privacy, forKey: Constants.Privacykey)
+            Database.set(Constants.Termsofuse, forKey: Constants.Termsofusekey)
+            Database.synchronize()
+            ConnecttoWalletCARD()
+            
+            // ConnecttoDealsAPISERVER()
+            //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
+            //  UIApplication.shared.openURL(NSURL(string: playstoreurl)! as URL)
+        }else{
+            
+        }
+    }
+    func ForceUpdatewithLoginApiInputBodywallet()  {
+        // Version 1.0
+        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        Input =  [
+            "device_id": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": [
+                "appVersionCode": appVersionString as AnyObject
+            ]] as [String : AnyObject]
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(WalletController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        Progressview.layer.borderWidth = 1.5
@@ -131,10 +258,18 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
 //        Progressview.clipsToBounds = true
         
         
-        
+        let city: String?
+        city = Database.value(forKey: Constants.citynamekey) as? String
+        if  city == "" || city == nil{
+            
+            CityLocation.text = ""
+        }
+        else{
+            let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
+            CityLocation.text = city
+        }
      
-        let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
-        CityLocation.text = city
+        
         
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
@@ -152,6 +287,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         BankCardNumberTV.parallaxHeader.minimumHeight = 0
         BankCardNumberTV.parallaxHeader.mode = MXParallaxHeaderMode.fill
         BankCardNumberTV.parallaxHeader.delegate = self
+        BankCardNumberTV.parallaxHeader.view = self.refreshControl
         configureHeader()
         
         creditCardValidator = CreditCardValidator()
@@ -239,6 +375,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         }else{
             
         }
+        refreshControl.endRefreshing()
         
     }
     func setUpNavBar(){
