@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 
 class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,UIScrollViewDelegate {
     
@@ -79,11 +79,12 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     }
     func ForceUpdatetoUserAPIWithLoginwallet()  {
         
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        view.addSubview(indicator)
-        indicator.frame = view.bounds
-        indicator.startAnimating()
+//        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+//        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+//        view.addSubview(indicator)
+//        indicator.frame = view.bounds
+//        indicator.startAnimating()
+        showSpinning()
         ForceUpdatewithLoginApiInputBodywallet()
         let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.InitSwipeURL
         RequestManager.PostPathwithAUTH(urlString: signInServer, params: Input, successBlock:{
@@ -92,17 +93,34 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     }
     func ForceUpdateWithLoginResponses(response: [String : AnyObject]) {
         print("ForceUpdateWithLoginResponse :", response)
+        
+        // Response time
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             var generalsettings = [String : AnyObject]()
-            generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
+            generalsettings =  responses["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
             let playstoreurl = generalsettings["playStoreURL"] as! String
             print("playstoreurl response :", playstoreurl)
             Constants.Privacy = generalsettings["privacySecurityUrl"] as! String
             Constants.Termsofuse = generalsettings["termsOfUseUrl"] as! String
             var userprofilesettings = [String : AnyObject]()
             var userlevelsettings = [String : AnyObject]()
-            userprofilesettings =  response["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
+            userprofilesettings =  responses["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
             userlevelsettings =  userprofilesettings["level"] as! [String : AnyObject]
             let wallet: NSNumber = userprofilesettings["walletBalance"] as! NSNumber
             if wallet is Double {
@@ -161,22 +179,42 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             // ConnecttoDealsAPISERVER()
             //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
             //  UIApplication.shared.openURL(NSURL(string: playstoreurl)! as URL)
-        }else{
-            
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            hideLoading()
         }
     }
     func ForceUpdatewithLoginApiInputBodywallet()  {
         // Version 1.0
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "appVersionCode": appVersionString as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
         Input =  [
             "device_id": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "appVersionCode": appVersionString as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -356,24 +394,41 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-            ]] as [String : AnyObject]
+            "requestData": ""] as [String : AnyObject]
     }
     func GetRedeemResponse(response: [String : AnyObject]){
         indicator.removeFromSuperview()
+        hideLoading()
         print("GetRedeemResponse :", response)
+        // Response time
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [[String : AnyObject]]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : AnyObject]]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            TotalBankTypearray = response["responseData"]?.value(forKey: "mode") as! [String]
+            TotalBankTypearray = responses["responseData"]?.value(forKey: "mode") as! [String]
             print("TotalBankTypearray  :", TotalBankTypearray)
             
-            TotalBankTypearrayID = response["responseData"]?.value(forKey: "modeId") as! [NSNumber]
+            TotalBankTypearrayID = responses["responseData"]?.value(forKey: "modeId") as! [NSNumber]
             print("TotalBankTypearrayID  :", TotalBankTypearrayID)
             
-            TotalBankNamearray = response["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
+            TotalBankNamearray = responses["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
             print("TotalBankNamearray  :", TotalBankNamearray)
             
-            TotalBankNamearrayID = response["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
+            TotalBankNamearrayID = responses["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
             print("TotalBankNamearrayID  :", TotalBankNamearrayID)
             
             
@@ -441,7 +496,17 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
 //            }
             
             
-        }else{
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            hideLoading()
         }
         refreshControl.endRefreshing()
    }
@@ -451,35 +516,29 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
         
     }
+//    func doSomething(action: UIAlertAction) {
+//        //Use action.title
+//        
+//        Database.removeObject(forKey: Constants.Tokenkey)
+//        Database.removeObject(forKey: Constants.profileimagekey)
+//        Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+//        //LocalDatabase.ClearallLocalDB()
+//        Database.synchronize()
+//        GIDSignIn.sharedInstance().signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+//        self.present(navigationController, animated: true, completion: nil)
+//    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-   
-//        var image: UIImage? = nil
-//        let username: String?
-//        username = Database.value(forKey: Constants.profileimagekey) as? String
-//        if  username == "" || username == nil{
-//        }
-//        else{
-//            DispatchQueue.global().async {
-//                do {
-//                    let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
-//                    try image = UIImage(data: Data(contentsOf: url!))!
-//                } catch {
-//                    print("Failed")
-//                }
-//                DispatchQueue.main.async(execute: {
-//                    if image != nil {
-//                        self.profileimageview.image = image
-//                        self.profileimageview.contentMode = .scaleAspectFill
-//                        self.profileimageview.layer.borderWidth = 1.0
-//                        self.profileimageview.layer.masksToBounds = false
-//                        self.profileimageview.layer.borderColor = UIColor.white.cgColor
-//                        self.profileimageview.layer.cornerRadius = self.profileimageview.frame.size.width / 2
-//                        self.profileimageview.clipsToBounds = true
-//                    }
-//                })
-//            }
+        
+//        let token = Database.value(forKey: Constants.Tokenkey) as? String
+//        if token == nil {
+//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
 //        }
         
         
@@ -624,20 +683,46 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         }
         
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "redeemModeId": PaytoWhereID as AnyObject,
+            "redeemModeOptionId": SelectedBankID as AnyObject,
+            "amount": RedeemAmount.text as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "redeemModeId": PaytoWhereID as AnyObject,
-                "redeemModeOptionId": SelectedBankID as AnyObject,
-                "amount": RedeemAmount.text as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
         
     }
     func RaiseRedeemResponse(response: [String : AnyObject]){
         print("RaiseRedeemResponse :", response)
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             hideLoading()

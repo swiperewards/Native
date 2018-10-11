@@ -24,6 +24,7 @@ class WebClientRequest: AFHTTPSessionManager {
                  failureBlock failure: @escaping (NSError) -> ()){
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
+       // manager.requestSerializer.timeoutInterval = 100
         manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>
         manager.post((NSURL(string: urlString, relativeTo: self.baseURL)?.absoluteString)!, parameters: params, progress: nil, success:{
             (sessionTask, responseObject) -> () in
@@ -47,6 +48,28 @@ class WebClientRequest: AFHTTPSessionManager {
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>
         manager.requestSerializer.setValue(Database.value(forKey: Constants.Tokenkey) as? String, forHTTPHeaderField: "auth") //Change password header for auth
+        manager.post((NSURL(string: urlString, relativeTo: self.baseURL)?.absoluteString)!, parameters: params, progress: nil, success:{
+            (sessionTask, responseObject) -> () in
+            success(responseObject! as AnyObject)
+        }, failure:{
+            (sessionTask, error) -> () in
+            print(error)
+            failure(error as NSError)} )
+        
+    }
+    //Here we inititalze our AFNETWORKING
+    func PostPathwithAUTH1(urlString: String,
+                          params: [String: AnyObject]?,
+                          addToken: Bool = true,
+                          successBlock success:@escaping (AnyObject) -> (),
+                          failureBlock failure: @escaping (NSError) -> ()){
+        
+        
+        
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>
+       // manager.requestSerializer.setValue(Database.value(forKey: Constants.Tokenkey) as? String, forHTTPHeaderField: "auth") //Change password header for auth
         manager.post((NSURL(string: urlString, relativeTo: self.baseURL)?.absoluteString)!, parameters: params, progress: nil, success:{
             (sessionTask, responseObject) -> () in
             success(responseObject! as AnyObject)

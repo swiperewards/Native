@@ -105,14 +105,26 @@ class ForgotController: UIViewController,UITextFieldDelegate {
     func ForgotPasswordApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         print("deviceid :", deviceid)
+        let jsonObject: [String: AnyObject] = [
+             "emailId": Email.text as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+
         Input =  [
             "device_id": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "emailId": Email.text as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     //MARK: -  Fetching Signup data from server
     func ForgotResponse(response: [String : AnyObject]){

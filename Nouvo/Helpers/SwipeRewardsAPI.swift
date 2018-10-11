@@ -12,6 +12,10 @@ class SwipeRewardsAPI: NSObject {
 static let sharedInstance = SwipeRewardsAPI()
     
     //http://192.168.0.198:5000/
+    
+    //
+    
+    //
     static let serverURL = "http://34.238.120.25:5008/"
     static let signUpURL = "users/registerUser"
     static let signInURL = "users/loginUser"
@@ -31,10 +35,11 @@ static let sharedInstance = SwipeRewardsAPI()
     static let ResetPasswordURL = "users/setPassword"
     static let GetcityURL = "config/getCities"
     static let ApplyreferralcodeURL = "users/applyReferralCode"
+    static let Firebasenotification = "notifications/addUpdateFcmToken"
     
     //config/getCities
     
-    ///
+    ////
     
     //http://host:5000/deals/getDealsWithPaging
     

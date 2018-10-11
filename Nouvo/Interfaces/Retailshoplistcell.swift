@@ -10,6 +10,7 @@ import UIKit
 
 class Retailshoplistcell: UITableViewCell {
 
+    @IBOutlet weak var deallogoimgvw: UIImageView!
     @IBOutlet weak var notch: UILabel!
     @IBOutlet weak var Promotiondate: UILabel!
     @IBOutlet weak var Cashback: UILabel!

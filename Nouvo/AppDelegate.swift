@@ -15,13 +15,13 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
     }
     
-
     var window: UIWindow?
     static var shared: AppDelegate { return UIApplication.shared.delegate as! AppDelegate }
     
@@ -48,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance().clientID = "26831433128-ahuf7eg93phklvpf1ru37d69bnqup6vh.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
@@ -56,14 +59,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
         FirebaseApp.configure()
         application.registerForRemoteNotifications()
         requestNotificationAuthorization(application: application)
+        
+        
+      //  messaging(<#T##messaging: Messaging##Messaging#>, didReceiveRegistrationToken: <#T##String#>)
+        
         if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] {
             NSLog("[RemoteNotification] applicationState: \(applicationStateString) didFinishLaunchingWithOptions for iOS9: \(userInfo)")
             //TODO: Handle background notification
         }
+        let fcmtokens:String = Messaging.messaging().fcmToken!
+        print(fcmtokens)
+        Constants.fcmToken = fcmtokens
+        Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
+        Database.synchronize()
+//        
+//        //DB
+//        static var fcmToken = String()
+//        static let fcmTokenkey = "fcm"
         
+        
+
         let token = Database.value(forKey: Constants.Tokenkey) as? String
         if token != nil {
             //Navigating to Home Dashboard Screen
+            
+            
             
           
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -182,10 +202,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate : MessagingDelegate {
+   // func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+   //     NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
+    //}
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
     }
-    
     // iOS9, called when presenting notification in foreground
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         NSLog("[RemoteNotification] applicationState: \(applicationStateString) didReceiveRemoteNotification for iOS9: \(userInfo)")

@@ -580,7 +580,7 @@
                                                                 <color key="tintColor" red="0.13479574820000001" green="0.77618320090000004" blue="0.97368847150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15.5"/>
-                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
                                                                         <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

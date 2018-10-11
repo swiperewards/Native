@@ -48,7 +48,13 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
       
-        
+//        let token = Database.value(forKey: Constants.Tokenkey) as? String
+//        if token == nil {
+//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
+//        }
        
         
     
@@ -475,9 +481,25 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
     //MARK: -  Fetching Signup data from server
     func UpdateResponse(response: [String : AnyObject]){
         print("Profile response :", response)
+        
+        // Response time
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            Constants.profileimage = (response["responseData"]?.value(forKey: "imageUrl") as? String)!
+            Constants.profileimage = (responses["responseData"]?.value(forKey: "imageUrl") as? String)!
             Database.set(Constants.profileimage, forKey: Constants.profileimagekey)
             Database.synchronize()
            // let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
@@ -493,8 +515,17 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
             
        
           
-        }else{
-            
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            hideLoading()
         }
       
     }
@@ -547,12 +578,28 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
         //print("Data :","\(mimeTypeParam)\(strBase64)")
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         
+        let jsonObject: [String: AnyObject] = [
+             "image": "\("data:")\(mimeTypeParam)\(strBase64)" as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+
+        
         Input =  [
             "device_id": deviceid as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "image": "\("data:")\(mimeTypeParam)\(strBase64)" as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
+        
+        
+        
        // print("Input :", Input)
         self.userimageview.contentMode = .scaleAspectFill
        // self.userimageview.image = image

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 class AddCardController: UIViewController,UITextFieldDelegate {
  var creditCardValidator: CreditCardValidator!
     
@@ -106,18 +106,29 @@ class AddCardController: UIViewController,UITextFieldDelegate {
         let expiryYear = ExpiryOn.text?.prefix(24)
         
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "cardNumber": CardNumber.text as AnyObject,
+            "expiryMonthMM": expiryMonth as AnyObject,
+            "expiryYearYYYY": expiryYear as AnyObject,
+            "cvv": Cvv.text as AnyObject,
+            "nameOnCard": NameonCard.text as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "cardNumber": CardNumber.text as AnyObject,
-                "expiryMonthMM": expiryMonth as AnyObject,
-                "expiryYearYYYY": expiryYear as AnyObject,
-                "cvv": Cvv.text as AnyObject,
-                "nameOnCard": NameonCard.text as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     //MARK: -  Fetching Signup data from server
     func AddCardResponse(response: [String : AnyObject]){
@@ -131,6 +142,17 @@ class AddCardController: UIViewController,UITextFieldDelegate {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            hideLoading()
         }else{
             let alert = UIAlertController(title: "Add Card", message: "Card already exists in your wallet", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

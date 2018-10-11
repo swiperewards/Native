@@ -81,16 +81,28 @@ class SetPasswordController: UIViewController {
     func ResetPasswordApiInputBody(){
         print("Email :", getemail)
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "emailId": getemail as AnyObject,
+            "resetToken": Passcode.text as AnyObject,
+            "password": Newpassword.text as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "emailId": getemail as AnyObject,
-                "resetToken": Passcode.text as AnyObject,
-                "password": Newpassword.text as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     //MARK: -  Fetching Signup data from server
     func ResetPasswordResponse(response: [String : AnyObject]){

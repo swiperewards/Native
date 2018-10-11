@@ -70,20 +70,46 @@ class ContactUsController: UIViewController,TCPickerViewOutput,UITextFieldDelega
     }
     func TicketAPIInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "ticketTypeId": TicketID as AnyObject,
+            "feedback": Description.text as AnyObject,
+            "userCategory": "Customer" as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "ticketTypeId": TicketID as AnyObject,
-                "feedback": Description.text as AnyObject,
-                "userCategory": "Customer" as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
         
     }
     func SendTicketServerResponse(response: [String : AnyObject]){
         print("TicketResponse :", response)
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             hideLoading()
@@ -172,17 +198,31 @@ class ContactUsController: UIViewController,TCPickerViewOutput,UITextFieldDelega
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-            ]] as [String : AnyObject]
+            "requestData": ""] as [String : AnyObject]
     }
     func GetTicketResponse(response: [String : AnyObject]){
         print("GetRedeemResponse :", response)
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [[String : AnyObject]]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : AnyObject]]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
-            TotalTicketTypearray = response["responseData"]?.value(forKey: "ticketTypeName") as! [String]
+            TotalTicketTypearray = responses["responseData"]?.value(forKey: "ticketTypeName") as! [String]
             print("TotalTicketTypearray  :", TotalTicketTypearray)
-            TotalTicketTypearrayID = response["responseData"]?.value(forKey: "id") as! [NSNumber]
+            TotalTicketTypearrayID = responses["responseData"]?.value(forKey: "id") as! [NSNumber]
             print("TotalTicketTypearrayID  :", TotalTicketTypearrayID)
             
 

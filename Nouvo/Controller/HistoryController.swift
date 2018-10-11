@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 
     var Input = [String: AnyObject]()
@@ -94,23 +94,50 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-            ]] as [String : AnyObject]
+            "requestData": ""] as [String : AnyObject]
         
     }
     func EventHistoryResponse(response: [String : AnyObject]) {
         indicator.removeFromSuperview()
         print("EventHistoryResponse :", response)
+        
+        // Response time
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [[String : AnyObject]]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : AnyObject]]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            notifytitlearray = response["responseData"]?.value(forKey: "notificationDetails") as! [String]
-            notifydatearray = response["responseData"]?.value(forKey: "notificationDate") as! [String]
-            notifyamountarray = response["responseData"]?.value(forKey: "transactionAmount") as! [AnyObject]
-            CheckICONTypearray = response["responseData"]?.value(forKey: "eventType") as! [AnyObject]
-            isCreditarray = response["responseData"]?.value(forKey: "isCredit") as! [AnyObject]
+            notifytitlearray = responses["responseData"]?.value(forKey: "notificationDetails") as! [String]
+            notifydatearray = responses["responseData"]?.value(forKey: "notificationDate") as! [String]
+            notifyamountarray = responses["responseData"]?.value(forKey: "transactionAmount") as! [AnyObject]
+            CheckICONTypearray = responses["responseData"]?.value(forKey: "eventType") as! [AnyObject]
+            isCreditarray = responses["responseData"]?.value(forKey: "isCredit") as! [AnyObject]
             print("notifytitlearray  :", notifytitlearray)
             HistoryTV.reloadData()
-        }else{}
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+          //  hideLoading()
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70

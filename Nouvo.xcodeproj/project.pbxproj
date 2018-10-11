@@ -44,7 +44,6 @@
 		8E28419B21397683007EE7E7 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E28419A21397683007EE7E7 /* AFNetworking.framework */; };
 		8E28419D2139768C007EE7E7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E28419C2139768C007EE7E7 /* FirebaseCore.framework */; };
 		8E2C8335211D670000CDBE37 /* SetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */; };
-		8E3D50F6215BB025008EB122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */; };
 		8E44027321098E47005952E3 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44027221098E47005952E3 /* AddCardController.swift */; };
 		8E440275210993C5005952E3 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E440274210993C5005952E3 /* LocalDatabase.swift */; };
 		8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */; };
@@ -97,6 +96,7 @@
 		8E7253632142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E7253642142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E7253652142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
+		8E7A3382216F6FC200E2422F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */; };
 		8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ACC0A213680A0000A95B7 /* credentials.plist */; };
 		8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
 		8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
@@ -160,6 +160,26 @@
 		8ECB0B9E2135821C00B36030 /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */; };
 		8ECB0B9F2135821C00B36030 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */; };
 		8ECCF9DB213971D400C2BF1F /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECCF9DA213971D400C2BF1F /* Fontello_Swift.framework */; };
+		8ED9E8752161F30C00ADD205 /* CryptoJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9E8742161F30C00ADD205 /* CryptoJS.swift */; };
+		8ED9E88A2161F35400ADD205 /* pad-iso10126.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8772161F35100ADD205 /* pad-iso10126.js */; };
+		8ED9E88B2161F35400ADD205 /* mode-ofb.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8782161F35100ADD205 /* mode-ofb.js */; };
+		8ED9E88C2161F35400ADD205 /* mode-cfb.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8792161F35200ADD205 /* mode-cfb.js */; };
+		8ED9E88D2161F35400ADD205 /* aes.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87A2161F35200ADD205 /* aes.js */; };
+		8ED9E88E2161F35400ADD205 /* mode-ecb.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87B2161F35200ADD205 /* mode-ecb.js */; };
+		8ED9E88F2161F35400ADD205 /* pad-zeropadding.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87C2161F35200ADD205 /* pad-zeropadding.js */; };
+		8ED9E8902161F35400ADD205 /* sha224.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87D2161F35200ADD205 /* sha224.js */; };
+		8ED9E8912161F35400ADD205 /* md5.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87E2161F35200ADD205 /* md5.js */; };
+		8ED9E8922161F35400ADD205 /* sha512.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E87F2161F35200ADD205 /* sha512.js */; };
+		8ED9E8932161F35400ADD205 /* pad-iso97971.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8802161F35300ADD205 /* pad-iso97971.js */; };
+		8ED9E8942161F35400ADD205 /* pad-nopadding.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8812161F35300ADD205 /* pad-nopadding.js */; };
+		8ED9E8952161F35400ADD205 /* sha384.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8822161F35300ADD205 /* sha384.js */; };
+		8ED9E8962161F35400ADD205 /* tripledes.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8832161F35300ADD205 /* tripledes.js */; };
+		8ED9E8972161F35400ADD205 /* sha256.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8842161F35300ADD205 /* sha256.js */; };
+		8ED9E8982161F35400ADD205 /* pad-ansix923.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8852161F35400ADD205 /* pad-ansix923.js */; };
+		8ED9E8992161F35400ADD205 /* mode-ctr.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8862161F35400ADD205 /* mode-ctr.js */; };
+		8ED9E89A2161F35400ADD205 /* ripemd160.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8872161F35400ADD205 /* ripemd160.js */; };
+		8ED9E89B2161F35400ADD205 /* sha1.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8882161F35400ADD205 /* sha1.js */; };
+		8ED9E89C2161F35400ADD205 /* sha3.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8892161F35400ADD205 /* sha3.js */; };
 		8EE0EB41213E682800AB2668 /* FontNuovo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE0EB40213E682700AB2668 /* FontNuovo.swift */; };
 		8EE0EB42213E69E200AB2668 /* nuovo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EE0EB3F213E654400AB2668 /* nuovo.ttf */; };
 		8EE0EB43213E69E300AB2668 /* nuovo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EE0EB3F213E654400AB2668 /* nuovo.ttf */; };
@@ -293,7 +313,6 @@
 		8E28419A21397683007EE7E7 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E28419C2139768C007EE7E7 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordController.swift; sourceTree = "<group>"; };
-		8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E44027221098E47005952E3 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
 		8E440274210993C5005952E3 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRewardsAPI.swift; sourceTree = "<group>"; };
@@ -332,6 +351,7 @@
 		8E72535C214258E0006DD878 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E72535E21428726006DD878 /* referandearn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = referandearn.ttf; sourceTree = "<group>"; };
 		8E7253622142877B006DD878 /* ReferandEarn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarn.swift; sourceTree = "<group>"; };
+		8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E8ACC0A213680A0000A95B7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nouvo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E95A7D520ECC18400C22263 /* UserDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
@@ -370,6 +390,26 @@
 		8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8ECCF9DA213971D400C2BF1F /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ED9E8742161F30C00ADD205 /* CryptoJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoJS.swift; sourceTree = "<group>"; };
+		8ED9E8772161F35100ADD205 /* pad-iso10126.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-iso10126.js"; sourceTree = "<group>"; };
+		8ED9E8782161F35100ADD205 /* mode-ofb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "mode-ofb.js"; sourceTree = "<group>"; };
+		8ED9E8792161F35200ADD205 /* mode-cfb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "mode-cfb.js"; sourceTree = "<group>"; };
+		8ED9E87A2161F35200ADD205 /* aes.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = aes.js; sourceTree = "<group>"; };
+		8ED9E87B2161F35200ADD205 /* mode-ecb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "mode-ecb.js"; sourceTree = "<group>"; };
+		8ED9E87C2161F35200ADD205 /* pad-zeropadding.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-zeropadding.js"; sourceTree = "<group>"; };
+		8ED9E87D2161F35200ADD205 /* sha224.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha224.js; sourceTree = "<group>"; };
+		8ED9E87E2161F35200ADD205 /* md5.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = md5.js; sourceTree = "<group>"; };
+		8ED9E87F2161F35200ADD205 /* sha512.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha512.js; sourceTree = "<group>"; };
+		8ED9E8802161F35300ADD205 /* pad-iso97971.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-iso97971.js"; sourceTree = "<group>"; };
+		8ED9E8812161F35300ADD205 /* pad-nopadding.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-nopadding.js"; sourceTree = "<group>"; };
+		8ED9E8822161F35300ADD205 /* sha384.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha384.js; sourceTree = "<group>"; };
+		8ED9E8832161F35300ADD205 /* tripledes.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tripledes.js; sourceTree = "<group>"; };
+		8ED9E8842161F35300ADD205 /* sha256.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha256.js; sourceTree = "<group>"; };
+		8ED9E8852161F35400ADD205 /* pad-ansix923.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-ansix923.js"; sourceTree = "<group>"; };
+		8ED9E8862161F35400ADD205 /* mode-ctr.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "mode-ctr.js"; sourceTree = "<group>"; };
+		8ED9E8872161F35400ADD205 /* ripemd160.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ripemd160.js; sourceTree = "<group>"; };
+		8ED9E8882161F35400ADD205 /* sha1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha1.js; sourceTree = "<group>"; };
+		8ED9E8892161F35400ADD205 /* sha3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha3.js; sourceTree = "<group>"; };
 		8EE0EB3D213CFC4800AB2668 /* Nouvo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nouvo.entitlements; sourceTree = "<group>"; };
 		8EE0EB3F213E654400AB2668 /* nuovo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nuovo.ttf; sourceTree = "<group>"; };
 		8EE0EB40213E682700AB2668 /* FontNuovo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNuovo.swift; sourceTree = "<group>"; };
@@ -522,9 +562,11 @@
 				8EF1D34920EB98B800604B37 /* Model */,
 				8E95A7DA20ECD1CA00C22263 /* View */,
 				8E95A7D920ECD18700C22263 /* Controller */,
+				8ED9E8762161F31900ADD205 /* Components */,
 				8E1E053320EA019F001C1328 /* Interfaces */,
 				8E636C4C20E3BA38000CF233 /* AppDelegate.swift */,
 				8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */,
+				8ED9E8742161F30C00ADD205 /* CryptoJS.swift */,
 				8E6D20D32154C37E002523B6 /* MBEncryptorAES.h */,
 				8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */,
 				8E6D20D42154C37E002523B6 /* NSData+Base64.h */,
@@ -542,8 +584,8 @@
 				8E20C78F2141424E0019CE14 /* LaunchView.xib */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
 				8E8ACC0A213680A0000A95B7 /* credentials.plist */,
-				8E3D50F5215BB025008EB122 /* GoogleService-Info.plist */,
 				8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */,
+				8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
 			path = Nouvo;
@@ -692,6 +734,32 @@
 			);
 			name = RAMBadge;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		8ED9E8762161F31900ADD205 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8ED9E87A2161F35200ADD205 /* aes.js */,
+				8ED9E87E2161F35200ADD205 /* md5.js */,
+				8ED9E8792161F35200ADD205 /* mode-cfb.js */,
+				8ED9E8862161F35400ADD205 /* mode-ctr.js */,
+				8ED9E87B2161F35200ADD205 /* mode-ecb.js */,
+				8ED9E8782161F35100ADD205 /* mode-ofb.js */,
+				8ED9E8852161F35400ADD205 /* pad-ansix923.js */,
+				8ED9E8772161F35100ADD205 /* pad-iso10126.js */,
+				8ED9E8802161F35300ADD205 /* pad-iso97971.js */,
+				8ED9E8812161F35300ADD205 /* pad-nopadding.js */,
+				8ED9E87C2161F35200ADD205 /* pad-zeropadding.js */,
+				8ED9E8872161F35400ADD205 /* ripemd160.js */,
+				8ED9E8882161F35400ADD205 /* sha1.js */,
+				8ED9E8892161F35400ADD205 /* sha3.js */,
+				8ED9E87D2161F35200ADD205 /* sha224.js */,
+				8ED9E8842161F35300ADD205 /* sha256.js */,
+				8ED9E8822161F35300ADD205 /* sha384.js */,
+				8ED9E87F2161F35200ADD205 /* sha512.js */,
+				8ED9E8832161F35300ADD205 /* tripledes.js */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8EF1D34920EB98B800604B37 /* Model */ = {
@@ -902,36 +970,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF1D37C20EBA76D00604B37 /* SFProDisplay-Medium.ttf in Resources */,
+				8ED9E89C2161F35400ADD205 /* sha3.js in Resources */,
+				8ED9E88A2161F35400ADD205 /* pad-iso10126.js in Resources */,
 				8EF1D36420EBA76D00604B37 /* SFProText-Medium.ttf in Resources */,
 				8EF1D38520EBA76D00604B37 /* SFProDisplay-Regular.ttf in Resources */,
+				8ED9E8992161F35400ADD205 /* mode-ctr.js in Resources */,
+				8ED9E88F2161F35400ADD205 /* pad-zeropadding.js in Resources */,
 				8EE3F73F214149E8001C6676 /* LaunchScreen.storyboard in Resources */,
+				8ED9E8902161F35400ADD205 /* sha224.js in Resources */,
 				8EF1D37320EBA76D00604B37 /* SFProText-Heavy.ttf in Resources */,
+				8ED9E88B2161F35400ADD205 /* mode-ofb.js in Resources */,
 				8EF1D38B20EBA76D00604B37 /* SFProText-Light.ttf in Resources */,
+				8ED9E8972161F35400ADD205 /* sha256.js in Resources */,
 				8EF1D36120EBA76D00604B37 /* SFProDisplay-Thin.ttf in Resources */,
 				8EF1D38220EBA76D00604B37 /* SFProDisplay-Black.ttf in Resources */,
 				8EF1D37020EBA76D00604B37 /* SFProText-SemiBold.ttf in Resources */,
+				8ED9E8912161F35400ADD205 /* md5.js in Resources */,
 				8EF1D37620EBA76D00604B37 /* SFProDisplay-BlackItalic.ttf in Resources */,
 				8E95A80020EDE53100C22263 /* HistorylistCell.xib in Resources */,
 				8EF1D36A20EBA76D00604B37 /* SFProDisplay-UltraLight.ttf in Resources */,
+				8ED9E8952161F35400ADD205 /* sha384.js in Resources */,
 				8EF1D37F20EBA76D00604B37 /* SFProDisplay-Bold.ttf in Resources */,
+				8ED9E88D2161F35400ADD205 /* aes.js in Resources */,
 				8E95A7E020ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */,
-				8E3D50F6215BB025008EB122 /* GoogleService-Info.plist in Resources */,
 				8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
+				8E7A3382216F6FC200E2422F /* GoogleService-Info.plist in Resources */,
+				8ED9E88C2161F35400ADD205 /* mode-cfb.js in Resources */,
 				8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8E95A80820EE36F600C22263 /* WalletCardsCell.xib in Resources */,
 				8EF1D36D20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
+				8ED9E8942161F35400ADD205 /* pad-nopadding.js in Resources */,
+				8ED9E89A2161F35400ADD205 /* ripemd160.js in Resources */,
 				8E95A7F820ECE89F00C22263 /* SettingslistCell.xib in Resources */,
 				8EF1D35E20EBA76D00604B37 /* SFProDisplay-Light.ttf in Resources */,
 				8EF1D37920EBA76D00604B37 /* SFProDisplay-Heavy.ttf in Resources */,
 				8EE0EB46213E846B00AB2668 /* cardicon.ttf in Resources */,
 				8E636C5720E3BA3A000CF233 /* Assets.xcassets in Resources */,
+				8ED9E8922161F35400ADD205 /* sha512.js in Resources */,
 				8EE0EB42213E69E200AB2668 /* nuovo.ttf in Resources */,
+				8ED9E88E2161F35400ADD205 /* mode-ecb.js in Resources */,
 				8E1E053920EA4D4A001C1328 /* swipe.ttf in Resources */,
 				8E72535F21428726006DD878 /* referandearn.ttf in Resources */,
 				8E20C7902141424E0019CE14 /* LaunchView.xib in Resources */,
 				8E636C5220E3BA38000CF233 /* Main.storyboard in Resources */,
 				8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */,
+				8ED9E89B2161F35400ADD205 /* sha1.js in Resources */,
+				8ED9E8982161F35400ADD205 /* pad-ansix923.js in Resources */,
+				8ED9E8932161F35400ADD205 /* pad-iso97971.js in Resources */,
+				8ED9E8962161F35400ADD205 /* tripledes.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1156,6 +1243,7 @@
 				8EF1D34120EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7E820ECE1C400C22263 /* HistoryController.swift in Sources */,
 				8E6D214921552375002523B6 /* BallView.swift in Sources */,
+				8ED9E8752161F30C00ADD205 /* CryptoJS.swift in Sources */,
 				8E6D21542155237E002523B6 /* CGRectEx.swift in Sources */,
 				8E95A7F520ECE89F00C22263 /* SettingslistCell.swift in Sources */,
 				8E636C4D20E3BA38000CF233 /* AppDelegate.swift in Sources */,
@@ -1392,25 +1480,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = 9SSYE6QZSP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
 					"\"$(SRCROOT)/Nouvo/Nouvo-Bridging-Header.h\"/**",
 				);
 				INFOPLIST_FILE = Nouvo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
+				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1425,24 +1513,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = 9SSYE6QZSP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"\"$(SRCROOT)/Nouvo/Nouvo-Bridging-Header.h\"",
 				);
 				INFOPLIST_FILE = Nouvo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
+				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

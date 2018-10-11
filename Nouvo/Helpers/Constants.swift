@@ -48,6 +48,10 @@ class Constants: NSObject {
     static let Tokenkey = "Auth"
     
     //DB
+    static var fcmToken = String()
+    static let fcmTokenkey = "fcm"
+    
+    //DB
     static var profileimage = String()
     static let profileimagekey = "Profile"
     

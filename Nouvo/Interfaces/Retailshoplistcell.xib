@@ -106,6 +106,7 @@
                 <outlet property="Location" destination="KUx-wh-tQg" id="2Y2-cU-vNC"/>
                 <outlet property="Promotiondate" destination="Btd-qH-XEH" id="kl5-fl-WuX"/>
                 <outlet property="Storename" destination="XdS-Zh-fK7" id="ZXH-ii-Hes"/>
+                <outlet property="deallogoimgvw" destination="fjc-xe-BRn" id="KJk-Ft-lWB"/>
             </connections>
             <point key="canvasLocation" x="-97.5" y="133"/>
         </tableViewCell>

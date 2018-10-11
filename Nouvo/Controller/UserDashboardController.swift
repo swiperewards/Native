@@ -11,7 +11,7 @@ import CoreLocation
 import MXParallaxHeader
 import SDWebImage
 import CRRefresh
-
+import GoogleSignIn
 
 class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,UISearchBarDelegate,UIScrollViewDelegate,ModernSearchBarDelegate,MXParallaxHeaderDelegate,UISearchDisplayDelegate,TCPickerViewOutput,UIGestureRecognizerDelegate {
     var suggestionList = Array<String>()
@@ -38,17 +38,19 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var citynamesIS : String?
     var picker: TCPickerViewInput = TCPickerView()
     var DealnameArray = [Dealname]()
+    var DeallogoArray = [Deallogo]()
     var DealLocationArray = [DealLocation]()
     var DealcashbackArray = [Dealcashback]()
     var DealStartDateArray = [DealStartDate]()
     var DealEndDateArray = [DealEndDate]()
     
      var currentDealnameArray = [Dealname]()
+     var currentDeallogoArray = [Deallogo]()
      var currentDealLocationArray = [DealLocation]()
      var currentDealcashbackArray = [Dealcashback]()
      var currentDealStartDateArray = [DealStartDate]()
      var currentDealEndDateArray = [DealEndDate]()//update table
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     
     
@@ -93,6 +95,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var responseArraycountzero = NSArray()
     var Totalcityarray = [String]()
     var TotalDealnamearray = [AnyObject]()
+    var TotalDeallogoarray = [AnyObject]()
     var TotalDealstartdatearray = [String]()
     var TotalDealenddatearray = [String]()
     var TotalDeallocationarray = [String]()
@@ -203,9 +206,29 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     @IBAction func check(_ sender: Any) {
         
     }
+//    func doSomething(action: UIAlertAction) {
+//        //Use action.title
+//
+//        Database.removeObject(forKey: Constants.Tokenkey)
+//        Database.removeObject(forKey: Constants.profileimagekey)
+//        Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+//        //LocalDatabase.ClearallLocalDB()
+//        Database.synchronize()
+//        GIDSignIn.sharedInstance().signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+//        self.present(navigationController, animated: true, completion: nil)
+//    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "HOME"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+//        let token = Database.value(forKey: Constants.Tokenkey) as? String
+//        if token == nil {
+//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
+//        }
         
         pickeridentity = "NO"
         Paginationidentity = "NO"
@@ -355,11 +378,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.pageNo = 0
         self.limit = 15
         refreshAPI = "R"
+        
         DispatchQueue.global(qos: .background).async {
-          
-            self.ForceUpdatetoUserAPIWithLogin()
+       // self.showSpinning()
+        self.ForceUpdatetoUserAPIWithLogin()
             DispatchQueue.main.async {
-              
+
+              //  self.hideLoading()
             }
         }
         
@@ -376,6 +401,42 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
         return refreshControl
     }()
+    func FirebaseApiInputBody(){
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        print("deviceid :", deviceid!)
+        
+          //Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
+        let token:String = (Database.value(forKey: Constants.fcmTokenkey) as? String)!
+        let jsonObject: [String: AnyObject] = [
+            "token": token as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        
+        Input =  [
+            "device_id": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
+        
+    }
+    func FirebasenotifyResponse(response: [String : AnyObject]){
+        print("FirebasenotifyResponse  :", response)
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            
+        }
+        
+    }
     func checkreferral()  {
         let isnewrecord: Int?
         isnewrecord = Database.value(forKey: Constants.NewrecordKey) as? Int
@@ -383,6 +444,14 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         if isnewrecord == 1{
+            FirebaseApiInputBody()
+            let ForgotPasswordServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.Firebasenotification
+            RequestManager.getPath(urlString: ForgotPasswordServer, params: Input, successBlock:{
+                (response) -> () in self.FirebasenotifyResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in}
+            
+          
+            
             let alert = UIAlertController(title: "Referral Code", message: "Have a referral code, apply it here to get the XP points!", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
@@ -810,17 +879,33 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     }
     func ForceUpdateWithLoginResponse(response: [String : AnyObject]) {
         print("ForceUpdateWithLoginResponse :", response)
+        //Encryption value from response
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+        
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             var generalsettings = [String : AnyObject]()
-            generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
+            generalsettings =  responses["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
             let playstoreurl = generalsettings["playStoreURL"] as! String
             print("playstoreurl response :", playstoreurl)
             Constants.Privacy = generalsettings["privacySecurityUrl"] as! String
             Constants.Termsofuse = generalsettings["termsOfUseUrl"] as! String
             var userprofilesettings = [String : AnyObject]()
             var userlevelsettings = [String : AnyObject]()
-            userprofilesettings =  response["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
+            userprofilesettings =  responses["responseData"]?.value(forKey: "userProfile") as! [String : AnyObject]
             userlevelsettings =  userprofilesettings["level"] as! [String : AnyObject]
            // let wallet
             let invitecode: String?
@@ -888,22 +973,43 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
            // ConnecttoDealsAPISERVER()
             //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
             //  UIApplication.shared.openURL(NSURL(string: playstoreurl)! as URL)
-        }else{
-            
+        }else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
+            hideLoading()
         }
     }
     func ForceUpdatewithLoginApiInputBody()  {
         // Version 1.0
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "appVersionCode": appVersionString as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        
         Input =  [
             "device_id": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "appVersionCode": appVersionString as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     func AskcitynameAPI() {
         GetcityApiInputBody()
@@ -922,14 +1028,30 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-            ]] as [String : AnyObject]
+            "requestData": ""] as [String : AnyObject]
     }
     func GetcityResponse(response: [String : AnyObject]) {
-       // print("GetcityResponse :", response)
+        print("GetcityResponse :", response)
+        // Response time
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [[String : AnyObject]]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as!  [[String : AnyObject]]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-        Totalcityarray = response["responseData"]?.value(forKey: "name") as! [String]
+        Totalcityarray = responses["responseData"]?.value(forKey: "name") as! [String]
             
            suggestionList = Array<String>()
             for name in Totalcityarray {
@@ -1088,29 +1210,59 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             self.citynamesIS = "Los Angeles"
         }
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        
+        
+        let jsonObject: [String: AnyObject] = [
+            "location": self.citynamesIS as AnyObject,
+            "pageNumber": self.pageNo as AnyObject,
+            "pageSize": self.limit as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        
+        
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "location": self.citynamesIS as AnyObject,
-                "pageNumber": self.pageNo as AnyObject,
-                "pageSize": self.limit as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
         
         print(Input)
     }
     //MARK: -  Fetching Deals data from server
     func DealsResponse(response: [String : AnyObject]){
-        indicator.removeFromSuperview()
-        spinner.stopAnimating()
-        spinner.removeFromSuperview()
+   
         print("DealsResponse  :", response)
+        // Response time
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [[String : AnyObject]]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : AnyObject]]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             hideLoading()
-            let data1 = (response as NSDictionary).object(forKey: "responseData")
+            let data1 = (responses as NSDictionary).object(forKey: "responseData")
             responseArraycountzero = data1 as! NSArray
             if responseArraycountzero.count == 0{
                 
@@ -1122,11 +1274,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         Nodealslabel1.isHidden = false
                         Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
                         currentDealnameArray = [Dealname]()
+                        currentDeallogoArray = [Deallogo]()
                         currentDealLocationArray = [DealLocation]()
                         currentDealcashbackArray = [Dealcashback]()
                         currentDealStartDateArray = [DealStartDate]()
                         currentDealEndDateArray = [DealEndDate]()//update table
                         DealnameArray = [Dealname]()
+                             DeallogoArray = [Deallogo]()
                         DealLocationArray = [DealLocation]()
                         DealcashbackArray = [Dealcashback]()
                         DealStartDateArray = [DealStartDate]()
@@ -1138,11 +1292,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         Nodealslabel1.isHidden = false
                         Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
                         currentDealnameArray = [Dealname]()
+                        currentDeallogoArray = [Deallogo]()
                         currentDealLocationArray = [DealLocation]()
                         currentDealcashbackArray = [Dealcashback]()
                         currentDealStartDateArray = [DealStartDate]()
                         currentDealEndDateArray = [DealEndDate]()//update table
                         DealnameArray = [Dealname]()
+                        DeallogoArray = [Deallogo]()
                         DealLocationArray = [DealLocation]()
                         DealcashbackArray = [Dealcashback]()
                         DealStartDateArray = [DealStartDate]()
@@ -1159,11 +1315,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 //Dealalertlabel.text = "Load More"
                 responseArray = data1 as! NSArray
                 print("responseArray1  :", responseArray)
-                TotalDealnamearray = response["responseData"]?.value(forKey: "entityName") as! [AnyObject]
-                TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
-                TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
-                TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
-                TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                TotalDealnamearray = responses["responseData"]?.value(forKey: "entityName") as! [AnyObject]
+                TotalDealstartdatearray = responses["responseData"]?.value(forKey: "startDate") as! [String]
+                TotalDealenddatearray = responses["responseData"]?.value(forKey: "endDate") as! [String]
+                TotalDeallocationarray = responses["responseData"]?.value(forKey: "location") as! [String]
+                TotalDealcashbackarray = responses["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                TotalDeallogoarray = responses["responseData"]?.value(forKey: "icon") as! [AnyObject]
                 
                 for var names in TotalDealnamearray {
                     
@@ -1172,6 +1329,16 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         DealnameArray.append(Dealname(name: names as! String))
                     }else{
                         DealnameArray.append(Dealname(name: (names ) as! String))
+                    }
+                    
+                }
+                for var logos in TotalDeallogoarray {
+                    
+                    if logos is NSNull || logos as! String == "some url"{
+                        logos = "" as AnyObject
+                        DeallogoArray.append(Deallogo(logo: logos as! String))
+                    }else{
+                        DeallogoArray.append(Deallogo(logo: (logos ) as! String))
                     }
                     
                 }
@@ -1191,9 +1358,11 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 
                 
                 print("Deal total",DealnameArray.count)
+               // print(currentDeallogoArray)
                 
                 
                 currentDealnameArray = DealnameArray
+                currentDeallogoArray = DeallogoArray
                 currentDealLocationArray = DealLocationArray
                 currentDealcashbackArray = DealcashbackArray
                 currentDealStartDateArray = DealStartDateArray
@@ -1212,11 +1381,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     //Dealalertlabel.text = "Load More"
                     responseArray = data1 as! NSArray
                     print("responseArray1  :", responseArray)
-                    TotalDealnamearray = response["responseData"]?.value(forKey: "entityName") as! [AnyObject]
-                    TotalDealstartdatearray = response["responseData"]?.value(forKey: "startDate") as! [String]
-                    TotalDealenddatearray = response["responseData"]?.value(forKey: "endDate") as! [String]
-                    TotalDeallocationarray = response["responseData"]?.value(forKey: "location") as! [String]
-                    TotalDealcashbackarray = response["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                    TotalDealnamearray = responses["responseData"]?.value(forKey: "entityName") as! [AnyObject]
+                    TotalDealstartdatearray = responses["responseData"]?.value(forKey: "startDate") as! [String]
+                    TotalDealenddatearray = responses["responseData"]?.value(forKey: "endDate") as! [String]
+                    TotalDeallocationarray = responses["responseData"]?.value(forKey: "location") as! [String]
+                    TotalDealcashbackarray = responses["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+                    TotalDeallogoarray = responses["responseData"]?.value(forKey: "icon") as! [AnyObject]
                     for var names in TotalDealnamearray {
                         
                         if names is NSNull{
@@ -1227,6 +1397,16 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         }
                         
                     }
+                for var logos in TotalDeallogoarray {
+                    
+                    if logos is NSNull || logos as! String == "some url"{
+                        logos = "" as AnyObject
+                        DeallogoArray.append(Deallogo(logo: logos as! String))
+                    }else{
+                        DeallogoArray.append(Deallogo(logo: (logos ) as! String))
+                    }
+                    
+                }
                     for loc in TotalDeallocationarray {
                         DealLocationArray.append(DealLocation(location: loc))
                     }
@@ -1240,7 +1420,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         DealEndDateArray.append(DealEndDate(promotionenddate: end))
                     }
                     print("Deal total",DealnameArray.count)
+                    //print(currentDeallogoArray)
                     currentDealnameArray = DealnameArray
+                    currentDeallogoArray = DeallogoArray
                     currentDealLocationArray = DealLocationArray
                     currentDealcashbackArray = DealcashbackArray
                     currentDealStartDateArray = DealStartDateArray
@@ -1250,11 +1432,26 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                
             }
             
-        }else{
-            
+        }
+        else if success == "1050"{
+            Database.removeObject(forKey: Constants.Tokenkey)
+            Database.removeObject(forKey: Constants.profileimagekey)
+            Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
+            //LocalDatabase.ClearallLocalDB()
+            Database.synchronize()
+            GIDSignIn.sharedInstance().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
+            self.present(navigationController, animated: true, completion: nil)
             hideLoading()
         }
-         refreshControl.endRefreshing()
+       // hideLoading()
+//        indicator.stopAnimating()
+//        indicator.isHidden = true
+//        indicator.removeFromSuperview()
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
+        refreshControl.endRefreshing()
     }
     func pickerView(_ pickerView: TCPickerViewInput, didSelectRowAtIndex index: Int) {
         print("Uuser select row at index: \(index)")
@@ -1274,12 +1471,14 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
       //  Bgview.isHidden = true
         currentDealnameArray = [Dealname]()
+        currentDeallogoArray = [Deallogo]()
         currentDealLocationArray = [DealLocation]()
         currentDealcashbackArray = [Dealcashback]()
         currentDealStartDateArray = [DealStartDate]()
         currentDealEndDateArray = [DealEndDate]()//update table
         
         DealnameArray = [Dealname]()
+        DeallogoArray =  [Deallogo]()
         DealLocationArray = [DealLocation]()
         DealcashbackArray = [Dealcashback]()
         DealStartDateArray = [DealStartDate]()
@@ -1396,22 +1595,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Retailshoplistcell", for: indexPath) as! Retailshoplistcell
         cell.Storename.text = currentDealnameArray[indexPath.row].name
-//        cell.Location.text = currentDealLocationArray[indexPath.row].location
-     
-        
-//        let currentdatestring : String = String(format: "%@", currentDealStartDateArray[indexPath.row].promotionstartdate)
-//      //  print("current date:-",currentdatestring)
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
-//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-//        let date = dateFormatter.date(from: currentdatestring)
-//        dateFormatter.dateFormat = "dd/MM/YYYY"///this is what you want to convert format
-//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-//        let timeStamp = dateFormatter.string(from: date!)
-        //print("timeStamp current date:-",timeStamp)
+
         
         let Enddatestring : String = String(format: "%@", currentDealEndDateArray[indexPath.row].promotionenddate)
-       // print("end date:-",Enddatestring)
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
         dateFormatter1.timeZone = NSTimeZone(name: "UTC") as TimeZone?
@@ -1419,8 +1605,17 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         dateFormatter1.dateFormat = "MM-dd-yy"///this is what you want to convert format
         dateFormatter1.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         let timeStamp1 = dateFormatter1.string(from: date1!)
-        //print("timeStamp end date:-",timeStamp1)
         cell.Location.text =  timeStamp1
+        print(currentDeallogoArray)
+        let deallogourl = currentDeallogoArray[indexPath.row].logo
+
+        if deallogourl == "" {
+             cell.deallogoimgvw.image = UIImage(named:"nlogo.jpg")
+        }else{
+            
+            let url = URL(string: deallogourl )
+            cell.deallogoimgvw.sd_setImage(with: url)
+        }
         
         
         cell.Cashback.text = "Active"
@@ -1482,6 +1677,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
  }
     //MARK: -  Activity Indicator
     func hideLoading(){
+         indicator.removeFromSuperview()
          indicator.stopAnimating()
     }
     private func createActivityIndicator() -> UIActivityIndicatorView {
@@ -1509,8 +1705,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.view.endEditing(true)
         self.Retailshoplist.endEditing(true)
         self.mySearchBar.endEditing(true)
-        searchbar.resignFirstResponder()
-            searchidentity = ""
+        self.searchbar?.resignFirstResponder()
+        searchidentity = ""
             
         }
     }
@@ -1615,6 +1811,12 @@ class Dealname {
     let name: String
     init(name: String) {
         self.name = name
+    }
+}
+class Deallogo {
+    let logo: String
+    init(logo: String) {
+        self.logo = logo
     }
 }
 class DealLocation {

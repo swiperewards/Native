@@ -17,6 +17,7 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     var Input = [String: AnyObject]()
     var fullName = String()
     var getemail = String()
+    
     @IBOutlet weak var SignInButton: UIButton!
     
     @IBOutlet var ForgotPasswordButton: TKTransitionSubmitButton!
@@ -84,10 +85,28 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     }
     func ForceUpdateResponse(response: [String : AnyObject]) {
         print("SignIn response :", response)
+        
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+       
+        
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
         var generalsettings = [String : AnyObject]()
-        generalsettings =  response["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
+        generalsettings =  responses["responseData"]?.value(forKey: "generalSettings") as! [String : AnyObject]
         let playstoreurl = generalsettings["playStoreURL"] as! String
         print("playstoreurl response :", playstoreurl)
         //itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4
@@ -99,14 +118,25 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         // Version 1.0
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "appVersionCode": appVersionString as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
         Input =  [
             "device_id": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "appVersionCode": appVersionString as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -183,30 +213,56 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     func FacebookApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         // let fullname = firstname.text! + "/" + lastname.text!
+        let jsonObject: [String: AnyObject] = [
+            "emailId": self.getemail as AnyObject,
+            "fullName": self.fullName as AnyObject,
+            "isSocialLogin": "1" as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "password": "" as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "emailId": self.getemail as AnyObject,
-                "fullName": self.fullName as AnyObject,
-                "isSocialLogin": "1" as AnyObject,
-                "lat": "" as AnyObject,
-                "long": "" as AnyObject,
-                "password": "" as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     func FacebookResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
         
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         //SignInButton.isUserInteractionEnabled = true
     //    hideLoading()
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
-            Constants.Token = response["responseData"]?.value(forKey: "token") as! String
-            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
+            Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
+            Constants.Newrecord = responses["responseData"]?.value(forKey: "isNewRecord") as! Int
   
             Constants.Username = fullName
             Constants.GoogleIdentityforchangepassword = "G"
@@ -282,20 +338,32 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     func GoogleApiInputBody(){
         
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "emailId": getemail as AnyObject,
+            "fullName": fullName as AnyObject,
+            "isSocialLogin": "1" as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "password": "" as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+
        // let fullname = firstname.text! + "/" + lastname.text!
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "emailId": getemail as AnyObject,
-                "fullName": fullName as AnyObject,
-                "isSocialLogin": "1" as AnyObject,
-                "lat": "" as AnyObject,
-                "long": "" as AnyObject,
-                "password": "" as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
     }
     func GoogleResponse(response: [String : AnyObject]){
         
@@ -304,11 +372,26 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         print("SignUp response :", response)
 //        SignInButton.isUserInteractionEnabled = true
 //        hideLoading()
+        
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             
-            Constants.Token = response["responseData"]?.value(forKey: "token") as! String
-            Constants.Newrecord = response["responseData"]?.value(forKey: "isNewRecord") as! Int
+            Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
+            Constants.Newrecord = responses["responseData"]?.value(forKey: "isNewRecord") as! Int
             Constants.Username = fullName
             Constants.GoogleIdentityforchangepassword = "G"
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
@@ -379,28 +462,47 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     func SignInApiInputBody(){
          let deviceid = UIDevice.current.identifierForVendor?.uuidString
          print("deviceid :", deviceid)
+        
+       
+        
+        let jsonObject: [String: AnyObject] = [
+                "emailId": Email.text as AnyObject,
+                "password": Password.text as AnyObject
+            ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+           let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+       
+        
+        
         Input =  [
             "device_id": deviceid as AnyObject,
             "lat": "" as AnyObject,
             "long": "" as AnyObject,
             "platform": "IOS" as AnyObject,
-            "requestData": [
-                "emailId": Email.text as AnyObject,
-                "password": Password.text as AnyObject
-            ]] as [String : AnyObject]
+            "requestData": encrypted] as [String : AnyObject]
         
         print(Input)
 //        print(Password.text!)
 //        print(Email.text!)
 //
 //        let script = EncryptionDecryption()
-//
-//        let constraint1 = script.encryptString(key: "abcdefghijklmnopqrstuvwxyz123456", strInput: "Bharath")
+//        let constraint1 = script.encryptString(key: "abcdefghijklmnopqrstuvwxyz654321", strInput: "Pavan")
 //        print("Encryption :",constraint1)
-//
-//        let constraint = script.decryptString(key: "abcdefghijklmnopqrstuvwxyz123456", strInput: constraint1)
+//        let constraint = script.decryptString(key: "abcdefghijklmnopqrstuvwxyz654321", strInput: constraint1)
 //        print("Decryption :",constraint)
-//        
+//
+        
+       
+        // AES decryption
+       // print(AES.decrypt("U2FsdGVkX1/PiCrOMKAxW8QdkOj6gl02HFO8aQz1Zq0=", password: "nn534oj90156fsd584sfs"))
       
         
         
@@ -408,12 +510,21 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
     //MARK: -  Fetching Signup data from server
     func SignInResponse(response: [String : AnyObject]){
         print("SignIn response :", response)
-        print(Input)
-        
-        
-        
-        
-        
+        //Encryption value from response
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
         
         
         Signinbutton.isUserInteractionEnabled = true
@@ -423,8 +534,8 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
            
-            Constants.Token = response["responseData"]?.value(forKey: "token") as! String
-            Constants.Username = response["responseData"]?.value(forKey: "fullName") as! String
+            Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
+            Constants.Username = responses["responseData"]?.value(forKey: "fullName") as! String
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
