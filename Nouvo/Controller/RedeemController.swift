@@ -456,7 +456,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.SelectedBankButton.isUserInteractionEnabled = false
                 self.SelectedBankDownIcon.isHidden = true
                 self.PaymentAccountNo.placeholder = "Address"
-                self.SelectedBank.placeholder = "Name as per bank"
+                self.SelectedBank.placeholder = "Name"
             }else if self.Paytowhere.text == "Bank Account" {
                 self.SelectedBank.text = "Choose Your Bank"
                 self.PaymentAccountNo.placeholder = "Account Number"
@@ -840,7 +840,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.SelectedBank.text = ""
                 self.PaymentAccountNo.text = ""
                 self.PaymentAccountNo.placeholder = "Address"
-                self.SelectedBank.placeholder = "Name as per bank"
+                self.SelectedBank.placeholder = "Name"
                 self.SelectedBankButton.isUserInteractionEnabled = false
                 self.SelectedBankDownIcon.isHidden = true
             }else if self.Paytowhere.text == "Bank Account" {

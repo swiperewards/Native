@@ -701,7 +701,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
 //        Nodeallabel.layer.cornerRadius = 5
 //        Nodeallabel.layer.masksToBounds = true
         Nodealslabel1.layer.masksToBounds = true
-
+        configureSearchController()
         Retailshoplist.parallaxHeader.view?.isUserInteractionEnabled = true
         Retailshoplist.parallaxHeader.view = headerview // You can set the parallax header view from the floating view
         Retailshoplist.parallaxHeader.height = 180
@@ -709,6 +709,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         Retailshoplist.parallaxHeader.mode = MXParallaxHeaderMode.center
         Retailshoplist.parallaxHeader.delegate = self
         Retailshoplist.parallaxHeader.view = self.refreshControl
+        
+        
+        
         
 //        Retailshoplist.cr.addHeadRefresh(animator: refresh.header.commont()) { [weak self] in
 //            print("开始刷新")
@@ -1201,11 +1204,58 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             (response) -> () in self.DealsResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in }
     }
+    //MARK: - Connecting to Deals API SERVER
+    func ConnecttoDealsAPISERVER1() {
+        //refreshControl.endRefreshing()
+        DealsAPIInputBody1()
+        let DealsAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.DealsURL
+        RequestManager.PostPathwithAUTH(urlString: DealsAPI, params: Input, successBlock:{
+            (response) -> () in self.DealsResponse(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in }
+    }
     //MARK: - Deals API Input Body Parameter
     func DealsAPIInputBody(){
         print("City Names is :",self.citynamesIS as AnyObject)
         
         self.citynamesIS = (Database.value(forKey: Constants.citynamekey) as? String)
+        if self.citynamesIS == "" && self.citynamesIS == "nil" {
+            self.citynamesIS = "Los Angeles"
+        }
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        
+        
+        let jsonObject: [String: AnyObject] = [
+            "location": self.citynamesIS as AnyObject,
+            "pageNumber": self.pageNo as AnyObject,
+            "pageSize": self.limit as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        
+        
+        Input =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
+        
+        print(Input)
+    }
+    //MARK: - Deals API Input Body Parameter
+    func DealsAPIInputBody1(){
+        print("City Names is :",self.citynamesIS as AnyObject)
+        
+       //  Database.set(Constants.searchcityname, forKey: Constants.searchcitynamekey)
+        self.citynamesIS = (Database.value(forKey: Constants.searchcitynamekey) as? String)
         if self.citynamesIS == "" && self.citynamesIS == "nil" {
             self.citynamesIS = "Los Angeles"
         }
@@ -1272,7 +1322,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     }else{
                         if pickeridentity == "YES"  {
                         Nodealslabel1.isHidden = false
-                        Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
+                        Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet. Please change the location/city.")
                         currentDealnameArray = [Dealname]()
                         currentDeallogoArray = [Deallogo]()
                         currentDealLocationArray = [DealLocation]()
@@ -1290,7 +1340,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         }else{
                        // Nodeallabel.isHidden = false
                         Nodealslabel1.isHidden = false
-                        Nodealslabel1.text = ("No stores available for \(self.CityLocation.text!) yet.Please change your city.")
+                        Nodealslabel1.text = ("No stores available for \(self.citynamesIS!) yet. Please change the location/city.")
                         currentDealnameArray = [Dealname]()
                         currentDeallogoArray = [Deallogo]()
                         currentDealLocationArray = [DealLocation]()
@@ -1505,9 +1555,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     Database.set(Constants.DealnameSearch, forKey: Constants.DealnameSearchKey)
                     Database.synchronize()
                 }
-                
-             
-                
                 print(deal)
                 return deal
             default:
@@ -1538,6 +1585,28 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.mySearchBar.endEditing(true)
         print("Value",searchBar.text!)
         searchidentity = ""
+        let searchtext: String = searchBar.text!
+        self.citynamesIS = searchtext
+        Constants.searchcityname = self.citynamesIS!
+        Database.set(Constants.searchcityname, forKey: Constants.searchcitynamekey)
+        Database.synchronize()
+        
+        currentDealnameArray = [Dealname]()
+        currentDeallogoArray = [Deallogo]()
+        currentDealLocationArray = [DealLocation]()
+        currentDealcashbackArray = [Dealcashback]()
+        currentDealStartDateArray = [DealStartDate]()
+        currentDealEndDateArray = [DealEndDate]()//update table
+        
+        DealnameArray = [Dealname]()
+        DeallogoArray =  [Deallogo]()
+        DealLocationArray = [DealLocation]()
+        DealcashbackArray = [Dealcashback]()
+        DealStartDateArray = [DealStartDate]()
+        DealEndDateArray = [DealEndDate]()
+        
+        ConnecttoDealsAPISERVER1()
+        
         
         
         
@@ -1620,7 +1689,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         cell.Cashback.text = "Active"
         
-        cell.Promotiondate.text = String(format: "$%.2f", currentDealcashbackArray[indexPath.row].cashback.floatValue)
+        cell.Promotiondate.text = String(format: "up to $%.2f", currentDealcashbackArray[indexPath.row].cashback.floatValue)
         
         tags1 = indexPath.row
         

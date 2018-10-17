@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>945927664671-np2vsnk2ie7iooanb26pvr3ol79fqvqn.apps.googleusercontent.com</string>
+	<string>57300116160-jm2dcnr8jesavb6fetf9bd9q39i48ep6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.945927664671-np2vsnk2ie7iooanb26pvr3ol79fqvqn</string>
+	<string>com.googleusercontent.apps.57300116160-jm2dcnr8jesavb6fetf9bd9q39i48ep6</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDG-z4cGNsRbP3r-8iXK-UMWrIiijJR9eY</string>
+	<string>AIzaSyCDZ9IhJz26IRx7VJkSXfguADrzHOJG7Dg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>945927664671</string>
+	<string>57300116160</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Swipe.com.Nouvo</string>
+	<string>com.Swipe.Nouvo</string>
 	<key>PROJECT_ID</key>
-	<string>nouvo-ios</string>
+	<string>nouvo-android-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nouvo-ios.appspot.com</string>
+	<string>nouvo-android-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:945927664671:ios:58107586ac20802b</string>
+	<string>1:57300116160:ios:06e2c06fc6ef341b</string>
 	<key>DATABASE_URL</key>
-	<string>https://nouvo-ios.firebaseio.com</string>
+	<string>https://nouvo-android-app.firebaseio.com</string>
 </dict>
 </plist>

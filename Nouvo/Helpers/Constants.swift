@@ -58,6 +58,9 @@ class Constants: NSObject {
     static var cityname = String()
     static let citynamekey = "cityname"
     
+    static var searchcityname = String()
+    static let searchcitynamekey = "searchcityname"
+    
     static var WalletBalance = String()
     static let WalletBalancekey = "WalletBalance"
     

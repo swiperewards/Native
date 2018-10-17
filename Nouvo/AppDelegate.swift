@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
         
     }
     
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
     var window: UIWindow?
     static var shared: AppDelegate { return UIApplication.shared.delegate as! AppDelegate }
     
@@ -56,8 +59,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        FirebaseApp.configure()
+        
+        
+       
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            Messaging.messaging().delegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
         application.registerForRemoteNotifications()
+        FirebaseApp.configure()
+       // application.registerForRemoteNotifications()
         requestNotificationAuthorization(application: application)
         
         
@@ -67,11 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
             NSLog("[RemoteNotification] applicationState: \(applicationStateString) didFinishLaunchingWithOptions for iOS9: \(userInfo)")
             //TODO: Handle background notification
         }
-        let fcmtokens:String = Messaging.messaging().fcmToken!
-        print(fcmtokens)
-        Constants.fcmToken = fcmtokens
-        Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
-        Database.synchronize()
+        
+        
+     
 //        
 //        //DB
 //        static var fcmToken = String()
@@ -98,7 +118,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
             
         }
         else{
-            
+            let fcmtokens: String?
+            fcmtokens = Messaging.messaging().fcmToken
+            print("FCM Token :",fcmtokens as? String)
+            if  fcmtokens == nil {
+                Constants.fcmToken = ""
+                Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
+                Database.synchronize()
+            }else{
+                print(fcmtokens!)
+                Constants.fcmToken = fcmtokens!
+                Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
+                Database.synchronize()
+            }
         }
         return true
     }
@@ -207,6 +239,14 @@ extension AppDelegate : MessagingDelegate {
     //}
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
+        
+        let fcmtokens: String?
+        fcmtokens = fcmToken
+        Constants.fcmToken = fcmtokens!
+        Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
+        Database.synchronize()
+        
+        
     }
     // iOS9, called when presenting notification in foreground
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {

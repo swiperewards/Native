@@ -89,6 +89,7 @@
 		8E6D21622155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
 		8E6D21632155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
 		8E6D2165215920A1002523B6 /* ReferandEarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */; };
+		8E6F47732175C3790065D404 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E6F47722175C3790065D404 /* GoogleService-Info.plist */; };
 		8E72535D214258E0006DD878 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72535C214258E0006DD878 /* SDWebImage.framework */; };
 		8E72535F21428726006DD878 /* referandearn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E72535E21428726006DD878 /* referandearn.ttf */; };
 		8E72536021428726006DD878 /* referandearn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E72535E21428726006DD878 /* referandearn.ttf */; };
@@ -96,7 +97,6 @@
 		8E7253632142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E7253642142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E7253652142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
-		8E7A3382216F6FC200E2422F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */; };
 		8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ACC0A213680A0000A95B7 /* credentials.plist */; };
 		8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
 		8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
@@ -348,10 +348,10 @@
 		8E6D21592155277D002523B6 /* BigGear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigGear.swift; sourceTree = "<group>"; };
 		8E6D215A2155277E002523B6 /* GearRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearRefreshControl.swift; sourceTree = "<group>"; };
 		8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarnViewController.swift; sourceTree = "<group>"; };
+		8E6F47722175C3790065D404 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E72535C214258E0006DD878 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E72535E21428726006DD878 /* referandearn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = referandearn.ttf; sourceTree = "<group>"; };
 		8E7253622142877B006DD878 /* ReferandEarn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarn.swift; sourceTree = "<group>"; };
-		8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E8ACC0A213680A0000A95B7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nouvo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E95A7D520ECC18400C22263 /* UserDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
@@ -584,8 +584,8 @@
 				8E20C78F2141424E0019CE14 /* LaunchView.xib */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
 				8E8ACC0A213680A0000A95B7 /* credentials.plist */,
+				8E6F47722175C3790065D404 /* GoogleService-Info.plist */,
 				8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */,
-				8E7A3381216F6FC200E2422F /* GoogleService-Info.plist */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
 			);
 			path = Nouvo;
@@ -995,8 +995,8 @@
 				8E95A7E020ECD38700C22263 /* Retailshoplistcell.xib in Resources */,
 				8EF1D34620EB989400604B37 /* swipelogo.ttf in Resources */,
 				8EF1D38820EBA76D00604B37 /* SFProText-Bold.ttf in Resources */,
-				8E7A3382216F6FC200E2422F /* GoogleService-Info.plist in Resources */,
 				8ED9E88C2161F35400ADD205 /* mode-cfb.js in Resources */,
+				8E6F47732175C3790065D404 /* GoogleService-Info.plist in Resources */,
 				8EF1D36720EBA76D00604B37 /* SFProDisplay-SemiBold.ttf in Resources */,
 				8E95A80820EE36F600C22263 /* WalletCardsCell.xib in Resources */,
 				8EF1D36D20EBA76D00604B37 /* SFProText-Regular.ttf in Resources */,
@@ -1480,9 +1480,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9SSYE6QZSP;
+				DEVELOPMENT_TEAM = ZZZ95T4TCY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
@@ -1495,10 +1495,10 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
-				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
+				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1513,9 +1513,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9SSYE6QZSP;
+				DEVELOPMENT_TEAM = ZZZ95T4TCY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1527,10 +1527,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
-				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
+				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

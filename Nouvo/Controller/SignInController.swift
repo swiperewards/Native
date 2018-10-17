@@ -11,13 +11,15 @@ import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
 import Fontello_Swift
+import CoreLocation
 
-class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate  {
+class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate,CLLocationManagerDelegate  {
     var indicator = UIActivityIndicatorView()
     var Input = [String: AnyObject]()
     var fullName = String()
     var getemail = String()
-    
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation!
     @IBOutlet weak var SignInButton: UIButton!
     
     @IBOutlet var ForgotPasswordButton: TKTransitionSubmitButton!
@@ -36,6 +38,9 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
    var attributedString = NSMutableAttributedString(string:"")
     
     @IBOutlet var Signup: TKTransitionSubmitButton!
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        currentLocation = locations[0]
+ }
     override func viewDidLoad(){
         super.viewDidLoad()
         Signinbutton.setTitle("Sign In",for: .normal)
@@ -113,6 +118,29 @@ class SignInController: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,U
       //  UIApplication.shared.openURL(NSURL(string: playstoreurl)! as URL)
         }else{
         }
+        
+        
+        
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+                switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    print("No access")
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("Access")
+                    locationManager.startUpdatingLocation()
+                }
+            } else {
+                print("Location services are not enabled")
+            }
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.startUpdatingLocation()
+            }
+        
+        
     }
     func ForceUpdateApiInputBody()  {
         // Version 1.0
