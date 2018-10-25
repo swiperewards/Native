@@ -12,13 +12,12 @@ import MXParallaxHeader
 import ImageIO
 import GoogleSignIn
 class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSource,MXParallaxHeaderDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
+    
+    //MARK: - OUTLETS
     @IBOutlet var Cashback: UILabel!
     @IBOutlet var Level: UILabel!
     @IBOutlet var Levelmode: UILabel!
-    
-    
     @IBOutlet var HeaderView: UIView!
-    
     var creditCardValidator: CreditCardValidator!
     @IBOutlet weak var profileimageview: UIImageView!
     @IBOutlet weak var Progressview: LinearProgressView!
@@ -40,58 +39,31 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     var responseArray = [String]()
     var selectedArray = [[String: AnyObject]]()
     var image = UIImage()
-//    func doSomething(action: UIAlertAction) {
-//        //Use action.title
-//        
-//        Database.removeObject(forKey: Constants.Tokenkey)
-//        Database.removeObject(forKey: Constants.profileimagekey)
-//        Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
-//        //LocalDatabase.ClearallLocalDB()
-//        Database.synchronize()
-//        GIDSignIn.sharedInstance().signOut()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
-//        self.present(navigationController, animated: true, completion: nil)
-//    }
+//MARK: - VIEWWILLAPPEAR
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "WALLET"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        
-//        let token = Database.value(forKey: Constants.Tokenkey) as? String
-//        if token == nil {
-//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
-//            alert.addAction(okAction)
-//            self.present(alert, animated: true, completion: nil)
-//        }
-        
         let city: String?
         city = Database.value(forKey: Constants.citynamekey) as? String
         if  city == "" || city == nil{
-            
             CityLocation.text = ""
-        }
-        else{
+        }else{
             let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
             CityLocation.text = city
         }
         
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
-        
         ConnecttoWalletCARD()
     }
+    //MARK: - VIEWDIDAPPEAR
     override func viewDidAppear(_ animated: Bool) {
         let username: String?
         username = Database.value(forKey: Constants.profileimagekey) as? String
         if  username == "" || username == nil{
-        }
-        else{
-           
+        }else{
             let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
             self.profileimageview.sd_setImage(with: url)
-            
                 self.profileimageview.contentMode = .scaleAspectFill
                 self.profileimageview.layer.borderWidth = 1.0
                 self.profileimageview.layer.masksToBounds = false
@@ -100,10 +72,10 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
                 self.profileimageview.clipsToBounds = true
          
         }
-        
         ConnectivityNetworkCheck()
         ConnecttoWalletCARD()
     }
+    //MARK: - SETUP UI
     func configureHeader() {
         let customView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         customView.backgroundColor = UIColor.white
@@ -115,13 +87,13 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         label.font = fontNuovo.fontOfSize(18)
         label.text = "\(fontNuovo.stringWithName(.Cardicon))\(" ")\(string)"
         label.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        
         let label1 = UILabel(frame: CGRect(x: 5, y: 48, width: self.view.frame.size.width-10, height: 0.7))
         label1.backgroundColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0)
         customView.addSubview(label1)
         customView.addSubview(label)
         BankCardNumberTV.tableHeaderView = customView
     }
+    //MARK: - REFRESH ACTION
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         DispatchQueue.global(qos: .background).async {
             self.ForceUpdatetoUserAPIWithLoginwallet()
@@ -130,6 +102,17 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             }
         }
     }
+    //MARK: - SETUP REFRESH
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(WalletController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
+    //MARK: - SERVER REQUEST FOR REFRESH ACTION
     func ForceUpdatetoUserAPIWithLoginwallet()  {
         
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -267,47 +250,21 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(WalletController.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.white
-        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
-        return refreshControl
-    }()
+   //MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-//        Progressview.layer.borderWidth = 1.5
-//        Progressview.layer.cornerRadius = 5
-//        Progressview.layer.borderColor = UIColor.white.cgColor
-//        Progressview.clipsToBounds = true
-        
-        
         let city: String?
         city = Database.value(forKey: Constants.citynamekey) as? String
         if  city == "" || city == nil{
-            
             CityLocation.text = ""
-        }
-        else{
+        }else{
             let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
             CityLocation.text = city
         }
-     
-        
-        
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
-        
-        
-        
-        
-     
         self.navigationController?.navigationBar.topItem?.title = "WALLET"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        
         BankCardNumberTV.parallaxHeader.view = HeaderView // You can set the parallax header view from the floating view
         BankCardNumberTV.parallaxHeader.height = 180
         BankCardNumberTV.parallaxHeader.minimumHeight = 0
@@ -315,27 +272,18 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         BankCardNumberTV.parallaxHeader.delegate = self
         BankCardNumberTV.parallaxHeader.view = self.refreshControl
         configureHeader()
-        
         creditCardValidator = CreditCardValidator()
         Progressview.animationDuration = 0.5
         Progressview.minimumValue = Float(Constants.minlevel)
         Progressview.maximumValue = Float(Constants.maxlevel)
         Progressview.setProgress(Float(Constants.userlevel) , animated: true)
-        
         Level.text = String(format: "Level %d", Constants.level)
         Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
-        
-       
-        
-        
-        
         BankCardNumberTV.register(UINib(nibName: "WalletCardsCell", bundle: nil),
                            forCellReuseIdentifier: "WalletCardsCell")
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameofSwipe.text = string2
-//        CreditorDebitHeader.text = "Credit/Debit Cards"
-//        CreditorDebitHeader?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         view.addSubview(indicator)
@@ -344,8 +292,6 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         setUpNavBar()
         ConnectivityNetworkCheck()
         ConnecttoWalletCARD()
-        
-        // Do any additional setup after loading the view.
     }
     func ConnectivityNetworkCheck() {
         //Check Internet Connectivity
@@ -362,6 +308,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
         NSLog("progress %f", parallaxHeader.progress)
     }
+    //MARK: - WALLET SERVER REQUEST
     func ConnecttoWalletCARD(){
         
         WalletCARDAPIInputBody()
@@ -379,39 +326,33 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             "platform": "IOS" as AnyObject,
             "requestData": ""] as [String : AnyObject]
     }
-    //MARK: -  Fetching Deals data from server
+    //MARK: -  Fetching WALLET data from server
     func WalletCARDResponse(response: [String : AnyObject]){
         indicator.removeFromSuperview()
-        print("WalletCARDResponse  :", response)
+      ///  print("WalletCARDResponse  :", response)
         //Encryption value from response
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
         let AES = CryptoJS.AES()
-        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+       // print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
         var json = [[String : AnyObject]]()
         let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
         if decrypted == "null"{}
         else{
             let objectData = decrypted.data(using: String.Encoding.utf8)
             json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : AnyObject]]
-            print(json)
+            //print(json)
         }
         var responses = [String : AnyObject]()
         responses = ["responseData" : json] as [String : AnyObject]
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
         TotalCardNumberarray = responses["responseData"]?.value(forKey: "cardNumber") as! [String]
-        print("responseArray1  :", TotalCardNumberarray)
         TotalCardNumberarray.append("Add New Card")
-        print("responseArray1  :", TotalCardNumberarray)
         CardID  = responses["responseData"]?.value(forKey: "id") as! [NSNumber]
-        
-        print("responseArray1  :", CardID)
         TotalCardNamearray = responses["responseData"]?.value(forKey: "nameOnCard") as! [String]
-        print("TotalCardNamearray  :", TotalCardNamearray)
         TotalCardNamearray.append("Add New Card")
         BankCardNumberTV.reloadData()
-            
         }else if success == "1050"{
             Database.removeObject(forKey: Constants.Tokenkey)
             Database.removeObject(forKey: Constants.profileimagekey)
@@ -427,6 +368,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         refreshControl.endRefreshing()
         
     }
+    //MARK: - SETUP UI
     func setUpNavBar(){
             self.navigationController?.navigationBar.topItem?.title = "WALLET"
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -447,58 +389,18 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //MARK: - TABLEVIEW DELEGATES
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TotalCardNumberarray.count
-    }
-    func detectCardNumberType(number: String) {
-        if let type = creditCardValidator.type(from: number) {
-            
-            print(type.name)
-            
-            if type.name == "Visa"{
-                 image = UIImage(named: "Visa")!
-                
-            }else if type.name == "Amex"{
-                 image = UIImage(named: "Amex")!
-                
-            }else if type.name == "MasterCard"{
-                 image = UIImage(named: "MasterCard")!
-                
-            }else if type.name == "Maestro"{
-                 image = UIImage(named: "Maestro")!
-               
-            }else if type.name == "Diners Club"{
-                 image = UIImage(named: "DinersClub")!
-               
-            }else if type.name == "JCB"{
-                 image = UIImage(named: "JCB")!
-                
-            }else if type.name == "Discover"{
-                 image = UIImage(named: "Discover")!
-                
-            }else if type.name == "UnionPay"{
-                 image = UIImage(named: "UnionPay")!
-               
-            }else if type.name == "RuPay"{
-                 image = UIImage(named: "RuPay")!
-                
-            }
-            
-            
-            
-        }
     }
     // Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
     let cell = tableView.dequeueReusableCell(withIdentifier: "WalletCardsCell", for: indexPath) as! WalletCardsCell
         
         let a = ((TotalCardNumberarray[indexPath.row] as AnyObject) as? String)!
-       
         let last4 = a.suffix(4)
         let b = ((TotalCardNamearray[indexPath.row] as AnyObject) as? String)!
         if a == "Add New Card"{
@@ -506,12 +408,6 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         }else{
            cell.CardNumber.text = b + " " + last4
         }
-        
-        
-        
-        
-        //  ((TotalCardNamearray[indexPath.row] as AnyObject) as? String)! + ()
-        
         if cell.CardNumber.text == "Add New Card" {
             //add_blue
             let yourImage: UIImage = UIImage(named: "add_blue")!
@@ -538,12 +434,10 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
            
         }
     }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
        
             let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
                 //TODO: Delete the row at indexPath here
-                
                 let alert = UIAlertController(title: "Delete Wallet Card" , message: "Are you sure you want to delete this card from your wallet?", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)
@@ -592,16 +486,43 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         }
        
     }
+    //MARK: - DETECT CARD TYPE
+    func detectCardNumberType(number: String) {
+        if let type = creditCardValidator.type(from: number) {
+            
+            print(type.name)
+            if type.name == "Visa"{
+                image = UIImage(named: "Visa")!
+                
+            }else if type.name == "Amex"{
+                image = UIImage(named: "Amex")!
+                
+            }else if type.name == "MasterCard"{
+                image = UIImage(named: "MasterCard")!
+                
+            }else if type.name == "Maestro"{
+                image = UIImage(named: "Maestro")!
+                
+            }else if type.name == "Diners Club"{
+                image = UIImage(named: "DinersClub")!
+                
+            }else if type.name == "JCB"{
+                image = UIImage(named: "JCB")!
+                
+            }else if type.name == "Discover"{
+                image = UIImage(named: "Discover")!
+                
+            }else if type.name == "UnionPay"{
+                image = UIImage(named: "UnionPay")!
+                
+            }else if type.name == "RuPay"{
+                image = UIImage(named: "RuPay")!
+                
+            }
+        }
+    }
+     //MARK: - DELETE CARD SERVER REQUEST
     func DeleteCardAPI()  {
-        /*{
-         "platform": "android",
-         "deviceId": "some string here",
-         "lat": "",
-         "long": "",
-         "requestData":{
-         "cardId": 1
-         }
-         }*/
         DeleteCARDAPIInputBody()
         let DeleteCARDAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.DeleteCardURL
         RequestManager.PostPathwithAUTH(urlString: DeleteCARDAPI, params: Input, successBlock:{
@@ -612,7 +533,6 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     func DeleteCARDAPIInputBody()  {
         print("Deleted Card ID is :",self.DeleteCardID)
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        
         let jsonObject: [String: AnyObject] = [
            "cardId": self.DeleteCardID as AnyObject
         ]
@@ -626,8 +546,6 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
             print(encrypted)
         }
-        
-        
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
@@ -635,14 +553,12 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
+     //MARK: - DELETE CARD SERVER RESPONSE
     func DeleteCARDResponse(response: [String : AnyObject]){
         print("DeleteCARDResponse  :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            
             BankCardNumberTV.reloadData()
-        }else{
-            
         }
         
     }

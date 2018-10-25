@@ -11,9 +11,6 @@ import UIKit
 let Database = LocalDatabase.sharedInstance
 class LocalDatabase: UserDefaults {
 static let sharedInstance = LocalDatabase.standard
-    
-    
-    
     func ClearallLocalDB()  {
         let domain = Bundle.main.bundleIdentifier!
         Database.removePersistentDomain(forName: domain)

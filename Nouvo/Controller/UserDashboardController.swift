@@ -14,22 +14,16 @@ import CRRefresh
 import GoogleSignIn
 
 class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,UISearchBarDelegate,UIScrollViewDelegate,ModernSearchBarDelegate,MXParallaxHeaderDelegate,UISearchDisplayDelegate,TCPickerViewOutput,UIGestureRecognizerDelegate {
+    
+    //MARK: - OUTLETS
     var suggestionList = Array<String>()
-//    var refresh = Refresh
     @IBOutlet var profiletapbutton: UIButton!
     @IBOutlet var Nodealslabel1: UILabel!
     @IBOutlet var Nodeallabel: UILabel!
-    //For Pagination
     @IBOutlet var Bgview: UIView!
-    
-    
     @IBOutlet var referralbgviewview: UIView!
     @IBOutlet var referralview: UIView!
     @IBOutlet var Referraltext: UITextField!
-    
-    
-    
-    
     var textField: UITextField!
     var isDataLoading:Bool=false
     var pageNo:Int=0
@@ -43,7 +37,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var DealcashbackArray = [Dealcashback]()
     var DealStartDateArray = [DealStartDate]()
     var DealEndDateArray = [DealEndDate]()
-    
      var currentDealnameArray = [Dealname]()
      var currentDeallogoArray = [Deallogo]()
      var currentDealLocationArray = [DealLocation]()
@@ -51,23 +44,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
      var currentDealStartDateArray = [DealStartDate]()
      var currentDealEndDateArray = [DealEndDate]()//update table
      let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    
-    
-    
-    
-    
-    
     @IBOutlet var headerview: UIView!
     @IBOutlet var top: NSLayoutConstraint!
-    
     @IBOutlet var Strechview: FRStretchView!
-    
     @IBOutlet var myheight: NSLayoutConstraint!
     //MARK: -  Outlets and Instance
-    
-    
     private var mySearchBar: ModernSearchBar!
-    
     var searchController: UISearchController!
     @IBOutlet var Dealalertlabel: UILabel!
     //@IBOutlet var modernSearchBar: ModernSearchBar!
@@ -82,7 +64,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var Progressview: LinearProgressView!
     @IBOutlet weak var CityLocation: UILabel!
     @IBOutlet weak var NameOfSwipe: UILabel!
-  
     @IBOutlet weak var DashboardView: UIView!
     @IBOutlet weak var Retailshoplist: UITableView!
     var locationManager = CLLocationManager()
@@ -107,32 +88,21 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var refreshAPI = String()
     let scrollViewContentHeight = 1200 as CGFloat
     var Test_View = UIView()
-    //MARK: -  ViewWillAppear
-    
-   
     @IBOutlet var Gest: UITapGestureRecognizer!
-    
     @IBOutlet var HideBtn: UIButton!
     
+    //MARK: -  REFERRAL APPLY TAP
     @IBAction func RefApplyTap(_ sender: Any) {
         referralbgviewview.isHidden = true
-        //referralview.isHidden = true
         Referraltext.resignFirstResponder()
-        
-        //ApplyreferralcodeURL
-        
         if Referraltext.text == "" || (Referraltext.text?.isEmpty)!{
-            
             referralbgviewview.isHidden = false
-           // referralview.isHidden = false
             Referraltext.becomeFirstResponder();
-            
             let alert = UIAlertController(title: "Referral Code" , message: "Please enter your referral code!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else{
-            
              ApplyReferralcodeAPIInputBody()
              let ReferralAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.ApplyreferralcodeURL
             RequestManager.PostPathwithAUTH(urlString: ReferralAPI, params: Input, successBlock:{
@@ -140,11 +110,9 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             { (error: NSError) ->() in }
         }
         
-        
-        
     }
+    //MARK: -  REFERRAL SERVER REQUEST
     func ApplyReferralcodeAPIInputBody() {
-        
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         Input =  [
             "deviceId": deviceid as AnyObject,
@@ -155,6 +123,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 "referredBy": textField.text as AnyObject
             ]] as [String : AnyObject]
     }
+    //MARK: -  REFERRAL SERVER RESPONSE
     func ApplyReferralcodeResponse(response: [String : AnyObject]){
         print("Referral Code :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
@@ -172,64 +141,46 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             
         }else{
             checkreferral1()
-//            let alert = UIAlertController(title: "Referral Code", message: "Invalid Referral code", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//            alert.addAction(okAction)
-//            self.present(alert, animated: true, completion: nil)
-            
-            
             textField.placeholder = "Invalid Referral code"
             hideLoading()
             referralbgviewview.isHidden = false
-           // referralview.isHidden = false
             textField.becomeFirstResponder();
         }
         
-//        Constants.Newrecord = 0
-//        Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
-//        Database.synchronize()
-        
     }
+    //MARK: -  REFERRAL CANCEL TAP
     @IBAction func RefCancelTap(_ sender: Any) {
         Constants.Newrecord = 0
         Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
         Database.synchronize()
         referralbgviewview.isHidden = true
-        //referralview.isHidden = true
         Referraltext.resignFirstResponder()
     }
     @IBAction func send(_ sender: Any) {
-       // print("hi")
         self.tabBarController?.selectedIndex = 0
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeindex"), object: nil)
     }
     @IBAction func check(_ sender: Any) {
         
     }
-//    func doSomething(action: UIAlertAction) {
-//        //Use action.title
-//
-//        Database.removeObject(forKey: Constants.Tokenkey)
-//        Database.removeObject(forKey: Constants.profileimagekey)
-//        Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
-//        //LocalDatabase.ClearallLocalDB()
-//        Database.synchronize()
-//        GIDSignIn.sharedInstance().signOut()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
-//        self.present(navigationController, animated: true, completion: nil)
-//    }
+    //MARK: -  VIEWWILLAPPEAR
     override func viewWillAppear(_ animated: Bool) {
+        let username: String?
+        username = Database.value(forKey: Constants.profileimagekey) as? String
+        if  username == "" || username == nil{
+        }else{
+            let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
+            self.profileimageview.sd_setImage(with: url)
+            self.profileimageview.contentMode = .scaleAspectFill
+            self.profileimageview.layer.borderWidth = 1.0
+            self.profileimageview.layer.masksToBounds = false
+            self.profileimageview.layer.borderColor = UIColor.white.cgColor
+            self.profileimageview.layer.cornerRadius = self.profileimageview.frame.size.width / 2
+            self.profileimageview.clipsToBounds = true
+            //}
+        }
         self.navigationController?.navigationBar.topItem?.title = "HOME"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-//        let token = Database.value(forKey: Constants.Tokenkey) as? String
-//        if token == nil {
-//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
-//            alert.addAction(okAction)
-//            self.present(alert, animated: true, completion: nil)
-//        }
-        
         pickeridentity = "NO"
         Paginationidentity = "NO"
         searchidentity = ""
@@ -241,88 +192,30 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.pageNo = 0
         self.limit = 15
         refreshAPI = ""
-       // self.InitializeLocationManager()
             let city: String?
             city = Database.value(forKey: Constants.citynamekey) as? String
             if  city == "" || city == nil{
-                //self.AskcitynameAPI()
                CityLocation.text = ""
-            }
-            else{
+            }else{
                  CityLocation.text = city
-                 self.ConnecttoDealsAPISERVER()
-               
-            }
-            
-       
-        
-        
+                 self.ConnecttoDealsAPISERVER()}
     }
-//    private func makingSearchBarAwesome(){
-//        self.modernSearchBar.backgroundImage = UIImage()
-//        self.modernSearchBar.layer.borderWidth = 0
-//        self.modernSearchBar.layer.borderColor = UIColor(red: 181, green: 240, blue: 210, alpha: 1).cgColor
-//    }
+
     
-//    private func configureSearchBar(){
-//
-//        ///Create array of string
-//        var suggestionList = Array<String>()
-//        suggestionList.append("Onions")
-//        suggestionList.append("Celery")
-//        suggestionList.append("Very long vegetable to show you that cell is updated and fit all the row")
-//        suggestionList.append("Potatoes")
-//        suggestionList.append("Carrots")
-//        suggestionList.append("Broccoli")
-//        suggestionList.append("Asparagus")
-//        suggestionList.append("Apples")
-//        suggestionList.append("Berries")
-//        suggestionList.append("Kiwis")
-//        suggestionList.append("Raymond")
-//
-//        ///Adding delegate
-//        self.modernSearchBar.delegateModernSearchBar = self
-//
-//        ///Set datas to search bar
-//        self.modernSearchBar.setDatas(datas: suggestionList)
-//
-//
-//
-//
-//        ///Custom design with all paramaters if you want to
-//        //self.customDesign()
-//
-//    }
-    // MARK: - Parallax header delegate
-    
-//    func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-//        NSLog("progress %f", parallaxHeader.progress)
-//    }
-    //MARK: -  ViewDidLoa
     
     @objc func buttonAction(_ sender: UIButton!) {
         print("Button tapped")
     }
-    
-//    @objc func closebackgroundview() {
-//        Bgview.isHidden = true
-//    }
+ 
+    //MARK: -  VIEWDIDAPPEAR
     override func viewDidAppear(_ animated: Bool) {
         
         let username: String?
         username = Database.value(forKey: Constants.profileimagekey) as? String
         if  username == "" || username == nil{
-        }
-        else{
-            
-            
-            
+        }else{
             let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
             self.profileimageview.sd_setImage(with: url)
-            
-            // let data1 = NSData.init(contentsOf: url!)
-            // if data1 != nil {
-            // profileimageview.image = UIImage(data:data1! as Data)
             self.profileimageview.contentMode = .scaleAspectFill
             self.profileimageview.layer.borderWidth = 1.0
             self.profileimageview.layer.masksToBounds = false
@@ -332,37 +225,25 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             //}
         }
     }
-//
-//    ///Handle click on shadow view
-//    @objc func onClickShadowViews(){
-//          Bgview.isHidden = true
-//    }
+
     ///Handle click on shadow view
     @objc func closebackgroundviews(){
         self.Retailshoplist.endEditing(true)
         self.mySearchBar.endEditing(true)
         self.mySearchBar.resignFirstResponder()
     }
-    
-//    @objc func taps(){
-//
-//    }
-//    override var preferredStatusBarStyle : UIStatusBarStyle {
-//        return .lightContent
-//    }
-//    func makeMock() {
-//        let headerView = UIView()
-//        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 64)
-//        headerView.backgroundColor = UIColor.lightGray
-//        self.view.addSubview(headerView)
-//
-//        let headerLine = UIView()
-//        headerLine.frame = CGRect(x: 0, y: 0, width: 120, height: 8)
-//        headerLine.layer.cornerRadius = headerLine.frame.height/2
-//        headerLine.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-//        headerLine.center = CGPoint(x: headerView.frame.center.x, y: 20 + 44/2)
-//        headerView.addSubview(headerLine)
-//    }
+    //MARK: -  REFRESH SETUP
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(UserDashboardController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
+
+    //MARK: -  REFRESH ACTION
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         
 
@@ -380,32 +261,15 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         refreshAPI = "R"
         
         DispatchQueue.global(qos: .background).async {
-       // self.showSpinning()
         self.ForceUpdatetoUserAPIWithLogin()
             DispatchQueue.main.async {
-
-              //  self.hideLoading()
             }
         }
-        
-        
-        //self.Retailshoplist.reloadData()
-       
     }
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(UserDashboardController.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.white
-        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
-        return refreshControl
-    }()
+    
+    //MARK: -  FIREBASE SERVER REQUEST
     func FirebaseApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        print("deviceid :", deviceid!)
-        
-          //Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
         let token:String = (Database.value(forKey: Constants.fcmTokenkey) as? String)!
         let jsonObject: [String: AnyObject] = [
             "token": token as AnyObject
@@ -414,7 +278,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
             let str = String(data: data, encoding: .utf8) {
             print(str)
-            // Load only what's necessary
             let AES = CryptoJS.AES()
             // AES encryption
             encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
@@ -429,6 +292,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             "requestData": encrypted] as [String : AnyObject]
         
     }
+    //MARK: -  FIREBASE SERVER RESPONSE
     func FirebasenotifyResponse(response: [String : AnyObject]){
         print("FirebasenotifyResponse  :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
@@ -437,31 +301,28 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         }
         
     }
+    
+    //MARK: -  REFERRAL METH0DS
     func checkreferral()  {
-        let isnewrecord: Int?
+        var isnewrecord: Int?
         isnewrecord = Database.value(forKey: Constants.NewrecordKey) as? Int
         //let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as! Int)
-        
-        
+       // isnewrecord = 1
         if isnewrecord == 1{
             FirebaseApiInputBody()
             let ForgotPasswordServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.Firebasenotification
             RequestManager.getPath(urlString: ForgotPasswordServer, params: Input, successBlock:{
                 (response) -> () in self.FirebasenotifyResponse(response: response as! [String : AnyObject])})
             { (error: NSError) ->() in}
-            
-          
-            
             let alert = UIAlertController(title: "Referral Code", message: "Have a referral code, apply it here to get the XP points!", preferredStyle: .alert)
-            
             let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
                 self.referralbgviewview.isHidden = true
+                self.dismiss(animated: true, completion: nil)
                 Constants.Newrecord = 0
                 Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
                 Database.synchronize()
                 
             })
-            
             let submitAction = UIAlertAction(title: "Apply", style: .default, handler: { (action) -> Void in
                 self.textField = alert.textFields![0]
                 print(self.textField.text!)
@@ -485,25 +346,10 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 
             }
            
-//            // Add 1 textField and customize it
-//            alert.addTextField { textField in
-//               // textField.keyboardAppearance = .dark
-//              //  textField.keyboardType = .default
-//                //textField.autocorrectionType = .default
-//                textField.placeholder = "Enter Referral Code"
-//               // textField.clearButtonMode = .whileEditing
-////
-////                textField.layer.masksToBounds = true
-////                textField.layer.cornerRadius = 15.0
-////                textField.layer.borderWidth = 0.5
-//            }
             // Add action buttons and present the Alert
             alert.addAction(cancel)
             alert.addAction(submitAction)
-            
             self.present(alert, animated: true, completion: nil)
-            
-            
             for textField in alert.textFields! {
                 if let container = textField.superview, let effectView = container.superview?.subviews.first, effectView is UIVisualEffectView {
                     container.backgroundColor = UIColor.lightText
@@ -514,8 +360,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     effectView.removeFromSuperview()
                 }
             }
-        }
-        else{
+        }else{
             self.referralbgviewview.isHidden = true
             Constants.Newrecord = 0
             Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
@@ -528,22 +373,17 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         //let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as! Int)
         if isnewrecord == 1{
             let alert = UIAlertController(title: "Invalid Referral Code!", message: "Have a referral code, apply it here to get the XP points!", preferredStyle: .alert)
-            
             let cancel = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
                 self.referralbgviewview.isHidden = true
                 Constants.Newrecord = 0
                 Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
                 Database.synchronize()
-                
             })
-            
             let submitAction = UIAlertAction(title: "APPLY", style: .default, handler: { (action) -> Void in
                 self.textField = alert.textFields![0]
                 print(self.textField.text!)
                 if self.textField.text == "" || (self.textField.text?.isEmpty)!{
                     self.referralbgviewview.isHidden = false
-                  //  self.present(alert, animated: true, completion: nil)
-                    //Please enter your referral code!
                     self.present(alert, animated: true, completion: nil)
                 }else{
                     self.ApplyReferralcodeAPIInputBody()
@@ -554,26 +394,14 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 }
                 
             })
-            
-           
-            
-            
-            // Add 1 textField and customize it
             alert.addTextField { textField in
-//                textField.keyboardAppearance = .dark
-//                textField.keyboardType = .default
-//                textField.autocorrectionType = .default
                 textField.placeholder = "Enter Referral Code"
-                //textField.clearButtonMode = .whileEditing
-                
                 textField.superview?.backgroundColor = UIColor.gray
             }
             // Add action buttons and present the Alert
             alert.addAction(cancel)
             alert.addAction(submitAction)
-            
             self.present(alert, animated: true, completion: nil)
-            
             for textField in alert.textFields! {
                 if let container = textField.superview, let effectView = container.superview?.subviews.first, effectView is UIVisualEffectView {
                     container.backgroundColor = UIColor.lightText
@@ -585,7 +413,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 }
             }
         }else{
-            
                 self.referralbgviewview.isHidden = true
                 Constants.Newrecord = 0
                 Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
@@ -593,115 +420,15 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             
         }
     }
+    //MARK: -  ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         DashboardView.isUserInteractionEnabled = true
-        checkreferral()
-        
-      //  Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
-        
-        
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        referralbgviewview.addSubview(blurEffectView)
-        
-//        referralbgviewview.isUserInteractionEnabled = false
-//        referralview.isUserInteractionEnabled = true
-//        referralview.layer.cornerRadius = 4.0
-//        referralview.layer.borderWidth = 0.4
-//        referralview.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0).cgColor
-        
-            
-            
-//            referralbgviewview.isHidden = false
-//            referralview.isHidden = false
-//            Referraltext.becomeFirstResponder();
-            
-            
-            
-
-//        }else{
-////            referralbgviewview.isHidden = true
-////            referralview.isHidden = true
-//        }
-        
-       
-       // Retailshoplist.parallaxHeader.view?.addSubview(self.refreshControl)
-       
-//        gearRefreshControl.addTarget(self, action: #selector(UserDashboardController.refresh), for: UIControlEvents.valueChanged)
-//        gearRefreshControl.gearTintColor = .red
-//        self.refreshControl = gearRefreshControl
-//
-//        let bodyView = UIView()
-//        bodyView.frame = self.view.frame
-//        bodyView.frame.y += 20 + 44
-//        self.view.addSubview(bodyView)
-//
-//        let tableViewWrapper = PullToBounceWrapper(scrollView: Retailshoplist)
-//        bodyView.addSubview(tableViewWrapper)
-//
-//        tableViewWrapper.didPullToRefresh = {
-//            _ = Timer.schedule(delay: 2) { timer in
-//                tableViewWrapper.stopLoadingAnimation()
-//            }
-//        }
-
-      //  makeMock()
-//        DashboardView.addSubview(profiletapbutton)
-//        headerview.addSubview(DashboardView)
-//        profiletapbutton.addTarget(self,action:#selector(UserDashboardController.taps),
-//                                   for:.touchUpInside)
-//
-        
-       
-        
-//        // add gesture
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.taps))
-//        tapGesture.numberOfTouchesRequired = 1
-//        tapGesture.delegate = self
-//        profileimageview.addGestureRecognizer(tapGesture)
-//
-        
-        
-        
-      //#selector(YourClass.sayHello)
-     
-  
-//        NotificationCenter.default.addObserver(self, selector: #selector(UserDashboardController.closebackgroundview), name: NSNotification.Name(rawValue: "CloseBackgroundview"), object: nil)
-
-        
-//       // addParallaxToView(vw: DashboardView)
-//
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        Bgview.addSubview(blurEffectView)
-        
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UserDashboardController.closebackgroundviews))
-//        tapGesture.cancelsTouchesInView = true
-//        Retailshoplist.addGestureRecognizer(tapGesture)
-//
-        
-       // Bgview.addSubview(HideBtn)
-    
-        
-       // Bgview.isHidden = true
-      //  HideBtn.isHidden = true
+        self.checkreferral()
         Nodealslabel1.isHidden = true
-        
-        
-        
         Nodealslabel1.layer.cornerRadius = 5
-//        Nodeallabel.layer.cornerRadius = 5
-//        Nodeallabel.layer.masksToBounds = true
         Nodealslabel1.layer.masksToBounds = true
-        configureSearchController()
+        setUpDashbaordHeaderView()
         Retailshoplist.parallaxHeader.view?.isUserInteractionEnabled = true
         Retailshoplist.parallaxHeader.view = headerview // You can set the parallax header view from the floating view
         Retailshoplist.parallaxHeader.height = 180
@@ -709,48 +436,18 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         Retailshoplist.parallaxHeader.mode = MXParallaxHeaderMode.center
         Retailshoplist.parallaxHeader.delegate = self
         Retailshoplist.parallaxHeader.view = self.refreshControl
-        
-        
-        
-        
-//        Retailshoplist.cr.addHeadRefresh(animator: refresh.header.commont()) { [weak self] in
-//            print("开始刷新")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//                self?.pageNo = 0
-//                self?.Retailshoplist.cr.endHeaderRefresh()
-//                self?.Retailshoplist.cr.resetNoMore()
-//                self?.Retailshoplist.reloadData()
-//            })
-//        }
-//
-      //  Retailshoplist.parallaxHeader.view?.backgroundColor = UIColor.blue
-       
-
-//        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
-//        button.setTitle("Submit", for: .normal)
-//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-//
-//        Retailshoplist.tableHeaderView = customView
-
-        
-        setUpDashbaordHeaderView()
         InitializeLocationManager()
         ConnectivityNetworkCheck()
         ForceUpdatetoUserAPIWithLogin()
-       // self.makingSearchBarAwesome()
-        //self.configureSearchBar()
-        
-      
         Retailshoplist.register(UINib(nibName: "Retailshoplistcell", bundle: nil),
                                forCellReuseIdentifier: "Retailshoplistcell")
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameOfSwipe.text = string2
-        //registerForKeyboardNotifications()
     }
     
     
-
+  //MARK: -  SEARCHBAR UI SETUP
     func configureSearchController() {
         // make UISearchBar instance
         
@@ -759,8 +456,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         mySearchBar = ModernSearchBar(frame: CGRect(x: 8, y: 0, width: self.view.frame.size.width-16, height: 40))
         mySearchBar.placeholder = "Search Store/Location"
         mySearchBar.setBackgroundImage(UIImage.init(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-
-       // mySearchBar.searchLabel_textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         mySearchBar.tintColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         mySearchBar.barTintColor = UIColor.white
         mySearchBar.layer.borderWidth = 0.7;
@@ -768,14 +463,10 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         mySearchBar.layer.cornerRadius = 15.0;
         mySearchBar.delegateModernSearchBar = self as ModernSearchBarDelegate
         customView.addSubview(mySearchBar)
-        
-        
-       // Retailshoplist.style = .grouped
         Retailshoplist.tableHeaderView = customView
        // viewDidLayoutSubviews()
     }
-    // MARK: - Parallax header delegate setupParallaxHeaders
-    
+    // MARK: - Parallax header delegate setupParallaxHeader
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
        // NSLog("progress %f", parallaxHeader.progress)
     }
@@ -784,89 +475,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         super.updateViewConstraints()
       //  Heif.constant = Retailshoplist.contentSize.height
     }
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        //print("Table Y Value",Retailshoplist.contentOffset.y)
-//    }
-//
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//
-//       // print("scrollViewWillBeginDragging")
-//        isDataLoading = false
-//    }
-//
-//    //Pagination
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//
-//        print("scrollViewDidEndDragging")
-//
-//
-//
-//
-//    }
-
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         print("scrollViewDidEndDecelerating")
 
-        //ConnecttoDealsAPISERVER()
     }
-//
-//
-//        let maxHeight: CGFloat = self.view.bounds.size.height - 64
-//        let minHeight:CGFloat = 200
-//        var height = self.Heif.constant + Scrollview.contentOffset.y
-//
-//        if height > maxHeight {
-//            height = maxHeight
-//        }
-//        else if height < minHeight {
-//            height = minHeight
-//        }
-//        else{
-//
-//             print("Y axis of scrollview",Scrollview.frame.origin.y)
-//
-//           // Scrollview.frame.origin.y
-//
-//            if scrollView.frame.origin.y == -180{
-//                 Scrollview.contentOffset = CGPoint(x: 0, y: -180)
-//            }
-//            else{
-//                 Scrollview.contentOffset = CGPoint(x: 0, y: 0)
-//            }
-//
-//
-//        }
-//
-//        self.Heif.constant = Retailshoplist.contentSize.height
-//        Retailshoplist.frame.size.height = self.Heif.constant
-//      //  Scrollview.frame.size.height = self.Heif.constant + DashboardView.frame.size.height
-//
-//
-//        Scrollview.contentSize = CGSize(width: self.view.frame.size.width, height:Retailshoplist.frame.size.height + Strechview.frame.size.height+36)
-//
-//        print("height",height)
-//        print("Scrollview  y axis point ",Scrollview.contentOffset.y)
-//        print("Scrollview  y axis point ",Scrollview.contentOffset.y)
-//        print("DashboardView y axis point",Strechview.frame.origin.y)
-//
-////        var y = Scrollview.contentOffset.y
-////        if  y > 170 {
-////
-////
-////        }else{
-////
-////            y = 0
-////        }
-//
-//
-//        let y = 300 - (Scrollview.contentOffset.y + 300)
-//        let heights = min(max(y, 60), 400)
-//        Strechview.frame = CGRect(x: 0, y: y, width: UIScreen.main.bounds.size.width, height: heights)
-//      //  lblName.frame = CGRect(x: 20, y: height - 30, width: 200, height: 22)
-//
-    //}
+
+      //MARK: -  SERVER REQUEST FOR INITSWIPE
     func ForceUpdatetoUserAPIWithLogin()  {
         
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -880,6 +494,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             (response) -> () in self.ForceUpdateWithLoginResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
+      //MARK: -  SERVER RESONSE
     func ForceUpdateWithLoginResponse(response: [String : AnyObject]) {
         print("ForceUpdateWithLoginResponse :", response)
         //Encryption value from response
@@ -954,7 +569,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             Progressview.minimumValue = Float(Constants.minlevel)
             Progressview.maximumValue = Float(Constants.maxlevel)
             Progressview.setProgress(userlevelsettings["userXP"] as! Float , animated: true)
-            
             Level.text = String(format: "Level %d", Constants.level)
             Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
             print(userlevelsettings)
@@ -971,6 +585,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 ConnecttoDealsAPISERVER()
             }else{
                  AskcitynameAPI()
+                
             }
 
            // ConnecttoDealsAPISERVER()
@@ -1014,6 +629,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
+    
+      //MARK: -  CITY SERVER REQUEST
     func AskcitynameAPI() {
         GetcityApiInputBody()
         let GetcityServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.GetcityURL
@@ -1033,6 +650,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             "platform": "IOS" as AnyObject,
             "requestData": ""] as [String : AnyObject]
     }
+    //MARK: -  CITY SERVER RESPONSE
     func GetcityResponse(response: [String : AnyObject]) {
         print("GetcityResponse :", response)
         // Response time
@@ -1062,11 +680,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 
             }
             print(suggestionList)
-            
-            
-          
-            
             configureSearchController()
+            
             ///Adding delegate
             self.mySearchBar?.delegateModernSearchBar = self as ModernSearchBarDelegate
             ///Set datas to search bar
@@ -1075,6 +690,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             showSpinning()
         }
  }
+    
+    //MARK: -  GETTING CITY NAME FROM GEOLOCATION
     func ConvertLatandLongtoCityName()  {
         
         print(lat)
@@ -1536,6 +1153,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         ConnecttoDealsAPISERVER()
     }
+    
+     //MARK: - SEARCH BAR DELEGATES
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         currentDealnameArray = DealnameArray.filter({ Dealname -> Bool in
             switch searchBar.selectedScopeButtonIndex {
@@ -1563,19 +1182,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             }
         })
         
-          print(currentDealnameArray.count)
-//         print(currentDealnameArray)
-//
-//
-//
-//        if currentDealnameArray.count == 0 {
-//            self.suggestionList.append("No Stores found!")
-//            self.mySearchBar?.setDatas(datas: self.suggestionList)
-//        }
-//        
-        
+        print(currentDealnameArray.count)
         mySearchBar.suggestionsShadow.isHidden = true
-        
         searchidentity = "Seaching store names"
         Retailshoplist.reloadData()
     }
@@ -1606,9 +1214,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         DealEndDateArray = [DealEndDate]()
         
         ConnecttoDealsAPISERVER1()
-        
-        
-        
         
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -1664,8 +1269,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Retailshoplistcell", for: indexPath) as! Retailshoplistcell
         cell.Storename.text = currentDealnameArray[indexPath.row].name
-
-        
         let Enddatestring : String = String(format: "%@", currentDealEndDateArray[indexPath.row].promotionenddate)
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
@@ -1685,36 +1288,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             let url = URL(string: deallogourl )
             cell.deallogoimgvw.sd_setImage(with: url)
         }
-        
-        
         cell.Cashback.text = "Active"
-        
         cell.Promotiondate.text = String(format: "up to $%.2f", currentDealcashbackArray[indexPath.row].cashback.floatValue)
-        
         tags1 = indexPath.row
-        
-        
-       
-        
         return cell
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        
-        
-        
-        
-        
-       
-        
-        
-//        if indexPath.row == lastRowIndex { // last cell
-//             // more items to fetch
-//                loadItem() // increment `fromIndex` by 20 before server call
-//            }
-//        }
-        
-        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -1768,15 +1347,12 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let isnewrecord:Int = (Database.value(forKey: Constants.NewrecordKey)  as? Int)!
-        if isnewrecord == 1{
-            
-        }else{
-        self.view.endEditing(true)
-        self.Retailshoplist.endEditing(true)
-        self.mySearchBar.endEditing(true)
-        self.searchbar?.resignFirstResponder()
-        searchidentity = ""
-            
+        if isnewrecord != 1{
+            self.view.endEditing(true)
+            self.Retailshoplist.endEditing(true)
+            self.mySearchBar.endEditing(true)
+            self.searchbar?.resignFirstResponder()
+            searchidentity = ""
         }
     }
   
@@ -1788,19 +1364,17 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     
-    ///Called if you use String suggestion list
+    //MARK: - LOCATION PICKER ACTION
     func onClickItemSuggestionsView(item: String) {
         print("User touched this item: "+item)
         pickeridentity = "NO"
         Paginationidentity = "NO"
         searchidentity = ""
-        
         currentDealnameArray = [Dealname]()
         currentDealLocationArray = [DealLocation]()
         currentDealcashbackArray = [Dealcashback]()
         currentDealStartDateArray = [DealStartDate]()
         currentDealEndDateArray = [DealEndDate]()//update table
-        
         DealnameArray = [Dealname]()
         DealLocationArray = [DealLocation]()
         DealcashbackArray = [Dealcashback]()
@@ -1820,62 +1394,10 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             Database.synchronize()
             ConnecttoDealsAPISERVER()
         }
-        
-       
-        
     }
-    
-    
-    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        self.modernSearchBar.delegateModernSearchBar?.searchBarTextDidBeginEditing!(searchBar)
-//    }
-    
-//
-//    func registerForKeyboardNotifications(){
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    func deregisterFromKeyboardNotifications(){
-//        //Removing notifies on keyboard appearing
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    @objc func keyboardWasShown(notification: NSNotification){
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 180, 0.0)
-////       Scrollview.contentInset = contentInsets
-////       Scrollview.scrollIndicatorInsets = contentInsets
-////
-////
-////        print("Scrollview Top serachbar :",-Strechview.frame.size.height)
-////
-////        Scrollview.frame.origin.y = -Strechview.frame.size.height
-////
-//      //   print("Scrollview  :",Scrollview.frame.origin.y)
-//
-//      //  modernSearchBar.frame.origin.y = -DashboardView.frame.size.height+20
-//
-//    }
-//
-//    @objc func keyboardWillBeHidden(notification: NSNotification){
-//        //Once keyboard disappears, restore original positions
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -180, 0.0)
-////        Scrollview.contentInset = contentInsets
-////        Scrollview.scrollIndicatorInsets = contentInsets
-////
-//         Retailshoplist.frame.origin.y = -130
-//          Retailshoplist.contentSize = CGSize(width: self.view.frame.size.width, height:Retailshoplist.frame.size.height + headerview.frame.size.height+36)
-//
-//
-//    }
-//
-//
-    
 }
+
+//MARK: - DEALS LIST NAME,LOGO,LOACTION,DATE INSTANCE
 class Dealname {
     let name: String
     init(name: String) {
@@ -1913,66 +1435,20 @@ class DealEndDate {
     }
 }
 class Test_View: UIView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     override func draw(_ rect: CGRect) {
-        let h = rect.height
-        let w = rect.width
         let color:UIColor = UIColor.yellow
-        
         let drect = CGRect(x: 0,y: 0,width: 320,height: 100)
         let bpath:UIBezierPath = UIBezierPath(rect: drect)
-        
         color.set()
         bpath.stroke()
-        
         NSLog("drawRect has updated the view")
         
     }
     
 }
-//struct Refresh {
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//    var header: Style
-//    var footer: Style
-//    enum Style {
-//        // 普通刷新类
-//        case nomalHead
-//        case nomalFoot
-//        // slackLoading刷新控件
-//        case slackLoading
-//        // ramotion动画
-//        case ramotion
-//        // fast动画
-//        case fast
-//
-//        func commont() -> CRRefreshProtocol {
-//            switch self {
-//            case .nomalHead:
-//                return NormalHeaderAnimator()
-//            case .nomalFoot:
-//                return NormalFooterAnimator()
-//            case .slackLoading:
-//                return SlackLoadingAnimator()
-//            case .ramotion:
-//                return RamotionAnimator()
-//            case .fast:
-//                return FastAnimator()
-//            }
-//        }
-//    }
-//}
-//

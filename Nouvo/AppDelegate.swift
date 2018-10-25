@@ -18,50 +18,20 @@ import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewControllerTransitioningDelegate,CAAnimationDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
     
-    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
-        print(remoteMessage.appData)
-    }
     var window: UIWindow?
     static var shared: AppDelegate { return UIApplication.shared.delegate as! AppDelegate }
-    
-   
-    var applicationStateString: String {
-        if UIApplication.shared.applicationState == .active {
-            return "active"
-        } else if UIApplication.shared.applicationState == .background {
-            return "background"
-        }else {
-            return "inactive"
-        }
-    }
-    
-    func requestNotificationAuthorization(application: UIApplication) {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_, _ in })
-        } else {
-            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-    }
 
+    //MARK: - didFinishLaunchingWithOptions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        
         // Override point for customization after application launch.
+        //Google SignIn Credentials
         GIDSignIn.sharedInstance().clientID = "26831433128-ahuf7eg93phklvpf1ru37d69bnqup6vh.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        //Facebook Initilize
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        
-        
-       
+        //Firebase Notifications
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -78,49 +48,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
         }
         
         application.registerForRemoteNotifications()
-        FirebaseApp.configure()
+        FirebaseApp.configure() // Configure FIRbase
        // application.registerForRemoteNotifications()
         requestNotificationAuthorization(application: application)
-        
-        
-      //  messaging(<#T##messaging: Messaging##Messaging#>, didReceiveRegistrationToken: <#T##String#>)
-        
         if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] {
-            NSLog("[RemoteNotification] applicationState: \(applicationStateString) didFinishLaunchingWithOptions for iOS9: \(userInfo)")
-            //TODO: Handle background notification
-        }
-        
-        
-     
-//        
-//        //DB
-//        static var fcmToken = String()
-//        static let fcmTokenkey = "fcm"
-        
-        
-
-        let token = Database.value(forKey: Constants.Tokenkey) as? String
+            NSLog("[RemoteNotification] applicationState: \(applicationStateString) didFinishLaunchingWithOptions for iOS9: \(userInfo)")}
+        //One time Authentication
+        let token = Database.value(forKey: Constants.Tokenkey) as? String // Getting token
         if token != nil {
-            //Navigating to Home Dashboard Screen
-            
-            
-            
-          
+            //Navigating to Home Screen , if token exits in this condition
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
                 navigationController.transitioningDelegate = self
                 let window = UIApplication.shared.delegate!.window!!
                 window.rootViewController = navigationController
                 UIView.transition(with: window, duration: 0.1, options: [.transitionCrossDissolve], animations: nil, completion: nil)
-                
-         
+        }else{
             
-            
-        }
-        else{
+            // First time if user enter, this condition will call to save token
             let fcmtokens: String?
             fcmtokens = Messaging.messaging().fcmToken
-            print("FCM Token :",fcmtokens as? String)
+           // print("FCM Token :",fcmtokens as? String)
             if  fcmtokens == nil {
                 Constants.fcmToken = ""
                 Database.set(Constants.fcmToken, forKey: Constants.fcmTokenkey)
@@ -133,6 +81,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
             }
         }
         return true
+    }
+    var applicationStateString: String {
+        if UIApplication.shared.applicationState == .active {
+            return "active"
+        } else if UIApplication.shared.applicationState == .background {
+            return "background"
+        }else {
+            return "inactive"
+        }
+    }
+    func requestNotificationAuthorization(application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+    }
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
     }
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool{
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
@@ -156,7 +126,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,UIViewCo
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
     func applicationDidBecomeActive(_ application: UIApplication) {
         FBSDKAppEvents.activateApp()
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -234,9 +206,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate : MessagingDelegate {
-   // func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-   //     NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
-    //}
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
         

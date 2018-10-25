@@ -11,13 +11,13 @@ import GoogleSignIn
 
 class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,UIScrollViewDelegate {
     
+    //MARK: - OUTLET & INSTANCE
     @IBOutlet var Rountingnumber: UITextField!
     @IBOutlet var viewheight: NSLayoutConstraint!
     @IBOutlet var BGview: UIView!
     @IBOutlet var Level: UILabel!
     @IBOutlet weak var profileimageview: UIImageView!
     @IBOutlet weak var contentview: UIView!
-   
     @IBOutlet var RountingView: UIView!
     @IBOutlet var Levelmode: UILabel!
     @IBOutlet var Cashback: UILabel!
@@ -39,36 +39,38 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     @IBOutlet weak var Paytowhere: UITextField!
     @IBOutlet weak var RedeemView: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
-    
     @IBOutlet weak var CityLocation: UILabel!
     @IBOutlet weak var NameofSwipe: UILabel!
     var Input = [String: AnyObject]()
-    
-    
     var TotalBankTypearray = [String]()
     var SelectedBankTypearray = [String]()
-    
     var TotalBankTypearrayID = [NSNumber]()
     var SelectedBankTypearrayID = [NSNumber]()
-    
-    
-    
     var TotalBankNamearray = [NSArray]()
     var TotalBankNamearrayID = [NSArray]()
     var BankNamelist = [String]()
-    
     var PaytoWhereID = NSNumber()
     var SelectedBankID = NSNumber()
-    
-    
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
-    @objc func closebackgroundviews() {
-        BGview.isHidden = true
-    }
-    ///Handle click on shadow view
+   
+    //MARK: - BLACK BACKGROUND UI VIEW ACTION
     @objc func onClickShadowViews(){
         BGview.isHidden = true
     }
+    @objc func closebackgroundviews() {
+        BGview.isHidden = true
+    }
+    //MARK: - REFRESH SETUP
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(RedeemController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
+    //MARK: - REFRESH ACTION
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         DispatchQueue.global(qos: .background).async {
             self.ForceUpdatetoUserAPIWithLoginwallet()
@@ -77,13 +79,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             }
         }
     }
+    //MARK: - SERVER REQUEST
     func ForceUpdatetoUserAPIWithLoginwallet()  {
-        
-//        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-//        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-//        view.addSubview(indicator)
-//        indicator.frame = view.bounds
-//        indicator.startAnimating()
         showSpinning()
         ForceUpdatewithLoginApiInputBodywallet()
         let signInServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.InitSwipeURL
@@ -91,11 +88,33 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             (response) -> () in self.ForceUpdateWithLoginResponses(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
+    func ForceUpdatewithLoginApiInputBodywallet()  {
+        // Version 1.0
+        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "appVersionCode": appVersionString as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        Input =  [
+            "device_id": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
+    }
+    //MARK: - SERVER RESPONSE
     func ForceUpdateWithLoginResponses(response: [String : AnyObject]) {
         print("ForceUpdateWithLoginResponse :", response)
-        
-        // Response time
-        
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
         let AES = CryptoJS.AES()
@@ -140,8 +159,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             } else {
                 print("Unkown type")
             }
-            
-            
             Constants.WalletBalance = Cashback.text!
             let profilePicUrl: String?
             profilePicUrl = userprofilesettings["profilePicUrl"] as? String
@@ -162,7 +179,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             Progressview.minimumValue = Float(Constants.minlevel)
             Progressview.maximumValue = Float(Constants.maxlevel)
             Progressview.setProgress(userlevelsettings["userXP"] as! Float , animated: true)
-            
             Level.text = String(format: "Level %d", Constants.level)
             Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
             print(userlevelsettings)
@@ -192,39 +208,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             hideLoading()
         }
     }
-    func ForceUpdatewithLoginApiInputBodywallet()  {
-        // Version 1.0
-        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        let jsonObject: [String: AnyObject] = [
-            "appVersionCode": appVersionString as AnyObject
-        ]
-        var encrypted  = String()
-        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
-            let str = String(data: data, encoding: .utf8) {
-            print(str)
-            // Load only what's necessary
-            let AES = CryptoJS.AES()
-            // AES encryption
-            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
-            print(encrypted)
-        }
-        Input =  [
-            "device_id": deviceid as AnyObject,
-            "lat": "" as AnyObject,
-            "long": "" as AnyObject,
-            "platform": "IOS" as AnyObject,
-            "requestData": encrypted] as [String : AnyObject]
-    }
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(RedeemController.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.darkGray
-        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
-        return refreshControl
-    }()
+     //MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollview.addSubview(self.refreshControl)
@@ -236,9 +220,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         BGview.addSubview(blurEffectView)
-        
-        
-//        ///Configure the gesture to handle click on shadow and improve focus on searchbar
         let gestureShadow = UITapGestureRecognizer(target: self, action: #selector(RedeemController.onClickShadowViews))
         gestureShadow.delegate = self as? UIGestureRecognizerDelegate
         gestureShadow.numberOfTapsRequired = 1
@@ -246,37 +227,24 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         blurEffectView.isUserInteractionEnabled = true
         blurEffectView.addGestureRecognizer(gestureShadow)
         BGview.addSubview(blurEffectView)
-        
         Progressview.animationDuration = 0.5
         Progressview.minimumValue = Float(Constants.minlevel)
         Progressview.maximumValue = Float(Constants.maxlevel)
         Progressview.setProgress(Float(Constants.userlevel) , animated: true)
-        
         Level.text = String(format: "Level %d", Constants.level)
         Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
-        
-        
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
         let city: String?
         city = Database.value(forKey: Constants.citynamekey) as? String
         if  city == "" || city == nil{
-            
-            CityLocation.text = ""
-        }
-        else{
+        CityLocation.text = ""
+        }else{
             let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
             CityLocation.text = city
         }
-        
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
-        
-        print("Cashback",Cashback.text!)
-        print("Balance",Balance)
-        
-        
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameofSwipe.text = string2
@@ -293,9 +261,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         registerForKeyboardNotifications()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
-       //
-        // Do any additional setup after loading the view.
     }
+    //MARK: - ADD DONE OPTION IN KEYBOARD
     func addDoneButtonOnKeyboard()
     {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
@@ -307,10 +274,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         items.add(done)
         doneToolbar.items = items as? [UIBarButtonItem]
         doneToolbar.sizeToFit()
-        
         self.Rountingnumber.inputAccessoryView = doneToolbar
         self.RedeemAmount.inputAccessoryView = doneToolbar
-       // self.textField.inputAccessoryView = doneToolbar
         
     }
     @objc func doneButtonAction()
@@ -327,9 +292,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         self.contentview.endEditing(true)
         self.scrollview.endEditing(true)
     }
+    //MARK: - SETUP UI
     func setupNavigationBar()  {
-       // scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
-       // viewheight.constant = scrollview.contentSize.height
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let maskLayer = CAShapeLayer(layer: self.view.layer)
@@ -370,6 +334,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         RountingView.layer.borderWidth = 0.4
         RountingView.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0).cgColor
     }
+    //MARK: - CHECK NETWORK CONNECTIVITY
     func ConnectivityNetworkCheck() {
         //Check Internet Connectivity
         if !NetworkConnectivity.isConnectedToNetwork() {
@@ -380,6 +345,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             return
         }
     }
+    //MARK: - SERVER REQUEST
     func PaytowhereAPI()  {
         PaytowhereAPIInputBody()
         let GetredeemServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.GetRedeemURL
@@ -396,12 +362,11 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             "platform": "IOS" as AnyObject,
             "requestData": ""] as [String : AnyObject]
     }
+    //MARK: - SERVER RESPONSE
     func GetRedeemResponse(response: [String : AnyObject]){
         indicator.removeFromSuperview()
         hideLoading()
         print("GetRedeemResponse :", response)
-        // Response time
-        
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
         let AES = CryptoJS.AES()
@@ -416,37 +381,18 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         }
         var responses = [String : AnyObject]()
         responses = ["responseData" : json] as [String : AnyObject]
-
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             TotalBankTypearray = responses["responseData"]?.value(forKey: "mode") as! [String]
-            print("TotalBankTypearray  :", TotalBankTypearray)
-            
             TotalBankTypearrayID = responses["responseData"]?.value(forKey: "modeId") as! [NSNumber]
-            print("TotalBankTypearrayID  :", TotalBankTypearrayID)
-            
             TotalBankNamearray = responses["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
-            print("TotalBankNamearray  :", TotalBankNamearray)
-            
             TotalBankNamearrayID = responses["responseData"]?.value(forKey: "modeOptions") as! [NSArray]
-            print("TotalBankNamearrayID  :", TotalBankNamearrayID)
-            
-            
-            
-            
             self.Paytowhere.text = TotalBankTypearray[0]
             self.PaytoWhereID = TotalBankTypearrayID[0]
-            
-            
             SelectedBankTypearray = TotalBankNamearray[0].value(forKey: "name") as! [String]
             SelectedBankTypearrayID = TotalBankNamearrayID[0].value(forKey: "modeSubId") as! [NSNumber]
-            print("SelectedBankTypearrayID  :", SelectedBankTypearrayID)
-            
-            
             self.SelectedBank.text = SelectedBankTypearray[0]
             self.SelectedBankID = self.SelectedBankTypearrayID[0]
-            
-            
             if self.Paytowhere.text == "Cheque" {
                 self.SelectedBank.text = ""
                 self.PaymentAccountNo.text = ""
@@ -475,27 +421,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.PaymentAccountNo.placeholder = "Wallet Address"
                 
             }
-            
-            
-//            if self.Paytowhere.text == "Cheque" {
-//                self.SelectedBank.text = ""
-//                self.PaymentAccountNo.text = ""
-//
-//                self.SelectedBankButton.isUserInteractionEnabled = false
-//                self.SelectedBankDownIcon.isHidden = true
-//            }else if self.Paytowhere.text == "Bank Account" {
-//
-//
-//            }
-//                //
-//            else if self.Paytowhere.text == "Cryptocurrencies"{
-//
-//
-//                self.SelectedBank.text = SelectedBankTypearray[0]
-//                self.SelectedBankID = self.SelectedBankTypearrayID[0]
-//            }
-            
-            
         }else if success == "1050"{
             Database.removeObject(forKey: Constants.Tokenkey)
             Database.removeObject(forKey: Constants.profileimagekey)
@@ -512,42 +437,17 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-    
         scrollview.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
-        
     }
-//    func doSomething(action: UIAlertAction) {
-//        //Use action.title
-//        
-//        Database.removeObject(forKey: Constants.Tokenkey)
-//        Database.removeObject(forKey: Constants.profileimagekey)
-//        Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
-//        //LocalDatabase.ClearallLocalDB()
-//        Database.synchronize()
-//        GIDSignIn.sharedInstance().signOut()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
-//        self.present(navigationController, animated: true, completion: nil)
-//    }
+
+    //MARK: - VIEWWILLAPPEAR
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-//        let token = Database.value(forKey: Constants.Tokenkey) as? String
-//        if token == nil {
-//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
-//            alert.addAction(okAction)
-//            self.present(alert, animated: true, completion: nil)
-//        }
-        
-        
         let username: String?
         username = Database.value(forKey: Constants.profileimagekey) as? String
         if  username == "" || username == nil{
-        }
-        else{
-            
+        }else{
             let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
             self.profileimageview.sd_setImage(with: url)
                 self.profileimageview.contentMode = .scaleAspectFill
@@ -562,17 +462,13 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         let city: String?
         city = Database.value(forKey: Constants.citynamekey) as? String
         if  city == "" || city == nil{
-            
-            CityLocation.text = ""
-        }
-        else{
+        CityLocation.text = ""
+        }else{
             let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
             CityLocation.text = city
         }
-        
         let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
         Cashback.text = Balance
-        
         ConnectivityNetworkCheck()
         PaytowhereAPI()
     }
@@ -582,27 +478,16 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - CONFIRM ACTION TAP
     @IBAction func ConfirmTap(_ sender: Any) {
-        
-       //Fields need to verify must, dont forgot
-        
-       
         var a:Float? = Float(RedeemAmount.text!)
-      //  let cashback:Int? = Int(Cashback.text!)
-        
-        
-        print("Cashback",Cashback.text!)
-        
         if a == nil {
             a = 0
         }
-        
         let cashwallet = (Cashback.text?.replacingOccurrences(of: "$", with: ""))!
         let b:Float? = Float(cashwallet)
         let amontstring: String = RedeemAmount.text!
-       // amontstring.prefix(4)
         print("Redeem Amont : %@",amontstring.prefix(1))
-        
         if Paytowhere.text == "" {
             let alert = UIAlertController(title: "Bank Account" , message: "Please Select Your Bank Type", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -623,23 +508,19 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-            
         }else if a == 0 {
             let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             
-        }
-            //a! >= cashback!
-        else if a! > b! {
+        }else if a! > b! {
             let alert = UIAlertController(title: "Invalid Redeem" , message: ("You cannot redeem more than \(self.Cashback.text!)"), preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            
             if self.Paytowhere.text == "Bank Account" {
                 if Rountingnumber.text == ""{
                     let alert = UIAlertController(title: "Routing Number" , message: "Please Enter Your Routing Number", preferredStyle: .alert)
@@ -673,15 +554,11 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
        
         
     }
+    //MARK: - SERVER REQUEST
     func RedeemAPIInputBody(){
-        print("PaytoWhereID  :", PaytoWhereID)
-       // print("SelectedBankID  :", SelectedBankID)
-        
         if self.Paytowhere.text == "Cheque" {
-            
-            SelectedBankID = 0
+        SelectedBankID = 0
         }
-        
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         let jsonObject: [String: AnyObject] = [
             "redeemModeId": PaytoWhereID as AnyObject,
@@ -706,9 +583,9 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             "requestData": encrypted] as [String : AnyObject]
         
     }
+    //MARK: - SERVER RESPONSE
     func RaiseRedeemResponse(response: [String : AnyObject]){
         print("RaiseRedeemResponse :", response)
-        
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
         let AES = CryptoJS.AES()
@@ -742,6 +619,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             hideLoading()
         }
     }
+    
+    //MARK: - SELECT BANKOPTION TAP
     @IBAction func SelectedBankTypePressed(_ sender: Any) {
         
         BGview.isHidden = false
@@ -770,6 +649,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
      
        
     }
+    //MARK: - SELECT OPTION TO WHERE
     @IBAction func PaytowherePressed(_ sender: Any) {
         
         BGview.isHidden = false
@@ -784,8 +664,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 print(values[i].title)
                 self.Paytowhere.text = values[i].title
                 self.PaytoWhereID = self.TotalBankTypearrayID[i]
-                
-                
                 if self.Paytowhere.text == "Cheque" {
                     self.SelectedBank.text = ""
                     self.PaymentAccountNo.text = ""
@@ -813,10 +691,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             }
         }
         picker.show()
-        
-        
-      
-        
     }
     
     //MARK: TCPickerViewDelegate methods
@@ -826,16 +700,9 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         
         if Paytowhere.tag == 0 {
             SelectedBankTypearray = TotalBankNamearray[index].value(forKey: "name") as! [String]
-            print("TotalBankNamearray  :", SelectedBankTypearray)
             SelectedBankTypearrayID = TotalBankNamearrayID[index].value(forKey: "modeSubId") as! [NSNumber]
-            print("SelectedBankTypearrayID  :", SelectedBankTypearrayID)
-            
-            
-            
             self.Paytowhere.text = TotalBankTypearray[index]
             self.PaytoWhereID = TotalBankTypearrayID[index]
-            
-            
             if self.Paytowhere.text == "Cheque" {
                 self.SelectedBank.text = ""
                 self.PaymentAccountNo.text = ""
@@ -846,10 +713,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             }else if self.Paytowhere.text == "Bank Account" {
                 self.PaymentAccountNo.placeholder = "Account Number"
                 self.Rountingnumber.text = ""
-
-            }
-                //
-            else if self.Paytowhere.text == "Cryptocurrencies"{
+            }else if self.Paytowhere.text == "Cryptocurrencies"{
                 self.PaymentAccountNo.text = ""
                 self.PaymentAccountNo.placeholder = "Wallet Address"
                 self.SelectedBank.text = SelectedBankTypearray[0]
@@ -860,6 +724,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
        
         
     }
+    //MARK: - HIDE KEYBAORD
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -892,10 +757,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             if (textField.text?.contains("."))! && string == "." {
                 return false
             }
-        }
-        
-        else if textField == PaymentAccountNo
-        {
+        }else if textField == PaymentAccountNo{
             if range.location == 20 {
             return false}
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
@@ -907,13 +769,9 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         return true
     }
     
-    
+    //MARK: - KEYBOARD SETUP
     func registerForKeyboardNotifications()
     {
-        //Adding notifies on keyboard appearing
-        
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -926,51 +784,34 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    
+    //MARK: - SHOW KEYBAORD
     @objc func keyboardWasShown(notification: NSNotification){
-        
-        
-    
-        
-        
-    //Need to calculate keyboard exact size due to Apple suggestions
-   // scrollview.isScrollEnabled = true
-        
-         print(scrollview.contentInset.bottom)
-        
+    print(scrollview.contentInset.bottom)
     var info = notification.userInfo!
     let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
     let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height+100, 0.0)
-    
     scrollview.contentInset = contentInsets
     scrollview.scrollIndicatorInsets = contentInsets
         
-        print(scrollview.frame.size.height)
-        print(scrollview.contentSize.height)
-        print("Bottom",scrollview.contentInset.bottom)
-        print("TOP",scrollview.contentInset.top)
-    
-//    var aRect : CGRect = self.view.frame
-//    aRect.size.height -= keyboardSize!.height
-//    if let PaymentAccountNo = self.PaymentAccountNo {
-//        if (!aRect.contains(PaymentAccountNo.frame.origin)){
-//            scrollview.scrollRectToVisible(PaymentAccountNo.frame, animated: true)
-//        }
-//    }
+//        print(scrollview.frame.size.height)
+//        print(scrollview.contentSize.height)
+//        print("Bottom",scrollview.contentInset.bottom)
+//        print("TOP",scrollview.contentInset.top)
 }
 
+    //MARK: - HIDE KEYBAORD
     @objc func keyboardWillBeHidden(notification: NSNotification){
     //Once keyboard disappears, restore original positions
-    var info = notification.userInfo!
-    let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+    //var info = notification.userInfo!
+   // let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
     let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0,0.0, 0.0)
     scrollview.contentInset = contentInsets
     scrollview.scrollIndicatorInsets = contentInsets
         
-        print(scrollview.frame.size.height)
-        print(scrollview.contentSize.height)
-        print("Bottom",scrollview.contentInset.bottom)
-        print("TOP",scrollview.contentInset.top)
+//        print(scrollview.frame.size.height)
+//        print(scrollview.contentSize.height)
+//        print("Bottom",scrollview.contentInset.bottom)
+//        print("TOP",scrollview.contentInset.top)
     //scrollview.contentSize = CGSize(width: self.view.frame.size.width, height:655)
    // self.view.endEditing(true)
     scrollview.isScrollEnabled = true
@@ -996,7 +837,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         centerActivityIndicatorInButton()
         indicator.startAnimating()
     }
-    
     private func centerActivityIndicatorInButton() {
         let xCenterConstraint = NSLayoutConstraint(item: ConfirmButton, attribute: .centerX, relatedBy: .equal, toItem: indicator, attribute: .centerX, multiplier: 1, constant: 0)
         ConfirmButton.addConstraint(xCenterConstraint)
@@ -1009,16 +849,4 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeindex"), object: nil)
     }
     
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        searchBar.setShowsCancelButton(true, animated: true)}
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.setShowsCancelButton(true, animated: true)
-//
-//    }
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//        searchBar.setShowsCancelButton(false, animated: true)
-//        searchBar.text = ""
-//    }
 }

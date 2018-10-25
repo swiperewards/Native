@@ -130,6 +130,7 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
+  - MaterialTextField (0.2.1)
   - MXParallaxHeader (0.6.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -141,6 +142,7 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - Stripe (11.5.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -150,9 +152,11 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Fontello-Swift
   - GoogleSignIn
+  - MaterialTextField (~> 0.2)
   - MXParallaxHeader
   - ParallaxHeader (~> 2.0.0)
   - SDWebImage (~> 4.0)
+  - Stripe
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -170,11 +174,13 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMOAuth2
     - GTMSessionFetcher
+    - MaterialTextField
     - MXParallaxHeader
     - nanopb
     - ParallaxHeader
     - Protobuf
     - SDWebImage
+    - Stripe
 
 EXTERNAL SOURCES:
   CryptoSwift:
@@ -202,12 +208,14 @@ SPEC CHECKSUMS:
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  MaterialTextField: f876a39d571eeece872af6a4da421e3bd065fe0b
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  Stripe: 10761682d20dc491c52287393c800db056c9748d
 
-PODFILE CHECKSUM: 62a842ab5fd5d7b9baa1264d60baed83e76944bf
+PODFILE CHECKSUM: 713a55b43d1adf68868f2010226734b970efbb10
 
 COCOAPODS: 1.5.3

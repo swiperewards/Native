@@ -41,9 +41,6 @@ class WebClientRequest: AFHTTPSessionManager {
                  addToken: Bool = true,
                  successBlock success:@escaping (AnyObject) -> (),
                  failureBlock failure: @escaping (NSError) -> ()){
-        
-        
-        
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>
@@ -63,9 +60,6 @@ class WebClientRequest: AFHTTPSessionManager {
                           addToken: Bool = true,
                           successBlock success:@escaping (AnyObject) -> (),
                           failureBlock failure: @escaping (NSError) -> ()){
-        
-        
-        
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = NSSet(object: "application/json") as? Set<String>

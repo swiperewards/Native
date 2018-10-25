@@ -11,6 +11,9 @@ import WebKit
 class TermsofUseController: UIViewController,WKNavigationDelegate {
 var indicator = UIActivityIndicatorView()
     var webView : WKWebView!
+    
+       //MARK: - Viewdidload
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          setUpNavBar()
@@ -30,17 +33,18 @@ var indicator = UIActivityIndicatorView()
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.view.tintColor = UIColor.white
         self.navigationItem.title = "TERMS OF USE"
-        
         //For back button in navigation bar
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
+     //MARK: - WebView delegate methods
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error.localizedDescription)
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Strat to load")
+       // print("Strat to load")
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         view.addSubview(indicator)
@@ -48,25 +52,13 @@ var indicator = UIActivityIndicatorView()
         indicator.startAnimating()
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("finish to load")
+       // print("finish to load")
          indicator.removeFromSuperview()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MARK:- WKNavigationDelegate
     
-   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

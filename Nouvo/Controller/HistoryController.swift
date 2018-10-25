@@ -10,26 +10,28 @@ import UIKit
 import GoogleSignIn
 class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 
-    var Input = [String: AnyObject]()
-    var indicator = UIActivityIndicatorView()
-    @IBOutlet weak var HistoryTV: UITableView!
-    let fontswipe = FontSwipe()
-    var fontData = [[:]]
-    var fontData1 = [[:]]
+    
+     //MARK: - Outlet & Instance
+     var Input = [String: AnyObject]()
+     var indicator = UIActivityIndicatorView()
+     @IBOutlet weak var HistoryTV: UITableView!
+     let fontswipe = FontSwipe()
+     var fontData = [[:]]
+     var fontData1 = [[:]]
      var notifydatearray = [String]()
      var notifyamountarray = [AnyObject]()
      var notifytitlearray = [String]()
      var CheckICONTypearray = [AnyObject]()
      var isCreditarray = [AnyObject]()
     
-    
+     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "HISTORY"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
+     //MARK: - Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpUI()
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -40,6 +42,7 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
         
         // Do any additional setup after loading the view.
     }
+     //MARK: - Setup UI
     func setUpUI() {
         self.navigationController?.navigationBar.topItem?.title = "HISTORY"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -71,23 +74,15 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             self.present(alert, animated: true, completion: nil)
             return
         }
-        HistoryInputBody()
+        HistoryInputBody() // Request data
         let HistoryAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.EventHistoryURL
         RequestManager.PostPathwithAUTH(urlString: HistoryAPI, params: Input, successBlock:{
             (response) -> () in self.EventHistoryResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in }
     }
    
+     //MARK: - Server Request
     func HistoryInputBody() {
-        /*
-         {
-         "platform": "android",
-         "deviceId": "some string here",
-         "lat": "some description here",
-         "long": "some web here",
-         "requestData":{
-         }
-         }*/
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         Input =  [
             "deviceId": deviceid as AnyObject,
@@ -97,12 +92,9 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             "requestData": ""] as [String : AnyObject]
         
     }
+     //MARK: - Server Response
     func EventHistoryResponse(response: [String : AnyObject]) {
         indicator.removeFromSuperview()
-        print("EventHistoryResponse :", response)
-        
-        // Response time
-        
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
         let AES = CryptoJS.AES()
@@ -133,12 +125,15 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             //LocalDatabase.ClearallLocalDB()
             Database.synchronize()
             GIDSignIn.sharedInstance().signOut()
+            
+            //  //MARK: - Navigation to login screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let navigationController = storyboard.instantiateViewController(withIdentifier: "SignInController")
             self.present(navigationController, animated: true, completion: nil)
           //  hideLoading()
         }
     }
+     //MARK: - TABLEVIEW DELEGATE
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -149,10 +144,7 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistorylistCell", for: indexPath) as! HistorylistCell
-        
         cell.Noitifytitle?.text = notifytitlearray[indexPath.row]
-        
-       
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
@@ -160,9 +152,7 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
         dateFormatter.dateFormat = "dd MMM YYYY"///this is what you want to convert format
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         let timeStamp = dateFormatter.string(from: date!)
-        print("timeStamp current date:-",timeStamp)
-        
-        
+        //print("timeStamp current date:-",timeStamp)
         cell.Notifydate?.text = timeStamp
         let amountstring = notifyamountarray[indexPath.row]
         let credit = isCreditarray[indexPath.row]
@@ -172,18 +162,13 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
         let eventtypestr:String = String(format: "%@", eventtypestring as! CVarArg)
         if transamount == "<null>" {
              cell.Notifyamount?.text = ""
-            
         }else{
             print("AMount : %@",amountstring)
             cell.Notifyamount?.text = String(format: "$%@", amountstring as! CVarArg)
         }
-        
-       
-       
         cell.NotifyIcon?.text =  fontData[0]["text"] as? String
         cell.NotifyIcon?.font =  fontData[0]["font"] as! UIFont
         cell.NotifyIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        
         if eventtypestr  == "0" && creditstring.isEmpty == true {
             cell.NotifyIcon?.text =  fontData[0]["text"] as? String
             cell.NotifyIcon?.font =  fontData[0]["font"] as! UIFont
@@ -193,22 +178,18 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             cell.NotifyIcon?.text =  fontData[1]["text"] as? String
             cell.NotifyIcon?.font =  fontData[1]["font"] as! UIFont
             cell.NotifyIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
             cell.NotifyArrowIcon?.text =  fontData1[0]["text"] as? String
             cell.NotifyArrowIcon?.font =  fontData1[0]["font"] as! UIFont
             cell.NotifyArrowIcon?.textColor =  UIColor.green
-            
             cell.Notifyamount?.text = String(format: "+$%@", amountstring as! CVarArg)
             
         }else  if eventtypestr == "3"  && creditstring == "false"  {
             cell.NotifyIcon?.text =  fontData[1]["text"] as? String
             cell.NotifyIcon?.font =  fontData[1]["font"] as! UIFont
             cell.NotifyIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
             cell.NotifyArrowIcon?.text =  fontData1[1]["text"] as? String
             cell.NotifyArrowIcon?.font =  fontData1[1]["font"] as! UIFont
             cell.NotifyArrowIcon?.textColor =  UIColor.red
-            
             cell.Notifyamount?.text = String(format: "-$%@", amountstring as! CVarArg)
             
         }else if eventtypestr == "2"  {

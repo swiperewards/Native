@@ -19,6 +19,8 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var ConfirmPassword: FloatLabelTextField!
     var Input = [String: AnyObject]()
     var indicator = UIActivityIndicatorView()
+    
+    //MARK: -  Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
          setUpNavBar()
@@ -35,6 +37,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         
       // Do any additional setup after loading the view.
     }
+    //MARK: -  Setup UI
     func setUpNavBar(){
         //For title in navigation bar
         self.navigationController?.view.backgroundColor = UIColor.white
@@ -50,7 +53,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //MARK: -  Submit Action Tap
     @IBAction func SubmitTap(_ sender: Any) {
         
         //Check Internet Connectivity
@@ -77,7 +80,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
         (response) -> () in self.ChangePasswordResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
-    //MARK: -  SignUp API Input Body
+    //MARK: -  Server API Input Body
     func ChangePasswordApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         let jsonObject: [String: AnyObject] = [
@@ -102,7 +105,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
-    //MARK: -  Fetching Signup data from server
+    //MARK: -  Fetching  data from server
     func ChangePasswordResponse(response: [String : AnyObject]){
         print("ChangePassword response :", response)
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
@@ -147,6 +150,7 @@ class ChangePasswordController: UIViewController,UITextFieldDelegate {
     func dosomething(action: UIAlertAction)   {
         self.navigationController?.popViewController(animated: true)
     }
+    //MARK: -  Validate textFields
     func isAllFieldSet() -> Bool {
         let fontswipe = FontSwipe()
         oldpasswordICON.font = fontswipe.fontOfSize(20)

@@ -46,6 +46,8 @@
 		8E2C8335211D670000CDBE37 /* SetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */; };
 		8E44027321098E47005952E3 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44027221098E47005952E3 /* AddCardController.swift */; };
 		8E440275210993C5005952E3 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E440274210993C5005952E3 /* LocalDatabase.swift */; };
+		8E486FD0217DA28900DEBE6C /* MaterialTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E486FCF217DA28900DEBE6C /* MaterialTextField.framework */; };
+		8E486FD2217DA28900DEBE6C /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E486FD1217DA28900DEBE6C /* Stripe.framework */; };
 		8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */; };
 		8E50104F2118A48F00AEDDE4 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50104E2118A48F00AEDDE4 /* TabViewController.swift */; };
 		8E5010512118B70000AEDDE4 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5010502118B70000AEDDE4 /* LinearProgressView.swift */; };
@@ -62,32 +64,14 @@
 		8E6D20DA2154C380002523B6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D20D72154C380002523B6 /* NSData+Base64.m */; };
 		8E6D21122154F2A1002523B6 /* CRRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6D21112154F2A1002523B6 /* CRRefresh.framework */; };
 		8E6D214321552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
-		8E6D214421552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
-		8E6D214521552375002523B6 /* PullToBounceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */; };
 		8E6D214621552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
-		8E6D214721552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
-		8E6D214821552375002523B6 /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214021552374002523B6 /* BounceView.swift */; };
 		8E6D214921552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
-		8E6D214A21552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
-		8E6D214B21552375002523B6 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214121552374002523B6 /* BallView.swift */; };
 		8E6D214C21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
-		8E6D214D21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
-		8E6D214E21552375002523B6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214221552375002523B6 /* WaveView.swift */; };
 		8E6D21512155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
-		8E6D21522155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
-		8E6D21532155237E002523B6 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F2155237D002523B6 /* NSTimerEx.swift */; };
 		8E6D21542155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
-		8E6D21552155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
-		8E6D21562155237E002523B6 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21502155237E002523B6 /* CGRectEx.swift */; };
 		8E6D215B2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
-		8E6D215C2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
-		8E6D215D2155277E002523B6 /* MainGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21582155277D002523B6 /* MainGear.swift */; };
 		8E6D215E2155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
-		8E6D215F2155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
-		8E6D21602155277E002523B6 /* BigGear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D21592155277D002523B6 /* BigGear.swift */; };
 		8E6D21612155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
-		8E6D21622155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
-		8E6D21632155277E002523B6 /* GearRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D215A2155277E002523B6 /* GearRefreshControl.swift */; };
 		8E6D2165215920A1002523B6 /* ReferandEarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D2164215920A1002523B6 /* ReferandEarnViewController.swift */; };
 		8E6F47732175C3790065D404 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E6F47722175C3790065D404 /* GoogleService-Info.plist */; };
 		8E72535D214258E0006DD878 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72535C214258E0006DD878 /* SDWebImage.framework */; };
@@ -315,6 +299,8 @@
 		8E2C8334211D66FF00CDBE37 /* SetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordController.swift; sourceTree = "<group>"; };
 		8E44027221098E47005952E3 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
 		8E440274210993C5005952E3 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		8E486FCF217DA28900DEBE6C /* MaterialTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E486FD1217DA28900DEBE6C /* Stripe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Stripe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4D3A1620FF096F008B2F9B /* SwipeRewardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRewardsAPI.swift; sourceTree = "<group>"; };
 		8E50104E2118A48F00AEDDE4 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8E5010502118B70000AEDDE4 /* LinearProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
@@ -450,6 +436,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E486FD0217DA28900DEBE6C /* MaterialTextField.framework in Frameworks */,
+				8E486FD2217DA28900DEBE6C /* Stripe.framework in Frameworks */,
 				8E6D21122154F2A1002523B6 /* CRRefresh.framework in Frameworks */,
 				8E72535D214258E0006DD878 /* SDWebImage.framework in Frameworks */,
 				8E28419D2139768C007EE7E7 /* FirebaseCore.framework in Frameworks */,
@@ -526,6 +514,21 @@
 				8E172B432106F8290068565D /* NetworkConnectivity.swift */,
 				8E172B452106F8FB0068565D /* Constants.swift */,
 				8E440274210993C5005952E3 /* LocalDatabase.swift */,
+				8E6D21502155237E002523B6 /* CGRectEx.swift */,
+				8E6D214F2155237D002523B6 /* NSTimerEx.swift */,
+				8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */,
+				8ED9E8742161F30C00ADD205 /* CryptoJS.swift */,
+				8E6D20D32154C37E002523B6 /* MBEncryptorAES.h */,
+				8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */,
+				8E6D20D42154C37E002523B6 /* NSData+Base64.h */,
+				8E6D20D72154C380002523B6 /* NSData+Base64.m */,
+				8E6D214121552374002523B6 /* BallView.swift */,
+				8E6D214021552374002523B6 /* BounceView.swift */,
+				8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */,
+				8E6D214221552375002523B6 /* WaveView.swift */,
+				8E6D21592155277D002523B6 /* BigGear.swift */,
+				8E6D215A2155277E002523B6 /* GearRefreshControl.swift */,
+				8E6D21582155277D002523B6 /* MainGear.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -558,35 +561,19 @@
 				8EE0EB3D213CFC4800AB2668 /* Nouvo.entitlements */,
 				8EF1D38E20EBA78B00604B37 /* SwipeFonts */,
 				8E4D3A1520FF08FC008B2F9B /* Helpers */,
+				8ED9E8762161F31900ADD205 /* Components */,
 				8ECB0B852135812F00B36030 /* RAMAnimatedTabBarController */,
+				8E1E053320EA019F001C1328 /* Interfaces */,
 				8EF1D34920EB98B800604B37 /* Model */,
 				8E95A7DA20ECD1CA00C22263 /* View */,
 				8E95A7D920ECD18700C22263 /* Controller */,
-				8ED9E8762161F31900ADD205 /* Components */,
-				8E1E053320EA019F001C1328 /* Interfaces */,
 				8E636C4C20E3BA38000CF233 /* AppDelegate.swift */,
-				8E6D20D62154C37F002523B6 /* EncryptionDecryption.swift */,
-				8ED9E8742161F30C00ADD205 /* CryptoJS.swift */,
-				8E6D20D32154C37E002523B6 /* MBEncryptorAES.h */,
-				8E6D20D52154C37F002523B6 /* MBEncryptorAES.m */,
-				8E6D20D42154C37E002523B6 /* NSData+Base64.h */,
-				8E6D20D72154C380002523B6 /* NSData+Base64.m */,
-				8E6D214121552374002523B6 /* BallView.swift */,
-				8E6D214021552374002523B6 /* BounceView.swift */,
-				8E6D213F21552373002523B6 /* PullToBounceWrapper.swift */,
-				8E6D214221552375002523B6 /* WaveView.swift */,
-				8E6D21592155277D002523B6 /* BigGear.swift */,
-				8E6D215A2155277E002523B6 /* GearRefreshControl.swift */,
-				8E6D21582155277D002523B6 /* MainGear.swift */,
-				8E6D21572155241B002523B6 /* helper */,
-				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
-				8EE3F73E214149E8001C6676 /* LaunchScreen.storyboard */,
-				8E20C78F2141424E0019CE14 /* LaunchView.xib */,
+				8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */,
 				8E636C5B20E3BA3A000CF233 /* Info.plist */,
 				8E8ACC0A213680A0000A95B7 /* credentials.plist */,
 				8E6F47722175C3790065D404 /* GoogleService-Info.plist */,
-				8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */,
 				8E636C5320E3BA38000CF233 /* Swipe_Rewards.xcdatamodeld */,
+				8E636C5620E3BA3A000CF233 /* Assets.xcassets */,
 			);
 			path = Nouvo;
 			sourceTree = "<group>";
@@ -607,15 +594,6 @@
 				8E636C7120E3BA3B000CF233 /* Info.plist */,
 			);
 			path = NouvoUITests;
-			sourceTree = "<group>";
-		};
-		8E6D21572155241B002523B6 /* helper */ = {
-			isa = PBXGroup;
-			children = (
-				8E6D21502155237E002523B6 /* CGRectEx.swift */,
-				8E6D214F2155237D002523B6 /* NSTimerEx.swift */,
-			);
-			path = helper;
 			sourceTree = "<group>";
 		};
 		8E95A7D920ECD18700C22263 /* Controller */ = {
@@ -648,6 +626,8 @@
 			isa = PBXGroup;
 			children = (
 				8E636C5020E3BA38000CF233 /* Main.storyboard */,
+				8EE3F73E214149E8001C6676 /* LaunchScreen.storyboard */,
+				8E20C78F2141424E0019CE14 /* LaunchView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,6 +801,8 @@
 		8EFDF82720E4B083008586F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E486FCF217DA28900DEBE6C /* MaterialTextField.framework */,
+				8E486FD1217DA28900DEBE6C /* Stripe.framework */,
 				8E6D21112154F2A1002523B6 /* CRRefresh.framework */,
 				8E72535C214258E0006DD878 /* SDWebImage.framework */,
 				8E28419C2139768C007EE7E7 /* FirebaseCore.framework */,
@@ -1127,9 +1109,11 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1143,9 +1127,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1262,9 +1248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E6D215F2155277E002523B6 /* BigGear.swift in Sources */,
 				8E95A7E520ECE1B100C22263 /* SettingsController.swift in Sources */,
-				8E6D215C2155277E002523B6 /* MainGear.swift in Sources */,
 				8E10D06120EF608300C6020D /* ForgotController.swift in Sources */,
 				8EF1D39120EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E95A80620EE36F600C22263 /* WalletCardsCell.swift in Sources */,
@@ -1272,10 +1256,6 @@
 				8E10D05D20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E636C6520E3BA3A000CF233 /* NouvoTests.swift in Sources */,
 				8E20C795214142BC0019CE14 /* LaunchView.swift in Sources */,
-				8E6D214A21552375002523B6 /* BallView.swift in Sources */,
-				8E6D214721552375002523B6 /* BounceView.swift in Sources */,
-				8E6D214421552375002523B6 /* PullToBounceWrapper.swift in Sources */,
-				8E6D214D21552375002523B6 /* WaveView.swift in Sources */,
 				8E95A7FE20EDE53100C22263 /* HistorylistCell.swift in Sources */,
 				8E1E053620EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 				8E95A7E920ECE1C400C22263 /* HistoryController.swift in Sources */,
@@ -1284,14 +1264,11 @@
 				8EF1D34C20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34220EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7DE20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
-				8E6D21622155277E002523B6 /* GearRefreshControl.swift in Sources */,
 				8EE0EB4B213E84CE00AB2668 /* CardIconFont.swift in Sources */,
 				8E95A7ED20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8E95A7F120ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05920EF420800C6020D /* ContactUsController.swift in Sources */,
-				8E6D21522155237E002523B6 /* NSTimerEx.swift in Sources */,
 				8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */,
-				8E6D21552155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1299,9 +1276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E6D21602155277E002523B6 /* BigGear.swift in Sources */,
 				8E95A7E620ECE1B100C22263 /* SettingsController.swift in Sources */,
-				8E6D215D2155277E002523B6 /* MainGear.swift in Sources */,
 				8E10D06220EF608300C6020D /* ForgotController.swift in Sources */,
 				8EF1D39220EBAC6E00604B37 /* SignUpController.swift in Sources */,
 				8E95A80720EE36F600C22263 /* WalletCardsCell.swift in Sources */,
@@ -1309,10 +1284,6 @@
 				8E10D05E20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E636C7020E3BA3A000CF233 /* NouvoUITests.swift in Sources */,
 				8E20C796214142BC0019CE14 /* LaunchView.swift in Sources */,
-				8E6D214B21552375002523B6 /* BallView.swift in Sources */,
-				8E6D214821552375002523B6 /* BounceView.swift in Sources */,
-				8E6D214521552375002523B6 /* PullToBounceWrapper.swift in Sources */,
-				8E6D214E21552375002523B6 /* WaveView.swift in Sources */,
 				8E95A7FF20EDE53100C22263 /* HistorylistCell.swift in Sources */,
 				8E1E053720EA01C8001C1328 /* FloatLabelTextField.swift in Sources */,
 				8E95A7EA20ECE1C400C22263 /* HistoryController.swift in Sources */,
@@ -1321,14 +1292,11 @@
 				8EF1D34D20EB997C00604B37 /* FontSwipeLogo.swift in Sources */,
 				8EF1D34320EB53A000604B37 /* FontSwipe.swift in Sources */,
 				8E95A7DF20ECD38700C22263 /* Retailshoplistcell.swift in Sources */,
-				8E6D21632155277E002523B6 /* GearRefreshControl.swift in Sources */,
 				8EE0EB4C213E84CE00AB2668 /* CardIconFont.swift in Sources */,
 				8E95A7EE20ECE1D900C22263 /* WalletController.swift in Sources */,
 				8E95A7F220ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05A20EF420800C6020D /* ContactUsController.swift in Sources */,
-				8E6D21532155237E002523B6 /* NSTimerEx.swift in Sources */,
 				8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */,
-				8E6D21562155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1480,9 +1448,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = 9SSYE6QZSP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
@@ -1495,10 +1463,10 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
+				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1513,9 +1481,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Proshonjit Das (ZZZ95T4TCY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ashwin Kandoi (V8942HRC6N)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = 9SSYE6QZSP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1527,10 +1495,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = Swipe.com.Nouvo;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "4076476a-a5c9-4d2b-b798-289353d3560d";
+				PROVISIONING_PROFILE_SPECIFIER = nouvo_swipe_30_08_2018_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

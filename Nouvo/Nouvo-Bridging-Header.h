@@ -17,6 +17,7 @@
 #import <MXParallaxHeader/MXScrollViewController.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBEncryptorAES.h"
+#import <MaterialTextField/MaterialTextField.h>
 
 #endif /* Swipe_Rewards_Bridging_Header_h */
 

@@ -10,9 +10,6 @@ import UIKit
 import Fontello_Swift
 
 class FontSwipe: NSObject {
-    
-    
-    
         enum FontSwipe: String {
         case Username = "\u{e811}"
         case Wallet = "\u{e800}"
@@ -70,8 +67,6 @@ class FontSwipe: NSObject {
     
     func fontOfSize(_ fontSize: CGFloat) -> UIFont {
         return Fontello.fontOfSize(fontSize, name: "swipe")
-        
-        
     }
     func stringWithName(_ name: FontSwipe) -> String {
         return name.rawValue.substring(to: name.rawValue.characters.index(name.rawValue.startIndex, offsetBy: 1))

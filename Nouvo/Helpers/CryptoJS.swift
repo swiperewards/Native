@@ -488,7 +488,6 @@ open class CryptoJS{
                 super.init()
                 // Retrieve the content of the script
                 let cryptoJSpath = Bundle.main.path(forResource: "mode-\(CryptoJS.mode().CTR.lowercased())", ofType: "js")
-                
                 if(( cryptoJSpath ) != nil){
                     do {
                         let cryptoJS = try String(contentsOfFile: cryptoJSpath!, encoding:String.Encoding.utf8)

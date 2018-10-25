@@ -22,7 +22,6 @@ class ForgotController: UIViewController,UITextFieldDelegate {
     var getemail = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let fontswipe = FontSwipe()
         let fontNuovo = FontNuovo()
         EmailIcon.font = fontswipe.fontOfSize(20)
@@ -47,10 +46,6 @@ class ForgotController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func SubmitPressed(_ sender: Any) {
-        
-        
-        
-        
         Email.resignFirstResponder()
         if !NetworkConnectivity.isConnectedToNetwork() {
             let alert = UIAlertController(title: Constants.NetworkerrorTitle , message: Constants.Networkerror, preferredStyle: .alert)
@@ -66,7 +61,6 @@ class ForgotController: UIViewController,UITextFieldDelegate {
             Email.attributedPlaceholder = NSAttributedString(string: Constants.emptyEmail, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             Email.titleTextColour = UIColor.red
             EmailIcon.textColor = UIColor.red
-            
         }else if !isAllFieldSet() {
             return
         }else{
@@ -81,13 +75,13 @@ class ForgotController: UIViewController,UITextFieldDelegate {
         { (error: NSError) ->() in}}
         
     }
+    //MARK: -  Validate textinputs
     func isAllFieldSet() -> Bool {
         if !isValidEmail(testStr: Email.text!) {
             Email.attributedPlaceholder = NSAttributedString(string: Constants.errInvalidEmail, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             Email.titleTextColour = UIColor.red
             EmailIcon.textColor = UIColor.red
             return false
-            
         }
         else{
             EmailIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -96,15 +90,16 @@ class ForgotController: UIViewController,UITextFieldDelegate {
             return true
         }
   }
-    
+    //MARK: -  Validate email id
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
+    //MARK: -  Server request
     func ForgotPasswordApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        print("deviceid :", deviceid)
+     //   print("deviceid :", deviceid)
         let jsonObject: [String: AnyObject] = [
              "emailId": Email.text as AnyObject
         ]
@@ -126,29 +121,17 @@ class ForgotController: UIViewController,UITextFieldDelegate {
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
-    //MARK: -  Fetching Signup data from server
+    //MARK: -  Fetching  data from server
     func ForgotResponse(response: [String : AnyObject]){
-        print("SignIn response :", response)
+      //  print("SignIn response :", response)
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
             hideLoading()
             Submitbutton.isUserInteractionEnabled = true
-//            let alert = UIAlertController(title: "Successful" , message: "Sent Password reset link to your mail", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default)
-//            { action -> Void in
-            
-           // })
-           
-            //self.present(alert, animated: true, completion: nil)
-            
-            
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let view: SetPasswordController = storyboard.instantiateViewController(withIdentifier: "SetPasswordController") as! SetPasswordController
-                    view.getemail = Email.text!
-                    self.present(view, animated: true, completion: nil)
-            
-            
-            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let view: SetPasswordController = storyboard.instantiateViewController(withIdentifier: "SetPasswordController") as! SetPasswordController
+            view.getemail = Email.text!
+           self.present(view, animated: true, completion: nil)
         }else if success == "1013"{
             Submitbutton.isUserInteractionEnabled = true
             hideLoading()
@@ -176,17 +159,6 @@ class ForgotController: UIViewController,UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    /*
-     {
-     "platform": "android",
-     "deviceId": "some string here",
-     "lat": "some description here",
-     "long": "some web here",
-     "requestData":{
-     "emailId": "pavanm@winjit.com"
-     }
-     }
-    */
     //MARK: -  Activity Indicator
     func hideLoading(){
         Submitbutton.setTitle("Submit", for: .normal)
@@ -204,7 +176,6 @@ class ForgotController: UIViewController,UITextFieldDelegate {
         centerActivityIndicatorInButton()
         indicator.startAnimating()
     }
-    
     private func centerActivityIndicatorInButton() {
         let xCenterConstraint = NSLayoutConstraint(item: Submitbutton, attribute: .centerX, relatedBy: .equal, toItem: indicator, attribute: .centerX, multiplier: 1, constant: 0)
         Submitbutton.addConstraint(xCenterConstraint)

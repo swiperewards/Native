@@ -22,9 +22,9 @@ class SetPasswordController: UIViewController {
     var indicator = UIActivityIndicatorView()
     var Input = [String: AnyObject]()
     var getemail = String()
+    //MARK: -  Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let fontswipe = FontSwipe()
         confirmpasswordicon.font = fontswipe.fontOfSize(20)
         confirmpasswordicon.text = fontswipe.stringWithName(.Password)
@@ -52,7 +52,7 @@ class SetPasswordController: UIViewController {
     @IBAction func BackTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+    //MARK: -  Submit Button Tap
     @IBAction func SubmitTap(_ sender: Any) {
         //Check Internet Connectivity
         if !NetworkConnectivity.isConnectedToNetwork() {
@@ -143,9 +143,7 @@ class SetPasswordController: UIViewController {
         }
         
     }
-//    func dosomething(action: UIAlertAction)   {
-//        self.navigationController?.popViewController(animated: true)
-//    }
+//MARK: -  Validate TextFields
     func isAllFieldSet() -> Bool {
         let fontswipe = FontSwipe()
         PasscodeIcon.font = fontswipe.fontOfSize(20)
@@ -159,7 +157,6 @@ class SetPasswordController: UIViewController {
             Passcode.attributedPlaceholder = NSAttributedString(string: "Passcode is required", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             Passcode.titleTextColour = UIColor.red
             PasscodeIcon.textColor = UIColor.red
-            
             newpasswordIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             Newpassword.attributedPlaceholder = NSAttributedString(string: Constants.NewPassword)
             Newpassword.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -171,7 +168,6 @@ class SetPasswordController: UIViewController {
             Newpassword.attributedPlaceholder = NSAttributedString(string: Constants.emptynewPassword, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             Newpassword.titleTextColour = UIColor.red
             newpasswordIcon.textColor = UIColor.red
-            
             PasscodeIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             Passcode.attributedPlaceholder = NSAttributedString(string: "Passcode")
             Passcode.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -184,7 +180,6 @@ class SetPasswordController: UIViewController {
             confirmpassword.attributedPlaceholder = NSAttributedString(string: Constants.emptyConfirmPassword, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             confirmpassword.titleTextColour = UIColor.red
             confirmpasswordicon.textColor = UIColor.red
-            
             PasscodeIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             Passcode.attributedPlaceholder = NSAttributedString(string: "Passcode")
             Passcode.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)

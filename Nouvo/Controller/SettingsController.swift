@@ -16,6 +16,7 @@ import SDWebImage
 
 class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSource,MXParallaxHeaderDelegate {
 
+     //MARK: - OUTLET & INSTANCE
     @IBOutlet var Version: UILabel!
     var Input = [String: AnyObject]()
     @IBOutlet var headerview: UIView!
@@ -31,47 +32,23 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let fontRefer = ReferandEarn()
     var fontData = [[:]]
     var indicator = UIActivityIndicatorView()
+    private var settingsTitlearray = NSArray()
     
-    private var settingsTitlearray = ["Notification",
-                                      "Change Password",
-                                      "Contact Us",
-                                      "Privacy & Security",
-                                      "Terms of Use",
-                                      "Refer & Earn",
-                                      "Sign Out",
-                                      "Version 1.0"]
-    
-    private var settingsIconArray = NSArray()
-    
-    
+     //MARK: - ViewWILLAPPEAR
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-      
-//        let token = Database.value(forKey: Constants.Tokenkey) as? String
-//        if token == nil {
-//            let alert = UIAlertController(title: "Your Session has Expired" , message: "Login", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
-//            alert.addAction(okAction)
-//            self.present(alert, animated: true, completion: nil)
-//        }
-       
-        
     
     }
-    
+     //MARK: - Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-       // setupParallaxHeader()
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
         NameofSwipe.text = string2
-        
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         print(appVersionString)
-        
         Version.text = "\("Version:")\(appVersionString)"
-
         let socialIdenity: String?
         socialIdenity = Database.value(forKey: Constants.GoogleIdentityforchangepasswordkey) as? String
         if socialIdenity == "" || socialIdenity == nil {
@@ -81,11 +58,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                                   "Privacy & Security",
                                   "Terms of Use",
                                   "Refer & Earn",
-                                  "Sign Out"
-                                 // "\("Version") \(appVersionString)"
-                                  ]
-            
-            
+                                  "Sign Out"]
             fontData = [
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Notification)  ],
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Password) ],
@@ -94,22 +67,15 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Termsofuse)],
                 ["font":fontRefer.fontOfSize(25), "text":fontRefer.stringWithName(.Referandearn)],
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Signout) ]
-               // ["font":fontswipe.fontOfSize(25), "text": ""]
             ]
             
-        }
-        else{
-            
+        }else{
             settingsTitlearray = ["Notification",
                                   "Contact Us",
                                   "Privacy & Security",
                                   "Terms of Use",
                                   "Refer & Earn",
-                                  "Sign Out"
-                                 // "\("Version") \(appVersionString)"
-            ]
-            
-            
+                                  "Sign Out"]
             fontData = [
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Notification)  ],
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Contact) ],
@@ -117,22 +83,15 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Termsofuse)],
                 ["font":fontRefer.fontOfSize(25), "text":fontRefer.stringWithName(.Referandearn)],
                 ["font":fontswipe.fontOfSize(25), "text":fontswipe.stringWithName(.Signout) ]
-              //  ["font":fontswipe.fontOfSize(25), "text": ""]
             ]
             
         }
-        
-        
-        
         self.navigationController?.navigationBar.topItem?.title = "SETTINGS"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-
         let username: String?
         username = Database.value(forKey: Constants.profileimagekey) as? String
         if  username == "" || username == nil{
-        }
-        else{
-           
+        }else{
             let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
             self.userimageview.sd_setImage(with: url)
                 self.userimageview.contentMode = .scaleAspectFill
@@ -143,17 +102,6 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 self.userimageview.clipsToBounds = true
             
         }
-        
-//      settingsIconArray =  [fontswipe.stringWithName(.Notification),
-//         fontswipe.stringWithName(.Password),
-//         fontswipe.stringWithName(.Contact),
-//         fontswipe.stringWithName(.Privacysecurity),
-//         fontswipe.stringWithName(.Termsofuse),
-//         fontswipe.stringWithName(.Signout)]
-//
-        
-       
-        
         SettingsTV.parallaxHeader.view = headerview // You can set the parallax header view from the floating view
         SettingsTV.parallaxHeader.height = 180
         SettingsTV.parallaxHeader.minimumHeight = 0
@@ -177,71 +125,34 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         SettingsTV.register(UINib(nibName: "SettingslistCell", bundle: nil),
                                 forCellReuseIdentifier: "SettingslistCell")
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK: - TABLEVIEW DELEGATE
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsTitlearray.count
     }
-    
     // Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingslistCell", for: indexPath) as! SettingslistCell
-        
-        cell.SettingsTitle?.text = settingsTitlearray[indexPath.row]
+        cell.SettingsTitle?.text = settingsTitlearray[indexPath.row] as? String
         cell.SettingsIcon?.text =  fontData[indexPath.row]["text"] as? String
         cell.SettingsIcon?.font =  fontData[indexPath.row]["font"] as! UIFont
         cell.SettingsIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-
         if indexPath.row == 0 {
             cell.NotificationSwitch.isHidden = false
         }else {
             cell.NotificationSwitch.isHidden = true
         }
-        
         cell.NotificationSwitch.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
-
-       
-//        let socialIdenity: String?
-//        socialIdenity = Database.value(forKey: Constants.GoogleIdentityforchangepasswordkey) as? String
-//        if socialIdenity == "" || socialIdenity == nil {
-//            if indexPath.row == 5 {
-//
-//                cell.SettingsTitle.textAlignment = .right
-//                cell.line.isHidden = true
-//            }
-//
-//        }else{
-//            //google signin
-//            if indexPath.row == 6 {
-//                cell.SettingsTitle.textAlignment = .right
-//                cell.line.isHidden = true
-//            }
-//
-//        }
-        
-        
         return cell
-    }
-    @objc func switchValueDidChange(_ sender: UISwitch) {
-        if (sender.isOn == true){
-            print("on")
-            self.showToast(message: "Notifications Enabled")
-        }
-        else{
-            print("off")
-             self.showToast(message: "Notifications Disabled")
-        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -252,21 +163,16 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             switch indexPath.row {
             case 0:
-                
                 break
             case 1:
-                
                 let view: ChangePasswordController = storyboard.instantiateViewController(withIdentifier: "ChangePasswordController") as! ChangePasswordController
                 self.navigationController?.pushViewController(view, animated: true)
-                
                 break
             case 2:
-                
                 let view: ContactUsController = storyboard.instantiateViewController(withIdentifier: "ContactUsController") as! ContactUsController
                 self.navigationController?.pushViewController(view, animated: true)
                 break
             case 3:
-                
                 let view: PrivacyController = storyboard.instantiateViewController(withIdentifier: "PrivacyController") as! PrivacyController
                 self.navigationController?.pushViewController(view, animated: true)
                 break
@@ -276,19 +182,9 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 break
             case 5:
                 // text to share
-                
                 let view: ReferandEarnViewController = storyboard.instantiateViewController(withIdentifier: "ReferandEarnViewController") as! ReferandEarnViewController
                 self.navigationController?.pushViewController(view, animated: true)
-//                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
-//                // set up activity view controller
-//                let textToShare = [ text ]
-//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-//                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-//                // exclude some activity types from the list (optional)
-//                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-//                // present the view controller
-//                self.present(activityViewController, animated: true, completion: nil)
-                 break
+                break
             case 6:
                 let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to sign out?", preferredStyle: .alert)
                 let CancelAction = UIAlertAction(title: "CANCEL", style: .default, handler: self.doSomething1)
@@ -296,9 +192,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 alert.addAction(CancelAction)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
-                
                 break
-                
             default:
                 break
             }
@@ -307,16 +201,12 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             switch indexPath.row {
             case 0:
-                
                 break
-            
             case 1:
-                
                 let view: ContactUsController = storyboard.instantiateViewController(withIdentifier: "ContactUsController") as! ContactUsController
                 self.navigationController?.pushViewController(view, animated: true)
                 break
             case 2:
-                
                 let view: PrivacyController = storyboard.instantiateViewController(withIdentifier: "PrivacyController") as! PrivacyController
                 self.navigationController?.pushViewController(view, animated: true)
                 break
@@ -324,25 +214,11 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 let view: TermsofUseController = storyboard.instantiateViewController(withIdentifier: "TermsofUseController") as! TermsofUseController
                 self.navigationController?.pushViewController(view, animated: true)
                 break
-                
             case 4:
                 // text to share
-                
                 let view: ReferandEarnViewController = storyboard.instantiateViewController(withIdentifier: "ReferandEarnViewController") as! ReferandEarnViewController
                 self.navigationController?.pushViewController(view, animated: true)
-                
-//                let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
-//                // set up activity view controller
-//                let textToShare = [ text ]
-//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-//                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-//                // exclude some activity types from the list (optional)
-//                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-//                // present the view controller
-//                self.present(activityViewController, animated: true, completion: nil)
-                
                 break
-                
             case 5:
                 let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to sign out?", preferredStyle: .alert)
                 let CancelAction = UIAlertAction(title: "CANCEL", style: .default, handler: self.doSomething1)
@@ -350,26 +226,25 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 alert.addAction(CancelAction)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
-                
-               
                 break
-                
             default:
                 break
             }
         }
-        
-      
-        
-        
-        
-        
-        
-        
     }
+    //MARK: - NOTIFICATION SWITCH
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+        if (sender.isOn == true){
+            print("on")
+            self.showToast(message: "Notifications Enabled")
+        }else{
+             print("off")
+             self.showToast(message: "Notifications Disabled")
+        }
+    }
+    //MARK: - LOGOUT ACTION
     func doSomething(action: UIAlertAction) {
         //Use action.title
-        
         Database.removeObject(forKey: Constants.Tokenkey)
         Database.removeObject(forKey: Constants.profileimagekey)
         Database.removeObject(forKey: Constants.GoogleIdentityforchangepasswordkey)
@@ -382,43 +257,35 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     func doSomething1(action: UIAlertAction) {
         //Use action.title
-        
         self.dismiss(animated: true, completion: nil)
     }
+    //MARK: - UPLOAD IMAGE TAP ACTION
     @IBAction func UploadImage(_ sender: Any) {
         let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .actionSheet)
-        
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
             self.showCamera()
         }))
-        
         actionSheet.addAction(UIAlertAction(title: "Album", style: .default, handler: { action in
             self.showAlbum()
         }))
-        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         actionSheet.popoverPresentationController?.sourceView = self.view
         actionSheet.popoverPresentationController?.sourceView = self.view
         self.present(actionSheet, animated: true, completion: nil)
     }
     func showCamera() {
-        
         cameraPicker.delegate = self
         cameraPicker.sourceType = .camera
         tags = 0
         present(cameraPicker, animated: true, completion: nil)
     }
-    
     func showAlbum() {
-        
         cameraPicker.delegate = self
         cameraPicker.sourceType = .photoLibrary
         tags = 1
         present(cameraPicker, animated: true, completion: nil)
     }
     func showToast(message : String) {
-        
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2-100, y: self.view.frame.size.height-100, width: 190, height: 35))
         toastLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
@@ -437,38 +304,26 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
 }
-
-
-
+//MARK: - NAVIGATION FOR IMAGE PICKER
 extension SettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
        
         if tags == 0 {
-            
             if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
                 imageName = imgUrl.lastPathComponent
             }
-            
-         
             dismiss(animated: true, completion: nil)
             // let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-               // self.userimageview.image = image
-                let resizedImage = RequestManager.resizeImage(image: image, targetSize: CGSize(width: 300.0, height: 300.0))
                 let activityIndicator = RequestManager.showActivityIndicator(vc: self)
                 self.sendUploadPhotoRequest(image: image, activityIndicator: activityIndicator)
             }
-        }
-        else
-        {
+        }else{
         let fileurl:URL = info[UIImagePickerControllerImageURL] as! URL
         imageName = fileurl.lastPathComponent
         print(imageName)
         dismiss(animated: true, completion: nil)
-       // let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //self.userimageview.image = image
-            let resizedImage = RequestManager.resizeImage(image: image, targetSize: CGSize(width: 300.0, height: 300.0))
             let activityIndicator = RequestManager.showActivityIndicator(vc: self)
             self.sendUploadPhotoRequest(image: image, activityIndicator: activityIndicator)
         }
@@ -478,10 +333,9 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    //MARK: -  Fetching Signup data from server
+    //MARK: -  Fetching IMAGE data from server
     func UpdateResponse(response: [String : AnyObject]){
         print("Profile response :", response)
-        
         // Response time
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
         // AES decryption
@@ -502,19 +356,11 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
             Constants.profileimage = (responses["responseData"]?.value(forKey: "imageUrl") as? String)!
             Database.set(Constants.profileimage, forKey: Constants.profileimagekey)
             Database.synchronize()
-           // let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
-        
-            
-            
             self.userimageview.sd_setImage(with: URL(string:Database.value(forKey: Constants.profileimagekey) as! String), completed: {
                 (image, error, cacheType, url) in
+                self.hideLoading()
                 
-                    self.hideLoading()
-                // your code
             })
-            
-       
-          
         }else if success == "1050"{
             Database.removeObject(forKey: Constants.Tokenkey)
             Database.removeObject(forKey: Constants.profileimagekey)
@@ -529,19 +375,14 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
         }
       
     }
+    
+    //MARK: - SEND IMAGE FILE TO SERVER
     func sendUploadPhotoRequest(image: UIImage, activityIndicator: UIActivityIndicatorView) {
-        
-        //"http://192.168.0.198:5000/user/profilepic/uid32-560.jpg"
-        //http://winjitstaging.cloudapp.net:5000/user/profilepic8167688.jpg
-        
-        
         showSpinning()
-        
         var modifiedImage = image
         var imageExtension = ".png"
         var mimeTypeParam = "image/png"
         var imageData : Data!
-        
         if let compressedImageData = UIImageJPEGRepresentation(modifiedImage, 0.6)
         {
             if let compressedImage = UIImage(data: compressedImageData)
@@ -567,17 +408,9 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
             }
             
         }
-        
         imageData = UIImageJPEGRepresentation(modifiedImage, 0.5)
         let strBase64:String =  (imageData?.base64EncodedString(options: .lineLength64Characters))!
-        
-        
-        
-        
-        //print("Base64 :",strBase64)
-        //print("Data :","\(mimeTypeParam)\(strBase64)")
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        
         let jsonObject: [String: AnyObject] = [
              "image": "\("data:")\(mimeTypeParam)\(strBase64)" as AnyObject
         ]
@@ -591,24 +424,16 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
             encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
             print(encrypted)
         }
-
-        
         Input =  [
             "device_id": deviceid as AnyObject,
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
-        
-        
-        
-       // print("Input :", Input)
         self.userimageview.contentMode = .scaleAspectFill
-       // self.userimageview.image = image
         self.userimageview.layer.borderWidth = 1.0
         self.userimageview.layer.masksToBounds = false
         self.userimageview.layer.borderColor = UIColor.white.cgColor
         self.userimageview.layer.cornerRadius = self.userimageview.frame.size.width / 2
         self.userimageview.clipsToBounds = true
-        
         SDImageCache.shared().clearMemory()
         SDImageCache.shared().clearDisk()
         let uploadImageServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.UploadImageURL
@@ -616,31 +441,6 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
         RequestManager.PostPathwithAUTH(urlString: uploadImageServer, params: Input, successBlock:{
             (response) -> () in self.UpdateResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}}
-        
-//        RequestManager.postImage(urlString: uploadImageServer, params: image, imageName: imageName, successBlock: { (response) in
-////
-////            let url = URL(string:Database.value(forKey: Constants.profileimagekey) as! String)
-////            let data1 = NSData.init(contentsOf: url!)
-////            if data1 != nil {
-////                self.userimageview.image = UIImage(data:data1! as Data)
-////                self.userimageview.contentMode = .scaleAspectFill
-////                self.userimageview.layer.borderWidth = 1.0
-////                self.userimageview.layer.masksToBounds = false
-////                self.userimageview.layer.borderColor = UIColor.white.cgColor
-////                self.userimageview.layer.cornerRadius = self.userimageview.frame.size.width / 2
-////                self.userimageview.clipsToBounds = true
-////            }
-//           activityIndicator.stopAnimating()
-//        }, failureBlock: { (error) in
-//          print(error)
-//          activityIndicator.stopAnimating()
-////            if let jsonError = FunctionManager.responseMessageFromError(error: error){
-////                print(jsonError)
-////            }
-////            FunctionManager.showSesionExpiredAlert(vc: self, error: error)
-//        })
-//
-
     
         //MARK: -  Activity Indicator
         func hideLoading(){

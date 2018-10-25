@@ -17,7 +17,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     @IBOutlet weak var FieldsView: UIView!
     @IBOutlet weak var contentview: UIView!
     @IBOutlet weak var sv: UIScrollView!
-   
     @IBOutlet var referralIcon: UILabel!
     @IBOutlet var Referralcode: FloatLabelTextField!
     @IBOutlet var SubmitButton: TKTransitionSubmitButton!
@@ -39,19 +38,15 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
     var fullName = String()
     var getemail = String()
     
-    @IBAction func Tap(_ sender: Any) {
-    }
     
     //MARK: -  ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(sv)
-        //sv.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
-        // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.current()) != nil{
             getFBUserData()
         }
-        self.hideKeyboardWhenTappedAround()
+       self.hideKeyboardWhenTappedAround()
        let fontswipe = FontSwipe()
        let fontNuovo = FontNuovo()
         Firstnameicon.font = fontswipe.fontOfSize(22)
@@ -99,16 +94,14 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         FieldsView.endEditing(true)
         
     }
+    
+     //MARK: - Signup Button Tap
     @IBAction func SignUpp(_ sender: TKTransitionSubmitButton) {
         confirmpassword.resignFirstResponder()
         password.resignFirstResponder()
         emailid.resignFirstResponder()
         firstname.resignFirstResponder()
         lastname.resignFirstResponder()
-        
-        
-        
-        
         //Check Internet Connectivity
         if !NetworkConnectivity.isConnectedToNetwork() {
             let alert = UIAlertController(title: Constants.NetworkerrorTitle , message: Constants.Networkerror, preferredStyle: .alert)
@@ -117,37 +110,25 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
         //Check All Input Fields are empty ot not
         if !isAllFieldSet() {
             return
         }
-        
         SignUpApiInputBody() //Calling Input API Body for SignUp
         sender.isUserInteractionEnabled = false
-        
         let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
         RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
             (response) -> () in self.SignupResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
-    //MARK: -  Tap SignUp
-    @IBAction func SignUpTap(_ sender: Any){
-        
-        
-       
-    }
-    
 //MARK: -  Tap SignIn
     @IBAction func SignInTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 //MARK: -  SignUp API Input Body
     func SignUpApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         let fullname = firstname.text! + "/" + lastname.text!
-        
         let jsonObject: [String: AnyObject] = [
             "emailId": emailid.text as AnyObject,
             "fullName": fullname as AnyObject,
@@ -167,8 +148,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
             print(encrypted)
         }
-
-        
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
@@ -176,32 +155,8 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
-    
-    /*
-     {
-     "platform": "android",
-     "deviceId": "some string here",
-     "lat": "some description here",
-     "long": "some web here",
-     "requestData":{
-     "fullName": "Vinay",
-     "mobileNumber": "9876543210",
-     "emailId": "pavanm344@winjit.com",
-     "password": "pavan",
-     "socialToken": "123",
-     "lat": "some description here",
-     "long": "some web here",
-     "pincode": 2,
-     "city": 1,
-     "isSocialLogin": 0,
-     "referredBy": "rwe43"
-     }
-     }
-     */
     func doSomething(action: UIAlertAction) {
-        //Use action.title
-        
-        self.dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
     }
 //MARK: -  Fetching Signup data from server
     func SignupResponse(response: [String : AnyObject]){
@@ -223,10 +178,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         SubmitButton.isUserInteractionEnabled = true
         let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
         if success == "200" {
-            // hideLoading()
-            
-          
-            
             firstname.text = ""
             lastname.text = ""
             emailid.text = ""
@@ -234,52 +185,41 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             confirmpassword.text = ""
             SubmitButton.layer.cornerRadius  = 0.0
             SubmitButton.layer.masksToBounds = false
-            
             EmailIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             emailid.attributedPlaceholder = NSAttributedString(string: Constants.Email, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
             emailid.titleTextColour = UIColor.darkGray
-            
             SubmitButton.animate(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault), completion: { () -> () in
                 let alert = UIAlertController(title: "Success" , message: "Please click on the verification link you received in registered email", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: self.doSomething)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             })
-            
            }else if success == "1096"{
-            
             SubmitButton.layer.cornerRadius  = 0.0
             SubmitButton.layer.masksToBounds = false
-            
             let alert = UIAlertController(title: "Failure" , message: "Invalid referral code", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else if success == "1004"{
-            
             SubmitButton.layer.cornerRadius  = 0.0
             SubmitButton.layer.masksToBounds = false
-            
             let alert = UIAlertController(title: "Failure" , message: "Email Already Exists", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else{
-            
             SubmitButton.layer.cornerRadius  = 0.0
             SubmitButton.layer.masksToBounds = false
-            
             let alert = UIAlertController(title: "Failure" , message: "Invalid Credentials", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-            
             // Email Id already Exists Error
             emailid.attributedPlaceholder = NSAttributedString(string: Constants.errEmailexits, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             emailid.titleTextColour = UIColor.red
             EmailIcon.textColor = UIColor.red
         }
-        
     }
 //MARK: -  Checking All Textfield is Empty or not !
     func isAllFieldSet() -> Bool {
@@ -294,13 +234,10 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         PasswordIcon.text = fontswipe.stringWithName(.Password)
         ConfirmPasswordIcon.font = fontswipe.fontOfSize(20)
         ConfirmPasswordIcon.text = fontswipe.stringWithName(.Password)
-        
-        
         if (firstname.text?.isEmpty)! {
             firstname.attributedPlaceholder = NSAttributedString(string: Constants.emptyFirstname, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
             firstname.titleTextColour = UIColor.red
             Firstnameicon.textColor = UIColor.red
-            
             Lastnameicon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             EmailIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             PasswordIcon.textColor = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
@@ -331,7 +268,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             password.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             confirmpassword.attributedPlaceholder = NSAttributedString(string: Constants.ConfirmPassword)
             confirmpassword.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
             return false
             
         }else if (emailid.text?.isEmpty)! {
@@ -350,8 +286,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             password.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             confirmpassword.attributedPlaceholder = NSAttributedString(string: Constants.ConfirmPassword)
             confirmpassword.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
-            
             return false
             
         }else if (password.text?.isEmpty)! {
@@ -370,7 +304,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             emailid.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
             confirmpassword.attributedPlaceholder = NSAttributedString(string: Constants.ConfirmPassword)
             confirmpassword.titleTextColour = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-            
             return false
             
         }else if (confirmpassword.text?.isEmpty)! {
@@ -448,25 +381,121 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
         return passwordTest.evaluate(with: testStr)
     }
-
-
     
+     //MARK: - Tap Google SignIn
     @IBAction func GoogleSignIn(_ sender: Any) {
-        
         GIDSignIn.sharedInstance().delegate=self
         GIDSignIn.sharedInstance().uiDelegate=self
         GIDSignIn.sharedInstance().signIn()
     }
-    @IBAction func Facebook(_ sender: Any) {
+    //MARK: - Google SignIn Delegate Methods
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error{
+            print("\(error.localizedDescription)")} else{
+            fullName = user.profile.name
+            getemail = user.profile.email
+            var imageURL = ""
+            if user.profile.hasImage {
+                imageURL = user.profile.imageURL(withDimension: 100).absoluteString
+            }
+            let url = NSURL(string: imageURL)
+            let data = NSData.init(contentsOf: url! as URL)
+            GoogleApiInputBody()
+            let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
+            RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
+                (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in}
+            if data != nil{//self.editbtnimage.setImage(UIImage(data:data! as Data) , for: UIControlState.normal)
+            }}
+    }
+    
+    //MARK: -  Google API Input Body
+    func GoogleApiInputBody(){
         
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "emailId": getemail as AnyObject,
+            "fullName": fullName as AnyObject,
+            "isSocialLogin": "1" as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "password": "" as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        Input =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
+    }
+    //MARK: -  Google SignIn Response
+    func GoogleResponse(response: [String : AnyObject]){
+        print("SignUp response :", response)
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+        //  SubmitButton.isUserInteractionEnabled = true
+        //  hideLoading()
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
+            Constants.Username = fullName
+            Constants.GoogleIdentityforchangepassword = "G"
+            Constants.Newrecord = responses["responseData"]?.value(forKey: "isNewRecord") as! Int
+            Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
+            Database.set(Constants.Token, forKey: Constants.Tokenkey)
+            Database.set(Constants.Username, forKey: Constants.UsernameKey)
+            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
+            Database.synchronize()
+            SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.transitioningDelegate = self
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = navigationController
+                UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                
+            })
+        }
+    }
+    //MARK: -  Google Sign Delegates
+    func sign(_ signIn: GIDSignIn!,
+              present viewController: UIViewController!){
+        self.present(viewController, animated: true, completion: nil)
+    }
+    func sign(_ signIn: GIDSignIn!,
+              dismiss viewController: UIViewController!){
+        self.dismiss(animated: true, completion: nil)
+    }
+     //MARK: - Tap Facebook SignIn
+    @IBAction func Facebook(_ sender: Any) {
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             if (error == nil){
-               // self.hideLoading()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 if fbloginresult.grantedPermissions != nil {
                     if(fbloginresult.grantedPermissions.contains("email")){
-                       
                         self.getFBUserData()
                         fbLoginManager.logOut()
                     }
@@ -482,13 +511,12 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
                 {
                     self.dict = result as! [String : AnyObject]
                     guard let userInfo = result as? [String: Any]
-                        else { return }
+                    else { return }
                     self.getemail = self.dict["email"] as! String
                     self.fullName = self.dict["name"] as! String
                     print(self.getemail)
                     print(self.fullName)
                     let geteprofilepicture =   ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String
-                    // self.emailtext.text = getemail as? String
                     let url = NSURL(string: geteprofilepicture!)
                     let data = NSData.init(contentsOf: url! as URL)
                     if data != nil
@@ -501,16 +529,13 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
         }
     }
     func FacebookMethod()  {
-        
         FacebookApiInputBody()
         let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
         RequestManager.getPath(urlString: signUpServer, params: self.Input, successBlock:{
             (response) -> () in self.FacebookResponse(response: response as! [String : AnyObject])})
         { (error: NSError) ->() in}
     }
-    
-    
-    //MARK: -  SignUp API Input Body
+    //MARK: -  Facebook API Input Body
     func FacebookApiInputBody(){
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         // let fullname = firstname.text! + "/" + lastname.text!
@@ -532,7 +557,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
             print(encrypted)
         }
-
         Input =  [
             "deviceId": deviceid as AnyObject,
             "lat": "" as AnyObject,
@@ -540,6 +564,7 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             "platform": "IOS" as AnyObject,
             "requestData": encrypted] as [String : AnyObject]
     }
+     //MARK: - Facebook Server response
     func FacebookResponse(response: [String : AnyObject]){
         print("SignUp response :", response)
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
@@ -563,7 +588,6 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             
             Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
             Constants.Newrecord = responses["responseData"]?.value(forKey: "isNewRecord") as! Int
-
             Constants.Username = fullName
             Database.set(Constants.Token, forKey: Constants.Tokenkey)
             Constants.GoogleIdentityforchangepassword = "G"
@@ -571,9 +595,7 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
             Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
             Database.set(Constants.Username, forKey: Constants.UsernameKey)
             Database.synchronize()
-            
             SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
                 navigationController.transitioningDelegate = self
@@ -582,133 +604,16 @@ class SignUpController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,G
                 UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
                 
             })
-            
-          
-        }else{}
-    }
-    //MARK: - Google SignIn Delegate Methods
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-        if let error = error{
-            print("\(error.localizedDescription)")} else{
-            fullName = user.profile.name
-            getemail = user.profile.email
-            var imageURL = ""
-            if user.profile.hasImage {
-                imageURL = user.profile.imageURL(withDimension: 100).absoluteString
-            }
-            let url = NSURL(string: imageURL)
-            let data = NSData.init(contentsOf: url! as URL)
-//            SubmitButton.isUserInteractionEnabled = false
-//            SubmitButton.backgroundColor = UIColor.lightGray
-//            SubmitButton.setTitle("", for: .normal)
-//            showSpinning()
-            GoogleApiInputBody()
-            let signUpServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.signUpURL
-            RequestManager.getPath(urlString: signUpServer, params: Input, successBlock:{
-                (response) -> () in self.GoogleResponse(response: response as! [String : AnyObject])})
-            { (error: NSError) ->() in}
-            if data != nil{//self.editbtnimage.setImage(UIImage(data:data! as Data) , for: UIControlState.normal)
-                
-            }}
-        
-       
-        
-        
+        }
     }
     
-    //MARK: -  SignUp API Input Body
-    func GoogleApiInputBody(){
-     
-        let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        // let fullname = firstname.text! + "/" + lastname.text!
-        let jsonObject: [String: AnyObject] = [
-            "emailId": getemail as AnyObject,
-            "fullName": fullName as AnyObject,
-            "isSocialLogin": "1" as AnyObject,
-            "lat": "" as AnyObject,
-            "long": "" as AnyObject,
-            "password": "" as AnyObject
-        ]
-        var encrypted  = String()
-        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
-            let str = String(data: data, encoding: .utf8) {
-            print(str)
-            // Load only what's necessary
-            let AES = CryptoJS.AES()
-            // AES encryption
-            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
-            print(encrypted)
-        }
-
-        Input =  [
-            "deviceId": deviceid as AnyObject,
-            "lat": "" as AnyObject,
-            "long": "" as AnyObject,
-            "platform": "IOS" as AnyObject,
-            "requestData": encrypted] as [String : AnyObject]
-    }
-    func GoogleResponse(response: [String : AnyObject]){
-        print("SignUp response :", response)
-        let encrypted:String = String(format: "%@", response["responseData"] as! String)
-        // AES decryption
-        let AES = CryptoJS.AES()
-        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
-        var json = [String : AnyObject]()
-        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
-        if decrypted == "null"{}
-        else{
-            let objectData = decrypted.data(using: String.Encoding.utf8)
-            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
-            print(json)
-        }
-        var responses = [String : AnyObject]()
-        responses = ["responseData" : json] as [String : AnyObject]
-      //  SubmitButton.isUserInteractionEnabled = true
-      //  hideLoading()
-        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
-        if success == "200" {
-            Constants.Token = responses["responseData"]?.value(forKey: "token") as! String
-            Constants.Username = fullName
-            Constants.GoogleIdentityforchangepassword = "G"
-            Constants.Newrecord = responses["responseData"]?.value(forKey: "isNewRecord") as! Int
-            Database.set( Constants.GoogleIdentityforchangepassword, forKey:  Constants.GoogleIdentityforchangepasswordkey)
-            Database.set(Constants.Token, forKey: Constants.Tokenkey)
-            Database.set(Constants.Username, forKey: Constants.UsernameKey)
-            Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
-            Database.synchronize()
-            
-            SubmitButton.animates(1, CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear), completion: { () -> () in
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-                navigationController.transitioningDelegate = self
-                let window = UIApplication.shared.delegate!.window!!
-                window.rootViewController = navigationController
-                UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
-                
-            })
-            
-           
-        }else{}
-    }
-    func sign(_ signIn: GIDSignIn!,
-              present viewController: UIViewController!){
-        self.present(viewController, animated: true, completion: nil)
-    }
-    func sign(_ signIn: GIDSignIn!,
-              dismiss viewController: UIViewController!){
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-       
         self.view.superview?.layer.cornerRadius  = 0.0
         self.view.superview?.layer.masksToBounds = false
         sv.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
         sv.clipsToBounds = false
     }
-    
 }
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
@@ -716,7 +621,6 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }}

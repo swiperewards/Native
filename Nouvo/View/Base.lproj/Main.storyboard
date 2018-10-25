@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Nouvo!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvu-af-tw2">
-                                        <rect key="frame" x="0.0" y="89" width="320" height="16"/>
+                                        <rect key="frame" x="0.0" y="89.5" width="320" height="15.5"/>
                                         <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -90,41 +90,28 @@
                                 <rect key="frame" x="0.0" y="114" width="320" height="114"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-aF-jVd" userLabel="TextView">
-                                        <rect key="frame" x="25" y="12" width="270" height="90"/>
+                                        <rect key="frame" x="25" y="12" width="270" height="100"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3q-mB-bA5" customClass="FloatLabelTextField" customModule="Nouvo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="6" width="270" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3q-mB-bA5" customClass="MFTextField">
+                                                <rect key="frame" x="0.0" y="1" width="270" height="50"/>
                                                 <color key="tintColor" red="0.13479574820000001" green="0.77618320090000004" blue="0.97368847150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Jpy-3u-rdB"/>
+                                                    <constraint firstAttribute="width" constant="270" id="XJB-bu-chm"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
-                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
-                                                        <color key="value" red="0.31372549020000001" green="0.77647058820000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="Textediting:" destination="AKm-Pt-q53" eventType="editingChanged" id="cut-mf-fr2"/>
                                                     <outlet property="delegate" destination="AKm-Pt-q53" id="EFE-Dh-FtU"/>
                                                 </connections>
                                             </textField>
-                                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jze-XT-J4n">
-                                                <rect key="frame" x="0.0" y="44" width="270" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8417176904" green="0.8417176904" blue="0.8417176904" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
-                                                <color key="textColor" red="0.8417176904" green="0.8417176904" blue="0.8417176904" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-7s-vjy" customClass="FloatLabelTextField" customModule="Nouvo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="270" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-7s-vjy" customClass="MFTextField">
+                                                <rect key="frame" x="0.0" y="52" width="270" height="50"/>
                                                 <color key="tintColor" red="0.13479574820000001" green="0.77618320090000004" blue="0.97368847150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
@@ -135,19 +122,12 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="Textediting:" destination="AKm-Pt-q53" eventType="editingChanged" id="lN5-P6-CMi"/>
                                                     <outlet property="delegate" destination="AKm-Pt-q53" id="zAo-0O-66P"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEW-EI-ZhY">
-                                                <rect key="frame" x="0.0" y="88" width="270" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8417176904" green="0.8417176904" blue="0.8417176904" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
-                                                <color key="textColor" red="0.8417176904" green="0.8417176904" blue="0.8417176904" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJp-P5-ax8" userLabel="PasswordIcon">
-                                                <rect key="frame" x="250" y="56" width="20" height="20"/>
+                                                <rect key="frame" x="250" y="58" width="20" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -155,7 +135,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-we-f8a" userLabel="EmailIconLabel">
-                                                <rect key="frame" x="250" y="14" width="20" height="20"/>
+                                                <rect key="frame" x="250" y="10" width="20" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -165,14 +145,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="90" id="veY-Cp-Drl"/>
+                                            <constraint firstItem="TBB-7s-vjy" firstAttribute="width" secondItem="M3q-mB-bA5" secondAttribute="width" id="BQY-rx-AGN"/>
+                                            <constraint firstAttribute="trailing" secondItem="M3q-mB-bA5" secondAttribute="trailing" id="KVX-TI-pLs"/>
+                                            <constraint firstItem="TBB-7s-vjy" firstAttribute="leading" secondItem="M3q-mB-bA5" secondAttribute="leading" id="UDo-jp-HQP"/>
+                                            <constraint firstItem="M3q-mB-bA5" firstAttribute="leading" secondItem="8wi-aF-jVd" secondAttribute="leading" id="fkH-wG-AAA"/>
+                                            <constraint firstItem="TBB-7s-vjy" firstAttribute="height" secondItem="M3q-mB-bA5" secondAttribute="height" id="jgj-tT-1eu"/>
+                                            <constraint firstItem="TBB-7s-vjy" firstAttribute="trailing" secondItem="M3q-mB-bA5" secondAttribute="trailing" id="jnD-Be-d2o"/>
+                                            <constraint firstItem="TBB-7s-vjy" firstAttribute="top" secondItem="M3q-mB-bA5" secondAttribute="bottom" constant="1" id="r0c-u0-5sZ"/>
+                                            <constraint firstAttribute="height" constant="100" id="rPM-F6-iNI"/>
+                                            <constraint firstItem="M3q-mB-bA5" firstAttribute="top" secondItem="8wi-aF-jVd" secondAttribute="top" constant="1" id="vvH-cY-6oO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8wi-aF-jVd" secondAttribute="bottom" constant="2" id="KgA-m9-5ZH"/>
                                     <constraint firstAttribute="trailing" secondItem="8wi-aF-jVd" secondAttribute="trailing" constant="25" id="Ocj-vA-ab6"/>
-                                    <constraint firstAttribute="bottom" secondItem="8wi-aF-jVd" secondAttribute="bottom" constant="12" id="d2j-1D-Nti"/>
                                     <constraint firstItem="8wi-aF-jVd" firstAttribute="leading" secondItem="HK5-1u-JSb" secondAttribute="leading" constant="25" id="x3h-9b-wPf"/>
                                 </constraints>
                             </view>
@@ -317,13 +305,13 @@
                                 <rect key="frame" x="0.0" y="456" width="320" height="114"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User? Register Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdt-Yc-AK3">
-                                        <rect key="frame" x="80" y="13" width="160.5" height="18"/>
+                                        <rect key="frame" x="76" y="13" width="169" height="17.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zD9-Ke-IVR" customClass="TKTransitionSubmitButton" customModule="Nouvo" customModuleProvider="target">
-                                        <rect key="frame" x="60" y="40" width="200" height="40"/>
+                                        <rect key="frame" x="60" y="39.5" width="200" height="40"/>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.77647058820000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kz7-Zo-e7z"/>
@@ -373,10 +361,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Email" destination="M3q-mB-bA5" id="7fz-mS-qWb"/>
+                        <outlet property="Email" destination="M3q-mB-bA5" id="Efr-O7-sEX"/>
                         <outlet property="EmailIcon" destination="eYr-we-f8a" id="4ym-nZ-7ts"/>
                         <outlet property="ForgotPasswordButton" destination="geB-2e-Wr9" id="51m-sM-Vgi"/>
-                        <outlet property="Password" destination="TBB-7s-vjy" id="lCX-sn-fX3"/>
+                        <outlet property="Password" destination="TBB-7s-vjy" id="RnB-NA-ptT"/>
                         <outlet property="PasswordIcon" destination="DJp-P5-ax8" id="Qxl-aC-14S"/>
                         <outlet property="Signinbutton" destination="Oe1-fD-IhC" id="LJJ-HO-qHj"/>
                         <outlet property="Signup" destination="zD9-Ke-IVR" id="C18-hc-Ngd"/>
@@ -412,7 +400,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register to Nouvo!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-q8-jw8">
-                                                <rect key="frame" x="90.5" y="90" width="139.5" height="16"/>
+                                                <rect key="frame" x="90.5" y="90" width="139.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1494,7 +1482,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpl-zR-gwf">
-                                                        <rect key="frame" x="27" y="310" width="190" height="34"/>
+                                                        <rect key="frame" x="27" y="310" width="190" height="33"/>
                                                         <color key="backgroundColor" red="0.31372549020000001" green="0.77647058820000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
                                                         <state key="normal" title="Confirm">

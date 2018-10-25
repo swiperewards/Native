@@ -79,6 +79,7 @@ public class ModernSearchBar: UISearchBar, UISearchBarDelegate, UITableViewDataS
         self.delegate = self
         self.isSuggestionsViewOpened = false
         self.interceptOrientationChange()
+        self.configureViews()
         self.interceptKeyboardChange()
         self.interceptMemoryWarning()
     }
@@ -149,7 +150,7 @@ public class ModernSearchBar: UISearchBar, UISearchBarDelegate, UITableViewDataS
             self.configureViews()
             
         }
-        //self.configureViews()
+        self.configureViews()
         //searchBar.enablesReturnKeyAutomatically = true
         searchBar.becomeFirstResponder()
         self.suggestionListFiltred.removeAll()
