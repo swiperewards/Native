@@ -1,0 +1,213 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - CRRefresh (1.0.9)
+  - CryptoSwift (0.12.0)
+  - Firebase/Core (5.7.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.1.1)
+  - Firebase/CoreOnly (5.7.0):
+    - FirebaseCore (= 5.1.2)
+  - Firebase/Messaging (5.7.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.1.1)
+  - FirebaseAnalytics (5.1.1):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
+    - GoogleAppMeasurement (~> 5.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.1.2):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.2.1):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.2)
+  - FirebaseMessaging (3.1.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
+  - Fontello-Swift (1.2):
+    - Fontello-Swift/Brandico (= 1.2)
+    - Fontello-Swift/Elusive (= 1.2)
+    - Fontello-Swift/Entypo (= 1.2)
+    - Fontello-Swift/FontAwesome (= 1.2)
+    - Fontello-Swift/Fontelico (= 1.2)
+    - Fontello-Swift/Fontello (= 1.2)
+    - Fontello-Swift/Iconic (= 1.2)
+    - Fontello-Swift/Linecons (= 1.2)
+    - Fontello-Swift/Maki (= 1.2)
+    - Fontello-Swift/Meteocons (= 1.2)
+    - Fontello-Swift/MFGLabs (= 1.2)
+    - Fontello-Swift/ModernPictograms (= 1.2)
+    - Fontello-Swift/Typicons (= 1.2)
+    - Fontello-Swift/Websymbols (= 1.2)
+    - Fontello-Swift/Zocial (= 1.2)
+  - Fontello-Swift/Brandico (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Elusive (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Entypo (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/FontAwesome (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Fontelico (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Fontello (1.2)
+  - Fontello-Swift/Iconic (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Linecons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Maki (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Meteocons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/MFGLabs (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/ModernPictograms (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Typicons (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Websymbols (1.2):
+    - Fontello-Swift/Fontello
+  - Fontello-Swift/Zocial (1.2):
+    - Fontello-Swift/Fontello
+  - GoogleAppMeasurement (5.1.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleSignIn (4.2.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
+  - GoogleUtilities/AppDelegateSwizzler (5.2.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.2.2)
+  - GoogleUtilities/Logger (5.2.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.2.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.2.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.2.2)"
+  - GoogleUtilities/Reachability (5.2.2):
+    - GoogleUtilities/Logger
+  - GTMOAuth2 (1.1.6):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.2.0):
+    - GTMSessionFetcher/Full (= 1.2.0)
+  - GTMSessionFetcher/Core (1.2.0)
+  - GTMSessionFetcher/Full (1.2.0):
+    - GTMSessionFetcher/Core (= 1.2.0)
+  - MXParallaxHeader (0.6.1)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - ParallaxHeader (2.0.0)
+  - Protobuf (3.6.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - CRRefresh
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
+  - Firebase/Core
+  - Firebase/Messaging
+  - Fontello-Swift
+  - GoogleSignIn
+  - MXParallaxHeader
+  - ParallaxHeader (~> 2.0.0)
+  - SDWebImage (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - CRRefresh
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Fontello-Swift
+    - GoogleAppMeasurement
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GoogleUtilities
+    - GTMOAuth2
+    - GTMSessionFetcher
+    - MXParallaxHeader
+    - nanopb
+    - ParallaxHeader
+    - Protobuf
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  CryptoSwift:
+    :branch: master
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
+CHECKOUT OPTIONS:
+  CryptoSwift:
+    :commit: 2bcb008fe23d286e5da79311051e19b3345f1cd5
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CRRefresh: b1c53f32bcb3edef8d60ef414a329b06dc6af34f
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
+  FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
+  FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
+  FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
+  FirebaseMessaging: 698c94dd1e3436346c29bb9c85dcdca4c4a0c30b
+  Fontello-Swift: e36df108f387b8cea11ee833c4485363332119a0
+  GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
+  GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
+  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+
+PODFILE CHECKSUM: 62a842ab5fd5d7b9baa1264d60baed83e76944bf
+
+COCOAPODS: 1.5.3

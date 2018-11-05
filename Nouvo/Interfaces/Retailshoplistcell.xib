@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProDisplay-Bold.ttf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SFProDisplay-Medium.ttf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Retailshoplistcell" rowHeight="116" id="KGk-i7-Jjw" customClass="Retailshoplistcell" customModule="Nouvo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-L0-Y9v">
+                        <rect key="frame" x="7" y="4" width="306" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nlogo" translatesAutoresizingMaskIntoConstraints="NO" id="fjc-xe-BRn">
+                                <rect key="frame" x="10" y="15" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="PD8-zu-AHW"/>
+                                    <constraint firstAttribute="width" constant="45" id="ZeH-Us-KiL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tacobel " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdS-Zh-fK7">
+                                <rect key="frame" x="58" y="15" width="83" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="43R-YC-TNX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUx-wh-tQg">
+                                <rect key="frame" x="65" y="57" width="71" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(+0.88) upto 50$ cashback" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poe-r7-GcU">
+                                <rect key="frame" x="142" y="15" width="156" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="NOW-5v-pf1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="15Z-LS-fbJ">
+                                <rect key="frame" x="0.0" y="17" width="5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="Bcx-rE-MuI"/>
+                                    <constraint firstAttribute="height" constant="40" id="ow8-SU-3ig"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available until 10/05/2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btd-qH-XEH">
+                                <rect key="frame" x="142" y="40" width="156" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="9Jm-PE-8aX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="poe-r7-GcU" firstAttribute="leading" secondItem="XdS-Zh-fK7" secondAttribute="trailing" constant="1" id="1CX-x6-NHs"/>
+                            <constraint firstItem="Btd-qH-XEH" firstAttribute="top" secondItem="poe-r7-GcU" secondAttribute="bottom" constant="5" id="3Fa-mc-zNj"/>
+                            <constraint firstItem="15Z-LS-fbJ" firstAttribute="top" secondItem="fyf-L0-Y9v" secondAttribute="top" constant="17" id="3me-Gw-aDq"/>
+                            <constraint firstItem="fjc-xe-BRn" firstAttribute="top" secondItem="fyf-L0-Y9v" secondAttribute="top" constant="15" id="43o-Am-sFM"/>
+                            <constraint firstItem="poe-r7-GcU" firstAttribute="top" secondItem="fyf-L0-Y9v" secondAttribute="top" constant="15" id="7O1-J4-WAK"/>
+                            <constraint firstItem="XdS-Zh-fK7" firstAttribute="top" secondItem="fjc-xe-BRn" secondAttribute="top" id="BaS-7e-NVL"/>
+                            <constraint firstItem="15Z-LS-fbJ" firstAttribute="leading" secondItem="fyf-L0-Y9v" secondAttribute="leading" id="Bta-e0-h8r"/>
+                            <constraint firstAttribute="trailing" secondItem="poe-r7-GcU" secondAttribute="trailing" constant="8" id="D6g-aX-yox"/>
+                            <constraint firstItem="fjc-xe-BRn" firstAttribute="leading" secondItem="15Z-LS-fbJ" secondAttribute="trailing" constant="5" id="Kuf-Vk-m6g"/>
+                            <constraint firstItem="Btd-qH-XEH" firstAttribute="leading" secondItem="poe-r7-GcU" secondAttribute="leading" id="fTj-0X-E2x"/>
+                            <constraint firstItem="Btd-qH-XEH" firstAttribute="trailing" secondItem="poe-r7-GcU" secondAttribute="trailing" id="faf-Nh-I3W"/>
+                            <constraint firstItem="XdS-Zh-fK7" firstAttribute="leading" secondItem="fjc-xe-BRn" secondAttribute="trailing" constant="3" id="vmC-qm-Ouy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fyf-L0-Y9v" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="5Kj-gA-YsT"/>
+                    <constraint firstAttribute="trailing" secondItem="fyf-L0-Y9v" secondAttribute="trailing" constant="8" id="9y4-x9-vu4"/>
+                    <constraint firstAttribute="bottom" secondItem="fyf-L0-Y9v" secondAttribute="bottom" constant="5.5" id="J22-Dv-NBu"/>
+                    <constraint firstItem="fyf-L0-Y9v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="yHZ-3f-0mi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="Cashback" destination="poe-r7-GcU" id="UkA-47-N1T"/>
+                <outlet property="CellView" destination="fyf-L0-Y9v" id="5k4-o4-sui"/>
+                <outlet property="Location" destination="KUx-wh-tQg" id="2Y2-cU-vNC"/>
+                <outlet property="Promotiondate" destination="Btd-qH-XEH" id="kl5-fl-WuX"/>
+                <outlet property="Storename" destination="XdS-Zh-fK7" id="ZXH-ii-Hes"/>
+                <outlet property="deallogoimgvw" destination="fjc-xe-BRn" id="KJk-Ft-lWB"/>
+            </connections>
+            <point key="canvasLocation" x="-97.5" y="133"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image" width="579" height="1158"/>
+        <image name="nlogo" width="512" height="512"/>
+    </resources>
+</document>
