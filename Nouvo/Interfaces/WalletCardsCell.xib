@@ -24,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDm-OQ-nIa">
-                        <rect key="frame" x="16" y="12" width="30" height="30"/>
+                        <rect key="frame" x="16" y="12" width="30" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="A3c-1w-4Tx"/>
                             <constraint firstAttribute="width" constant="30" id="Yq5-yp-nNa"/>
+                            <constraint firstAttribute="height" constant="26" id="g50-Z4-G2b"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kc-Gb-HLe">
@@ -52,7 +52,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="9Kc-Gb-HLe" firstAttribute="trailing" secondItem="hni-CG-2py" secondAttribute="trailing" id="3bf-xL-VT0"/>
-                    <constraint firstItem="XDm-OQ-nIa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6Hy-as-7HV"/>
+                    <constraint firstItem="XDm-OQ-nIa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="BRQ-mN-dgI"/>
                     <constraint firstItem="hni-CG-2py" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="U1F-8o-hOb"/>
                     <constraint firstAttribute="bottom" secondItem="9Kc-Gb-HLe" secondAttribute="bottom" constant="0.5" id="fmY-oE-upI"/>
                     <constraint firstItem="XDm-OQ-nIa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iDg-Yk-msC"/>

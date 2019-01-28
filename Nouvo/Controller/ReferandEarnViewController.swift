@@ -53,9 +53,9 @@ class ReferandEarnViewController: UIViewController {
     
     @IBAction func Invite(_ sender: Any) {
         
-                        let text = "Hey, join this Nouvo app to get rewards on card swipe. Enter my code (%s) and we'll each get rewards!"
+                        let text = "Hey, download Nouvo today to get automatic rewards each time you swipe, dip, or insert a card at your favorite merchant. Enter my code \(Referralcode.text!) and we’ll each get a bonus in XP, which boosts our cashback at locations!"
                         // set up activity view controller
-        let textToShare = [ text , Referralcode.text! ]
+        let textToShare = [ text , "https://itunes.apple.com/in/app/nouvo/id1444591943?mt=8" ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
                         // exclude some activity types from the list (optional)

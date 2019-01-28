@@ -91,6 +91,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var indicator = UIActivityIndicatorView()
     var lat = Double()
     var long = Double()
+    var deallat = Double()
+    var deallong = Double()
     var responseArray = NSArray()
     var responseArraycountzero = NSArray()
     var Totalcityarray = [String]()
@@ -100,6 +102,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     var TotalDealenddatearray = [String]()
     var TotalDeallocationarray = [String]()
     var TotalDealcashbackarray = [AnyObject]()
+    var TotalDeallatarray = [AnyObject]()
+    var TotalDeallongarray = [AnyObject]()
     var pickeridentity = String()
     var searchidentity = String()
     var Paginationidentity = String()
@@ -284,7 +288,47 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             }
             
        
+//        let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
+//        Cashback.text = Balance
         
+        let Balance: String?
+        Balance = Database.value(forKey: Constants.WalletBalancekey) as? String
+        if  Balance == "" || Balance == nil{
+            Cashback.text = "$0.00"
+        }else{
+            Cashback.text = Balance
+        }
+        
+        // level
+        let leveldb: Int?
+        leveldb = Database.value(forKey: Constants.levelKey) as? Int
+        if  leveldb == nil {
+            
+        }else{
+             Level.text = String(format: "Level %d", leveldb!)
+        }
+        
+        var leveldbmin: Int?
+        var leveldbmax: Int?
+        leveldbmin = Database.value(forKey: Constants.minlevelKey) as? Int
+        leveldbmax = Database.value(forKey: Constants.maxlevelKey) as? Int
+        
+        if leveldbmin == nil {
+            
+            leveldbmin = 0
+        }
+        if leveldbmax == nil {
+            
+            leveldbmax = 0
+        }
+        
+        
+        Levelmode.text = String(format: "%d/%d", leveldbmin!,leveldbmax!)
+        
+        
+        
+        
+       
         
     }
 //    private func makingSearchBarAwesome(){
@@ -361,7 +405,6 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             //}
         }
     }
-//
 //    ///Handle click on shadow view
 //    @objc func onClickShadowViews(){
 //          Bgview.isHidden = true
@@ -407,12 +450,15 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         self.pageNo = 0
         self.limit = 15
         refreshAPI = "R"
-        
+       
         DispatchQueue.global(qos: .background).async {
        // self.showSpinning()
-        self.ForceUpdatetoUserAPIWithLogin()
+        self.InitializeLocationManager()
+        self.ConnectivityNetworkCheck()
             DispatchQueue.main.async {
 
+                refreshControl.endRefreshing()
+                refreshControl.isHidden = true
               //  self.hideLoading()
             }
         }
@@ -476,7 +522,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         if isnewrecord == 1{
             FirebaseApiInputBody()
             let ForgotPasswordServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.Firebasenotification
-            RequestManager.getPath(urlString: ForgotPasswordServer, params: Input, successBlock:{
+            RequestManager.PostPathwithAUTH(urlString: ForgotPasswordServer, params: Input, successBlock:{
                 (response) -> () in self.FirebasenotifyResponse(response: response as! [String : AnyObject])})
             { (error: NSError) ->() in}
             
@@ -546,6 +592,11 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             }
         }
         else{
+            FirebaseApiInputBody()
+            let ForgotPasswordServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.Firebasenotification
+            RequestManager.PostPathwithAUTH(urlString: ForgotPasswordServer, params: Input, successBlock:{
+                (response) -> () in self.FirebasenotifyResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in}
             self.referralbgviewview.isHidden = true
             Constants.Newrecord = 0
             Database.set(Constants.Newrecord, forKey: Constants.NewrecordKey)
@@ -766,7 +817,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         setUpDashbaordHeaderView()
         InitializeLocationManager()
         ConnectivityNetworkCheck()
-        ForceUpdatetoUserAPIWithLogin()
+        
        // self.makingSearchBarAwesome()
         //self.configureSearchBar()
         
@@ -775,7 +826,7 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                                forCellReuseIdentifier: "Retailshoplistcell")
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
-        NameOfSwipe.text = string2
+        NameOfSwipe.text = string2.capitalized
         //registerForKeyboardNotifications()
     }
     
@@ -950,9 +1001,14 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 if wallet == 0{
                     Cashback.text = ("$\(wallet).00")
                 }else{
-                    Cashback.text = ("$\(wallet)")
+                    let cash: Double?
+                    cash = wallet as? Double
+                    Cashback.text = String(format:"$%.2f", cash!)
+                    
+                    print(Cashback.text)
+
+                    //Cashback.text = ("$\(wallet)")
                 }
-                
             } else if wallet is Int {
                 print("Int type")
                 Cashback.text = ("$\(wallet).00")
@@ -1223,6 +1279,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             return
+        }else{
+            ForceUpdatetoUserAPIWithLogin()
         }
     }
     //MARK: - Connecting to Deals API SERVER
@@ -1248,8 +1306,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         print("City Names is :",self.citynamesIS as AnyObject)
         
         self.citynamesIS = (Database.value(forKey: Constants.citynamekey) as? String)
-        if self.citynamesIS == "" && self.citynamesIS == "nil" {
-            self.citynamesIS = "Los Angeles"
+        if self.citynamesIS == "" && self.citynamesIS == "nil" || self.citynamesIS == "nil" || self.citynamesIS == "<null>" ||  self.citynamesIS == nil{
+            self.citynamesIS = nil
         }
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         
@@ -1286,8 +1344,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
         
        //  Database.set(Constants.searchcityname, forKey: Constants.searchcitynamekey)
         self.citynamesIS = (Database.value(forKey: Constants.searchcitynamekey) as? String)
-        if self.citynamesIS == "" && self.citynamesIS == "nil" {
-            self.citynamesIS = "Los Angeles"
+        if self.citynamesIS == "" && self.citynamesIS == "nil" || self.citynamesIS == "nil" || self.citynamesIS == "<null>" ||  self.citynamesIS == nil {
+            self.citynamesIS = nil
         }
         let deviceid = UIDevice.current.identifierForVendor?.uuidString
         
@@ -1370,7 +1428,13 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                         }else{
                        // Nodeallabel.isHidden = false
                         Nodealslabel1.isHidden = false
-                        Nodealslabel1.text = ("No stores available for \(self.citynamesIS!) yet. Please change the location/city.")
+                            if self.citynamesIS == nil{
+                                 Nodealslabel1.text = ("Please Enable Your Location Services")
+                            }else{
+                                 Nodealslabel1.text = ("No stores available for \(self.citynamesIS!) yet. Please change the location/city.")
+                            }
+                            
+                       
                         currentDealnameArray = [Dealname]()
                         currentDeallogoArray = [Deallogo]()
                         currentDealLocationArray = [DealLocation]()
@@ -1401,7 +1465,8 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                 TotalDeallocationarray = responses["responseData"]?.value(forKey: "location") as! [String]
                 TotalDealcashbackarray = responses["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
                 TotalDeallogoarray = responses["responseData"]?.value(forKey: "icon") as! [AnyObject]
-                
+                TotalDeallatarray = responses["responseData"]?.value(forKey: "latitude") as! [AnyObject]
+                TotalDeallongarray = responses["responseData"]?.value(forKey: "longitude") as! [AnyObject]
                 for var names in TotalDealnamearray {
                     
                     if names is NSNull{
@@ -1462,17 +1527,19 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
                     responseArray = data1 as! NSArray
                     print("responseArray1  :", responseArray)
                     TotalDealnamearray = responses["responseData"]?.value(forKey: "entityName") as! [AnyObject]
-                    TotalDealstartdatearray = responses["responseData"]?.value(forKey: "startDate") as! [String]
-                    TotalDealenddatearray = responses["responseData"]?.value(forKey: "endDate") as! [String]
-                    TotalDeallocationarray = responses["responseData"]?.value(forKey: "location") as! [String]
-                    TotalDealcashbackarray = responses["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
-                    TotalDeallogoarray = responses["responseData"]?.value(forKey: "icon") as! [AnyObject]
+            TotalDealstartdatearray = responses["responseData"]?.value(forKey: "startDate") as! [String]
+            TotalDealenddatearray = responses["responseData"]?.value(forKey: "endDate") as! [String]
+            TotalDeallocationarray = responses["responseData"]?.value(forKey: "location") as! [String]
+            TotalDealcashbackarray = responses["responseData"]?.value(forKey: "cashBonus") as! [AnyObject]
+            TotalDeallogoarray = responses["responseData"]?.value(forKey: "icon") as! [AnyObject]
+            TotalDeallatarray = responses["responseData"]?.value(forKey: "latitude") as! [AnyObject]
+            TotalDeallongarray = responses["responseData"]?.value(forKey: "longitude") as! [AnyObject]
                     for var names in TotalDealnamearray {
                         
                         if names is NSNull{
                             names = "" as AnyObject
                             DealnameArray.append(Dealname(name: names as! String))
-                        }else{
+                         }else{
                             DealnameArray.append(Dealname(name: (names ) as! String))
                         }
                         
@@ -1727,17 +1794,11 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
             let attrs1 = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 10), NSAttributedStringKey.foregroundColor : UIColor.green]
             
             let attrs2 = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 13), NSAttributedStringKey.foregroundColor : UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)]
-            
             let attributedString1 = NSMutableAttributedString(string:"", attributes:attrs1)
-            
             let attributedString2 = NSMutableAttributedString(string:"Upto 25% Cashback", attributes:attrs2)
-            
             attributedString1.append(attributedString2)
-            
-            
             cell.Cashback.attributedText = attributedString1
-            
-             cell.Promotiondate.text =  "Available until " + timeStamp1
+            cell.Promotiondate.text =  "Available until " + timeStamp1
         }else{
             
             
@@ -1789,31 +1850,82 @@ class UserDashboardController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         
-        let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to navigate to this deal location?", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default)
-        { action -> Void in
-           
-        })
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)
-        { action -> Void in
-            // if GoogleMap installed
-            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-                UIApplication.shared.openURL(NSURL(string:
-                    "comgooglemaps://?saddr=\(self.lat),\(self.long)&daddr=\(40.7128),\(74.0060)&directionsmode=driving")! as URL)
+        //  print(TotalDeallatarray[indexPath.row])
+        
+        
+        
+        
+        let lat: Double?
+        lat = TotalDeallatarray[indexPath.row] as? Double
+        if  lat == 0 || lat == nil{
+            self.deallat = 0
+            self.deallong = 0
+            
+             self.showToast(message: "Sorry, we are unable to navigate you to this store location.")
+            
+            
+        }else{
+                    self.deallat = TotalDeallatarray[indexPath.row]  as! Double
+                    self.deallong = TotalDeallongarray[indexPath.row]  as! Double
+            
+            
+            let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to navigate to this deal location?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default)
+            { action -> Void in
                 
-            } else {
-                // if GoogleMap App is not installed
-                UIApplication.shared.openURL(NSURL(string:
-                    "https://www.google.co.in/maps/dir/?saddr=\(self.lat),\(self.long)&daddr=\(40.7128),\(74.0060)&directionsmode=driving")! as URL)
-            }
-        })
+            })
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)
+            { action -> Void in
+                // if GoogleMap installed
+                
+                // self.ConvertLatandLongtoCityName()
+                
+                print(self.deallat,self.deallong)
+                
+                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+                    UIApplication.shared.openURL(NSURL(string:
+                        "comgooglemaps://?saddr=\(self.lat),\(self.long)&daddr=\(self.deallat),\(self.deallong)&directionsmode=driving")! as URL)
+                    
+                } else {
+                    // if GoogleMap App is not installed
+                    UIApplication.shared.openURL(NSURL(string:
+                        "https://www.google.co.in/maps/dir/?saddr=\(self.lat),\(self.long)&daddr=\(self.deallat),\(self.deallong)&directionsmode=driving")! as URL)
+                }
+            })
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        self.present(alert, animated: true, completion: nil)
-     
+
+        
+       
+       
         
         
  }
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2-140, y: self.view.frame.size.height-150, width: 270, height: 60))
+        toastLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.numberOfLines = 0
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 11.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 2.0, delay: 1.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+
     //MARK: -  Activity Indicator
     func hideLoading(){
          indicator.removeFromSuperview()

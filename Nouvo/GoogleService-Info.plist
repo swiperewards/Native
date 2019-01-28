@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>57300116160-jm2dcnr8jesavb6fetf9bd9q39i48ep6.apps.googleusercontent.com</string>
+	<string>673213005370-u9ac379ehbu0ti21jivch01r4b5lf1bp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.57300116160-jm2dcnr8jesavb6fetf9bd9q39i48ep6</string>
+	<string>com.googleusercontent.apps.673213005370-u9ac379ehbu0ti21jivch01r4b5lf1bp</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCDZ9IhJz26IRx7VJkSXfguADrzHOJG7Dg</string>
+	<string>AIzaSyC-Mz-fROA2BsFj5s9_t7qlCwNL4VjXuxw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>57300116160</string>
+	<string>673213005370</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Swipe.Nouvo</string>
+	<string>com.nouvo.reward</string>
 	<key>PROJECT_ID</key>
-	<string>nouvo-android-app</string>
+	<string>nouvo-production-1541475714679</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nouvo-android-app.appspot.com</string>
+	<string>nouvo-production-1541475714679.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:57300116160:ios:06e2c06fc6ef341b</string>
+	<string>1:673213005370:ios:5c57eb5fe323d971</string>
 	<key>DATABASE_URL</key>
-	<string>https://nouvo-android-app.firebaseio.com</string>
+	<string>https://nouvo-production-1541475714679.firebaseio.com</string>
 </dict>
 </plist>

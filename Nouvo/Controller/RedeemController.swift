@@ -73,7 +73,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         DispatchQueue.global(qos: .background).async {
             self.ForceUpdatetoUserAPIWithLoginwallet()
             DispatchQueue.main.async {
-                
+                refreshControl.endRefreshing()
+                refreshControl.isHidden = true
             }
         }
     }
@@ -252,8 +253,8 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         Progressview.maximumValue = Float(Constants.maxlevel)
         Progressview.setProgress(Float(Constants.userlevel) , animated: true)
         
-        Level.text = String(format: "Level %d", Constants.level)
-        Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
+        //Level.text = String(format: "Level %d", Constants.level)
+       // Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
         
         
         self.navigationController?.navigationBar.topItem?.title = "REDEEM"
@@ -279,17 +280,13 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
-        NameofSwipe.text = string2
+        NameofSwipe.text = string2.capitalized
         Paytowhere.text = ""
         SelectedBank.text = ""
         PaymentAccountNo.text = ""
         RedeemAmount.text = ""
         setupNavigationBar()
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        view.addSubview(indicator)
-        indicator.frame = view.bounds
-        indicator.startAnimating()
+        
         registerForKeyboardNotifications()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -378,6 +375,13 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             return
+        }else{
+            indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+            view.addSubview(indicator)
+            indicator.frame = view.bounds
+            indicator.startAnimating()
+            PaytowhereAPI()
         }
     }
     func PaytowhereAPI()  {
@@ -570,18 +574,68 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             CityLocation.text = city
         }
         
-        let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
-        Cashback.text = Balance
+        let Balance: String?
+        Balance = Database.value(forKey: Constants.WalletBalancekey) as? String
+        if  Balance == "" || Balance == nil{
+            Cashback.text = "$0.00"
+        }else{
+            Cashback.text = Balance
+        }
+        
+        
+        // level
+        let leveldb: Int?
+        leveldb = Database.value(forKey: Constants.levelKey) as? Int
+        if  leveldb == nil {
+            
+        }else{
+            Level.text = String(format: "Level %d", leveldb!)
+        }
+        var leveldbmin: Int?
+        var leveldbmax: Int?
+        leveldbmin = Database.value(forKey: Constants.minlevelKey) as? Int
+        leveldbmax = Database.value(forKey: Constants.maxlevelKey) as? Int
+        if leveldbmin == nil {
+            
+            leveldbmin = 0
+        }
+        if leveldbmax == nil {
+            
+            leveldbmax = 0
+        }
+        Levelmode.text = String(format: "%d/%d", leveldbmin!,leveldbmax!)
         
         ConnectivityNetworkCheck()
-        PaytowhereAPI()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func doSomething(action: UIAlertAction) {
+        RedeemAPIInputBody()
+        ConfirmButton.isUserInteractionEnabled = false
+        ConfirmButton.backgroundColor = UIColor.lightGray
+        ConfirmButton.setTitle("", for: .normal)
+        showSpinning()
+        let RaiseredeemServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.RaiseRedeemURL
+        RequestManager.PostPathwithAUTH(urlString: RaiseredeemServer, params: Input, successBlock:{
+            (response) -> () in self.RaiseRedeemResponse(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+    func doSomething1(action: UIAlertAction) {
+        
+    }
+    //MARK: -  Validate Email
+    ///
+    /// - Parameter testStr: email address
+    /// - Returns: email valid or not bool
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     @IBAction func ConfirmTap(_ sender: Any) {
         
        //Fields need to verify must, dont forgot
@@ -604,17 +658,67 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
         print("Redeem Amont : %@",amontstring.prefix(1))
         
         if Paytowhere.text == "" {
-            let alert = UIAlertController(title: "Bank Account" , message: "Please Select Your Bank Type", preferredStyle: .alert)
+            let alert = UIAlertController(title: Paytowhere.text , message: "Please Select Your Bank Type", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-        }else if SelectedBank.text == ""{
-            let alert = UIAlertController(title: "Bank Account Name" , message: "Please Select Your Bank Name", preferredStyle: .alert)
+        }else if Paytowhere.text == "Paypal"{
+            
+            if SelectedBank.text == ""{
+                let alert = UIAlertController(title: Paytowhere.text , message: "Please enter all the fields", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            else if RedeemAmount.text == "0" || amontstring.prefix(1) == "0" {
+                let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }else if a == 0 {
+                let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+                //a! >= cashback!
+            else if a! > b! {
+                let alert = UIAlertController(title: "Invalid Redeem" , message: ("You cannot redeem more than \(self.Cashback.text!)"), preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            else if !isValidEmail(testStr: SelectedBank.text!) {
+                SelectedBank.attributedPlaceholder = NSAttributedString(string: Constants.errInvalidEmail, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+                SelectedBank.textColor = UIColor.red
+                let alert = UIAlertController(title: "Invalid Email" , message: "Please enter a valid email address", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                //EmailIcon.textColor = UIColor.red
+               // return false
+                
+            }else{
+                SelectedBank.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+                SelectedBank.textColor = UIColor.black
+                let alert = UIAlertController(title: "Confirm" , message: "You are creating a redeem request of $\(self.RedeemAmount.text!) to your account \(self.SelectedBank.text!). Do you want to continue?", preferredStyle: .alert)
+                let CancelAction = UIAlertAction(title: "Cancel", style: .default, handler: self.doSomething1)
+                let okAction = UIAlertAction(title: "Yes", style: .default, handler: self.doSomething)
+                alert.addAction(CancelAction)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                
+               
+            }
+        }
+        else if SelectedBank.text == ""{
+            let alert = UIAlertController(title: Paytowhere.text , message: "Please enter all the fields", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }else if PaymentAccountNo.text == ""{
-            let alert = UIAlertController(title: "Account Number" , message: "Please Enter Your Account Number", preferredStyle: .alert)
+            let alert = UIAlertController(title: Paytowhere.text , message: "Please enter all the fields", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
@@ -623,7 +727,6 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-            
         }else if a == 0 {
             let alert = UIAlertController(title: "Invalid Redeem" , message: "Redeem amount should be greater than $0", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -632,12 +735,12 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             
         }
             //a! >= cashback!
-        else if a! > b! {
-            let alert = UIAlertController(title: "Invalid Redeem" , message: ("You cannot redeem more than \(self.Cashback.text!)"), preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-        }
+//        else if a! > b! {
+//            let alert = UIAlertController(title: "Invalid Redeem" , message: ("You cannot redeem more than \(self.Cashback.text!)"), preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true, completion: nil)
+//        }
         else{
             
             if self.Paytowhere.text == "Bank Account" {
@@ -676,18 +779,40 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
     func RedeemAPIInputBody(){
         print("PaytoWhereID  :", PaytoWhereID)
        // print("SelectedBankID  :", SelectedBankID)
-        
-        if self.Paytowhere.text == "Cheque" {
-            
+        let jsonObject: [String: AnyObject]
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        if self.Paytowhere.text == "Cheque" || self.Paytowhere.text == "Paypal"  {
             SelectedBankID = 0
+            jsonObject = [
+                "redeemModeId": PaytoWhereID as AnyObject,
+                "redeemModeOptionId": SelectedBankID as AnyObject,
+                "amount": RedeemAmount.text as AnyObject,
+                "details": SelectedBank.text as AnyObject,
+                "extraField": PaymentAccountNo.text as AnyObject
+            ]
+            
+        }else if self.Paytowhere.text == "Cryptocurrencies"{
+            jsonObject = [
+                "redeemModeId": PaytoWhereID as AnyObject,
+                "redeemModeOptionId": SelectedBankID as AnyObject,
+                "amount": RedeemAmount.text as AnyObject,
+                "details": PaymentAccountNo.text as AnyObject
+            ]
         }
         
-        let deviceid = UIDevice.current.identifierForVendor?.uuidString
-        let jsonObject: [String: AnyObject] = [
-            "redeemModeId": PaytoWhereID as AnyObject,
-            "redeemModeOptionId": SelectedBankID as AnyObject,
-            "amount": RedeemAmount.text as AnyObject
-        ]
+        else{
+            //let deviceid = UIDevice.current.identifierForVendor?.uuidString
+            jsonObject = [
+                "redeemModeId": PaytoWhereID as AnyObject,
+                "redeemModeOptionId": SelectedBankID as AnyObject,
+                "amount": RedeemAmount.text as AnyObject,
+                "details": PaymentAccountNo.text as AnyObject,
+                "extraField": Rountingnumber.text as AnyObject
+            ]
+        }
+        
+        
+        print(jsonObject)
         var encrypted  = String()
         if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
             let str = String(data: data, encoding: .utf8) {
@@ -785,7 +910,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.Paytowhere.text = values[i].title
                 self.PaytoWhereID = self.TotalBankTypearrayID[i]
                 
-                
+                self.PaymentAccountNoView.isHidden = false
                 if self.Paytowhere.text == "Cheque" {
                     self.SelectedBank.text = ""
                     self.PaymentAccountNo.text = ""
@@ -809,6 +934,15 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                     self.ConfirmButton.frame.origin.y = 255
                     self.SelectedBankDownIcon.isHidden = false
                     
+                }else if self.Paytowhere.text == "Paypal" {
+                    self.SelectedBank.text = ""
+                    self.PaymentAccountNo.text = ""
+                    self.RountingView.isHidden = true
+                    self.PaymentAccountNoView.isHidden = true
+                    self.WithdrawalView.frame.origin.y = 115
+                    self.ConfirmButton.frame.origin.y = 200
+                    self.SelectedBankButton.isUserInteractionEnabled = false
+                    self.SelectedBankDownIcon.isHidden = true
                 }
             }
         }
@@ -835,6 +969,7 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
             self.Paytowhere.text = TotalBankTypearray[index]
             self.PaytoWhereID = TotalBankTypearrayID[index]
             
+            self.PaymentAccountNo.isHidden = false
             
             if self.Paytowhere.text == "Cheque" {
                 self.SelectedBank.text = ""
@@ -847,6 +982,15 @@ class RedeemController: UIViewController,TCPickerViewOutput,UITextFieldDelegate,
                 self.PaymentAccountNo.placeholder = "Account Number"
                 self.Rountingnumber.text = ""
 
+            }
+            else if self.Paytowhere.text == "Paypal" {
+                self.SelectedBank.text = ""
+                //self.PaymentAccountNo.text = ""
+                self.PaymentAccountNo.isHidden = true
+                self.SelectedBank.placeholder = "Email"
+                self.SelectedBankButton.isUserInteractionEnabled = false
+                self.SelectedBankDownIcon.isHidden = true
+                
             }
                 //
             else if self.Paytowhere.text == "Cryptocurrencies"{
