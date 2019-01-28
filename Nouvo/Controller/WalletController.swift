@@ -69,16 +69,47 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         let city: String?
         city = Database.value(forKey: Constants.citynamekey) as? String
         if  city == "" || city == nil{
-            
             CityLocation.text = ""
-        }
-        else{
+        }else{
             let city:String = (Database.value(forKey: Constants.citynamekey)  as? String)!
             CityLocation.text = city
         }
         
-        let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
-        Cashback.text = Balance
+        
+        let Balance: String?
+        Balance = Database.value(forKey: Constants.WalletBalancekey) as? String
+        if  Balance == "" || Balance == nil{
+            Cashback.text = "$0.00"
+        }else{
+            Cashback.text = Balance
+        }
+        
+        
+        // level
+        let leveldb: Int?
+        leveldb = Database.value(forKey: Constants.levelKey) as? Int
+        if  leveldb == nil {
+            
+        }else{
+            Level.text = String(format: "Level %d", leveldb!)
+        }
+        var leveldbmin: Int?
+        var leveldbmax: Int?
+        leveldbmin = Database.value(forKey: Constants.minlevelKey) as? Int
+        leveldbmax = Database.value(forKey: Constants.maxlevelKey) as? Int
+        
+        if leveldbmin == nil {
+            
+            leveldbmin = 0
+        }
+        if leveldbmax == nil {
+            
+            leveldbmax = 0
+        }
+        Levelmode.text = String(format: "%d/%d", leveldbmin!,leveldbmax!)
+        
+//        let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
+//        Cashback.text = Balance
         
         ConnecttoWalletCARD()
     }
@@ -124,9 +155,10 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         DispatchQueue.global(qos: .background).async {
-            self.ForceUpdatetoUserAPIWithLoginwallet()
+            self.ConnectivityNetworkCheck()
             DispatchQueue.main.async {
-                
+                refreshControl.endRefreshing()
+                refreshControl.isHidden = true
             }
         }
     }
@@ -297,9 +329,13 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
      
         
         
-        let Balance:String = (Database.value(forKey: Constants.WalletBalancekey)  as? String)!
-        Cashback.text = Balance
-        
+        let Balance: String?
+        Balance = Database.value(forKey: Constants.WalletBalancekey) as? String
+        if  Balance == "" || Balance == nil{
+            Cashback.text = "$0.00"
+        }else{
+            Cashback.text = Balance
+        }
         
         
         
@@ -322,7 +358,18 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         Progressview.maximumValue = Float(Constants.maxlevel)
         Progressview.setProgress(Float(Constants.userlevel) , animated: true)
         
-        Level.text = String(format: "Level %d", Constants.level)
+        
+//        let leveldb: Int?
+//        leveldb = Database.value(forKey: Constants.levelKey) as? Int
+//        Level.text = String(format: "Level %d", leveldb!)
+//
+        
+        
+        //Database.set(Constants.level, forKey: Constants.levelKey)
+        
+        
+        
+       // Level.text = String(format: "Level %d", Constants.level)
         Levelmode.text = String(format: "%d/%d", Constants.minlevel,Constants.maxlevel)
         
        
@@ -333,7 +380,7 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
                            forCellReuseIdentifier: "WalletCardsCell")
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
-        NameofSwipe.text = string2
+        NameofSwipe.text = string2.capitalized
 //        CreditorDebitHeader.text = "Credit/Debit Cards"
 //        CreditorDebitHeader?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
         indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -343,18 +390,23 @@ class WalletController: UIViewController,UITableViewDelegate,UITableViewDataSour
         indicator.startAnimating()
         setUpNavBar()
         ConnectivityNetworkCheck()
-        ConnecttoWalletCARD()
+        
         
         // Do any additional setup after loading the view.
     }
     func ConnectivityNetworkCheck() {
         //Check Internet Connectivity
         if !NetworkConnectivity.isConnectedToNetwork() {
+            indicator.stopAnimating()
+            //hideLoading()
+            refreshControl.endRefreshing()
             let alert = UIAlertController(title: Constants.NetworkerrorTitle , message: Constants.Networkerror, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             return
+        }else{
+            ConnecttoWalletCARD()
         }
     }
     // MARK: - Parallax header delegate setupParallaxHeaders

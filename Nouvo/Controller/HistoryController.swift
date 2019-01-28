@@ -27,22 +27,37 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "HISTORY"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+     
+       
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        HistoryTV.addSubview(self.refreshControl)
         toastlabel.isHidden = true
         HistoryTV.isHidden = false
         setUpUI()
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-        view.addSubview(indicator)
-        indicator.frame = view.bounds
-        indicator.startAnimating()
         ConnectHistoryAPI()
         
         // Do any additional setup after loading the view.
     }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.global(qos: .background).async {
+            self.ConnectHistoryAPI()
+            DispatchQueue.main.async {
+                refreshControl.endRefreshing()
+                refreshControl.isHidden = true
+            }
+        }
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(RedeemController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        return refreshControl
+    }()
     func setUpUI() {
         self.navigationController?.navigationBar.topItem?.title = "HISTORY"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -68,17 +83,25 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
     func ConnectHistoryAPI()  {
         //Check Internet Connectivity
         if !NetworkConnectivity.isConnectedToNetwork() {
+           // refreshControl.endRefreshing()
             let alert = UIAlertController(title: Constants.NetworkerrorTitle , message: Constants.Networkerror, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
             return
+        }else{
+            indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            indicator.color = UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
+            view.addSubview(indicator)
+            indicator.frame = view.bounds
+            indicator.startAnimating()
+            HistoryInputBody()
+            let HistoryAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.EventHistoryURL
+            RequestManager.PostPathwithAUTH(urlString: HistoryAPI, params: Input, successBlock:{
+                (response) -> () in self.EventHistoryResponse(response: response as! [String : AnyObject])})
+            { (error: NSError) ->() in }
         }
-        HistoryInputBody()
-        let HistoryAPI = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.EventHistoryURL
-        RequestManager.PostPathwithAUTH(urlString: HistoryAPI, params: Input, successBlock:{
-            (response) -> () in self.EventHistoryResponse(response: response as! [String : AnyObject])})
-        { (error: NSError) ->() in }
+        
     }
    
     func HistoryInputBody() {
@@ -102,8 +125,9 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
     }
     func EventHistoryResponse(response: [String : AnyObject]) {
         indicator.removeFromSuperview()
+        indicator.stopAnimating()
         print("EventHistoryResponse :", response)
-        
+        refreshControl.endRefreshing()
         // Response time
         
         let encrypted:String = String(format: "%@", response["responseData"] as! String)
@@ -124,7 +148,7 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
         if responses["responseData"]?.count == 0 {
             
             toastlabel.isHidden = false
-            HistoryTV.isHidden = true
+            HistoryTV.isHidden = false
             
         }else{
         
@@ -226,11 +250,10 @@ class HistoryController: UIViewController,UITableViewDelegate,UITableViewDataSou
             
             cell.Notifyamount?.text = String(format: "-$%@", amountstring as! CVarArg)
             
-        }else if eventtypestr == "2"  {
+        }else if eventtypestr == "2" ||  eventtypestr == "0" {
             cell.NotifyIcon?.text =  fontData[2]["text"] as? String
             cell.NotifyIcon?.font =  fontData[2]["font"] as! UIFont
             cell.NotifyIcon?.textColor =  UIColor(red: 80/255, green: 198/255, blue: 254/255, alpha: 1)
-         
         }else if eventtypestr == "3" {
             cell.NotifyIcon?.text =  fontData[3]["text"] as? String
             cell.NotifyIcon?.font =  fontData[3]["font"] as! UIFont

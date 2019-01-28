@@ -13,11 +13,11 @@ static let sharedInstance = SwipeRewardsAPI()
     
     //http://192.168.0.198:5000/
     
-    //
+    //https://api.nouvo.io/
     
-    //
+    //http://3.83.130.235:5009/
     
-    static let serverURL = "http://34.238.120.25:5008/"
+    static let serverURL = "http://3.83.130.235:5009/"
     static let signUpURL = "users/registerUser"
     static let signInURL = "users/loginUser"
     static let ChangePasswordURL = "users/changePassword"
@@ -37,8 +37,11 @@ static let sharedInstance = SwipeRewardsAPI()
     static let GetcityURL = "config/getCities"
     static let ApplyreferralcodeURL = "users/applyReferralCode"
     static let Firebasenotification = "notifications/addUpdateFcmToken"
+    static let notificationURL = "users/toggleNotification"
     static let logout = "users/logout"
     //config/getCities
+    
+    ///users/toggleNotification
     
     ////
     

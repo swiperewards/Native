@@ -65,7 +65,7 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
        // setupParallaxHeader()
         let string1:String = (Database.value(forKey: Constants.UsernameKey)  as? String)!
         let string2 = string1.replacingOccurrences(of: "/", with: "  ")
-        NameofSwipe.text = string2
+        NameofSwipe.text = string2.capitalized
         
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         print(appVersionString)
@@ -237,11 +237,114 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if (sender.isOn == true){
             print("on")
             self.showToast(message: "Notifications Enabled")
+            enablenotify()
+            
+            
         }
         else{
             print("off")
              self.showToast(message: "Notifications Disabled")
+             disablenotify()
         }
+    }
+    /*
+     {
+     "platform": "android",
+     "deviceId": "some string here",
+     "lat": "some description here",
+     "long": "some web here",
+     "requestData":{
+     "enableNotification": false
+     }
+     }
+     */
+    
+    func enablenotify()  {
+         enableAPIInputBody()
+        print("Enable Input",Input)
+        let enableServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.notificationURL
+        RequestManager.PostPathwithAUTH(urlString: enableServer, params: Input, successBlock:{
+            (response) -> () in self.NotificationServerResponse(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+
+    func NotificationServerResponse(response: [String : AnyObject])  {
+        print("Notificatio toggle Response :", response)
+        let encrypted:String = String(format: "%@", response["responseData"] as! String)
+        // AES decryption
+        let AES = CryptoJS.AES()
+        print(AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs"))
+        var json = [String : AnyObject]()
+        let decrypted = AES.decrypt(encrypted, password: "nn534oj90156fsd584sfs")
+        if decrypted == "null"{}
+        else{
+            let objectData = decrypted.data(using: String.Encoding.utf8)
+            json = try! JSONSerialization.jsonObject(with: objectData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
+            print(json)
+        }
+        var responses = [String : AnyObject]()
+        responses = ["responseData" : json] as [String : AnyObject]
+        let success:String = String(format: "%@", response["status"] as! NSNumber) //Status checking
+        if success == "200" {
+            
+        }
+    }
+
+
+    func disablenotify()  {
+         disableAPIInputBody()
+        print("Disable Input",Input)
+        let disableServer = SwipeRewardsAPI.serverURL + SwipeRewardsAPI.notificationURL
+        RequestManager.PostPathwithAUTH(urlString: disableServer, params: Input, successBlock:{
+            (response) -> () in self.NotificationServerResponse(response: response as! [String : AnyObject])})
+        { (error: NSError) ->() in}
+    }
+    func  enableAPIInputBody()  {
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+            "enableNotification": true as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        Input =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
+        
+        
+        
+    }
+    func  disableAPIInputBody()  {
+        let deviceid = UIDevice.current.identifierForVendor?.uuidString
+        let jsonObject: [String: AnyObject] = [
+           "enableNotification": false as AnyObject
+        ]
+        var encrypted  = String()
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+            let str = String(data: data, encoding: .utf8) {
+            print(str)
+            // Load only what's necessary
+            let AES = CryptoJS.AES()
+            // AES encryption
+            encrypted = AES.encrypt(str, password: "nn534oj90156fsd584sfs")
+            print(encrypted)
+        }
+        Input =  [
+            "deviceId": deviceid as AnyObject,
+            "lat": "" as AnyObject,
+            "long": "" as AnyObject,
+            "platform": "IOS" as AnyObject,
+            "requestData": encrypted] as [String : AnyObject]
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -291,8 +394,8 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                  break
             case 6:
                 let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to sign out?", preferredStyle: .alert)
-                let CancelAction = UIAlertAction(title: "CANCEL", style: .default, handler: self.doSomething1)
-                let okAction = UIAlertAction(title: "YES", style: .default, handler: self.doSomething)
+                let CancelAction = UIAlertAction(title: "Cancel", style: .default, handler: self.doSomething1)
+                let okAction = UIAlertAction(title: "Yes", style: .default, handler: self.doSomething)
                 alert.addAction(CancelAction)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
@@ -345,8 +448,8 @@ class SettingsController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             case 5:
                 let alert = UIAlertController(title: "Confirm" , message: "Are you sure you want to sign out?", preferredStyle: .alert)
-                let CancelAction = UIAlertAction(title: "CANCEL", style: .default, handler: self.doSomething1)
-                let okAction = UIAlertAction(title: "YES", style: .default, handler: self.doSomething)
+                let CancelAction = UIAlertAction(title: "Cancel", style: .default, handler: self.doSomething1)
+                let okAction = UIAlertAction(title: "Yes", style: .default, handler: self.doSomething)
                 alert.addAction(CancelAction)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)

@@ -98,9 +98,6 @@
 		8E7253642142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E7253652142877B006DD878 /* ReferandEarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7253622142877B006DD878 /* ReferandEarn.swift */; };
 		8E8ACC0B213680A0000A95B7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ACC0A213680A0000A95B7 /* credentials.plist */; };
-		8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
-		8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
-		8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7D520ECC18400C22263 /* UserDashboardController.swift */; };
 		8E95A7DD20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
 		8E95A7DE20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
 		8E95A7DF20ECD38700C22263 /* Retailshoplistcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */; };
@@ -160,6 +157,7 @@
 		8ECB0B9E2135821C00B36030 /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */; };
 		8ECB0B9F2135821C00B36030 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */; };
 		8ECCF9DB213971D400C2BF1F /* Fontello_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECCF9DA213971D400C2BF1F /* Fontello_Swift.framework */; };
+		8ED7490A21BFC7EC000F0FF7 /* UserDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7490921BFC7EA000F0FF7 /* UserDashboardController.swift */; };
 		8ED9E8752161F30C00ADD205 /* CryptoJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9E8742161F30C00ADD205 /* CryptoJS.swift */; };
 		8ED9E88A2161F35400ADD205 /* pad-iso10126.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8772161F35100ADD205 /* pad-iso10126.js */; };
 		8ED9E88B2161F35400ADD205 /* mode-ofb.js in Resources */ = {isa = PBXBuildFile; fileRef = 8ED9E8782161F35100ADD205 /* mode-ofb.js */; };
@@ -354,7 +352,6 @@
 		8E7253622142877B006DD878 /* ReferandEarn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferandEarn.swift; sourceTree = "<group>"; };
 		8E8ACC0A213680A0000A95B7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		8E95A7D420ECA2E400C22263 /* Nouvo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nouvo-Bridging-Header.h"; sourceTree = "<group>"; };
-		8E95A7D520ECC18400C22263 /* UserDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
 		8E95A7DB20ECD38700C22263 /* Retailshoplistcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retailshoplistcell.swift; sourceTree = "<group>"; };
 		8E95A7DC20ECD38700C22263 /* Retailshoplistcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Retailshoplistcell.xib; sourceTree = "<group>"; };
 		8E95A7E320ECE1B100C22263 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -390,6 +387,7 @@
 		8ECB0B9C2135821C00B36030 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		8ECB0B9D2135821C00B36030 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8ECCF9DA213971D400C2BF1F /* Fontello_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fontello_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ED7490921BFC7EA000F0FF7 /* UserDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDashboardController.swift; sourceTree = "<group>"; };
 		8ED9E8742161F30C00ADD205 /* CryptoJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoJS.swift; sourceTree = "<group>"; };
 		8ED9E8772161F35100ADD205 /* pad-iso10126.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "pad-iso10126.js"; sourceTree = "<group>"; };
 		8ED9E8782161F35100ADD205 /* mode-ofb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "mode-ofb.js"; sourceTree = "<group>"; };
@@ -630,7 +628,7 @@
 				8EC78FAC21084B320082376C /* ChangePasswordController.swift */,
 				8E172B4D210741610068565D /* NavigationController.swift */,
 				8E50104E2118A48F00AEDDE4 /* TabViewController.swift */,
-				8E95A7D520ECC18400C22263 /* UserDashboardController.swift */,
+				8ED7490921BFC7EA000F0FF7 /* UserDashboardController.swift */,
 				8E95A7EB20ECE1D900C22263 /* WalletController.swift */,
 				8E44027221098E47005952E3 /* AddCardController.swift */,
 				8E95A7EF20ECE1EC00C22263 /* RedeemController.swift */,
@@ -1217,8 +1215,8 @@
 				8E6D214621552375002523B6 /* BounceView.swift in Sources */,
 				8E6D20D82154C380002523B6 /* MBEncryptorAES.m in Sources */,
 				8EB844042126A7C300515F8F /* ModernSearchBarCell.swift in Sources */,
+				8ED7490A21BFC7EC000F0FF7 /* UserDashboardController.swift in Sources */,
 				8E4D3A1720FF096F008B2F9B /* SwipeRewardsAPI.swift in Sources */,
-				8E95A7D620ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E95A80520EE36F600C22263 /* WalletCardsCell.swift in Sources */,
 				8E10D05C20EF601600C6020D /* PrivacyController.swift in Sources */,
 				8E20C794214142BC0019CE14 /* LaunchView.swift in Sources */,
@@ -1290,7 +1288,6 @@
 				8E95A7F120ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05920EF420800C6020D /* ContactUsController.swift in Sources */,
 				8E6D21522155237E002523B6 /* NSTimerEx.swift in Sources */,
-				8E95A7D720ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E6D21552155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1327,7 +1324,6 @@
 				8E95A7F220ECE1EC00C22263 /* RedeemController.swift in Sources */,
 				8E10D05A20EF420800C6020D /* ContactUsController.swift in Sources */,
 				8E6D21532155237E002523B6 /* NSTimerEx.swift in Sources */,
-				8E95A7D820ECC18400C22263 /* UserDashboardController.swift in Sources */,
 				8E6D21562155237E002523B6 /* CGRectEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1480,9 +1476,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = C6R93UK62K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Frameworks",
 					"$(inherited)",
@@ -1495,10 +1491,10 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nouvo.reward;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "d14a719a-0a94-4471-b2f1-bb92ccd58332";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1513,9 +1509,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nouvo/Nouvo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZZZ95T4TCY;
+				DEVELOPMENT_TEAM = C6R93UK62K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1527,10 +1523,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Swipe.Nouvo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nouvo.reward;
 				PRODUCT_NAME = Nouvo;
-				PROVISIONING_PROFILE = "c54cccb7-b3f7-4086-b43f-997125fda26f";
-				PROVISIONING_PROFILE_SPECIFIER = "Nouvo App Store Distribution";
+				PROVISIONING_PROFILE = "d14a719a-0a94-4471-b2f1-bb92ccd58332";
+				PROVISIONING_PROFILE_SPECIFIER = "Nouvo Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouvo/Nouvo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

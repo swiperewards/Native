@@ -46,18 +46,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+&amp;2389" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd9-fk-vSP">
-                        <rect key="frame" x="238" y="27" width="64" height="20"/>
+                        <rect key="frame" x="238" y="39" width="64" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="HIY-nK-zdv"/>
-                            <constraint firstAttribute="width" constant="64" id="g0H-A4-8g3"/>
+                            <constraint firstAttribute="width" constant="64" id="V4u-JC-LWR"/>
+                            <constraint firstAttribute="height" constant="20" id="i1E-jG-nfs"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.64705882349999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEA-nC-nfQ">
-                        <rect key="frame" x="302" y="27" width="12" height="20"/>
+                        <rect key="frame" x="302" y="39" width="12" height="20"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="I4N-wx-uGP"/>
+                            <constraint firstAttribute="height" constant="20" id="nfC-0Y-lPJ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -86,22 +90,20 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Cd9-fk-vSP" secondAttribute="trailing" constant="20" id="AbG-Vv-uEk"/>
-                    <constraint firstAttribute="trailing" secondItem="eEA-nC-nfQ" secondAttribute="trailing" constant="8" id="CAS-8k-P8h"/>
+                    <constraint firstItem="prX-wP-Elb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="7uZ-aW-8DJ"/>
+                    <constraint firstItem="Cd9-fk-vSP" firstAttribute="top" secondItem="prX-wP-Elb" secondAttribute="bottom" constant="8.5" id="BPW-WJ-QoA"/>
                     <constraint firstItem="Frb-mf-3Y9" firstAttribute="leading" secondItem="prX-wP-Elb" secondAttribute="leading" id="DVD-QR-kIa"/>
                     <constraint firstAttribute="trailing" secondItem="Nuk-Cm-gA4" secondAttribute="trailing" constant="2" id="Hdd-IG-NQ3"/>
-                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="height" secondItem="Cd9-fk-vSP" secondAttribute="height" id="I5J-hk-vDc"/>
                     <constraint firstAttribute="bottom" secondItem="Nuk-Cm-gA4" secondAttribute="bottom" constant="-0.5" id="MRC-8D-9m7"/>
                     <constraint firstItem="Nuk-Cm-gA4" firstAttribute="top" secondItem="prX-wP-Elb" secondAttribute="bottom" constant="38.5" id="N5p-jm-jp2"/>
                     <constraint firstItem="Nuk-Cm-gA4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="P4S-0I-V4b"/>
                     <constraint firstItem="rsP-SL-th1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="auu-c3-fLv"/>
                     <constraint firstItem="Frb-mf-3Y9" firstAttribute="top" secondItem="prX-wP-Elb" secondAttribute="bottom" constant="8.5" id="gN0-xH-JBE"/>
-                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="leading" secondItem="Cd9-fk-vSP" secondAttribute="trailing" id="lYs-Ah-A63"/>
-                    <constraint firstItem="Cd9-fk-vSP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="oBe-xG-J4t"/>
+                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="top" secondItem="prX-wP-Elb" secondAttribute="bottom" constant="8.5" id="hnb-gu-mVg"/>
+                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="leading" secondItem="Cd9-fk-vSP" secondAttribute="trailing" id="kYe-Px-KC9"/>
+                    <constraint firstAttribute="trailing" secondItem="eEA-nC-nfQ" secondAttribute="trailing" constant="8" id="mTi-sd-dy6"/>
                     <constraint firstItem="rsP-SL-th1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="oNM-IF-FIa"/>
                     <constraint firstAttribute="trailing" secondItem="prX-wP-Elb" secondAttribute="trailing" constant="2" id="s5M-CP-tuw"/>
-                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="bottom" secondItem="Cd9-fk-vSP" secondAttribute="bottom" id="uCJ-3Z-xZG"/>
-                    <constraint firstItem="eEA-nC-nfQ" firstAttribute="top" secondItem="Cd9-fk-vSP" secondAttribute="top" id="xpH-Zp-3HQ"/>
                     <constraint firstItem="prX-wP-Elb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="44" id="yOW-Eb-G47"/>
                 </constraints>
             </tableViewCellContentView>
